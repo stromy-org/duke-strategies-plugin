@@ -1,0 +1,32 @@
+{
+  "plugin_name": "Duke Strategies Deliverables",
+  "plugin_slug": "duke-strategies",
+  "client_name": "Duke Strategies",
+  "client_slug": "dukestrategies",
+  "target_dir": "/Users/williammasquelier/Repositories/stromy-org/duke-strategies-plugin",
+  "skills_copied": [
+    "pdf",
+    "pptx",
+    "docx",
+    "xlsx",
+    "proposal",
+    "remotion-video"
+  ],
+  "company_data_copied": true,
+  "workspace_utils_copied": [
+    "src/workspace.js",
+    "src/workspace.py"
+  ],
+  "template_variables": {
+    "client_name": "Duke Strategies",
+    "client_slug": "dukestrategies",
+    "plugin_slug": "duke-strategies",
+    "plugin_name": "Duke Strategies Deliverables",
+    "github_org": "stromy-org",
+    "plugin_repo_name": "duke-strategies-plugin",
+    "version": "0.1.0",
+    "description": "Claude Code plugin for Duke Strategies branded deliverables",
+    "date": "2026-03-06"
+  },
+  "date": "2026-03-06"
+}

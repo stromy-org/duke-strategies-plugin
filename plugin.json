@@ -1,0 +1,11 @@
+{
+  "name": "duke-strategies",
+  "version": "0.1.0",
+  "description": "Claude Code plugin for Duke Strategies branded deliverables",
+  "author": {
+    "name": "stromy-org"
+  },
+  "repository": "https://github.com/stromy-org/duke-strategies-plugin",
+  "license": "UNLICENSED",
+  "keywords": ["deliverables", "branding", "documents"]
+}

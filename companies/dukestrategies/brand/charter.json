@@ -1,0 +1,89 @@
+{
+  "colors": {
+    "primary": "#FF7F66",
+    "secondary": "#DFDFE0",
+    "accent": "#FF7F66",
+    "background": "#FFFFFF",
+    "backgroundAlt": "#F5F5F5",
+    "text": "#807F83",
+    "textLight": "#DFDFE0",
+    "success": "#4CAF50",
+    "warning": "#FFC107",
+    "error": "#DC3545"
+  },
+  "fonts": {
+    "heading": {
+      "family": "Tahoma",
+      "fallback": "Arial, sans-serif",
+      "weight": "bold"
+    },
+    "body": {
+      "family": "Verdana",
+      "fallback": "Arial, sans-serif",
+      "weight": "normal"
+    },
+    "mono": {
+      "family": "Courier New",
+      "fallback": "monospace",
+      "weight": "normal"
+    }
+  },
+  "logo": {
+    "primary": "logo.png",
+    "white": "logo_white.png",
+    "maxWidth": "120pt",
+    "maxHeight": "50pt",
+    "sizing": "contain"
+  },
+  "images": {
+    "catalog": [
+      {
+        "file": "images/Erasmusbrug_zwart.jpg",
+        "description": "Erasmus Bridge, Rotterdam — dramatic black and white night view",
+        "roles": ["cover", "divider"]
+      },
+      {
+        "file": "images/Nesciobrug.jpg",
+        "description": "Nesciobrug, Amsterdam — moody pedestrian/cyclist bridge",
+        "roles": ["divider", "closing"]
+      },
+      {
+        "file": "images/Pythonbrug_Amsterdam_contrast.jpg",
+        "description": "Python Bridge, Amsterdam — high-contrast architectural shot",
+        "roles": ["divider"]
+      },
+      {
+        "file": "images/shutterstock_1510566293_RoyalWelshbrug_zwart_1920x1280px_dark.jpg",
+        "description": "Royal Welsh Bridge — dark moody bridge photography",
+        "roles": ["cover", "closing"]
+      }
+    ],
+    "overlay": {
+      "color": "primary",
+      "opacity": 0.55
+    },
+    "logoVariantOnImage": "white"
+  },
+  "document": {
+    "margins": { "top": "1in", "bottom": "1in", "left": "1in", "right": "1in" },
+    "header": { "content": "{{company.name}}", "logo": true },
+    "footer": { "content": "Confidential", "pageNumbers": true },
+    "headingColor": "primary",
+    "tableHeaderColor": "primary"
+  },
+  "presentation": {
+    "slideMargin": "40pt",
+    "titleMargin": "30pt",
+    "contentMargin": "20pt",
+    "aspectRatio": "16:9"
+  },
+  "video": {
+    "resolution": "1920x1080",
+    "fps": 30
+  },
+  "formatting": {
+    "headingThreshold": 24,
+    "accentCycleColors": ["accent", "secondary", "primary"],
+    "autoContrastText": true
+  }
+}

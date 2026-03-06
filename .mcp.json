@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "dukestrategies-mcp": {
+      "command": "uv",
+      "args": ["run", "--directory", "${CLAUDE_PLUGIN_ROOT}/../MCPs/dukestrategies-mcp", "python", "-m", "src.server"],
+      "env": { "FASTMCP_TRANSPORT": "stdio" }
+    }
+  }
+}

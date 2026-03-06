@@ -1,0 +1,19 @@
+{
+  "name": "duke-strategies",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Claude Code plugin for Duke Strategies branded deliverables",
+  "dependencies": {
+    "@remotion/cli": "^4.0.424",
+    "@remotion/paths": "^4.0.424",
+    "@remotion/transitions": "^4.0.424",
+    "docx": "^9.5.3",
+    "playwright": "^1.58.1",
+    "pptxgenjs": "^4.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.5.0",
+    "remotion": "^4.0.424",
+    "sharp": "^0.34.5"
+  }
+}

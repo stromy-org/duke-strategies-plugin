@@ -1,0 +1,11 @@
+{
+  "company": {
+    "name": "Duke Strategies",
+    "tagline": "Bridging strategy and execution",
+    "description": "Duke Strategies is a strategy consulting firm specializing in bridging the gap between strategic vision and operational execution for European enterprises.",
+    "headquarters": {
+      "city": "Amsterdam",
+      "country": "Netherlands"
+    }
+  }
+}
