@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "test -d ${CLAUDE_PLUGIN_ROOT}/node_modules || echo '{\"message\": \"Plugin dependencies not installed. Run: cd ~/.claude/plugins/cache/duke-strategies && npm install && uv sync\"}'"
+          }
+        ]
+      }
+    ]
+  }
+}

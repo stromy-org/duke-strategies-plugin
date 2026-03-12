@@ -2,90 +2,116 @@
 
 Claude Code plugin for producing branded deliverables for Duke Strategies.
 
-## Skills Included
+## Skills
 
-| Skill | Command | Description |
+| Skill | Command | What it does |
 |-------|---------|-------------|
-| pdf | `/duke-strategies:pdf` | Create branded PDFs |
-| pptx | `/duke-strategies:pptx` | Create branded presentations |
-| docx | `/duke-strategies:docx` | Create branded documents |
-| xlsx | `/duke-strategies:xlsx` | Create branded spreadsheets |
-| proposal | `/duke-strategies:proposal` | Build consulting proposals |
-| remotion-video | `/duke-strategies:remotion-video` | Create branded videos |
+| PDF | `/duke-strategies:pdf` | Create, merge, split, fill branded PDFs |
+| Presentations | `/duke-strategies:pptx` | Create branded PowerPoint decks |
+| Documents | `/duke-strategies:docx` | Create branded Word documents |
+| Spreadsheets | `/duke-strategies:xlsx` | Create financial models and data sheets |
+| Proposals | `/duke-strategies:proposal` | Full consulting proposal workflow |
+| Videos | `/duke-strategies:remotion-video` | Create branded animated videos |
+
+All output uses Duke Strategies branding (colors, fonts, logos, photography) automatically.
+
+## Prerequisites
+
+| Requirement | Version | Why |
+|-------------|---------|-----|
+| Claude Code or Cowork | v2.1.49+ | Plugin runtime |
+| Node.js | 18+ | PPTX, DOCX, Remotion skills |
+| Python | 3.11+ | PDF, XLSX skills |
+| [uv](https://docs.astral.sh/uv/) | latest | Python dependency manager |
+| GitHub access | — | Private repos `stromy-org/duke-strategies-plugin` and `stromy-org/duke-strategies-marketplace` |
 
 ## Installation
 
-### Prerequisites
+### Option A: Via Marketplace (recommended for team members)
 
-- Claude Code v2.1.49+ (with plugin support)
-- Node.js 18+
-- Python 3.11+ with [uv](https://docs.astral.sh/uv/) (for xlsx/pdf scripts)
+**Step 1** — Add the marketplace (one-time):
 
-### Setup
-
-1. Add the private marketplace:
-   ```
-   /plugin marketplace add stromy-org/client-plugins-marketplace
-   ```
-
-2. Install the plugin:
-   ```
-   /plugin install duke-strategies@stromy-org/client-plugins-marketplace
-   ```
-
-3. Install dependencies (first time only):
-   ```bash
-   cd ~/.claude/plugins/cache/duke-strategies
-   npm install
-   uv sync
-   ```
-
-### Local Development
-
-```bash
-claude --plugin-dir /path/to/duke-strategies-plugin
+```
+/plugin marketplace add stromy-org/duke-strategies-marketplace
 ```
 
-## Usage
+**Step 2** — Install the plugin:
 
-Start Claude Code in any project directory and use the plugin skills:
-
-- All output uses Duke Strategies branding (colors, fonts, logo) automatically
-- Skills are accessed as `/duke-strategies:<skill-name>`
-
-## MCP Server
-
-The plugin includes a `dukestrategies-mcp` server for strategy analysis tools. It expects a local clone of the MCP repo as a sibling:
-
-```bash
-# Clone the MCP server alongside the plugin
-git clone git@github.com:stromy-org/dukestrategies-mcp.git ../MCPs/dukestrategies-mcp
-cd ../MCPs/dukestrategies-mcp && uv sync
+```
+/plugin install duke-strategies
 ```
 
-The `.mcp.json` config uses `${CLAUDE_PLUGIN_ROOT}` to locate the server relative to the plugin.
+**Step 3** — Install dependencies (one-time):
 
-## Company Data
+```bash
+cd ~/.claude/plugins/cache/duke-strategies
+npm install
+uv sync
+```
 
-Brand data is in `companies/dukestrategies/brand/charter.json` and includes:
-- Color palette (primary, secondary, accent)
-- Typography (heading, body, monospace fonts)
-- Logo files and paths
+You're done. Skills are now available in all sessions.
+
+### Option B: Local development
+
+```bash
+# Clone the repo
+git clone git@github.com:stromy-org/duke-strategies-plugin.git
+cd duke-strategies-plugin
+
+# Install dependencies
+npm install
+uv sync
+
+# Launch Claude Code with the plugin loaded
+claude --plugin-dir .
+```
+
+### Where to run these commands
+
+| Interface | Where to type commands |
+|-----------|----------------------|
+| **Claude Code CLI** | Directly in the terminal |
+| **Cowork** (Claude Desktop) | In the Cowork chat input — type `/plugin` |
+| **Code Tab** (Claude Desktop) | In the Code Tab chat input — type `/plugin` |
+
+## MCP Server (optional)
+
+The plugin bundles a connection to `dukestrategies-mcp` for strategy analysis tools (SWOT, priority scoring, strategic prompts). This requires the MCP repo to be cloned alongside the plugin:
+
+```bash
+git clone git@github.com:stromy-org/dukestrategies-mcp.git
+cd dukestrategies-mcp && uv sync
+```
+
+The `.mcp.json` uses `${CLAUDE_PLUGIN_ROOT}/../MCPs/dukestrategies-mcp` to locate the server. If the MCP repo is not present, the plugin still works — you just won't have the analysis tools.
 
 ## Updating
+
+When a new version is available:
 
 ```
 /plugin update duke-strategies
 ```
 
-Or pull the latest version:
+Then re-install dependencies if they changed:
+
 ```bash
 cd ~/.claude/plugins/cache/duke-strategies
-git pull
 npm install
 uv sync
 ```
 
-## Version History
+## Company Data
 
-See [CHANGELOG.md](CHANGELOG.md) for version history.
+Brand assets in `companies/dukestrategies/`:
+
+| File | Contents |
+|------|----------|
+| `brand/charter.json` | Colors, fonts, logos, margins, photography, video settings |
+| `brand/images/` | Brand photography (4 Dutch bridge images) |
+| `profile.json` | Company identity, services, pricing, legal terms |
+| `proposals/` | Case studies, team bios, methodologies, testimonials, boilerplate |
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md).
