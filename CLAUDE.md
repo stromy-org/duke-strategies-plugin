@@ -22,8 +22,7 @@ duke-strategies-plugin/
 ├── companies/dukestrategies/  # Brand data (charter, logos, colors)
 ├── src/                      # Shared workspace utilities
 ├── package.json              # Node.js dependencies
-├── pyproject.toml            # Python dependencies
-└── .mcp.json                 # MCP server config
+└── pyproject.toml            # Python dependencies
 ```
 
 ## Commands

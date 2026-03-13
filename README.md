@@ -19,37 +19,36 @@ All output uses Duke Strategies branding (colors, fonts, logos, photography) aut
 
 | Requirement | Version | Why |
 |-------------|---------|-----|
-| Claude Code or Cowork | v2.1.49+ | Plugin runtime |
+| Claude Code | v2.1.49+ | Plugin runtime (CLI or Desktop Code tab) |
 | Node.js | 18+ | PPTX, DOCX, Remotion skills |
 | Python | 3.11+ | PDF, XLSX skills |
 | [uv](https://docs.astral.sh/uv/) | latest | Python dependency manager |
-| GitHub access | — | Private repos `stromy-org/duke-strategies-plugin` and `stromy-org/duke-strategies-marketplace` |
+| GitHub access | — | Collaborator on `stromy-org/duke-strategies-plugin` (private) |
 
 ## Installation
 
 ### Option A: Via Marketplace (recommended for team members)
 
-**Step 1** — Add the marketplace (one-time):
-
-```
-/plugin marketplace add stromy-org/duke-strategies-marketplace
-```
-
-**Step 2** — Install the plugin:
-
-```
-/plugin install duke-strategies
-```
-
-**Step 3** — Install dependencies (one-time):
+> **Important:** This plugin repo is private. Installation must be done from the **CLI** (terminal), not from the Cowork desktop UI. The Cowork "Browse plugins" UI cannot access private repos. See the [marketplace README](https://github.com/stromy-org/duke-strategies-marketplace) for full setup instructions including GitHub token configuration.
 
 ```bash
-cd ~/.claude/plugins/cache/duke-strategies
+# 0. Set up GitHub token (one-time, see marketplace README)
+gh auth login
+echo 'export GITHUB_TOKEN=$(gh auth token)' >> ~/.zshrc && source ~/.zshrc
+
+# 1. Add marketplace (one-time)
+claude plugin marketplace add stromy-org/duke-strategies-marketplace
+
+# 2. Install plugin
+claude plugin install duke-strategies@duke-strategies-marketplace
+
+# 3. Install dependencies (one-time)
+cd ~/.claude/plugins/cache/duke-strategies-marketplace/duke-strategies/0.1.0
 npm install
 uv sync
 ```
 
-You're done. Skills are now available in all sessions.
+Skills are now available in all Claude Code sessions (CLI and Desktop Code tab).
 
 ### Option B: Local development
 
@@ -66,37 +65,25 @@ uv sync
 claude --plugin-dir .
 ```
 
-### Where to run these commands
+### Where skills work
 
-| Interface | Where to type commands |
-|-----------|----------------------|
-| **Claude Code CLI** | Directly in the terminal |
-| **Cowork** (Claude Desktop) | In the Cowork chat input — type `/plugin` |
-| **Code Tab** (Claude Desktop) | In the Code Tab chat input — type `/plugin` |
-
-## MCP Server (optional)
-
-The plugin bundles a connection to `dukestrategies-mcp` for strategy analysis tools (SWOT, priority scoring, strategic prompts). This requires the MCP repo to be cloned alongside the plugin:
-
-```bash
-git clone git@github.com:stromy-org/dukestrategies-mcp.git
-cd dukestrategies-mcp && uv sync
-```
-
-The `.mcp.json` uses `${CLAUDE_PLUGIN_ROOT}/../MCPs/dukestrategies-mcp` to locate the server. If the MCP repo is not present, the plugin still works — you just won't have the analysis tools.
+| Interface | Skills available? | Notes |
+|-----------|:-:|-------|
+| **Claude Code CLI** | Yes | Terminal — full plugin support |
+| **Desktop app — Code tab** | Yes | Same runtime as CLI |
+| **Desktop app — Cowork tab** | No | Different runtime, does not load Claude Code plugins |
+| **Desktop app — Chat tab** | No | Web chat, no plugin support |
 
 ## Updating
 
-When a new version is available:
-
-```
-/plugin update duke-strategies
+```bash
+claude plugin update duke-strategies@duke-strategies-marketplace
 ```
 
 Then re-install dependencies if they changed:
 
 ```bash
-cd ~/.claude/plugins/cache/duke-strategies
+cd ~/.claude/plugins/cache/duke-strategies-marketplace/duke-strategies/0.1.0
 npm install
 uv sync
 ```
