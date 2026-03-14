@@ -85,5 +85,15 @@
     "headingThreshold": 24,
     "accentCycleColors": ["accent", "secondary", "primary"],
     "autoContrastText": true
+  },
+  "plotly": {
+    "categoricalPalette": ["#FF7F66", "#DFDFE0", "#807F83", "#4CAF50", "#FFC107"],
+    "defaultHeight": 500,
+    "titleFontSize": 18,
+    "axisFontSize": 12,
+    "legendFontSize": 11,
+    "margins": { "top": 80, "bottom": 70, "left": 60, "right": 50 },
+    "gridColor": "#e5e7eb",
+    "secondaryTextColor": "#DFDFE0"
   }
 }

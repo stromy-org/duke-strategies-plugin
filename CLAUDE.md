@@ -60,3 +60,4 @@ Skills are maintained in Cowork and cherry-picked into this plugin:
 - Node requires must be flat (`require('pkg')` not `require('../../../../node_modules/pkg')`)
 - Workspace imports use `require('../../src/workspace')` (2 levels from skill scripts)
 - Company data lives at `companies/dukestrategies/` (not `.claude/companies/`)
+- Brand data in `companies/dukestrategies/brand/` originates from `brand-tokens` and is synced via `stromy-org/scripts/sync-brand-data.sh` (or `scripts/sync-brand-data.sh` for standalone use)
