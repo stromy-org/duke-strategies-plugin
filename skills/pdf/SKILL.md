@@ -12,10 +12,10 @@ This guide covers essential PDF processing operations using Python libraries and
 
 ## Brand Data Integration
 
-When creating a PDF for a **specific company or brand** (via reportlab), check for a brand charter before choosing colors and fonts manually. This is optional — when no brand is specified, produce an unbranded PDF with default styling. This section only applies to **PDF creation** (reportlab), not to reading, merging, splitting, or form-filling operations.
+This is a **Duke Strategies plugin** — Duke branding is applied by default for PDF creation (reportlab). Always load `companies/dukestrategies/brand/charter.json` unless the user explicitly names a different company or collaborative brand (e.g., "Duke x Stromy"). If a different brand is named, check `companies/<name>/brand/charter.json`; if that directory doesn't exist, ask the user for brand details. This section only applies to **PDF creation** (reportlab), not to reading, merging, splitting, or form-filling operations.
 
-### Discovering brand data
-Look for a charter file at `companies/<name>/brand/charter.json` where `<name>` matches the company the user mentions. If a charter exists, it provides:
+### Brand data location
+The default charter is at `companies/dukestrategies/brand/charter.json`. It provides:
 
 - **Colors**: `primary`, `secondary`, `accent`, `background`, `backgroundAlt`, `text`, `textLight`, plus semantic colors (`success`, `warning`, `error`)
 - **Fonts**: `heading` (family + weight + fallback), `body` (family + weight + fallback), `mono` (family + fallback)
@@ -149,8 +149,8 @@ If the charter has a `formatting` section, apply these rules:
 - **`accentCycleColors`** (e.g. `["accent", "secondary", "primary"]`): Cycle through these charter color keys when coloring accent lines, divider rules, or callout box backgrounds.
 - **`autoContrastText`**: When `true`, auto-select white or dark text on colored backgrounds (cover pages, table headers, callout boxes).
 
-### When there is no brand charter
-If no charter exists for the company (or no company is specified), skip this section entirely and use reportlab's default `getSampleStyleSheet()`. Do not invent brand colors.
+### When using a non-Duke brand
+If the user specifies a collaborative or alternate brand that has no charter in `companies/`, ask for brand details (colors, fonts, logo). For fields the user doesn't provide, fall back to Duke Strategies defaults from `companies/dukestrategies/brand/charter.json`. If the user explicitly asks for an **unbranded** output, skip branding entirely and use reportlab's default `getSampleStyleSheet()`.
 
 ## Output Location
 

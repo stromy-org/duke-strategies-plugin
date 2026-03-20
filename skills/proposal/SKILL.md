@@ -28,10 +28,10 @@ This skill draws from structured company data stored in `companies/<company-name
 
 ### Discovery
 
-1. List `companies/` to find available company profiles
-2. If only one company exists, use it by default
-3. If multiple exist, ask which company is proposing
-4. If none exist, fall back to gathering inputs manually (as in legacy mode)
+1. **Default company: `dukestrategies`** — use automatically unless the user names a different proposing entity
+2. If the user specifies a collaborative brand or different company, check `companies/<name>/`
+3. If that directory doesn't exist, ask the user for company details
+4. Duke Strategies data is always available as a fallback for missing fields in collaborative proposals
 
 ### Loading Company Data
 
