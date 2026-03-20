@@ -12,10 +12,10 @@ A .docx file is a ZIP archive containing XML files.
 
 ## Brand Data Integration
 
-When creating a document for a **specific company or brand**, check for a brand charter before choosing colors and fonts manually. This is optional — when no brand is specified, produce an unbranded document with default styling.
+This is a **Duke Strategies plugin** — Duke branding is applied by default. Always load `companies/dukestrategies/brand/charter.json` unless the user explicitly names a different company or collaborative brand (e.g., "Duke x Stromy"). If a different brand is named, check `companies/<name>/brand/charter.json`; if that directory doesn't exist, ask the user for brand details.
 
-### Discovering brand data
-Look for a charter file at `companies/<name>/brand/charter.json` where `<name>` matches the company the user mentions. If a charter exists, it provides:
+### Brand data location
+The default charter is at `companies/dukestrategies/brand/charter.json`. It provides:
 
 - **Colors**: `primary`, `secondary`, `accent`, `background`, `backgroundAlt`, `text`, `textLight`, plus semantic colors (`success`, `warning`, `error`)
 - **Fonts**: `heading` (family + weight + fallback), `body` (family + weight + fallback), `mono` (family + fallback)
@@ -140,8 +140,8 @@ If the charter has a `formatting` section, apply these rules:
 - **`accentCycleColors`** (e.g. `["accent", "secondary", "primary"]`): Cycle through these charter color keys when coloring accent borders, callout box backgrounds, or decorative elements.
 - **`autoContrastText`**: Rarely needed in DOCX (text and background are usually separate), but apply when placing text on colored table headers or callout boxes.
 
-### When there is no brand charter
-If no charter exists for the company (or no company is specified), skip this section entirely and use default styling. Do not invent brand colors — produce a clean, unbranded document.
+### When using a non-Duke brand
+If the user specifies a collaborative or alternate brand that has no charter in `companies/`, ask for brand details (colors, fonts, logo). For fields the user doesn't provide, fall back to Duke Strategies defaults from `companies/dukestrategies/brand/charter.json`. If the user explicitly asks for an **unbranded** output, skip branding entirely and produce a clean, unbranded document.
 
 ## Output Location
 

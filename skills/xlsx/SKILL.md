@@ -68,12 +68,12 @@ A user may ask you to create, edit, or analyze the contents of an .xlsx file. Yo
 
 ## Brand Data Integration
 
-When creating a spreadsheet for a **specific company or brand**, check for a brand charter before choosing colors manually. Branding in spreadsheets is **lightweight** — apply it to header rows, chart accent colors, and print headers only.
+This is a **Duke Strategies plugin** — Duke branding is applied by default. Always load `companies/dukestrategies/brand/charter.json` unless the user explicitly names a different company or collaborative brand (e.g., "Duke x Stromy"). If a different brand is named, check `companies/<name>/brand/charter.json`; if that directory doesn't exist, ask the user for brand details. Branding in spreadsheets is **lightweight** — apply it to header rows, chart accent colors, and print headers only.
 
 **Financial model color conventions always override brand colors.** The blue/black/green/red text conventions in the "Color Coding Standards" section above take precedence over any charter palette.
 
-### Discovering brand data
-Look for a charter file at `companies/<name>/brand/charter.json` where `<name>` matches the company the user mentions. If a charter exists, it provides:
+### Brand data location
+The default charter is at `companies/dukestrategies/brand/charter.json`. It provides:
 
 - **Colors**: `primary`, `secondary`, `accent` — used for header row fills and chart series
 - **Fonts**: `heading` (family + weight), `body` (family + weight) — used for header and data rows
@@ -100,8 +100,8 @@ for cell in sheet[1]:
     cell.font = header_font
 ```
 
-### When there is no brand charter
-If no charter exists for the company (or no company is specified), skip this section entirely and use default Excel styling. Do not invent brand colors.
+### When using a non-Duke brand
+If the user specifies a collaborative or alternate brand that has no charter in `companies/`, ask for brand details (colors, fonts, logo). For fields the user doesn't provide, fall back to Duke Strategies defaults from `companies/dukestrategies/brand/charter.json`. If the user explicitly asks for an **unbranded** output, skip branding entirely and use default Excel styling.
 
 ## Important Requirements
 

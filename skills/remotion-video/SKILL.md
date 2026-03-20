@@ -26,18 +26,17 @@ Create animated videos using [Remotion](https://www.remotion.dev/) with optional
 ### Step 1: Discover Brand
 
 ```
-CHECK: Does companies/ exist?
-  └── One company (excluding _example) → use it automatically
-  └── Multiple → ask user which company
-  └── None → scaffold generic (unbranded) project
-READ: companies/<name>/brand/charter.json
+DEFAULT: Use companies/dukestrategies/ (this is a Duke Strategies plugin)
+  └── Override only if user names a different company or collab brand
+READ: companies/dukestrategies/brand/charter.json
   └── Extract colors, fonts, logo paths, video settings (resolution, fps)
   └── Extract formatting rules (accentCycleColors, autoContrastText)
-READ: companies/<name>/profile.json
+READ: companies/dukestrategies/profile.json
   └── Extract company.name, company.tagline for title cards
-CHECK: companies/<name>/brand/images/
+CHECK: companies/dukestrategies/brand/images/
   └── Discover brand photography for background scenes, intro/outro cards
-FALLBACK: Generic theme with system fonts and neutral palette
+OVERRIDE: If user names another brand, check companies/<name>/ instead
+  └── Fall back to dukestrategies for any missing data
 ```
 
 ### Step 2: Scaffold Project
