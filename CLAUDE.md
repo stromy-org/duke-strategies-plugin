@@ -13,10 +13,13 @@ duke-strategies-plugin/
 ├── .claude-plugin/
 │   └── plugin.json          # Plugin manifest
 ├── skills/                   # Deliverable skills (from Cowork)
+│   ├── brand-builder/        #   Company-agnostic brand identity builder
 │   ├── pdf/
 │   ├── pptx/
 │   ├── docx/
 │   ├── xlsx/
+│   ├── messaging-framework/  #   Structured messaging architecture
+│   ├── press-release/        #   AP-style press releases with governance
 │   ├── proposal/
 │   └── remotion-video/
 ├── companies/                # Company brand & content data
