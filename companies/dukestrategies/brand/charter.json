@@ -1,4 +1,10 @@
 {
+  "meta": {
+    "tier": "producer",
+    "displayName": "Duke Strategies",
+    "tagline": "Bridging Strategy and Impact",
+    "industry": "Public Affairs / Consulting"
+  },
   "colors": {
     "primary": "#FF7F66",
     "secondary": "#DFDFE0",
@@ -29,8 +35,8 @@
     }
   },
   "logo": {
-    "primary": "logo.png",
-    "white": "logo_white.png",
+    "primary": "logos/logo.png",
+    "white": "logos/logo_white.png",
     "maxWidth": "120pt",
     "maxHeight": "50pt",
     "sizing": "contain"
