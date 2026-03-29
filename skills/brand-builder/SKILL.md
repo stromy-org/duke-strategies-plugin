@@ -245,11 +245,14 @@ workspace/<client>/output/brand/
 ├── tokens/
 │   └── brand-tokens.css          <- Phase 3
 ├── templates/
-│   ├── BRAND-Template.pptx       <- Phase 4
-│   ├── BRAND-Report-Template.docx
-│   ├── BRAND-Letterhead.docx
-│   ├── brand-business-cards.html
-│   └── brand-email-signature.html
+│   ├── pptx/
+│   │   └── BRAND-Template.pptx       <- Phase 4
+│   ├── docx/
+│   │   ├── BRAND-Report-Template.docx
+│   │   └── BRAND-Letterhead.docx
+│   └── html/
+│       ├── brand-business-cards.html
+│       └── brand-email-signature.html
 └── assets/
     ├── divider-full.svg          <- Phase 5
     ├── divider-short.svg
