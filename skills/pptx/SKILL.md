@@ -176,6 +176,45 @@ You need raw XML access for: comments, speaker notes, slide layouts, animations,
 2. **Sample slide content**: Examine `ppt/slides/slide1.xml` for actual font usage (`<a:rPr>`) and colors
 3. **Search for patterns**: Use grep to find color (`<a:solidFill>`, `<a:srgbClr>`) and font references across all XML files
 
+## Template Auto-Discovery
+
+When creating a branded presentation, check for an existing PPTX template before generating from scratch. Templates produce more stable, pixel-perfect output than programmatic generation.
+
+### Resolution chain
+1. **Charter manifest**: `charter.templates.pptx.default` → exact path from charter (relative to brand dir)
+2. **Filesystem convention**: `brand/templates/pptx/default.pptx` → format-organized template directory
+3. **No template found** → programmatic generation (html2pptx workflow below)
+
+### Discovery code pattern
+```javascript
+const charter = JSON.parse(fs.readFileSync(charterPath, 'utf-8'));
+const brandDir = path.dirname(charterPath);
+
+// 1. Charter manifest
+let templatePath = charter.templates?.pptx?.default
+  ? path.join(brandDir, charter.templates.pptx.default)
+  : null;
+
+// 2. Filesystem convention
+if (!templatePath || !fs.existsSync(templatePath)) {
+  const conventionPath = path.join(brandDir, 'templates/pptx/default.pptx');
+  if (fs.existsSync(conventionPath)) templatePath = conventionPath;
+}
+```
+
+### When to use template vs. generate from scratch
+
+| Scenario | Approach |
+|----------|----------|
+| Brand has a template + user wants standard deck | **Use template** — duplicate slides, replace content |
+| Brand has a template + user wants custom layout | **Generate from scratch** — template constrains creativity |
+| No template exists | **Generate from scratch** — html2pptx workflow |
+| User explicitly asks for "from template" | **Use template** — follow template-workflow.md |
+
+When a template is found, use the existing [template workflow](references/template-workflow.md) to duplicate, rearrange, and replace content. Additional template variants (e.g., `slide-library`) are available via `charter.templates.pptx.<variant>`.
+
+---
+
 ## Creating a new PowerPoint presentation **without a template**
 
 When creating a new PowerPoint presentation from scratch, use the **html2pptx** workflow to convert HTML slides to PowerPoint with accurate positioning.

@@ -103,6 +103,19 @@ for cell in sheet[1]:
 ### When using a non-Duke brand
 If the user specifies a collaborative or alternate brand that has no charter in `companies/`, ask for brand details (colors, fonts, logo). For fields the user doesn't provide, fall back to Duke Strategies defaults from `companies/dukestrategies/brand/charter.json`. If the user explicitly asks for an **unbranded** output, skip branding entirely and use default Excel styling.
 
+## Template Auto-Discovery
+
+When creating a branded spreadsheet, check for an existing XLSX template before generating from scratch.
+
+### Resolution chain
+1. **Charter manifest**: `charter.templates.xlsx.default` → exact path from charter (relative to brand dir)
+2. **Filesystem convention**: `brand/templates/xlsx/default.xlsx` → format-organized template directory
+3. **No template found** → programmatic generation with openpyxl (current behavior)
+
+No brands currently have xlsx templates — this convention is documented for future use. When a template becomes available, load it with `openpyxl.load_workbook()` instead of creating a blank `Workbook()`.
+
+---
+
 ## Important Requirements
 
 **LibreOffice Required for Formula Recalculation**: You can assume LibreOffice is installed for recalculating formula values using the `recalc.py` script. The script automatically configures LibreOffice on first run

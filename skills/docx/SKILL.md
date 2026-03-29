@@ -143,6 +143,45 @@ If the charter has a `formatting` section, apply these rules:
 ### When using a non-Duke brand
 If the user specifies a collaborative or alternate brand that has no charter in `companies/`, ask for brand details (colors, fonts, logo). For fields the user doesn't provide, fall back to Duke Strategies defaults from `companies/dukestrategies/brand/charter.json`. If the user explicitly asks for an **unbranded** output, skip branding entirely and produce a clean, unbranded document.
 
+## Template Auto-Discovery
+
+When creating a branded document, check for an existing DOCX template before generating from scratch. Templates produce more stable, pixel-perfect output than programmatic generation.
+
+### Resolution chain
+1. **Charter manifest**: `charter.templates.docx.<variant>` → exact path from charter (relative to brand dir)
+2. **Filesystem convention**: `brand/templates/docx/default.docx` → format-organized template directory
+3. **No template found** → programmatic generation (docx-js workflow below)
+
+### Discovery code pattern
+```javascript
+const charter = JSON.parse(fs.readFileSync(charterPath, 'utf-8'));
+const brandDir = path.dirname(charterPath);
+
+// 1. Charter manifest
+let templatePath = charter.templates?.docx?.default
+  ? path.join(brandDir, charter.templates.docx.default)
+  : null;
+
+// 2. Filesystem convention
+if (!templatePath || !fs.existsSync(templatePath)) {
+  const conventionPath = path.join(brandDir, 'templates/docx/default.docx');
+  if (fs.existsSync(conventionPath)) templatePath = conventionPath;
+}
+```
+
+### When to use template vs. generate from scratch
+
+| Scenario | Approach |
+|----------|----------|
+| Brand has a template + user wants standard report | **Use template** — unpack OOXML, edit, repack |
+| Brand has a template + user wants custom layout | **Generate from scratch** — template constrains creativity |
+| No template exists | **Generate from scratch** — docx-js workflow |
+| Letterhead needed | Check `charter.templates.docx.letterhead` or `brand/templates/docx/letterhead.docx` |
+
+When a template is found, use the OOXML editing workflow: copy template → unpack → edit XML → validate → repack.
+
+---
+
 ## Output Location
 
 **Default**: `<projectRoot>/output/<deliverable>/` — auto-detected from build script location using `src/workspace.js`.
