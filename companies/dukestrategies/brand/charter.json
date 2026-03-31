@@ -19,18 +19,18 @@
   },
   "fonts": {
     "heading": {
-      "family": "Tahoma",
-      "fallback": "Arial, sans-serif",
-      "weight": "bold"
+      "family": "Montserrat",
+      "fallback": "Arial, Helvetica, sans-serif",
+      "weight": "600"
     },
     "body": {
-      "family": "Verdana",
-      "fallback": "Arial, sans-serif",
+      "family": "Montserrat",
+      "fallback": "Arial, Helvetica, sans-serif",
       "weight": "normal"
     },
     "mono": {
-      "family": "Courier New",
-      "fallback": "monospace",
+      "family": "Space Mono",
+      "fallback": "Courier New, monospace",
       "weight": "normal"
     }
   },
