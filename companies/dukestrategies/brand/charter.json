@@ -170,7 +170,7 @@
       "platform": "github-pages",
       "domain": "dukestrategies.com",
       "analytics": "plausible",
-      "contactForm": "formspree"
+      "contactForm": "none"
     }
   },
   "formatting": {
