@@ -19,3 +19,6 @@ Thumbs.db
 # Temp
 *.tmp
 *.log
+
+# Brand sync stamp (synced from brand-tokens, noisy on every run)
+.brand-sync-version.json
