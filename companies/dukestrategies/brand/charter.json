@@ -87,6 +87,92 @@
     "resolution": "1920x1080",
     "fps": 30
   },
+  "website": {
+    "archetype": "ruler",
+    "aesthetic": "luxury",
+    "layout": {
+      "density": "airy",
+      "symmetry": "symmetric",
+      "flowDirection": "linear",
+      "heroStyle": "full-bleed",
+      "gridSystem": "12col-centered",
+      "sectionSpacing": "generous",
+      "sectionDividers": "thin-line",
+      "footerStyle": "mega-footer",
+      "whitespaceStrategy": "breathing"
+    },
+    "texture": {
+      "backgroundTreatment": "solid",
+      "surfaceFinish": "glossy",
+      "borderStyle": "thin-line",
+      "shadowDepth": "medium",
+      "cornerRadius": "slight",
+      "overlayStyle": "brand-tint",
+      "patternDensity": "none"
+    },
+    "typography": {
+      "headingStyle": "tight-sans",
+      "headingScale": 1.2,
+      "bodyLineHeight": 1.6,
+      "letterSpacing": "wide",
+      "textTransform": "uppercase-headings",
+      "pullQuoteStyle": "bordered-left",
+      "listStyle": "standard"
+    },
+    "motion": {
+      "intensity": "subtle",
+      "revealStyle": "fade",
+      "scrollBehavior": "smooth",
+      "hoverBehavior": "lift",
+      "transitionSpeed": "relaxed",
+      "loadingAnimation": "skeleton",
+      "cursorStyle": "default"
+    },
+    "components": {
+      "navigation": "top-bar-expanded",
+      "cards": "shadow",
+      "buttons": "square",
+      "forms": "standard",
+      "imagePresentation": "rectangular",
+      "testimonials": "card-with-photo",
+      "ctaStyle": "full-width-band",
+      "socialProof": "logo-strip",
+      "codeBlocks": "default"
+    },
+    "colorApplication": {
+      "darkSections": true,
+      "darkSectionFrequency": 3,
+      "accentUsage": "sparring",
+      "gradientDirection": "none",
+      "colorBlockSections": true,
+      "imageOverlayBehavior": "brand-tint"
+    },
+    "pages": {
+      "home": {
+        "enabled": true,
+        "sections": [
+          { "type": "hero", "variant": "full-bleed" },
+          { "type": "social-proof", "variant": "logo-strip" },
+          { "type": "service", "variant": "icon-grid" },
+          { "type": "case-study", "variant": "featured-card" },
+          { "type": "stats", "variant": "counter-band" },
+          { "type": "testimonial", "variant": "card-with-photo" },
+          { "type": "cta", "variant": "full-width-band" }
+        ]
+      },
+      "who-we-are": { "enabled": true },
+      "what-we-do": { "enabled": true },
+      "duke-academy": { "enabled": true },
+      "insights": { "enabled": true },
+      "contact": { "enabled": true }
+    },
+    "deployment": {
+      "platform": "github-pages",
+      "domain": "dukestrategies.com",
+      "analytics": "plausible",
+      "contactForm": "formspree"
+    }
+  },
   "formatting": {
     "headingThreshold": 24,
     "accentCycleColors": ["accent", "secondary", "primary"],
