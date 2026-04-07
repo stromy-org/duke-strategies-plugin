@@ -3,7 +3,9 @@
     "tier": "producer",
     "displayName": "Duke Strategies",
     "tagline": "Bridging Strategy and Impact",
-    "industry": "Public Affairs / Consulting"
+    "industry": "Public Affairs / Consulting",
+    "archetype": "sage",
+    "domain": "dukestrategies.eu"
   },
   "colors": {
     "primary": "#FF7F66",
