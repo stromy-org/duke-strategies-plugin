@@ -77,7 +77,7 @@ For "Duke x Partner" or other collaborative deliverables:
 If the user explicitly asks for unbranded output, skills skip all brand integration and use format defaults.
 
 ### Brand data sync
-Brand data in `companies/dukestrategies/brand/` originates from the `brand-tokens` repo and is synced via `stromy-org/scripts/sync-brand-data.sh`. All brand edits must go through `brand-tokens/` — the sync overwrites local changes.
+Brand data in `companies/dukestrategies/brand/` originates from the `client-data` repo and is synced via `stromy-org/scripts/sync-plugin-brand.sh`. All brand edits must go through `client-data/` — the sync overwrites local changes.
 
 ## Key Rules
 
