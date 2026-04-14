@@ -43,7 +43,8 @@ companies/<name>/
 ├── brand/
 │   ├── charter.json      <- from Phase 2/3 (colors, fonts, logo, presentation, document)
 │   ├── logo.png          <- from Phase 2 (primary logo — user must supply final raster)
-│   └── images/           <- from Phase 5 (placeholder — user populates with sourced photos)
+│   ├── images/           <- from Phase 5 (placeholder — user populates with sourced photos)
+│   └── pptx-assets/      <- from Phase 5 (gradients, overlays, motifs for pptx skill)
 └── proposals/            <- empty scaffold for future proposal skill use
 ```
 
@@ -160,23 +161,22 @@ The brand motif is key — identify any element from the logo that can become a 
 Read `references/templates.md` for build instructions for each template type.
 
 **Deliverables:**
-- Presentation template (`.pptx`, 10 slides via pptxgenjs)
+- PPTX asset pack (pre-rendered gradients, photo overlays, motif tiles) stored in `pptx-assets/` and referenced from `charter.json` `pptxAssets` section — the `pptx` skill uses these assets directly for on-demand slide generation (no template .pptx file needed)
 - Report template (`.docx` via docx-js)
 - Letterhead (`.docx` via docx-js)
 - Business cards (`.html` — print-ready visual)
 - Email signature (`.html` — paste-ready for email clients)
 
 **Build scaffolds** — start from these rather than writing from scratch:
-- **PPTX**: Copy `scripts/build-pptx-template.js` to the workspace build directory, populate the `BRAND` config with Phase 2/3 outputs, customize slide content per brand industry, then run. Uses the `pptx` skill's `html2pptx` converter and `build-branded.js` scaffold pattern.
 - **Brand book PDF**: Copy `scripts/build-brand-book.py` to the workspace build directory, populate the `BRAND` config with Phase 1-5 outputs, then run with `uv run python build-brand-book.py`.
 
 **Template design principles:**
 - Every template must use brand colors, typography, and motif consistently
-- PPTX: 10 slide types — title, contents, section divider, key metrics, two-column, three-card, data table, quote/callout, next steps, closing
+- PPTX assets: pre-rendered gradients, photo overlays, and motif tiles stored in `pptx-assets/` — the `pptx` skill generates slides on-demand from these
 - DOCX report: cover page, TOC, styled headings, callout boxes, branded tables, header/footer with logo
 - All templates use placeholder text relevant to the brand's industry
 
-**Format skill relationship:** The `pptx` and `docx` skills handle the mechanics of building those file formats. This skill provides the brand-specific content and design decisions that feed into them. For PPTX, the scaffold uses the `pptx` skill's `html2pptx` converter directly. For DOCX, follow the patterns in `references/templates.md` which incorporate the critical rules from the `docx` format (DXA widths, ShadingType.CLEAR, etc.).
+**Format skill relationship:** The `pptx` and `docx` skills handle the mechanics of building those file formats. This skill provides the brand-specific content and design decisions that feed into them. PPTX slides are generated on-demand by the `pptx` skill using charter.json + images + pptx-assets. For DOCX, follow the patterns in `references/templates.md` which incorporate the critical rules from the `docx` format (DXA widths, ShadingType.CLEAR, etc.).
 
 **QA is mandatory for PPTX and DOCX.** Convert to images, visually inspect, fix issues, re-verify. See `references/templates.md` for QA procedures.
 
@@ -244,9 +244,11 @@ workspace/<client>/output/brand/
 │   └── brand-logo-mono-light.svg
 ├── tokens/
 │   └── brand-tokens.css          <- Phase 3
+├── pptx-assets/                         <- Phase 5
+│   ├── gradients/
+│   ├── overlays/
+│   └── motifs/
 ├── templates/
-│   ├── pptx/
-│   │   └── BRAND-Template.pptx       <- Phase 4
 │   ├── docx/
 │   │   ├── BRAND-Report-Template.docx
 │   │   └── BRAND-Letterhead.docx
@@ -269,7 +271,7 @@ Replace "BRAND" and "brand" with the actual brand name.
 4. **The motif is everything.** The strongest brands have one repeatable visual element beyond the logo. Find it early.
 5. **Templates must work.** QA every PPTX and DOCX. Convert to images, inspect, fix. A broken template destroys trust.
 6. **Respect the user's taste.** If they say "I don't like serif fonts," don't argue. Offer alternatives within their preference.
-7. **Use the build scaffolds.** Start from `scripts/build-pptx-template.js` for PPTX and `scripts/build-brand-book.py` for the brand book PDF. These incorporate the format-specific rules so you don't need to reinvent them.
+7. **Use the build scaffolds.** Brand book uses `scripts/build-brand-book.py`. PPTX assets are generated via Sharp compositing. These incorporate the format-specific rules so you don't need to reinvent them.
 
 ## Dependencies
 

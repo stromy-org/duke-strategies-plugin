@@ -84,6 +84,24 @@ When the charter has an `images` block (`charter.images.catalog`), use brand pho
 
 The `build-branded.js` scaffold provides `brandImageSlide(role, bodyContent)` which handles image selection, overlay compositing, and fallback automatically.
 
+### Pre-rendered PPTX assets (pptxAssets)
+
+When the charter has a `pptxAssets` section, use pre-rendered presentation assets directly — no runtime Sharp compositing needed:
+
+- **`pptxAssets.gradients`**: Pre-rendered gradient PNGs for branded slide backgrounds
+- **`pptxAssets.overlays`**: Pre-rendered photo overlays (brand color + opacity already applied) for cover/divider/closing slides
+- **`pptxAssets.motifs`**: Pre-rendered pattern tile PNGs for subtle background textures
+
+**Resolution order:**
+1. When `pptxAssets` exists: use pre-rendered assets directly as `background-image` in slide HTML
+2. When `pptxAssets` doesn't exist but `images` catalog does: fall back to runtime compositing via Sharp (current behavior in `build-branded.js`)
+3. When neither exists: use solid-color or gradient backgrounds only (via `renderGradientPng()`)
+
+**Image selection with extended metadata:**
+- Use the `mood` tag (when available) for contextual matching — e.g., prefer `"mood": "bold"` images for cover slides, `"mood": "calm"` for closing slides
+- Use `orientation` to pick images suited to the layout — landscape for full-bleed, portrait for split layouts
+- Track used images to avoid repetition (already documented above)
+
 ### CSS variable discipline
 
 **Always use CSS variables from `_base.css` instead of hardcoded hex values** when writing slide HTML. This ensures slides update automatically if the charter changes.
@@ -176,46 +194,7 @@ You need raw XML access for: comments, speaker notes, slide layouts, animations,
 2. **Sample slide content**: Examine `ppt/slides/slide1.xml` for actual font usage (`<a:rPr>`) and colors
 3. **Search for patterns**: Use grep to find color (`<a:solidFill>`, `<a:srgbClr>`) and font references across all XML files
 
-## Template Auto-Discovery
-
-When creating a branded presentation, check for an existing PPTX template before generating from scratch. Templates produce more stable, pixel-perfect output than programmatic generation.
-
-### Resolution chain
-1. **Charter manifest**: `charter.templates.pptx.default` → exact path from charter (relative to brand dir)
-2. **Filesystem convention**: `brand/templates/pptx/default.pptx` → format-organized template directory
-3. **No template found** → programmatic generation (html2pptx workflow below)
-
-### Discovery code pattern
-```javascript
-const charter = JSON.parse(fs.readFileSync(charterPath, 'utf-8'));
-const brandDir = path.dirname(charterPath);
-
-// 1. Charter manifest
-let templatePath = charter.templates?.pptx?.default
-  ? path.join(brandDir, charter.templates.pptx.default)
-  : null;
-
-// 2. Filesystem convention
-if (!templatePath || !fs.existsSync(templatePath)) {
-  const conventionPath = path.join(brandDir, 'templates/pptx/default.pptx');
-  if (fs.existsSync(conventionPath)) templatePath = conventionPath;
-}
-```
-
-### When to use template vs. generate from scratch
-
-| Scenario | Approach |
-|----------|----------|
-| Brand has a template + user wants standard deck | **Use template** — duplicate slides, replace content |
-| Brand has a template + user wants custom layout | **Generate from scratch** — template constrains creativity |
-| No template exists | **Generate from scratch** — html2pptx workflow |
-| User explicitly asks for "from template" | **Use template** — follow template-workflow.md |
-
-When a template is found, use the existing [template workflow](references/template-workflow.md) to duplicate, rearrange, and replace content. Additional template variants (e.g., `slide-library`) are available via `charter.templates.pptx.<variant>`.
-
----
-
-## Creating a new PowerPoint presentation **without a template**
+## Creating a new PowerPoint presentation
 
 When creating a new PowerPoint presentation from scratch, use the **html2pptx** workflow to convert HTML slides to PowerPoint with accurate positioning.
 
@@ -231,6 +210,9 @@ The skill aims for **ambitious, creative, and professional** slide designs. Avoi
 - ✅ Create clear visual hierarchy through size, weight, and color
 - ✅ Ensure readability: strong contrast, appropriately sized text, clean alignment
 - ✅ Be consistent: repeat patterns, spacing, and visual language across slides
+- ✅ Use real company data from profile.json, people.json, proposals/, messaging/ — never placeholder text when real content exists
+- ✅ Mix imagery treatments — never apply the same photo overlay uniformly to all slides
+- ✅ Pre-render ALL gradients, SVG motifs, and decorative elements as PNG via Sharp before use in HTML
 
 ### Workflow
 1. **MANDATORY - READ ENTIRE FILE**: Read [`html2pptx.md`](html2pptx.md) completely from start to finish. **NEVER set any range limits when reading this file.** Read the full file content for detailed syntax, critical formatting rules, and best practices before proceeding with presentation creation.
@@ -280,12 +262,6 @@ This avoids regenerating from scratch — the build script creates the first dra
 3. Edit the XML files (primarily `ppt/slides/slide{N}.xml` and related files)
 4. **CRITICAL**: Validate immediately after each edit and fix any validation errors before proceeding: `python ooxml/scripts/validate.py <dir> --original <file>`
 5. Pack the final presentation: `python ooxml/scripts/pack.py <input_directory> <office_file>`
-
-## Creating a new PowerPoint presentation **using a template**
-
-When you need to create a presentation that follows an existing template's design (duplicate and rearrange template slides, then replace placeholder content), read the full workflow at [references/template-workflow.md](references/template-workflow.md).
-
-**Summary**: Extract template text + thumbnails → Analyze and inventory all slides → Create outline with template mapping → Rearrange slides with `rearrange.py` → Extract text inventory with `inventory.py` → Generate replacement JSON → Apply with `replace.py`.
 
 ## Creating Thumbnail Grids
 
