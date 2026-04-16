@@ -21,7 +21,7 @@ The default company data is at `companies/dukestrategies/`:
 
 ```
 companies/dukestrategies/profile.json           → Company identity, services, value proposition
-companies/dukestrategies/brand/charter.json      → Colors, fonts, logo (for branded output)
+companies/dukestrategies/charter.json      → Colors, fonts, logo (for branded output)
 companies/dukestrategies/messaging/              → Messaging content library:
   ├── pillars.json         → Reusable messaging pillars with proof attachments
   ├── proof-points.json    → Evidence library organized by type and topic

@@ -28,12 +28,12 @@ Create animated videos using [Remotion](https://www.remotion.dev/) with optional
 ```
 DEFAULT: Use companies/dukestrategies/ (this is a Duke Strategies plugin)
   └── Override only if user names a different company or collab brand
-READ: companies/dukestrategies/brand/charter.json
+READ: companies/dukestrategies/charter.json
   └── Extract colors, fonts, logo paths, video settings (resolution, fps)
   └── Extract formatting rules (accentCycleColors, autoContrastText)
 READ: companies/dukestrategies/profile.json
   └── Extract company.name, company.tagline for title cards
-CHECK: companies/dukestrategies/brand/images/
+CHECK: companies/dukestrategies/images/
   └── Discover brand photography for background scenes, intro/outro cards
 OVERRIDE: If user names another brand, check companies/<name>/ instead
   └── Fall back to dukestrategies for any missing data
@@ -53,7 +53,7 @@ When a brand directory has an `images/` subdirectory, use brand photography for:
 - **Background scenes** — full-bleed behind text overlays
 - **Intro/outro cards** — opening and closing visual frames
 
-List available images with `ls companies/<name>/brand/images/` and choose photos that match each scene's topic.
+List available images with `ls companies/<name>/images/` and choose photos that match each scene's topic.
 
 #### Company identity
 If `profile.json` exists, use `company.name` and `company.tagline` for title cards and closing frames instead of hardcoding text.

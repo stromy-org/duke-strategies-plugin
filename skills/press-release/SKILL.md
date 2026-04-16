@@ -21,7 +21,7 @@ The default company data is at `companies/dukestrategies/`:
 
 ```
 companies/dukestrategies/profile.json        → Company name, tagline, HQ, contact, services
-companies/dukestrategies/brand/charter.json   → Colors, fonts, logo (for branded PDF/HTML versions)
+companies/dukestrategies/charter.json   → Colors, fonts, logo (for branded PDF/HTML versions)
 companies/dukestrategies/press-releases/      → Press release content library:
   ├── spokespersons.json     → Approved spokespersons with titles, quote style, topics
   ├── boilerplate.json       → Company boilerplate versions (standard, short, product-specific)

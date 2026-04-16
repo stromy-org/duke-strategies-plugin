@@ -12,10 +12,10 @@ A user may ask you to create, edit, or analyze the contents of a .pptx file. A .
 
 ## Brand Data Integration
 
-This is a **Duke Strategies plugin** — Duke branding is applied by default. Always load `companies/dukestrategies/brand/charter.json` unless the user explicitly names a different company or collaborative brand (e.g., "Duke x Stromy"). If a different brand is named, check `companies/<name>/brand/charter.json`; if that directory doesn't exist, ask the user for brand details.
+This is a **Duke Strategies plugin** — Duke branding is applied by default. Always load `companies/dukestrategies/charter.json` unless the user explicitly names a different company or collaborative brand (e.g., "Duke x Stromy"). If a different brand is named, check `companies/<name>/charter.json`; if that directory doesn't exist, ask the user for brand details.
 
 ### Brand data location
-The default charter is at `companies/dukestrategies/brand/charter.json`. It provides:
+The default charter is at `companies/dukestrategies/charter.json`. It provides:
 
 - **Colors**: `primary`, `secondary`, `accent`, `background`, `backgroundAlt`, `text`, `textLight`, plus semantic colors (`success`, `warning`, `error`)
 - **Fonts**: `heading` (family + weight + fallback), `body` (family + weight + fallback), `mono` (family + fallback)
@@ -143,7 +143,7 @@ If the charter has a `formatting` section, apply these rules:
 - **`autoContrastText`**: When `true`, automatically pick white or dark text based on the background luminance of the shape or slide behind it.
 
 ### When using a non-Duke brand
-If the user specifies a collaborative or alternate brand that has no charter in `companies/`, ask for brand details (colors, fonts, logo). For fields the user doesn't provide, fall back to Duke Strategies defaults from `companies/dukestrategies/brand/charter.json`. If the user explicitly asks for an **unbranded** output, skip branding entirely and use the generic color palettes and workflow below.
+If the user specifies a collaborative or alternate brand that has no charter in `companies/`, ask for brand details (colors, fonts, logo). For fields the user doesn't provide, fall back to Duke Strategies defaults from `companies/dukestrategies/charter.json`. If the user explicitly asks for an **unbranded** output, skip branding entirely and use the generic color palettes and workflow below.
 
 ## Output Location
 

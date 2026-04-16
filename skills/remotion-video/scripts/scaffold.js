@@ -120,7 +120,7 @@ if (hasCharter) {
   const resolution = (videoSettings.resolution || "1920x1080").split("x").map(Number);
   const fps = videoSettings.fps || 30;
 
-  const themeContent = `// Auto-generated from ${company}/brand/charter.json — do not edit manually.
+  const themeContent = `// Auto-generated from ${company}/charter.json — do not edit manually.
 // Regenerate with: node skills/remotion-video/scripts/sync-from-charter.js --company ${company}
 
 export const theme = {
@@ -168,7 +168,7 @@ export const heatmapColors = [
   fs.writeFileSync(path.join(absTarget, "src", "theme.ts"), themeContent);
 } else {
   const themeContent = `// Generic theme — no company brand data found.
-// To brand this project, create companies/<name>/brand/charter.json
+// To brand this project, create companies/<name>/charter.json
 // then run: node skills/remotion-video/scripts/sync-from-charter.js --company <name>
 
 export const theme = {

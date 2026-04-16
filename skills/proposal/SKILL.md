@@ -37,7 +37,7 @@ This skill draws from structured company data stored in `companies/<company-name
 
 ```
 companies/<name>/profile.json       → Company identity, services, pricing, credentials, legal
-companies/<name>/brand/charter.json  → Visual identity (colors, fonts, logo, format settings)
+companies/<name>/charter.json  → Visual identity (colors, fonts, logo, format settings)
 companies/<name>/proposals/           → Proposal content library:
   ├── case-studies.json      → Past performance
   ├── team-bios.json         → Key personnel with bio variants
@@ -202,8 +202,8 @@ Draft each section following the guidance in [sections.md](references/sections.m
 
 Produce the document in the chosen output format. Pass the following context to the format production workflow:
 
-- **Brand charter**: `companies/<name>/brand/charter.json`
-- **Logo**: `companies/<name>/brand/logo.png`
+- **Brand charter**: `companies/<name>/charter.json`
+- **Logo**: `companies/<name>/logo.png`
 - **Drafted sections**: the content from Step 2
 - **Tone and archetype**: from intake Phase 2/3
 
@@ -296,7 +296,7 @@ These are the high-level checks. For detailed per-section checklists and common 
 
 ### Client Branding
 
-Brand data is loaded from `companies/<name>/brand/charter.json`. The charter covers all output formats:
+Brand data is loaded from `companies/<name>/charter.json`. The charter covers all output formats:
 
 - **`document`** section → DOCX margins, headers, footers, heading colors
 - **`presentation`** section → PPTX slide margins, aspect ratio
@@ -349,5 +349,5 @@ This skill owns proposal content strategy. Document production is handled by the
 | XLSX | `xlsx` | Spreadsheet creation for pricing models |
 
 Brand context to carry forward:
-- Brand charter location: `companies/<name>/brand/charter.json`
+- Brand charter location: `companies/<name>/charter.json`
 - Apply heading color from `colors.primary`, body font from `fonts.body`, logo from `brand/logo.png`

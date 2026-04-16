@@ -68,12 +68,12 @@ A user may ask you to create, edit, or analyze the contents of an .xlsx file. Yo
 
 ## Brand Data Integration
 
-This is a **Duke Strategies plugin** — Duke branding is applied by default. Always load `companies/dukestrategies/brand/charter.json` unless the user explicitly names a different company or collaborative brand (e.g., "Duke x Stromy"). If a different brand is named, check `companies/<name>/brand/charter.json`; if that directory doesn't exist, ask the user for brand details. Branding in spreadsheets is **lightweight** — apply it to header rows, chart accent colors, and print headers only.
+This is a **Duke Strategies plugin** — Duke branding is applied by default. Always load `companies/dukestrategies/charter.json` unless the user explicitly names a different company or collaborative brand (e.g., "Duke x Stromy"). If a different brand is named, check `companies/<name>/charter.json`; if that directory doesn't exist, ask the user for brand details. Branding in spreadsheets is **lightweight** — apply it to header rows, chart accent colors, and print headers only.
 
 **Financial model color conventions always override brand colors.** The blue/black/green/red text conventions in the "Color Coding Standards" section above take precedence over any charter palette.
 
 ### Brand data location
-The default charter is at `companies/dukestrategies/brand/charter.json`. It provides:
+The default charter is at `companies/dukestrategies/charter.json`. It provides:
 
 - **Colors**: `primary`, `secondary`, `accent` — used for header row fills and chart series
 - **Fonts**: `heading` (family + weight), `body` (family + weight) — used for header and data rows
@@ -87,7 +87,7 @@ import json
 from pathlib import Path
 from openpyxl.styles import Font, PatternFill
 
-charter = json.loads(Path('companies/<name>/brand/charter.json').read_text())
+charter = json.loads(Path('companies/<name>/charter.json').read_text())
 primary = charter['colors']['primary'].replace('#', '')
 heading_font = charter['fonts']['heading']['family']
 body_font = charter['fonts']['body']['family']
@@ -101,7 +101,7 @@ for cell in sheet[1]:
 ```
 
 ### When using a non-Duke brand
-If the user specifies a collaborative or alternate brand that has no charter in `companies/`, ask for brand details (colors, fonts, logo). For fields the user doesn't provide, fall back to Duke Strategies defaults from `companies/dukestrategies/brand/charter.json`. If the user explicitly asks for an **unbranded** output, skip branding entirely and use default Excel styling.
+If the user specifies a collaborative or alternate brand that has no charter in `companies/`, ask for brand details (colors, fonts, logo). For fields the user doesn't provide, fall back to Duke Strategies defaults from `companies/dukestrategies/charter.json`. If the user explicitly asks for an **unbranded** output, skip branding entirely and use default Excel styling.
 
 ## Template Auto-Discovery
 

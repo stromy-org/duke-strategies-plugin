@@ -7,7 +7,7 @@ Design principles, color palettes, visual elements, and layout guidance for crea
 ## Design Principles
 
 **CRITICAL**: Before creating any presentation, analyze the content and choose appropriate design elements:
-1. **Check for brand data first**: If the user specifies a company or brand, look for `charter.json` at `companies/<name>/brand/`. When a charter exists, use its colors and fonts — do NOT pick from the generic palettes below. See [Brand Data Integration](../SKILL.md#brand-data-integration).
+1. **Check for brand data first**: If the user specifies a company or brand, look for `charter.json` at `companies/<name>/`. When a charter exists, use its colors and fonts — do NOT pick from the generic palettes below. See [Brand Data Integration](../SKILL.md#brand-data-integration).
 2. **Consider the subject matter**: What is this presentation about? What tone, industry, or mood does it suggest?
 3. **Match palette to content**: If no brand charter exists, select colors that reflect the subject
 4. **State your approach**: Explain your design choices before writing code
