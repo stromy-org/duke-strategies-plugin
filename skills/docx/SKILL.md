@@ -579,6 +579,10 @@ sections: [{
 - **TOC requires HeadingLevel only** - no custom styles on heading paragraphs
 - **Override built-in styles** - use exact IDs: "Heading1", "Heading2", etc.
 - **Include `outlineLevel`** - required for TOC (0 for H1, 1 for H2, etc.)
+- **No empty pages** — after generation, check for blank pages. Common causes: page break after sparse content, trailing paragraph with `pageBreakBefore: true`. Always visually review output — text extraction won't reveal blank pages.
+- **SVG logos must be converted** — `ImageRun` cannot embed SVG. Use `logo.png` / `logo_white.png` charter fields (DukeStrategies already has PNGs). For other clients, use `loadLogoBufferForDocx()` from `src/image-utils.js`.
+- **Diagram PNGs need print DPI** — generate diagrams with `--scale 3` in the diagram skill. Scale 2 produces blurry print output.
+- **Avoid spread (`...`) inside nested docx-js constructors** — build `children` arrays imperatively with `forEach` + `.push()` to avoid cryptic parse errors.
 
 ---
 
