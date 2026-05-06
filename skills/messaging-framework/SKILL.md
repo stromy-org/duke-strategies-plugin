@@ -1,6 +1,6 @@
 ---
 name: messaging-framework
-description: "Build structured messaging frameworks — core narrative, messaging pillars, proof points, audience adaptations, and verbal guardrails — from positioning and research inputs. Supports five framework types: Message House, Messaging Hierarchy, Messaging Matrix, Strategic Narrative, and Product Messaging. Produces format-agnostic messaging architecture that downstream skills (talking-points, media-pitch, campaign briefs) can consume. Integrates with company profiles for branded output and maintains a reusable messaging content library. Use this skill whenever the user asks to build a messaging framework, create a message house, develop messaging pillars, write a messaging hierarchy, build a messaging matrix, define key messages, create a messaging architecture, develop brand messaging, write positioning messages, structure audience-specific messaging, or anything involving 'what should we say and to whom' — even if they just say 'we need messaging for X' or 'help me figure out what to say about this.'"
+description: "Build structured messaging frameworks (Message House, Hierarchy, Matrix, Strategic Narrative, Product Messaging) — narrative, pillars, proof points, audience adaptations, verbal guardrails. Branded output from company profiles; reusable content library for downstream skills. Triggers on: messaging framework, message house, messaging pillars, key messages, brand messaging, 'what should we say', or 'messaging for X'."
 ---
 
 # Messaging Framework

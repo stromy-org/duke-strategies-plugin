@@ -1,6 +1,6 @@
 ---
 name: press-release
-description: "Write and manage corporate press releases with full governance lifecycle — from newsworthiness assessment through drafting, legal review, and distribution planning. Produces AP-style, journalist-ready releases with inverted pyramid structure, proper datelines, sourced quotes, and boilerplate from company data. Covers all announcement types: product launches, funding rounds, partnerships, acquisitions, executive hires, milestones, research/reports, and crisis communications. Integrates with company profiles for branded output, spokesperson management, and approval workflows. Use this skill whenever the user asks to write a press release, draft a media announcement, create a news release, prepare a PR statement, write an announcement for the press, handle media communications, or produce journalist-ready content — even if they just say 'announce this' or 'we need to tell the media about X'."
+description: "Write AP-style corporate press releases — full governance lifecycle from newsworthiness assessment through drafting, legal review, and distribution. Covers all announcement types (launches, funding, partnerships, hires, crisis) with company-profile integration. Triggers on: press release, media announcement, news release, 'announce this', or 'tell the media about X'."
 ---
 
 # Corporate Press Release
