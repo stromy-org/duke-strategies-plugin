@@ -6,7 +6,11 @@
         "hooks": [
           {
             "type": "command",
-            "command": "test -d ${CLAUDE_PLUGIN_ROOT}/node_modules || echo '{\"message\": \"Plugin dependencies not installed. Run: cd ~/.claude/plugins/cache/duke-strategies && npm install && uv sync\"}'"
+            "command": "test -d \"${CLAUDE_PLUGIN_ROOT}/node_modules\" || echo '{\"message\": \"Node deps missing. Run: cd ${CLAUDE_PLUGIN_ROOT} && npm install\"}'"
+          },
+          {
+            "type": "command",
+            "command": "test -d \"${CLAUDE_PLUGIN_ROOT}/.venv\" || echo '{\"message\": \"Python deps missing. Run: cd ${CLAUDE_PLUGIN_ROOT} && uv sync\"}'"
           }
         ]
       }
