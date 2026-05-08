@@ -4,8 +4,7 @@ __pycache__/
 *.pyc
 .venv/
 
-# Output
-output/
+# Build artifacts
 out/
 
 # OS

@@ -1,28 +1,69 @@
 /**
- * Workspace output path resolution for ClaudeCowork build scripts.
+ * Workspace v2 — output path resolution for plugin build scripts.
  *
- * Usage (from workspace/<client>/build/<deliverable>/build.js):
- *   const { ensureOutputDir, resolveOutputPath } = require('../../../../src/workspace');
+ * Works at any directory depth by walking up to find markers
+ * instead of assuming a fixed number of parent levels.
+ *
+ * Usage (from any build script inside workspace/):
+ *   const path = require('path');
+ *   let root = __dirname;
+ *   while (!require('fs').existsSync(path.join(root, 'package.json'))) root = path.dirname(root);
+ *   const { ensureOutputDir } = require(path.join(root, 'src/workspace'));
  *   const outputDir = ensureOutputDir(__dirname);
- *   // → workspace/<client>/output/<deliverable>/
  */
 
 const path = require('path');
 const fs = require('fs');
 
 /**
+ * Walk up from startDir to find the repo root (directory containing package.json).
+ * Skips node_modules directories.
+ */
+function findRepoRoot(startDir) {
+  let dir = path.resolve(startDir);
+  while (dir !== path.dirname(dir)) {
+    if (
+      fs.existsSync(path.join(dir, 'package.json')) &&
+      !dir.includes('node_modules')
+    ) {
+      return dir;
+    }
+    dir = path.dirname(dir);
+  }
+  return null;
+}
+
+/**
  * Walk up from a build script directory to find the project root.
- * Expects: workspace/<client>/build/<deliverable>/ → returns workspace/<client>/
- * Falls back to the build script's own directory if structure doesn't match.
+ *
+ * The project root is the directory whose child named 'build' contains
+ * the build script. Works at any depth:
+ *   workspace/build/<deliverable>/                → workspace/
+ *   workspace/<project>/build/<deliverable>/      → workspace/<project>/
  */
 function resolveProjectRoot(buildDir) {
-  const abs = path.resolve(buildDir);
-  const parentName = path.basename(path.dirname(abs));
-  if (parentName === 'build') {
-    return path.dirname(path.dirname(abs)); // up two levels: build/<name>/ → <client>/
+  let dir = path.resolve(buildDir);
+  while (dir !== path.dirname(dir)) {
+    const parent = path.dirname(dir);
+    if (path.basename(parent) === 'build') {
+      return path.dirname(parent);
+    }
+    dir = parent;
   }
-  // Legacy flat structure: workspace/<project>/build.js → workspace/<project>/
-  return abs;
+  return path.resolve(buildDir);
+}
+
+/**
+ * Walk up from startDir to find the workspace/ root directory.
+ * Returns null if not inside a workspace tree.
+ */
+function resolveWorkspaceRoot(startDir) {
+  let dir = path.resolve(startDir);
+  while (dir !== path.dirname(dir)) {
+    if (path.basename(dir) === 'workspace') return dir;
+    dir = path.dirname(dir);
+  }
+  return null;
 }
 
 /**
@@ -39,21 +80,18 @@ function resolveOutputDir(buildDir, options) {
   if (process.env.OUTPUT_DIR) return path.resolve(process.env.OUTPUT_DIR);
 
   const projectRoot = resolveProjectRoot(buildDir);
+  const abs = path.resolve(buildDir);
 
-  // Remotion exception
   if (fs.existsSync(path.join(projectRoot, '.remotion-project'))) {
     return path.join(projectRoot, 'out');
   }
 
-  // New convention: workspace/<client>/output/<deliverable>/
-  const abs = path.resolve(buildDir);
-  const parentName = path.basename(path.dirname(abs));
-  if (parentName === 'build') {
+  const parent = path.dirname(abs);
+  if (path.basename(parent) === 'build') {
     const deliverable = path.basename(abs);
     return path.join(projectRoot, 'output', deliverable);
   }
 
-  // Legacy flat: workspace/<project>/output/
   return path.join(projectRoot, 'output');
 }
 
@@ -69,4 +107,17 @@ function resolveOutputPath(buildDir, filename, options) {
   return path.join(resolveOutputDir(buildDir, options), filename);
 }
 
-module.exports = { resolveProjectRoot, resolveOutputDir, ensureOutputDir, resolveOutputPath };
+/** Resolve the intake directory for a project. */
+function resolveIntakeDir(buildDir) {
+  return path.join(resolveProjectRoot(buildDir), 'intake');
+}
+
+module.exports = {
+  findRepoRoot,
+  resolveProjectRoot,
+  resolveWorkspaceRoot,
+  resolveOutputDir,
+  ensureOutputDir,
+  resolveOutputPath,
+  resolveIntakeDir,
+};

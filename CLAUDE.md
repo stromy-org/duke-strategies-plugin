@@ -79,10 +79,45 @@ If the user explicitly asks for unbranded output, skills skip all brand integrat
 ### Brand data sync
 Brand data in `companies/dukestrategies/brand/` originates from the `client-data` repo and is synced via `stromy-org/scripts/sync-plugin-brand.sh`. All brand edits must go through `client-data/` — the sync overwrites local changes.
 
+## Workspace Conventions
+
+This plugin does NOT impose a fixed workspace directory. The user chooses where to work.
+
+### Working location
+
+- **Always ask the user** where to put deliverables. Suggest options based on context (next to input files, in a named project folder, etc.)
+- **Never assume a default output location** — confirm with the user first
+- If the user points to an existing folder that has a `WORKSPACE.md`, read it for background context before starting work
+
+### WORKSPACE.md
+
+A project folder MAY contain a `WORKSPACE.md` — a manifest tracking what has been produced and when. If one exists, read it. If the user establishes a new project folder, create one.
+
+```markdown
+# <Project Name>
+Context: <one-line description>
+
+## Deliverables
+| Deliverable | Format | Last Built |
+|-------------|--------|------------|
+| stakeholder-deck | PPTX | 2026-05-07 |
+
+## Recent Sessions
+- 2026-05-07: Created stakeholder deck (18 slides) from intake articles
+```
+
+**Recency**: Recent sessions and deliverables are the most relevant context. Older entries remain as background — they inform scope and history but should not dominate decisions.
+
+After completing work, update the WORKSPACE.md (deliverables table + append to Recent Sessions).
+
+### Build scripts
+
+When skills produce deliverables via build scripts, use `src/workspace.js` (Node) or `src/workspace.py` (Python) with the `outputDir` option set to the user's chosen location.
+
 ## Key Rules
 
 - Never reference `.claude/companies/` or `.claude/skills/` — use `companies/` and `skills/` directly
 - Node requires must be flat (`require('pkg')` not `require('../../../../node_modules/pkg')`)
-- Workspace imports use `require('../../src/workspace')` (2 levels from skill scripts)
+- Workspace imports: use walk-up pattern to find `src/workspace` (see workspace resolver)
 - Company data lives at `companies/dukestrategies/` (not `.claude/companies/`)
 - `companies/` stays at plugin root — it is cross-cutting data shared by all skills, not a skill itself

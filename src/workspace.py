@@ -1,12 +1,18 @@
 """
-Workspace output path resolution for ClaudeCowork build scripts.
+Workspace v2 — output path resolution for plugin build scripts.
 
-Usage (from workspace/<client>/build/<deliverable>/build.py):
-    import sys; sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'src'))
-    from workspace import ensure_output_dir, resolve_output_path
+Works at any directory depth by walking up to find markers
+instead of assuming a fixed number of parent levels.
+
+Usage (from any build script inside workspace/):
+    from pathlib import Path
+    root = Path(__file__).resolve()
+    while not (root / 'package.json').exists():
+        root = root.parent
+    import sys; sys.path.insert(0, str(root / 'src'))
+    from workspace import ensure_output_dir
 
     output_dir = ensure_output_dir(__file__)
-    # → workspace/<client>/output/<deliverable>/
 """
 
 from __future__ import annotations
@@ -15,17 +21,48 @@ import os
 from pathlib import Path
 
 
+def find_repo_root(start_dir: str | Path) -> Path | None:
+    """Walk up from start_dir to find the repo root (directory containing package.json).
+    Skips node_modules directories.
+    """
+    p = Path(start_dir).resolve()
+    while p != p.parent:
+        if (p / "package.json").exists() and "node_modules" not in p.parts:
+            return p
+        p = p.parent
+    return None
+
+
 def resolve_project_root(build_path: str | Path) -> Path:
     """Walk up from a build script to find the project root.
 
-    Expects: workspace/<client>/build/<deliverable>/ → returns workspace/<client>/
-    Falls back to the build script's own directory if structure doesn't match.
+    The project root is the directory whose child named 'build' contains
+    the build script. Works at any depth:
+        workspace/build/<deliverable>/            → workspace/
+        workspace/<project>/build/<deliverable>/  → workspace/<project>/
     """
     p = Path(build_path).resolve()
-    build_dir = p if p.is_dir() else p.parent
-    if build_dir.parent.name == "build":
-        return build_dir.parent.parent  # up two levels
-    return build_dir  # legacy flat structure
+    if p.is_file():
+        p = p.parent
+
+    d = p
+    while d != d.parent:
+        if d.name == "build":
+            return d.parent
+        d = d.parent
+    return p
+
+
+def resolve_workspace_root(start_dir: str | Path) -> Path | None:
+    """Walk up from start_dir to find the workspace/ root directory.
+    Returns None if not inside a workspace tree.
+    """
+    p = Path(start_dir).resolve()
+    while p != p.parent:
+        if p.name == "workspace":
+            return p
+        p = p.parent
+    return None
 
 
 def resolve_output_dir(
@@ -47,18 +84,21 @@ def resolve_output_dir(
 
     project_root = resolve_project_root(build_path)
     p = Path(build_path).resolve()
-    build_dir = p if p.is_dir() else p.parent
+    if p.is_file():
+        p = p.parent
 
-    # Remotion exception
     if (project_root / ".remotion-project").exists():
         return project_root / "out"
 
-    # New convention: workspace/<client>/output/<deliverable>/
-    if build_dir.parent.name == "build":
-        deliverable = build_dir.name
-        return project_root / "output" / deliverable
+    # Walk up to find the 'build' directory and extract the deliverable name
+    d = p
+    while d != d.parent:
+        if d.parent.name == "build":
+            return project_root / "output" / d.name
+        if d.name == "build":
+            break
+        d = d.parent
 
-    # Legacy flat: workspace/<project>/output/
     return project_root / "output"
 
 
@@ -76,3 +116,8 @@ def resolve_output_path(
 ) -> Path:
     """Resolve full path to an output file."""
     return resolve_output_dir(build_path, output_dir=output_dir) / filename
+
+
+def resolve_intake_dir(build_path: str | Path) -> Path:
+    """Resolve the intake directory for a project."""
+    return resolve_project_root(build_path) / "intake"
