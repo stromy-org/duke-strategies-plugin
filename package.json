@@ -5,8 +5,8 @@
   "description": "Claude Code plugin for Duke Strategies branded deliverables",
   "dependencies": {
     "@remotion/cli": "^4.0.424",
-    "@remotion/paths": "^4.0.424",
-    "@remotion/transitions": "^4.0.424",
+    "@remotion/paths": "^4.0.463",
+    "@remotion/transitions": "^4.0.463",
     "docx": "^9.5.3",
     "playwright": "^1.58.1",
     "pptxgenjs": "^4.0.1",
