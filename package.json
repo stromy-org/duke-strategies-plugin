@@ -7,7 +7,7 @@
     "@remotion/cli": "^4.0.424",
     "@remotion/paths": "^4.0.424",
     "@remotion/transitions": "^4.0.424",
-    "docx": "^9.5.3",
+    "docx": "^9.6.1",
     "playwright": "^1.58.1",
     "pptxgenjs": "^4.0.1",
     "react": "^18.3.1",
