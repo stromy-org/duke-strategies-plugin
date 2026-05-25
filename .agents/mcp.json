@@ -4,7 +4,7 @@
   "servers": {
     "deliverable-canvas": {
       "transport": "http",
-      "url": "${DELIVERABLE_CANVAS_MCP_URL}",
+      "url": "https://deliverable-canvas-mcp.salmonglacier-1282ede1.northeurope.azurecontainerapps.io/mcp",
       "_consumed_by": ["claude", "codex", "gemini"],
       "_codex_via": "mcp-remote",
       "_gemini_via": "mcp-remote",
