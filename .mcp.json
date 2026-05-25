@@ -1,0 +1,12 @@
+{
+  "_comment": "Rendered from .agents/mcp.json by scripts/render-mcp.py \u2014 DO NOT EDIT BY HAND. Edit .agents/mcp.json and re-run.",
+  "mcpServers": {
+    "deliverable-canvas": {
+      "type": "http",
+      "url": "${DELIVERABLE_CANVAS_MCP_URL}",
+      "headers": {
+        "X-Tenant-Key": "${DELIVERABLE_CANVAS_MCP_KEY}"
+      }
+    }
+  }
+}

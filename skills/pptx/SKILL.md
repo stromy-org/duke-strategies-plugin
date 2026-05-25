@@ -6,6 +6,22 @@ license: Proprietary. LICENSE.txt has complete terms
 
 # PPTX creation, editing, and analysis
 
+## Canvas input contract (formatter mode)
+
+When invoked as the formatter for a strategic deliverable produced by the [`deliverable-canvas`](../deliverable-canvas/SKILL.md) protocol (e.g. by the `proposal`, `messaging-framework`, or `press-release` skill), the input contract is:
+
+**Input:** `{canvas_id: <string>}` — and nothing else. The pptx skill calls `mcp__deliverable-canvas__canvas_get(canvas_id)` to read the structured deliverable. The strategic skill MUST have called `canvas_finalize(canvas_id)` before handing off.
+
+**Output:** a `.pptx` file path (unchanged).
+
+**Mapping.** Each canvas section is rendered to one or more slides per [`references/canvas-mapping.md`](references/canvas-mapping.md). For `template_id: proposal_v1`: context → title slide, approach → section slide + 2 content slides, scope → table slide, timeline → gantt slide, pricing → pricing table, risks → 2-column comparison, next_steps → CTA slide.
+
+**Edge cases.**
+- `canvas_id` references a non-finalized canvas: warn the user, offer (a) finalize-and-format or (b) format-current-state. User chooses.
+- `template_id` has no mapping in `canvas-mapping.md`: error with the missing template's section list; ask the user to add a mapping.
+
+This is a **clean break** from the legacy `{sections: [...]}` dict-input path; that path is removed.
+
 ## Overview
 
 A user may ask you to create, edit, or analyze the contents of a .pptx file. A .pptx file is essentially a ZIP archive containing XML files and other resources that you can read or edit. You have different tools and workflows available for different tasks.
