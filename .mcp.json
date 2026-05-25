@@ -3,10 +3,7 @@
   "mcpServers": {
     "deliverable-canvas": {
       "type": "http",
-      "url": "${DELIVERABLE_CANVAS_MCP_URL}",
-      "headers": {
-        "X-Tenant-Key": "${DELIVERABLE_CANVAS_MCP_KEY}"
-      }
+      "url": "${DELIVERABLE_CANVAS_MCP_URL}"
     }
   }
 }

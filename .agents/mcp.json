@@ -5,13 +5,10 @@
     "deliverable-canvas": {
       "transport": "http",
       "url": "${DELIVERABLE_CANVAS_MCP_URL}",
-      "headers": {
-        "X-Tenant-Key": "${DELIVERABLE_CANVAS_MCP_KEY}"
-      },
       "_consumed_by": ["claude", "codex", "gemini"],
       "_codex_via": "mcp-remote",
       "_gemini_via": "mcp-remote",
-      "_notes": "Shared canvas backend for strategic deliverables (proposal, messaging-framework, press-release). Tenant scoped via X-Tenant-Key header."
+      "_notes": "Shared canvas backend for strategic deliverables (proposal, messaging-framework, press-release). Per-user OAuth via Microsoft Entra ID (handled by mcp-remote browser flow). See infra-docs/ai/deliverable-canvas.md."
     }
   }
 }
