@@ -8,19 +8,50 @@ license: Proprietary. LICENSE.txt has complete terms
 
 ## Canvas input contract (formatter mode)
 
-When invoked as the formatter for a strategic deliverable produced by the [`deliverable-canvas`](../deliverable-canvas/SKILL.md) protocol (e.g. by the `proposal`, `messaging-framework`, or `press-release` skill), the input contract is:
+When invoked as the formatter for a strategic deliverable produced by the
+[`deliverable-canvas`](../deliverable-canvas/SKILL.md) protocol (e.g. by the
+`proposal`, `messaging-framework`, or `press-release` skill), the input
+contract is:
 
-**Input:** `{canvas_id: <string>}` — and nothing else. The pptx skill calls `mcp__deliverable-canvas__canvas_get(canvas_id)` to read the structured deliverable. The strategic skill MUST have called `canvas_finalize(canvas_id)` before handing off.
+**Input:** `{envelope: <dict>}` — the dict the strategic skill constructed in
+chat from the canvas markdown artifact. Shape:
+
+```json
+{
+  "template_id": "proposal_v1",
+  "deliverable_type": "proposal",
+  "title": "<string or null>",
+  "client_id": "<client_slug>",
+  "sections": [
+    {"id": "<section_id>", "title": "<section title>", "body": "<markdown>"}
+  ],
+  "meta": {
+    "canvas_id": "<8-char hex>",
+    "methodology_version": "<string>"
+  }
+}
+```
+
+The envelope is self-contained. The pptx skill does NOT call any
+`deliverable-canvas` MCP tool — the MCP is resource-only and the strategic
+skill already finalised the canvas in chat before handoff.
 
 **Output:** a `.pptx` file path (unchanged).
 
-**Mapping.** Each canvas section is rendered to one or more slides per [`references/canvas-mapping.md`](references/canvas-mapping.md). For `template_id: proposal_v1`: context → title slide, approach → section slide + 2 content slides, scope → table slide, timeline → gantt slide, pricing → pricing table, risks → 2-column comparison, next_steps → CTA slide.
+**Mapping.** Each `envelope.sections` entry is rendered to one or more slides
+per [`references/canvas-mapping.md`](references/canvas-mapping.md). For
+`template_id: proposal_v1`: context → title slide, approach → section slide +
+2 content slides, scope → table slide, timeline → gantt slide, pricing →
+pricing table, risks → 2-column comparison, next_steps → CTA slide.
+
+**Brand resolution.** Read `envelope.client_id` (top-level, not nested under
+`meta`) and resolve `companies/<client_id>/charter.json` for brand tokens.
 
 **Edge cases.**
-- `canvas_id` references a non-finalized canvas: warn the user, offer (a) finalize-and-format or (b) format-current-state. User chooses.
-- `template_id` has no mapping in `canvas-mapping.md`: error with the missing template's section list; ask the user to add a mapping.
-
-This is a **clean break** from the legacy `{sections: [...]}` dict-input path; that path is removed.
+- Envelope missing a required field: surface the missing field; the strategic
+  skill must reconstruct and retry.
+- `template_id` has no mapping in `canvas-mapping.md`: error with the
+  envelope's section list; ask the user to add a mapping.
 
 ## Overview
 
