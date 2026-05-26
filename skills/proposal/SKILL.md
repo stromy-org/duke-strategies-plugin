@@ -6,18 +6,72 @@ license: Proprietary. LICENSE.txt has complete terms
 
 # Consulting Proposal Builder
 
+## Inputs from client-data
+
+This skill resolves client data from `companies/<client_slug>/` per the org-wide
+skill-data-loading convention. For Duke Strategies (the default), that's
+`companies/dukestrategies/`. Specifically:
+
+- `companies/<slug>/charter.json` — brand identity (colors, fonts, logo paths)
+- `companies/<slug>/profile.json` — company identity, services, pricing, legal
+- `companies/<slug>/proposals/case-studies.json` — past performance
+- `companies/<slug>/proposals/team-bios.json` — key personnel (executive/technical variants)
+- `companies/<slug>/proposals/methodologies.json` — approaches/frameworks
+- `companies/<slug>/proposals/boilerplate.json` — assumptions, disclaimers, legal terms
+- `companies/<slug>/proposals/testimonials.json` — client quotes
+- `companies/<slug>/proposals/differentiators.json` — win themes, competitive positioning
+- `companies/<slug>/proposals/partnerships.json` — technology/strategic partnerships
+
+If `companies/` has zero entries → fail loudly. One entry → use it. Many → ask
+the user which to use. Default for Duke Strategies plugin: `dukestrategies`.
+
 ## Canvas protocol (prerequisite)
 
-This skill produces a structured deliverable — it MUST use the deliverable canvas (see the [`deliverable-canvas`](../deliverable-canvas/SKILL.md) skill for the full protocol). The canvas is the source of truth for the in-progress proposal; chat scroll-back is not.
+This skill produces a multi-section deliverable — it MUST use the deliverable
+canvas (see the [`deliverable-canvas`](../deliverable-canvas/SKILL.md) skill
+for the full protocol). The canvas MCP is **resource-only** (zero tools); the
+canvas IS the markdown artifact you emit in chat.
 
-**Required tool sequence:**
+**Required protocol:**
 
-1. **Resume or create.** First call `mcp__deliverable-canvas__canvas_list(client_id=<client_slug>, deliverable_type="proposal")`. If candidates exist, ask the user whether to resume a prior canvas; if yes, call `canvas_get(canvas_id)`. Otherwise call `canvas_create(deliverable_type="proposal", client_id=<client_slug>, title=<short>, template_id="proposal_v1", brief=<one-paragraph engagement summary>, opened_by_skill="proposal", methodology_version=<if known>)`.
-2. **Render the artifact.** Read `canvas://<canvas_id>/artifact` and emit it as an HTML artifact so the user sees the canvas alongside chat.
-3. **Per turn.** When the user instructs a section change ("make pricing more aggressive"), call `canvas_update_section(canvas_id, section_id=<one of: context, approach, scope, timeline, pricing, risks, next_steps>, body=<new full body>, summary=<one-line note>, instructed_by_user=True)`. For agent-initiated cleanups, set `instructed_by_user=False`. Re-emit the artifact after each write.
-4. **Finalize before formatter handoff.** Call `canvas_finalize(canvas_id)`. Then hand `canvas_id` to the formatter (`pptx`, `docx`, `pdf`) — the formatter calls `canvas_get` itself.
+1. **Discover the template.** Call
+   `ReadMcpResourceTool(uri="template://list")`, then
+   `ReadMcpResourceTool(uri="template://proposal_v1")` to load the section
+   schema and top-level `methodology_version`.
+2. **Read methodology.** Call
+   `ReadMcpResourceTool(uri="methodology://planning-best-practices")` and
+   `ReadMcpResourceTool(uri="methodology://rendering/<host>")` where `<host>`
+   is `claude` or `cowork`.
+3. **Generate a `canvas_id`** (8 hex chars). Emit the canvas as a markdown
+   artifact with identifier `canvas-<canvas_id>-proposal`. One `## ` heading
+   per template section (heading text = template's `title` field, in template
+   order). All bodies empty.
+4. **Iterate.** For each section, propose content from `prompt_hint` plus the
+   client data above, wait for user feedback, revise, re-emit the FULL canvas
+   as a new version of the SAME artifact (same identifier).
+5. **Self-check.** Walk the rendered markdown: every section in
+   `template://proposal_v1` must have a `## ` heading in template order with
+   a non-empty body. Fix or ask the user before handoff.
+6. **Construct the envelope.** Build the dict:
+   ```json
+   {
+     "template_id": "proposal_v1",
+     "deliverable_type": "proposal",
+     "title": "<user-confirmed title>",
+     "client_id": "<resolved client_slug>",
+     "sections": [{"id": "<id>", "title": "<title>", "body": "<markdown>"}],
+     "meta": {
+       "canvas_id": "<8-char hex>",
+       "methodology_version": "<copied verbatim from template top-level>"
+     }
+   }
+   ```
+7. **Hand off to the formatter** with `{envelope}` (NOT `{canvas_id}`).
+   Formatters (`pptx`, `docx`, `pdf`) accept this envelope dict directly.
 
-**Failure mode.** If the canvas MCP is unreachable, surface the error and ask the user: (a) wait, or (b) draft inline without persistence. Never silently degrade.
+**Failure mode.** If a canvas resource read fails, surface the error and ask
+the user: (a) wait, or (b) draft inline without the methodology guidance.
+Never silently degrade.
 
 ## Overview
 
