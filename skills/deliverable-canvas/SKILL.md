@@ -1,9 +1,9 @@
 ---
 name: deliverable-canvas
-description: "Protocol for collaborating with the user on a structured deliverable (proposal, messaging-framework, press-release, brief) through an MCP-backed canvas. Use whenever a strategic skill produces a multi-section document that downstream formatters (pptx, docx, pdf) will consume. Open or resume a canvas first, update sections turn by turn, finalize before handing off to a formatter."
+description: "Run the planning ritual for a multi-section deliverable (proposal, brief, press release, messaging framework) before handing off to a formatter skill. The MCP is resource-only — no tools — and the canvas IS the chat artifact. You read templates and methodology, render the markdown artifact, validate it, and construct a handoff envelope, all in chat."
 ---
 
-# Deliverable Canvas Protocol (MCP-hosted skill)
+# Deliverable Canvas — Planning Ritual (MCP-hosted skill)
 
 This skill's full instructions are hosted on the `deliverable-canvas` MCP server. Do not hardcode workflow logic locally — always fetch the live version from the MCP.
 
