@@ -10,10 +10,10 @@ This skill's full instructions are hosted on the `nl-gov-data` MCP server. Do no
 ## Loading instructions
 
 1. Read the main skill instructions:
-   → `ReadMcpResourceTool(server="nl-gov-data", uri="skill://tensions/SKILL.md")`
+   → call the `fs_read` tool on the `nl-gov-data` MCP with `path="skills/tensions/SKILL.md"`.
 
-2. Discover available reference files via the manifest, then read on demand:
-   → `ReadMcpResourceTool(server="nl-gov-data", uri="skill://tensions/_manifest")`
-   → `ReadMcpResourceTool(server="nl-gov-data", uri="skill://tensions/references/<file>")`
+2. Discover reference files (and any other skill assets), then read on demand:
+   → call `fs_list` with `path="skills/tensions"` (and `path="skills/tensions/references"`),
+   → call `fs_read` with `path="skills/tensions/references/<file>"`.
 
-Follow the instructions returned by the MCP resource exactly.
+Follow the instructions returned by the MCP exactly.
