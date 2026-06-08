@@ -5,12 +5,25 @@
     "description": "Duke Strategies is a strategic communications and public affairs consultancy founded by former Hill+Knowlton Strategies executives. The firm combines deep strategic advisory expertise with AI-driven stakeholder intelligence to help organizations navigate complex political, corporate, and societal challenges across Europe and beyond.",
     "founded": 2025,
     "headquarters": {
+      "street": "Hambakenwetering 1",
+      "postalCode": "5231 DD",
       "city": "'s-Hertogenbosch",
       "country": "Netherlands"
     },
     "website": "https://dukestrategies.eu",
     "email": "mail@dukestrategies.eu",
-    "phone": "+31 73 555 0100"
+    "billingEmail": "finance@dukestrategies.eu",
+    "phone": "+31 73 555 0100",
+    "registration": {
+      "legalName": "Duke Strategy & Corporate Affairs B.V.",
+      "kvk": "95849696",
+      "vatNumber": "NL867341737B01"
+    },
+    "banking": {
+      "iban": "NL68 RABO 0104 5298 14",
+      "bic": "RABONL2U",
+      "bank": "Rabobank"
+    }
   },
   "services": [
     {
