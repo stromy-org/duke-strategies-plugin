@@ -5,7 +5,7 @@ Schema reference for the `messaging/` content library directory. This library st
 ## Directory Structure
 
 ```
-companies/<company-name>/
+client-data/clients/<company-name>/
 ├── profile.json              # Company identity (shared — all skills)
 ├── brand/                    # Visual identity (shared — all branded skills)
 │   └── charter.json

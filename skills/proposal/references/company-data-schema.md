@@ -1,12 +1,13 @@
 # Company Data Schema Reference
 
-This reference documents the complete schema for company data stored in `companies/<company-name>/`.
+This reference documents the complete schema for company data stored in `client-data/clients/<company-name>/`.
 
 ## Directory Structure
 
 ```
-companies/<company-name>/
+client-data/clients/<company-name>/
 ├── profile.json          # Company identity, services, pricing, credentials, legal
+├── people.json           # People registry — contact details, roles (author/spokesperson/approver)
 ├── brand/
 │   ├── charter.json      # Visual identity
 │   ├── logo.png          # Primary logo
@@ -181,6 +182,29 @@ Unified visual identity covering all output formats.
 
 ---
 
+## people.json
+
+Top-level people registry — structured contact and role data for document authoring, spokesperson selection, and approval workflows. Links to `team-bios.json` (rich narrative bios) and `spokespersons.json` (quote style, topic expertise) via shared `id`.
+
+| Field | Required | Type | Description |
+|-------|----------|------|-------------|
+| `id` | Yes | string | Shared with `team-bios.json` and `spokespersons.json` |
+| `name` | Yes | string | Full name |
+| `title` | Yes | string | Job title |
+| `email` | Yes | string | Direct email |
+| `phone` | No | string | Direct phone |
+| `roles` | Yes | string[] | `"author"`, `"spokesperson"`, `"approver"`, `"mediaContact"` |
+| `default` | No | boolean | Auto-select for document authoring if `true` |
+
+### Author Discovery
+
+1. Check `people.json` → filter by `roles` containing `"author"`
+2. One person with `"default": true` → auto-select, confirm
+3. Multiple authors, no default → ask user
+4. No `people.json` → fall back to `profile.json`
+
+---
+
 ## proposals/case-studies.json
 
 Array of past performance case studies.
@@ -351,6 +375,13 @@ profile.json                    proposals/case-studies.json
   services[].id ──────────────→   [].services[]
   pricing.models[].id              [].team[] ──→ proposals/team-bios.json → [].id
 
+people.json
+  [].id ──────────────────────→ proposals/team-bios.json → [].id
+  [].id ──────────────────────→ press-releases/spokespersons.json → [].personId
+
+press-releases/spokespersons.json
+  [].personId ────────────────→ people.json → [].id
+
 proposals/methodologies.json
   [].applicableServices[] ────→ profile.json → services[].id
 
@@ -376,7 +407,7 @@ When assembling a proposal:
 
 ## Bootstrapping a New Company Profile
 
-1. Copy the example: `cp -r companies/_example companies/<name>`
+1. Copy the example: `cp -r client-data/clients/_example client-data/clients/<name>`
 2. Edit `profile.json` — fill in all company identity, services, and pricing
 3. Edit `brand/charter.json` — set your colors, fonts, and logo references
 4. Add logo files to `brand/`

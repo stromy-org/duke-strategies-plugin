@@ -8,70 +8,23 @@ license: Proprietary. LICENSE.txt has complete terms
 
 ## Inputs from client-data
 
-This skill resolves client data from `companies/<client_slug>/` per the org-wide
-skill-data-loading convention. For Duke Strategies (the default), that's
-`companies/dukestrategies/`. Specifically:
-
-- `companies/<slug>/charter.json` — brand identity (colors, fonts, logo paths)
-- `companies/<slug>/profile.json` — company identity, services, pricing, legal
-- `companies/<slug>/proposals/case-studies.json` — past performance
-- `companies/<slug>/proposals/team-bios.json` — key personnel (executive/technical variants)
-- `companies/<slug>/proposals/methodologies.json` — approaches/frameworks
-- `companies/<slug>/proposals/boilerplate.json` — assumptions, disclaimers, legal terms
-- `companies/<slug>/proposals/testimonials.json` — client quotes
-- `companies/<slug>/proposals/differentiators.json` — win themes, competitive positioning
-- `companies/<slug>/proposals/partnerships.json` — technology/strategic partnerships
-
-If `companies/` has zero entries → fail loudly. One entry → use it. Many → ask
-the user which to use. Default for Duke Strategies plugin: `dukestrategies`.
+- `companies/{client_slug}/charter.json` — brand identity
+- `companies/{client_slug}/profile.json` — company name, services, regions
+- `companies/{client_slug}/proposals/methodologies.json` (optional) — methodology library
+- `companies/{client_slug}/boilerplate.json` (optional) — boilerplate sections
 
 ## Canvas protocol (prerequisite)
 
-This skill produces a multi-section deliverable — it MUST use the deliverable
-canvas (see the [`deliverable-canvas`](../deliverable-canvas/SKILL.md) skill
-for the full protocol). The canvas MCP is **resource-only** (zero tools); the
-canvas IS the markdown artifact you emit in chat.
+This skill produces a structured deliverable — it MUST use the deliverable canvas (see the [`deliverable-canvas`](../deliverable-canvas/SKILL.md) skill for the full protocol). The canvas is the source of truth for the in-progress proposal; chat scroll-back is not.
 
-**Required protocol:**
+**Required tool sequence:**
 
-1. **Discover the template.** Call
-   `ReadMcpResourceTool(uri="template://list")`, then
-   `ReadMcpResourceTool(uri="template://proposal_v1")` to load the section
-   schema and top-level `methodology_version`.
-2. **Read methodology.** Call
-   `ReadMcpResourceTool(uri="methodology://planning-best-practices")` and
-   `ReadMcpResourceTool(uri="methodology://rendering/<host>")` where `<host>`
-   is `claude` or `cowork`.
-3. **Generate a `canvas_id`** (8 hex chars). Emit the canvas as a markdown
-   artifact with identifier `canvas-<canvas_id>-proposal`. One `## ` heading
-   per template section (heading text = template's `title` field, in template
-   order). All bodies empty.
-4. **Iterate.** For each section, propose content from `prompt_hint` plus the
-   client data above, wait for user feedback, revise, re-emit the FULL canvas
-   as a new version of the SAME artifact (same identifier).
-5. **Self-check.** Walk the rendered markdown: every section in
-   `template://proposal_v1` must have a `## ` heading in template order with
-   a non-empty body. Fix or ask the user before handoff.
-6. **Construct the envelope.** Build the dict:
-   ```json
-   {
-     "template_id": "proposal_v1",
-     "deliverable_type": "proposal",
-     "title": "<user-confirmed title>",
-     "client_id": "<resolved client_slug>",
-     "sections": [{"id": "<id>", "title": "<title>", "body": "<markdown>"}],
-     "meta": {
-       "canvas_id": "<8-char hex>",
-       "methodology_version": "<copied verbatim from template top-level>"
-     }
-   }
-   ```
-7. **Hand off to the formatter** with `{envelope}` (NOT `{canvas_id}`).
-   Formatters (`pptx`, `docx`, `pdf`) accept this envelope dict directly.
+1. **Resume or create.** First call `mcp__deliverable-canvas__canvas_list(client_id=<client_slug>, deliverable_type="proposal")`. If candidates exist, ask the user whether to resume a prior canvas; if yes, call `canvas_get(canvas_id)`. Otherwise call `canvas_create(deliverable_type="proposal", client_id=<client_slug>, title=<short>, template_id="proposal_v1", brief=<one-paragraph engagement summary>, opened_by_skill="proposal", methodology_version=<if known>)`.
+2. **Render the artifact.** Read `canvas://<canvas_id>/artifact` and emit it as an HTML artifact so the user sees the canvas alongside chat.
+3. **Per turn.** When the user instructs a section change ("make pricing more aggressive"), call `canvas_update_section(canvas_id, section_id=<one of: context, approach, scope, timeline, pricing, risks, next_steps>, body=<new full body>, summary=<one-line note>, instructed_by_user=True)`. For agent-initiated cleanups, set `instructed_by_user=False`. Re-emit the artifact after each write.
+4. **Finalize before formatter handoff.** Call `canvas_finalize(canvas_id)`. Then hand `canvas_id` to the formatter (`pptx`, `docx`, `pdf`) — the formatter calls `canvas_get` itself.
 
-**Failure mode.** If a canvas resource read fails, surface the error and ask
-the user: (a) wait, or (b) draft inline without the methodology guidance.
-Never silently degrade.
+**Failure mode.** If the canvas MCP is unreachable, surface the error and ask the user: (a) wait, or (b) draft inline without persistence. Never silently degrade.
 
 ## Overview
 
@@ -91,21 +44,22 @@ Use this skill when a user asks to:
 
 ## Company Data Integration
 
-This skill draws from structured company data stored in `companies/<company-name>/`.
+This skill draws from structured company data stored in `client-data/clients/<company-name>/`.
 
 ### Discovery
 
-1. **Default company: `dukestrategies`** — use automatically unless the user names a different proposing entity
-2. If the user specifies a collaborative brand or different company, check `companies/<name>/`
-3. If that directory doesn't exist, ask the user for company details
-4. Duke Strategies data is always available as a fallback for missing fields in collaborative proposals
+1. List `client-data/clients/` to find available company profiles
+2. If only one company exists, use it by default
+3. If multiple exist, ask which company is proposing
+4. If none exist, fall back to gathering inputs manually (as in legacy mode)
+5. After loading company data, check for `people.json` — use it for "Prepared by" and contact sections (filter by `roles` containing `"author"`, auto-select if `"default": true`)
 
 ### Loading Company Data
 
 ```
-companies/<name>/profile.json       → Company identity, services, pricing, credentials, legal
-companies/<name>/charter.json  → Visual identity (colors, fonts, logo, format settings)
-companies/<name>/proposals/           → Proposal content library:
+client-data/clients/<name>/profile.json       → Company identity, services, pricing, credentials, legal
+client-data/clients/<name>/charter.json  → Visual identity (colors, fonts, logo, format settings)
+client-data/clients/<name>/proposals/           → Proposal content library:
   ├── case-studies.json      → Past performance
   ├── team-bios.json         → Key personnel with bio variants
   ├── methodologies.json     → Standard approaches/frameworks
@@ -269,8 +223,8 @@ Draft each section following the guidance in [sections.md](references/sections.m
 
 Produce the document in the chosen output format. Pass the following context to the format production workflow:
 
-- **Brand charter**: `companies/<name>/charter.json`
-- **Logo**: `companies/<name>/logo.png`
+- **Brand charter**: `client-data/clients/<name>/charter.json`
+- **Logo**: `client-data/clients/<name>/logos/` (path in charter `logo` section)
 - **Drafted sections**: the content from Step 2
 - **Tone and archetype**: from intake Phase 2/3
 
@@ -363,7 +317,7 @@ These are the high-level checks. For detailed per-section checklists and common 
 
 ### Client Branding
 
-Brand data is loaded from `companies/<name>/charter.json`. The charter covers all output formats:
+Brand data is loaded from `client-data/clients/<name>/charter.json`. The charter covers all output formats:
 
 - **`document`** section → DOCX margins, headers, footers, heading colors
 - **`presentation`** section → PPTX slide margins, aspect ratio
@@ -402,7 +356,8 @@ workspace/<client>/
 ```
 
 **Override**: If the prompt specifies a target output directory, pass it through to the output format skill.
-**Discovery**: Before creating new output, check the project's `output/` folder for existing deliverables. Briefly mention what you find, then proceed with the current task.
+
+
 
 ## Output Format Production
 
@@ -416,5 +371,5 @@ This skill owns proposal content strategy. Document production is handled by the
 | XLSX | `xlsx` | Spreadsheet creation for pricing models |
 
 Brand context to carry forward:
-- Brand charter location: `companies/<name>/charter.json`
-- Apply heading color from `colors.primary`, body font from `fonts.body`, logo from `brand/logo.png`
+- Brand charter location: `client-data/clients/<name>/charter.json`
+- Apply heading color from `colors.primary`, body font from `fonts.body`, logo from `brand/logos/` (path in charter `logo` section)

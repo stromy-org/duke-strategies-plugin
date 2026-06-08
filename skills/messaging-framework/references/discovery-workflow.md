@@ -56,7 +56,7 @@ These apply regardless of framework type. Ask only those where the answer isn't 
 | Past case studies and results | `messaging/proof-points.json` (type: `"customer"`) |
 | Testimonials | `messaging/proof-points.json` (type: `"customer"`) |
 | Credentials, awards, certifications | `profile.json` → `credentials` |
-| Brand voice/tone (if established) | `brand/charter.json` or existing voice guide |
+| Brand voice/tone (if established) | `charter.json` or existing voice guide |
 
 ---
 
@@ -116,7 +116,7 @@ Before or during discovery, gather these inputs. Check off what's available vs. 
 ### From Company Data (Automated)
 
 - [ ] Company profile (`profile.json`)
-- [ ] Brand identity (`brand/charter.json`)
+- [ ] Brand identity (`charter.json`)
 - [ ] Existing messaging (`messaging/` directory)
 - [ ] Existing proof points (`messaging/proof-points.json`)
 - [ ] Credentials and awards (`profile.json` → `credentials`)

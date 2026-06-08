@@ -1,9 +1,37 @@
 ---
 name: press-release
-description: "Write AP-style corporate press releases — full governance lifecycle from newsworthiness assessment through drafting, legal review, and distribution. Covers all announcement types (launches, funding, partnerships, hires, crisis) with company-profile integration. Triggers on: press release, media announcement, news release, 'announce this', or 'tell the media about X'."
+description: "Write and manage corporate press releases with full governance lifecycle — from newsworthiness assessment through drafting, legal review, and distribution planning. Produces AP-style, journalist-ready releases with inverted pyramid structure, proper datelines, sourced quotes, and boilerplate from company data. Covers all announcement types: product launches, funding rounds, partnerships, acquisitions, executive hires, milestones, research/reports, and crisis communications. Integrates with company profiles for branded output, spokesperson management, and approval workflows. Use this skill whenever the user asks to write a press release, draft a media announcement, create a news release, prepare a PR statement, write an announcement for the press, handle media communications, or produce journalist-ready content — even if they just say 'announce this' or 'we need to tell the media about X'."
 ---
 
 # Corporate Press Release
+
+## Inputs from client-data
+
+- `companies/{client_slug}/charter.json` — brand identity
+- `companies/{client_slug}/profile.json` — company name, HQ, spokespeople
+- `companies/{client_slug}/press-releases/` (optional) — prior press releases for tone alignment
+- `client-data/clients/{client_slug}/voice/voice-profile.md` (optional) — entity voice profile (L2)
+- `client-data/clients/{client_slug}/voice/voice-anchors.md` (optional) — entity voice anchors (L2)
+
+## Voice
+
+A press release is prose, so run the org voice cascade before drafting the
+headline, lede, body, and quotes.
+
+1. **Read the L1 baseline.** When the `stromy-format` MCP is connected, read
+   `voice://baseline` (anti-AI-smell rules) and `voice://review` (the pre-output
+   review checklist) via `ReadMcpResourceTool`.
+2. **Read the local L2 profile when present.** Resolve the company slug as in
+   "Company Data Integration" and read
+   `client-data/clients/<slug>/voice/voice-profile.md` and `voice-anchors.md`
+   if they exist. When no slug is in scope, use the local `stromy` profile only
+   if that directory exists; otherwise proceed with L1 only.
+3. **Two-pass write.** Draft the release, run the review checklist against it,
+   then rewrite once before sending it into the approval workflow. Quotes are
+   the usual offender for AI cadence; check them especially.
+
+This is a text-only voice pass. The skill mentions the cascade as context; it
+does not invoke another skill.
 
 ## Overview
 
@@ -11,18 +39,20 @@ This skill produces corporate press releases that are simultaneously newsworthy,
 
 Press releases are still valued by journalists (Cision reports 72% prefer receiving them from PR teams), but relevance is the biggest filter. This skill enforces a newsworthiness gate before any drafting begins.
 
-## Brand Data Integration
+## Company Data Integration
 
-This is a **Duke Strategies plugin** — Duke branding is applied by default. Always load `companies/dukestrategies/` unless the user explicitly names a different company or collaborative brand (e.g., "Duke x Stromy"). If a different brand is named, check `companies/<name>/`; if that directory doesn't exist, ask the user for details.
+### Discovery
 
-### Brand data location
+1. List `client-data/clients/` for available company profiles
+2. One company → use by default; multiple → ask which company is announcing
+3. If none exist → gather company details manually during intake
 
-The default company data is at `companies/dukestrategies/`:
+### Loading Company Data
 
 ```
-companies/dukestrategies/profile.json        → Company name, tagline, HQ, contact, services
-companies/dukestrategies/charter.json   → Colors, fonts, logo (for branded PDF/HTML versions)
-companies/dukestrategies/press-releases/      → Press release content library:
+client-data/clients/<name>/profile.json        → Company name, tagline, HQ, contact, services
+client-data/clients/<name>/charter.json   → Colors, fonts, logo (for branded PDF/HTML versions)
+client-data/clients/<name>/press-releases/      → Press release content library:
   ├── spokespersons.json     → Approved spokespersons with titles, quote style, topics
   ├── boilerplate.json       → Company boilerplate versions (standard, short, product-specific)
   ├── distribution-lists.json → Media lists by beat, region, tier
@@ -31,17 +61,14 @@ companies/dukestrategies/press-releases/      → Press release content library:
 
 When no `press-releases/` directory exists, fall back to `profile.json` for company identity and ask the user for spokesperson details, boilerplate text, and approval requirements.
 
-### When using a non-Duke brand
-If the user specifies a collaborative or alternate brand that has no data in `companies/`, ask for company details. For fields the user doesn't provide, fall back to Duke Strategies defaults from `companies/dukestrategies/`. If the user explicitly asks for **unbranded** output, skip branding entirely.
-
 ### Content Assembly
 
 | Release Section | Content Source | Fallback |
 |----------------|---------------|----------|
 | Dateline city | `profile.json` → `company.headquarters.city` | Ask user |
 | Boilerplate | `press-releases/boilerplate.json` → match by variant | Ask user for 2-3 sentence company description |
-| Spokesperson | `press-releases/spokespersons.json` → match by topic | Ask user for name, title, quote |
-| Media contact | `press-releases/spokespersons.json` → `mediaContact` role | `profile.json` → `company.email` |
+| Spokesperson | `press-releases/spokespersons.json` → match by topic; `people.json` for contact details | Ask user for name, title, quote |
+| Media contact | `press-releases/spokespersons.json` → `mediaContact` role; `people.json` for contact details | `profile.json` → `company.email` |
 | Approval chain | `press-releases/approval-matrix.json` → match by classification | Default: Comms lead + subject-matter owner |
 | Distribution | `press-releases/distribution-lists.json` → match by beat | Recommend wire + targeted list |
 
@@ -228,7 +255,9 @@ Load these as needed — do not read all at once.
 
 ## Output Format
 
-The primary output is a markdown-formatted press release. When the user requests a specific format (PDF, DOCX, HTML), the press release content is produced first, then formatted using the appropriate format skill's capabilities.
+The primary output is a markdown-formatted press release. After the content is finalized, produce the document in the user's requested format.
+
+### Markdown Template
 
 ```markdown
 # [HEADLINE IN TITLE CASE]
@@ -259,6 +288,37 @@ The primary output is a markdown-formatted press release. When the user requests
 
 ###
 ```
+
+## Output Format Production
+
+This skill owns press release content — structure, editorial quality, governance, and distribution planning. Document production is handled by the appropriate format skill:
+
+| Output | Skill | What it provides |
+|--------|-------|-----------------|
+| DOCX | `docx` | Word document creation with branded letterhead styling, headers/footers |
+| PDF | `pdf` | PDF creation for distribution-ready releases |
+
+**Default**: If the user doesn't specify a format, produce markdown first and ask whether they'd like a formatted DOCX or PDF. Press releases are most commonly distributed as PDF attachments or pasted into wire services — recommend accordingly.
+
+**Brand context to carry forward** when producing formatted output:
+- Brand charter location: `client-data/clients/<name>/charter.json`
+- Apply heading color from `colors.primary`, body font from `fonts.body`, logo from `brand/logos/` (path in charter `logo` section)
+- Use `document` section from charter for margins, headers, footers
+- Include company logo on the release header if available
+
+## Output Location
+
+Press releases follow the standard workspace project structure:
+
+```
+workspace/<client>/
+├── build/<deliverable>/    ← build scripts and intermediates
+└── output/<deliverable>/   ← final press release files (docx, pdf)
+```
+
+**Override**: If the prompt specifies a target output directory, pass it through to the output format skill.
+
+
 
 ## Error Handling
 

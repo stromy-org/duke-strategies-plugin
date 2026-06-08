@@ -29,7 +29,7 @@ The user initiates with one of:
    - Submission requirements (format, deadline, page limits)
    - Evaluation criteria (if RFP)
 
-2. **Load company data** — discover and read from `companies/`:
+2. **Load company data** — discover and read from `client-data/clients/`:
    - `profile.json` for services, pricing, credentials
    - `proposals/case-studies.json` for relevant past performance
    - `proposals/team-bios.json` for available team members
