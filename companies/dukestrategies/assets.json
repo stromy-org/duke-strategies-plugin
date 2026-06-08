@@ -1,0 +1,481 @@
+{
+  "version": "1.0",
+  "fonts": [
+    {
+      "family": "Montserrat",
+      "weight": 100,
+      "style": "italic",
+      "sha256": "51607f316bc020e59f03cbf51543eecffbea501c0b31d73e5b82927c5cca442c",
+      "mime": "font/ttf",
+      "name": "Montserrat-Italic[wght].ttf"
+    },
+    {
+      "family": "Montserrat",
+      "weight": 100,
+      "style": "normal",
+      "sha256": "0f7b311b2f3279e4eef9b2f968bcdbab6e28f4daeb1f049f4f278a902bcd82f7",
+      "mime": "font/ttf",
+      "name": "Montserrat[wght].ttf"
+    },
+    {
+      "family": "Space Mono",
+      "weight": 700,
+      "style": "normal",
+      "sha256": "405e73d41afb7e5906efce206a326af5c956f38e255f35421c260e861e599c59",
+      "mime": "font/ttf",
+      "name": "SpaceMono-Bold.ttf"
+    },
+    {
+      "family": "Space Mono",
+      "weight": 400,
+      "style": "normal",
+      "sha256": "95837e182baeeada83368f7748db28357f0a1b75c6b84ff7065b5edf933c8e18",
+      "mime": "font/ttf",
+      "name": "SpaceMono-Regular.ttf"
+    }
+  ],
+  "logos": [
+    {
+      "name": "apple-touch-icon-180.png",
+      "sha256": "35f9e7fe7b9f22ba674bbfdf9668654afc1051c0e11b5fba1306fd1646c9f770",
+      "mime": "image/png"
+    },
+    {
+      "name": "favicon-192.png",
+      "sha256": "d5dfb6cc190b5c04b1eaac7c48998b93ba251a1c15179e47b932ca50cc284438",
+      "mime": "image/png"
+    },
+    {
+      "name": "favicon-32.png",
+      "sha256": "69b1ad6e4d19073854926950d57078509f6eb6504de2069f2caf5c7c95c050b3",
+      "mime": "image/png"
+    },
+    {
+      "name": "favicon.png",
+      "sha256": "14429a3daa48eafe9b4c42943173dbbe9878db2d8e8aa5afe5e8a2da69757bc6",
+      "mime": "image/png"
+    },
+    {
+      "name": "logo.png",
+      "sha256": "0e0b8c622bd52e6d9760cd48ccce4ead1fe0b36f6781f218214d8e4e36d40ce5",
+      "mime": "image/png"
+    },
+    {
+      "name": "logo.svg",
+      "sha256": "de925c69faf992e6fcebba9d0d1bcf93bf441fb0e9eddc59d6a0cffadffa3d50",
+      "mime": "image/svg+xml"
+    },
+    {
+      "name": "logo_grey.svg",
+      "sha256": "21f6c274ea2337f6ec5b5d210c031c90eb9d32389b1b7e087845402afbc33318",
+      "mime": "image/svg+xml"
+    },
+    {
+      "name": "logo_white.png",
+      "sha256": "310401c24a07b323795041f41ce91890b69aabdd6ffe2cf1a462014499aa01ae",
+      "mime": "image/png"
+    }
+  ],
+  "images": [
+    {
+      "name": "Erasmusbrug_zwart-16x9.jpg",
+      "sha256": "fb8aa80113f1c0bb28f1cab25ec43fbd4b92b04a58d02a392ab2d09c0306f300",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "Erasmusbrug_zwart-1x1.jpg",
+      "sha256": "540b0193c3b99593b10ae2437dd2d1e0c9655f374cef528e3ea6790833403ab2",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "Erasmusbrug_zwart-2x1.jpg",
+      "sha256": "4937345d24c9132d945af2395f7adfd99d8589524db9c28f2308fc2518f24350",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "Erasmusbrug_zwart.jpg",
+      "sha256": "2c36baf5d67de4298f821e7981440ab38d0dfb9ca372ac5f117e69826787405e",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "Nesciobrug-16x9.jpg",
+      "sha256": "8aa375bd9f36c2e91b4488089eb963719853bdf14c57e8c5fcf0e02e580011ae",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "Nesciobrug-1x1.jpg",
+      "sha256": "4747f8adc9e6e1cfc531b5b90580f5b4b1f0362715ed55240118f51d4861dc43",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "Nesciobrug-2x1.jpg",
+      "sha256": "5de80795d7c3b8569d7a2d2a6626c8e6db58fb9fbdf18a9b0414b685e2a26e58",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "Nesciobrug.jpg",
+      "sha256": "05e89de926a1721aa162d14fb6b6fcab8a0c99c04a0252ef04cdb9a8dc5c1f82",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "Pythonbrug_Amsterdam_contrast-16x9.jpg",
+      "sha256": "fca5a4d0d0c06a5fb81d8f1566407ba848358e2d7e194d21765b8d331ab4d752",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "Pythonbrug_Amsterdam_contrast-1x1.jpg",
+      "sha256": "6a33341bb77134416eb39bc79ab78a5300908fe3f282f5be4d88e193c59fc13e",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "Pythonbrug_Amsterdam_contrast-2x1.jpg",
+      "sha256": "4854f90ab1d5403cbd14d4ef882ba8af247a4a402e4597d9a8d55d310410a986",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "Pythonbrug_Amsterdam_contrast.jpg",
+      "sha256": "fb87ca55f811d8b356ea07a5997af544e7a57aea7570145052c7b39f39c52dbe",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "bridge-architecture-bw-lines-16x9.jpg",
+      "sha256": "15976650d9f2fc344c7494b5e611031558231842cbcf16b9da543d606af0ccfd",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "bridge-architecture-bw-lines-1x1.jpg",
+      "sha256": "58309c93d609035e2881694a39ddae4a57face25382aa99222314c8c813a185d",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "bridge-architecture-bw-lines-2x1.jpg",
+      "sha256": "fec9ede94478e6ba1c2f951218e2b38dce36d35d06b9b5e66d94d83568e2d034",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "bridge-architecture-bw-lines.jpg",
+      "sha256": "55372c2b8534b359e6da97b0eba2dc48ec0649cccb191f5f3af67213646f805f",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "bridge-fog-water-minimalist-16x9.jpg",
+      "sha256": "6be47c5f5dc3a5c01e7024f2dcbbf4f89295f7b8309194276dc5a37e04b33d7d",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "bridge-fog-water-minimalist-1x1.jpg",
+      "sha256": "b817bd1f6c342335850f4151aba9714fbfb0f3aa9597e13c0ac4b182a2df3369",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "bridge-fog-water-minimalist-2x1.jpg",
+      "sha256": "8976e74d8b53e4e545f9c9804565f7ef4de74646434154d68e0a750d0a636185",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "bridge-fog-water-minimalist.jpg",
+      "sha256": "aafbac5e90d3232a295bbc6c82ea4680dcd98ff8993216f4d594299f7a27aebb",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "brooklyn-bridge-bw-16x9.jpg",
+      "sha256": "6362f5a95a6b58e59d5def7a1a67bbfe17203893b7db30c388ddb75f0aba0837",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "brooklyn-bridge-bw-1x1.jpg",
+      "sha256": "206a3a44bd461a30c1b2eb183bfc687720f9fbd86819f6a5ce1bc9cd50126e82",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "brooklyn-bridge-bw-2x1.jpg",
+      "sha256": "043ee3016b67d0a7e8358849977e089f8fec0cf1ca671cb0281bc4b201860034",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "brooklyn-bridge-bw.jpg",
+      "sha256": "244568765b5db24e4decb50513df884fe91f1bdf78acb91b55612f044f7668d8",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "cable-bridge-dark-sky-dramatic-16x9.jpg",
+      "sha256": "e0f4cef737a7dcbc6ca25170427e033017484f1b89a147d77a3ffd90b3acb2af",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "cable-bridge-dark-sky-dramatic-1x1.jpg",
+      "sha256": "31666c2511990e4aea6cfb97117fece5dd17e38178d06c622e4041f45f2cd413",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "cable-bridge-dark-sky-dramatic-2x1.jpg",
+      "sha256": "4960f65089b826feefbcc294f5d8d998d7c75b207a2c4095190d933b81031afa",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "cable-bridge-dark-sky-dramatic.jpg",
+      "sha256": "ac146612ecc3a125598ad926ec415dd06bc7924381e0db92871983164dcc567b",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "cable-bridge-geometric-perspective-16x9.jpg",
+      "sha256": "6ddd456069a8fc35fb4d18fe5c88563fd64de1d038d2f0089f588def90d4f00f",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "cable-bridge-geometric-perspective-1x1.jpg",
+      "sha256": "9df7b07f0c85ebcade9359d8304e37f0e956c08852c4b61f0cfdbf08470f408e",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "cable-bridge-geometric-perspective-2x1.jpg",
+      "sha256": "a910564923edba219e21fe395aae4c295fb47551dbb93ae179726e53393eaebe",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "cable-bridge-geometric-perspective.jpg",
+      "sha256": "e35531dc17884832ed9375823fdc6861be8076c762e28b0ebd2d97281ebdf4b2",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "cable-bridge-golden-hour-16x9.jpg",
+      "sha256": "522aa6833e37fc153c588d51f09022c1450c64ff11c2b4da2ab2a802a6b166f2",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "cable-bridge-golden-hour-1x1.jpg",
+      "sha256": "dfb8172d0d016db0c1db0ee5a2cf0d1bc7487ad4506f1f8ab4eb206b4106e4bb",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "cable-bridge-golden-hour-2x1.jpg",
+      "sha256": "135cb9409ddafed1a97f448856f7d6c756508f7ef73f31c4f230cd69d38f575c",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "cable-bridge-golden-hour.jpg",
+      "sha256": "e63f84273a0590b375cf04cc99831d17b598bdfcd65e0753c94633249e246e28",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "cable-bridge-grayscale-dramatic-16x9.jpg",
+      "sha256": "f68f2c754059e310330a0d6ed2783aad4b0604195b0a2c8394d521054c81eaac",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "cable-bridge-grayscale-dramatic-1x1.jpg",
+      "sha256": "24a807c58b0d1b7dfddc1c9ab427f9d57794c0b9fd3ede40f045a4979d35f1d9",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "cable-bridge-grayscale-dramatic-2x1.jpg",
+      "sha256": "8b290f632f71e1531382f2b6406d8444bfa50c919fab704557a5eb3768f0a76a",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "cable-bridge-grayscale-dramatic.jpg",
+      "sha256": "786581293b83802c7d0af8c4aa9669161222c1294be52654a4a96061ff55b6dd",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "cable-stayed-bridge-night-illuminated-16x9.jpg",
+      "sha256": "f1c092d073d7e0779c993e6566b1a6b6ebdb9c2bc586c0c6fd696db7197745ed",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "cable-stayed-bridge-night-illuminated-1x1.jpg",
+      "sha256": "c244231e9893b840aa09f4050062bd1f7d3792ec94a5a3f369d2ae29711570df",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "cable-stayed-bridge-night-illuminated-2x1.jpg",
+      "sha256": "44733598ff0412bc8e32797c3e7ed39de07de4cea71c066f7110ca4ad37bffb1",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "cable-stayed-bridge-night-illuminated.jpg",
+      "sha256": "23d0d4d19166add15917067259160b4bd07744981d1188a489cb7acee1d353e4",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "erasmus-bridge-rotterdam-abstract-16x9.jpg",
+      "sha256": "a2b114b2d4f5914351c9bcec033d90c2f66048efdfd6a4077bae1c9a798e2260",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "erasmus-bridge-rotterdam-abstract-1x1.jpg",
+      "sha256": "ed16d8660259579ae23a040c7add9f1d80c9f6b039f5657ce7fc5a4cc14a15ea",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "erasmus-bridge-rotterdam-abstract-2x1.jpg",
+      "sha256": "2a8fed15eb3eaea98ce45b7ee6a40b0981ce41ce392d93ace747dfd5282dfd36",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "erasmus-bridge-rotterdam-abstract.jpg",
+      "sha256": "fbaa680344bea566884abc052f043ea33687d840416b5731f6bdc74a17c25f3d",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "erasmus-bridge-rotterdam-daytime-16x9.jpg",
+      "sha256": "51ebb8a67387faeb3969e05d56237fe1aed8f82c3b7490f6821e932db2a5040b",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "erasmus-bridge-rotterdam-daytime-1x1.jpg",
+      "sha256": "1267ac3ce2f6e0eeba6a426db0c6375befb08022b62313953855c6992fb0b26a",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "erasmus-bridge-rotterdam-daytime-2x1.jpg",
+      "sha256": "6fe72c2db82bdc2b42caec49222a4d1161b8d46f730321aac9e5a5d35728dd10",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "erasmus-bridge-rotterdam-daytime.jpg",
+      "sha256": "a5dff5a00a4b800789fb324935af2363c00a8386eb8a698d3059bfc27e3a0cfc",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "erasmus-bridge-rotterdam-grayscale-16x9.jpg",
+      "sha256": "06a0122b5209513358150485af92e31d662f23df06d634ba24964847440aaa24",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "erasmus-bridge-rotterdam-grayscale-1x1.jpg",
+      "sha256": "b48061797131ada84b7ca000e83ff413d660d86c20c1cf2d6b872ad139be8469",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "erasmus-bridge-rotterdam-grayscale-2x1.jpg",
+      "sha256": "a6fc2a599ad520674e802589941afa03cbed34d0d9bd7322ed6e74f7fa66e7b1",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "erasmus-bridge-rotterdam-grayscale.jpg",
+      "sha256": "9ecfec42b1a684587d7fff5bb58b50ee271fc1508b750fd7eb7c0b3849209c17",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "long-bridge-sunset-dramatic-16x9.jpg",
+      "sha256": "f699b6865f5f3533efff2831276f8b220e4ebce5a95c0a32b797f57e281062ef",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "long-bridge-sunset-dramatic-1x1.jpg",
+      "sha256": "3b830395998d85b59629b9ad72236347194b7976e6985f8f2e370385b3571957",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "long-bridge-sunset-dramatic-2x1.jpg",
+      "sha256": "2d9f8aae003690928b678ecd2244c4fbf68bd44f1014894d91e405a4a7b549ae",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "long-bridge-sunset-dramatic.jpg",
+      "sha256": "03c741cc2f94f49e04132be3e834500afcb6d7fcba73136c21358fe6c1bafd04",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "modern-bridge-bw-dramatic-16x9.jpg",
+      "sha256": "452678842cb839de1de46f77184ea524042b949b59e6c1815acefe16530a88e9",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "modern-bridge-bw-dramatic-1x1.jpg",
+      "sha256": "57a460433de0d3228701b14016c44633d0060f19d25ccd80ccf25b1fd5a5eac4",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "modern-bridge-bw-dramatic-2x1.jpg",
+      "sha256": "b061f0b7be1d10e1d3d5d8a7b501c442d68905e3d0c3886a7f20ba9c6fbcf3a0",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "modern-bridge-bw-dramatic.jpg",
+      "sha256": "b95d6f9e1e98d828ed185e9d1ddb50d275b337f555d06e3f23af7ea657c6d687",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "modern-cable-bridge-calm-water-16x9.jpg",
+      "sha256": "771fa2c5d8ecf0c0426ab785db999bbed82d12cf2585133be907d2b0eb1418cc",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "modern-cable-bridge-calm-water-1x1.jpg",
+      "sha256": "e5c14213dbe0ebbe4340333a0cf43617bbc758d74c7f9eaafb4ebb663b16afc2",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "modern-cable-bridge-calm-water-2x1.jpg",
+      "sha256": "15e249b6b715c27d8e7c13d82ce52f275ea30bf7fbe4ffb590d328b95735d1c4",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "modern-cable-bridge-calm-water.jpg",
+      "sha256": "cbbfee3f265520a9ea566613bc8e41aece0dbf7e222bb3bae5fbfd01f2c7d28a",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "pedestrian-bridge-bw-modern-16x9.jpg",
+      "sha256": "0f9a7ddfdacaf5c70117586fd59c435fc5e60c9643a1b0eb345147cffcc8615d",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "pedestrian-bridge-bw-modern-1x1.jpg",
+      "sha256": "4839e06334493ed28570911f6b582b26bf08a25decbd564c08d25c4ff5e4cdd2",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "pedestrian-bridge-bw-modern-2x1.jpg",
+      "sha256": "ff9feed81b981fe44e984ec0d0c1bcd2c08820695904d82d96abe2d46ea3d9e1",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "pedestrian-bridge-bw-modern.jpg",
+      "sha256": "2a746cdd9c94e4a173eded3f3d978f08f93c98c743414a7516896c1c84f61539",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "rotterdam-bridge-cityscape-16x9.jpg",
+      "sha256": "c44681748b9188431031ec3286274dfdb8b62f2765218dad958cd98dac2c758a",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "rotterdam-bridge-cityscape-1x1.jpg",
+      "sha256": "16ecc9aed73ede6da092cac3a84dbaaa82c0125d66109b47f1d0bb24f89bb14d",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "rotterdam-bridge-cityscape-2x1.jpg",
+      "sha256": "79326214e2f13800c100c1a7a42712d756ee80e9d8a3c29ffe577805a803955f",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "rotterdam-bridge-cityscape.jpg",
+      "sha256": "48bc13adedb429b3895fa8afcfff0ff5262f3bb92fe660c9d6ab6e5380253cf7",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "shutterstock_1510566293_RoyalWelshbrug_zwart_1920x1280px_dark-16x9.jpg",
+      "sha256": "4bd351d71c09b87713ce247fae8599b171c6539b65fcd41d40b35b44a713e584",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "shutterstock_1510566293_RoyalWelshbrug_zwart_1920x1280px_dark-1x1.jpg",
+      "sha256": "91073c6a6a39bcb9258daed5bd14331958e2cde5af8ea0f78ea46d84b319f696",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "shutterstock_1510566293_RoyalWelshbrug_zwart_1920x1280px_dark-2x1.jpg",
+      "sha256": "c3d2a20644a5bc4fbab3c0717029832f22f516c576c7c23e3949c1fd574e2b58",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "shutterstock_1510566293_RoyalWelshbrug_zwart_1920x1280px_dark.jpg",
+      "sha256": "a1bb7b4ba1877797c032216ddbb1f9a2c9c416893836413d870410cc7b64a63d",
+      "mime": "image/jpeg"
+    }
+  ]
+}
