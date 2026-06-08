@@ -1,28 +1,58 @@
 ---
 name: messaging-framework
-description: "Build structured messaging frameworks (Message House, Hierarchy, Matrix, Strategic Narrative, Product Messaging) — narrative, pillars, proof points, audience adaptations, verbal guardrails. Branded output from company profiles; reusable content library for downstream skills. Triggers on: messaging framework, message house, messaging pillars, key messages, brand messaging, 'what should we say', or 'messaging for X'."
+description: "Build structured messaging frameworks — core narrative, messaging pillars, proof points, audience adaptations, and verbal guardrails — from positioning and research inputs. Supports five framework types: Message House, Messaging Hierarchy, Messaging Matrix, Strategic Narrative, and Product Messaging. Produces format-agnostic messaging architecture that downstream skills (talking-points, media-pitch, campaign briefs) can consume. Integrates with company profiles for branded output and maintains a reusable messaging content library. Use this skill whenever the user asks to build a messaging framework, create a message house, develop messaging pillars, write a messaging hierarchy, build a messaging matrix, define key messages, create a messaging architecture, develop brand messaging, write positioning messages, structure audience-specific messaging, or anything involving 'what should we say and to whom' — even if they just say 'we need messaging for X' or 'help me figure out what to say about this.'"
 ---
 
 # Messaging Framework
+
+## Inputs from client-data
+
+- `companies/{client_slug}/charter.json` — brand identity
+- `companies/{client_slug}/profile.json` — company positioning + audiences
+- `companies/{client_slug}/messaging/` (optional) — prior frameworks for context
+- `client-data/clients/{client_slug}/voice/voice-profile.md` (optional) — entity voice profile (L2)
+- `client-data/clients/{client_slug}/voice/voice-anchors.md` (optional) — entity voice anchors (L2)
+
+## Voice
+
+Messaging copy is prose, so run the org voice cascade before writing any
+audience-facing language (core narrative, pillar statements, proof points,
+adaptations).
+
+1. **Read the L1 baseline.** When the `stromy-format` MCP is connected, read
+   `voice://baseline` (anti-AI-smell rules) and `voice://review` (the pre-output
+   review checklist) via `ReadMcpResourceTool`.
+2. **Read the local L2 profile when present.** Resolve the company slug as in
+   "Company Data Integration" and read
+   `client-data/clients/<slug>/voice/voice-profile.md` and `voice-anchors.md`
+   if they exist. When no slug is in scope, use the local `stromy` profile only
+   if that directory exists; otherwise proceed with L1 only.
+3. **Two-pass write.** Draft the messaging language, run the review checklist
+   against it, then rewrite once before finalizing the framework.
+
+This is a text-only voice pass. The skill mentions the cascade as context; it
+does not invoke another skill.
 
 ## Overview
 
 This skill builds structured messaging frameworks — the strategic bridge between positioning and execution. A messaging framework organizes an organization's core claims, supporting evidence, and audience-specific language into a reusable system that teams can actually pull from when writing copy, preparing spokespeople, briefing agencies, or planning campaigns.
 
-The skill is format-agnostic: it produces messaging architecture as structured content, then outputs in whatever format the user needs (markdown, DOCX, PPTX, PDF). It also populates a reusable content library under `companies/<company>/messaging/` so downstream comms skills can consume the same pillars, proof points, and audience profiles.
+The skill is format-agnostic: it produces messaging architecture as structured content, then outputs in whatever format the user needs (markdown, DOCX, PPTX, PDF). It also populates a reusable content library under `client-data/clients/<company>/messaging/` so downstream comms skills can consume the same pillars, proof points, and audience profiles.
 
-## Brand Data Integration
+## Company Data Integration
 
-This is a **Duke Strategies plugin** — Duke branding is applied by default. Always load `companies/dukestrategies/` unless the user explicitly names a different company or collaborative brand (e.g., "Duke x Stromy"). If a different brand is named, check `companies/<name>/`; if that directory doesn't exist, ask the user for details.
+### Discovery
 
-### Brand data location
+1. List `client-data/clients/` for available company profiles
+2. One company → use by default; multiple → ask which company's messaging this is for
+3. If none exist → gather company details manually during intake
 
-The default company data is at `companies/dukestrategies/`:
+### Loading Company Data
 
 ```
-companies/dukestrategies/profile.json           → Company identity, services, value proposition
-companies/dukestrategies/charter.json      → Colors, fonts, logo (for branded output)
-companies/dukestrategies/messaging/              → Messaging content library:
+client-data/clients/<name>/profile.json           → Company identity, services, value proposition
+client-data/clients/<name>/charter.json      → Colors, fonts, logo (for branded output)
+client-data/clients/<name>/messaging/              → Messaging content library:
   ├── pillars.json         → Reusable messaging pillars with proof attachments
   ├── proof-points.json    → Evidence library organized by type and topic
   ├── audiences.json       → Audience profiles with pain points, vocabulary, decision criteria
@@ -45,8 +75,7 @@ Each component loads from its own source within the messaging library or company
 | Services/capabilities | `profile.json` → `services[]` | Ask user |
 | Credentials | `profile.json` → `credentials` | Omit |
 
-### When using a non-Duke brand
-If the user specifies a collaborative or alternate brand that has no data in `companies/`, ask for company details. For fields the user doesn't provide, fall back to Duke Strategies defaults from `companies/dukestrategies/`. If the user explicitly asks for **unbranded** output, skip branding entirely.
+**Client resolution**: If the user doesn't specify which company's messaging they're building, and multiple companies exist in `client-data/clients/`, ask — don't infer. For a single company, use it by default and confirm.
 
 ## Framework Types
 
@@ -222,7 +251,7 @@ Flag any criterion that fails and suggest fixes before finalizing.
 
 **Step 2: Produce output**
 
-The primary output is a structured markdown document. When the user requests a specific format (DOCX, PPTX, PDF), produce the messaging content first, then format it. The `pptx` skill handles presentations, the `docx` skill handles Word documents, and the `pdf` skill handles PDFs.
+The primary output is a structured markdown document. After the content is finalized, produce the document in the user's requested format. See the Output Format Production section below for format skill mapping and brand context.
 
 The output structure depends on the framework type — see [framework-types.md](references/framework-types.md) for type-specific templates.
 
@@ -231,7 +260,7 @@ The output structure depends on the framework type — see [framework-types.md](
 After the user approves the framework, offer to save it to the company's messaging library:
 
 ```
-companies/<company>/messaging/
+client-data/clients/<company>/messaging/
 ├── pillars.json         → Pillar headlines, short statements, message lengths, proof attachments
 ├── proof-points.json    → All proof points with type, source, and pillar linkage
 ├── audiences.json       → Audience profiles with adaptations and channel guidance
@@ -276,3 +305,34 @@ Load these as needed — do not read all at once.
 | Too many audiences (5+) | Recommend prioritizing 3-4 primary audiences and noting the rest for future adaptation |
 | User wants "just a tagline" | Explain that a tagline without a framework behind it tends to be arbitrary — offer a lightweight Message House as minimum viable structure |
 | Framework type unclear | Default to Message House (simplest, most portable) and offer to expand later |
+
+## Output Format Production
+
+This skill owns messaging architecture — framework structure, pillar development, proof mapping, and audience adaptation. Document production is handled by the appropriate format skill:
+
+| Output | Skill | What it provides |
+|--------|-------|-----------------|
+| DOCX | `docx` | Word document creation with branded styling, heading hierarchy |
+| PPTX | `pptx` | Branded presentation — ideal for Message House and Strategic Narrative visual formats |
+| PDF | `pdf` | PDF creation for distribution-ready frameworks |
+
+**Default**: If the user doesn't specify a format, produce markdown first and ask whether they'd like a formatted deliverable. Recommend PPTX for Message House and Strategic Narrative (visual structures that present well as slides), DOCX for Messaging Hierarchy and Messaging Matrix (reference documents teams pull language from).
+
+**Brand context to carry forward** when producing formatted output:
+- Brand charter location: `client-data/clients/<name>/charter.json`
+- Apply heading color from `colors.primary`, body font from `fonts.body`, logo from `brand/logos/` (path in charter `logo` section)
+- Use `document` section from charter for DOCX margins/headers, `presentation` section for PPTX layout
+
+## Output Location
+
+Messaging frameworks follow the standard workspace project structure:
+
+```
+workspace/<client>/
+├── build/<deliverable>/    ← build scripts and intermediates
+└── output/<deliverable>/   ← final messaging files (docx, pptx, pdf)
+```
+
+**Override**: If the prompt specifies a target output directory, pass it through to the output format skill.
+
+
