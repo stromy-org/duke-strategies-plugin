@@ -10,8 +10,8 @@ description: "Build structured messaging frameworks — core narrative, messagin
 - `companies/{client_slug}/charter.json` — brand identity
 - `companies/{client_slug}/profile.json` — company positioning + audiences
 - `companies/{client_slug}/messaging/` (optional) — prior frameworks for context
-- `client-data/clients/{client_slug}/voice/voice-profile.md` (optional) — entity voice profile (L2)
-- `client-data/clients/{client_slug}/voice/voice-anchors.md` (optional) — entity voice anchors (L2)
+- `companies/{client_slug}/voice/voice-profile.md` (optional) — entity voice profile (L2)
+- `companies/{client_slug}/voice/voice-anchors.md` (optional) — entity voice anchors (L2)
 
 ## Voice
 
@@ -24,7 +24,7 @@ adaptations).
    review checklist) via `ReadMcpResourceTool`.
 2. **Read the local L2 profile when present.** Resolve the company slug as in
    "Company Data Integration" and read
-   `client-data/clients/<slug>/voice/voice-profile.md` and `voice-anchors.md`
+   `companies/<slug>/voice/voice-profile.md` and `voice-anchors.md`
    if they exist. When no slug is in scope, use the local `stromy` profile only
    if that directory exists; otherwise proceed with L1 only.
 3. **Two-pass write.** Draft the messaging language, run the review checklist

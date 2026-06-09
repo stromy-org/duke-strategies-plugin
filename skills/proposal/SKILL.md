@@ -12,6 +12,23 @@ license: Proprietary. LICENSE.txt has complete terms
 - `companies/{client_slug}/profile.json` — company name, services, regions
 - `companies/{client_slug}/proposals/methodologies.json` (optional) — methodology library
 - `companies/{client_slug}/boilerplate.json` (optional) — boilerplate sections
+- `companies/{client_slug}/voice/voice-profile.md` (optional) — entity voice profile (L2)
+- `companies/{client_slug}/voice/voice-anchors.md` (optional) — entity voice anchors (L2)
+
+## Voice
+
+A proposal is client-facing prose, so run the org voice cascade before writing the
+narrative sections (context, approach, scope, pricing rationale, next steps).
+
+1. **Read the L1 baseline.** When the `stromy-format` MCP is connected, read
+   `voice://baseline` (anti-AI-smell rules) and `voice://review` (the pre-output
+   review checklist) via `ReadMcpResourceTool`.
+2. **Read the local L2 profile when present.** Resolve the company slug as in
+   "Company Data Integration" and read `companies/<slug>/voice/voice-profile.md` and
+   `voice-anchors.md` if they exist.
+3. **Apply, then disclose.** Review the draft against L1 + L2; if neither is
+   reachable, say so explicitly rather than letting a silent skip read as a pass.
+   L2 may add bans but never relax L1.
 
 ## Canvas protocol (prerequisite)
 
