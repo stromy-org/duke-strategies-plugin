@@ -10,8 +10,8 @@ description: "Write and manage corporate press releases with full governance lif
 - `companies/{client_slug}/charter.json` — brand identity
 - `companies/{client_slug}/profile.json` — company name, HQ, spokespeople
 - `companies/{client_slug}/press-releases/` (optional) — prior press releases for tone alignment
-- `client-data/clients/{client_slug}/voice/voice-profile.md` (optional) — entity voice profile (L2)
-- `client-data/clients/{client_slug}/voice/voice-anchors.md` (optional) — entity voice anchors (L2)
+- `companies/{client_slug}/voice/voice-profile.md` (optional) — entity voice profile (L2)
+- `companies/{client_slug}/voice/voice-anchors.md` (optional) — entity voice anchors (L2)
 
 ## Voice
 
@@ -23,7 +23,7 @@ headline, lede, body, and quotes.
    review checklist) via `ReadMcpResourceTool`.
 2. **Read the local L2 profile when present.** Resolve the company slug as in
    "Company Data Integration" and read
-   `client-data/clients/<slug>/voice/voice-profile.md` and `voice-anchors.md`
+   `companies/<slug>/voice/voice-profile.md` and `voice-anchors.md`
    if they exist. When no slug is in scope, use the local `stromy` profile only
    if that directory exists; otherwise proceed with L1 only.
 3. **Two-pass write.** Draft the release, run the review checklist against it,
