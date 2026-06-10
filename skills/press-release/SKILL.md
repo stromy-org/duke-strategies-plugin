@@ -33,6 +33,17 @@ headline, lede, body, and quotes.
 This is a text-only voice pass. The skill mentions the cascade as context; it
 does not invoke another skill.
 
+## Deliverable canvas (prerequisite)
+
+This skill produces a structured deliverable. The working draft MUST live in a single **chat markdown artifact** — the deliverable canvas. The canvas is the source of truth for the in-progress release; chat scroll-back is not. No server, no MCP — the markdown artifact IS the canvas.
+
+1. **Open the canvas** once the release blueprint is approved (Phase 4): one markdown artifact with identifier `canvas-<canvas_id>-press_release` (`canvas_id` = 8 random hex chars, minted once per chat), one `## <Section Title>` heading per blueprint section in order; undrafted sections hold a one-line `_to draft_` placeholder.
+2. **Iterate in the canvas.** After every change, re-emit the **full** canvas as a new version of the SAME artifact (same identifier) — never a delta, never a second artifact, never final prose that lives only in a chat reply. One chat = one canvas.
+3. **Sign-off gate.** Before invoking any format skill or `render_*` tool, every section must be substantive (no `TBD`/placeholders), the governance review must be complete, and the user must explicitly confirm the canvas is final.
+4. **Hand off** the finalized canvas content to the format skill as the envelope `{deliverable_type: "press_release", title, client_id: <client_slug>, sections: [{id, title, body}], meta: {canvas_id}}` — the formatter renders from the envelope, never from chat history.
+
+**Legacy note.** This skill does not use the `deliverable-canvas` MCP; if such a server is connected, ignore it and author the canvas inline as above.
+
 ## Overview
 
 This skill produces corporate press releases that are simultaneously newsworthy, journalist-friendly, factually rigorous, digitally discoverable, and legally reviewed for disclosure risk. It owns the full lifecycle — from deciding whether an announcement merits a release through drafting, approval, distribution planning, and post-publication corrections.
@@ -290,6 +301,8 @@ The primary output is a markdown-formatted press release. After the content is f
 ```
 
 ## Output Format Production
+
+**Gate: do not produce formatted output until the deliverable canvas sign-off gate has passed** (see "Deliverable canvas" above).
 
 This skill owns press release content — structure, editorial quality, governance, and distribution planning. Document production is handled by the appropriate format skill:
 
