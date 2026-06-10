@@ -17,20 +17,9 @@ All output uses Duke Strategies branding (colors, fonts, logos, photography) aut
 
 ## Canvas UX
 
-Strategic skills (`proposal`, `messaging-framework`, `press-release`) use the **deliverable-canvas** MCP server as the source of truth for the in-progress deliverable. Each section (Context, Approach, Pricing, etc.) is stored server-side and rendered live as a Claude Desktop artifact alongside chat. Edits flow through chat (you instruct, the agent updates the canvas), and the same canvas can be resumed in any future session from any agent.
+Strategic skills (`proposal`, `messaging-framework`, `press-release`) draft the in-progress deliverable in a single **chat markdown artifact** — the deliverable canvas. Each section (Context, Approach, Pricing, etc.) is iterated in that artifact: you give feedback in chat, the agent revises and re-emits the same artifact. The canvas — not chat scroll-back — is the source of truth for the document.
 
-When you finalize, the formatter (`pptx`, `docx`, `pdf`) reads the canvas state by `canvas_id` — no chat replay, no regeneration of structure.
-
-### Env vars
-
-Set these in `.env` (or your shell) before invoking a strategic skill:
-
-| Variable | Required | Example | Notes |
-|---|---|---|---|
-| `DELIVERABLE_CANVAS_MCP_URL` | yes | `https://deliverable-canvas.<region>.azurecontainerapps.io/mcp` | Provided by the org during onboarding |
-| `DELIVERABLE_CANVAS_MCP_KEY` | yes | _per-tenant_ | Treat as a secret; do not commit |
-
-If the canvas MCP is unreachable, strategic skills will surface the error and ask whether to draft inline (no persistence) or wait.
+Only after you explicitly sign off on the canvas does the agent hand the finalized sections to a formatter (`pptx`, `docx`, `pdf`) to render the branded document. No server or extra setup is involved — the canvas lives entirely in the chat. One chat = one canvas; to revise later, reopen the chat or paste the markdown into a new one.
 
 ## Prerequisites
 

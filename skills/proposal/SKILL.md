@@ -30,18 +30,20 @@ narrative sections (context, approach, scope, pricing rationale, next steps).
    reachable, say so explicitly rather than letting a silent skip read as a pass.
    L2 may add bans but never relax L1.
 
-## Canvas protocol (prerequisite)
+## Deliverable canvas (prerequisite)
 
-This skill produces a structured deliverable — it MUST use the deliverable canvas (see the [`deliverable-canvas`](../deliverable-canvas/SKILL.md) skill for the full protocol). The canvas is the source of truth for the in-progress proposal; chat scroll-back is not.
+This skill produces a multi-section deliverable. The working draft MUST live in a single **chat markdown artifact** — the deliverable canvas. The canvas is the source of truth for the in-progress proposal; chat scroll-back is not. No server, no MCP — the markdown artifact IS the canvas.
 
-**Required tool sequence:**
+**Protocol:**
 
-1. **Resume or create.** First call `mcp__deliverable-canvas__canvas_list(client_id=<client_slug>, deliverable_type="proposal")`. If candidates exist, ask the user whether to resume a prior canvas; if yes, call `canvas_get(canvas_id)`. Otherwise call `canvas_create(deliverable_type="proposal", client_id=<client_slug>, title=<short>, template_id="proposal_v1", brief=<one-paragraph engagement summary>, opened_by_skill="proposal", methodology_version=<if known>)`.
-2. **Render the artifact.** Read `canvas://<canvas_id>/artifact` and emit it as an HTML artifact so the user sees the canvas alongside chat.
-3. **Per turn.** When the user instructs a section change ("make pricing more aggressive"), call `canvas_update_section(canvas_id, section_id=<one of: context, approach, scope, timeline, pricing, risks, next_steps>, body=<new full body>, summary=<one-line note>, instructed_by_user=True)`. For agent-initiated cleanups, set `instructed_by_user=False`. Re-emit the artifact after each write.
-4. **Finalize before formatter handoff.** Call `canvas_finalize(canvas_id)`. Then hand `canvas_id` to the formatter (`pptx`, `docx`, `pdf`) — the formatter calls `canvas_get` itself.
+1. **Open the canvas** once the content plan is approved (Phase 3). Emit one markdown artifact with identifier `canvas-<canvas_id>-proposal` (`canvas_id` = 8 random hex chars, minted once per chat) containing one `## <Section Title>` heading per planned section, in skeleton order. Sections not yet drafted hold a one-line `_to draft_` placeholder.
+2. **Iterate in the canvas.** Draft and revise section-by-section. After every change, re-emit the **full** canvas as a new version of the SAME artifact (same identifier) — never a delta, never a second artifact, never final prose that lives only in a chat reply. One chat = one canvas.
+3. **Converge with the user.** Walk the sections with the user, apply feedback, re-emit. Write the Executive Summary last, once all other sections are stable.
+4. **Self-check before handoff.** Every planned section exists with substantive content — no `TBD`, no placeholders — and the quality gates (Step 6) pass.
+5. **Sign-off gate.** Ask the user explicitly to confirm the canvas is final. Do NOT invoke any format skill or `render_*` tool while feedback is pending or a placeholder remains.
+6. **Hand off.** Pass the finalized canvas content to the chosen format skill as the envelope: `{deliverable_type: "proposal", title, client_id: <client_slug>, sections: [{id, title, body}], meta: {canvas_id}}`. The formatter renders from the envelope — it never re-derives content from chat history.
 
-**Failure mode.** If the canvas MCP is unreachable, surface the error and ask the user: (a) wait, or (b) draft inline without persistence. Never silently degrade.
+**Legacy note.** This skill does not use the `deliverable-canvas` MCP. If a `deliverable-canvas` server happens to be connected, ignore it and author the canvas inline as above (the MCP is reserved for future HTML-canvas deliverables).
 
 ## Overview
 
@@ -154,11 +156,11 @@ Wait for user approval before proceeding to Phase 4.
 
 ### Phase 4 — Production
 
-Execute the proposal workflow (Steps 1-7 below). Claude will produce the document in the chosen output format.
+Execute the proposal workflow (Steps 1-7 below). All drafting happens **in the deliverable canvas** (see "Deliverable canvas" above) — open it now if not already open.
 
 ### Phase 5 — Review
 
-Present the draft to the user with a quality gate summary. Run the checklists from [quality-gates.md](references/quality-gates.md) and flag any issues.
+Present the draft canvas to the user with a quality gate summary. Run the checklists from [quality-gates.md](references/quality-gates.md) and flag any issues. Iterate in the canvas until the user signs off — only then proceed to document production (Step 3 Assembly onward).
 
 ## Editing Modes
 
@@ -228,7 +230,7 @@ For detailed guidance on each section, see [sections.md](references/sections.md)
 
 ### Step 2 — Section Drafting
 
-Draft each section following the guidance in [sections.md](references/sections.md):
+Draft each section **in the deliverable canvas**, following the guidance in [sections.md](references/sections.md):
 
 - **Pull from content library first** — reuse and adapt case studies, bios, and methodology descriptions before writing new content
 - **Substantiate every claim** — each assertion needs a proof point (case study reference, metric with source, certification)
@@ -237,6 +239,8 @@ Draft each section following the guidance in [sections.md](references/sections.m
 - **Skip the executive summary** — it gets written in Step 4
 
 ### Step 3 — Assembly
+
+**Gate: do not start this step until the user has signed off on the canvas** (see "Deliverable canvas" Step 5 — pending feedback or placeholders block assembly).
 
 Produce the document in the chosen output format. Pass the following context to the format production workflow:
 
@@ -253,7 +257,7 @@ The appropriate format skill handles document production:
 
 ### Step 4 — Executive Summary
 
-Write the executive summary last, synthesizing:
+Write the executive summary last — in the canvas, as the final section before the sign-off gate — synthesizing:
 - **The opportunity** — 1-2 sentences on the client's situation and need
 - **The solution** — what you're proposing, at the highest level
 - **Key differentiators** — why this firm, why this team, why this approach (2-3 bullets)
