@@ -5,6 +5,8 @@ author_name: William Masquelier
 client_name: Duke Strategies
 client_slug: dukestrategies
 description: Claude Code plugin for Duke Strategies branded deliverables
+enable_asset_broker: true
+enable_stromy_format: true
 github_org: stromy-org
 include_mcp: false
 include_node: true
