@@ -5,7 +5,11 @@
     "nl-gov-data": {
       "transport": "http",
       "url": "https://nl-gov-data.whitebush-d817afec.westeurope.azurecontainerapps.io/mcp",
-      "_consumed_by": ["claude", "codex", "gemini"],
+      "_consumed_by": [
+        "claude",
+        "codex",
+        "gemini"
+      ],
       "_codex_via": "mcp-remote",
       "_gemini_via": "mcp-remote",
       "_notes": "Dutch government open-data MCP — search/fetch legislation, parliamentary records, Rijksoverheid documents. Hosts the nl-gov-data, nl-gov-shared, nl-issue-framing, nl-parliamentary-positioning, nl-policy-legislative-landscape, and nl-tensions skills (fetched at runtime via fs_read). Per-user OAuth via Microsoft Entra ID."
@@ -13,10 +17,26 @@
     "stromy-format": {
       "transport": "http",
       "url": "https://stromy-format-mcp.whitetree-762cff59.westeurope.azurecontainerapps.io/mcp",
-      "_consumed_by": ["claude", "codex", "gemini"],
+      "_consumed_by": [
+        "claude",
+        "codex",
+        "gemini"
+      ],
       "_codex_via": "mcp-remote",
       "_gemini_via": "mcp-remote",
       "_notes": "Hosted format skills (format-pptx, format-pptx-hd, format-docx, format-pdf, format-pdf-hd, format-xlsx, format-mermaid, format-diagram, format-chart, format-remotion-video). Fetched at runtime via fs_read — see skills/<name>/SKILL.md stubs."
+    },
+    "asset-broker": {
+      "transport": "http",
+      "url": "https://asset-broker-mcp.redbeach-6781a121.northeurope.azurecontainerapps.io/mcp",
+      "_consumed_by": [
+        "claude",
+        "codex",
+        "gemini"
+      ],
+      "_codex_via": "mcp-remote",
+      "_gemini_via": "mcp-remote",
+      "_notes": "Authenticated client-asset broker — propose reviewed brand/charter (and website, if any) edits as GitHub PRs (asset-editor skill, fetched via fs_read). Per-user OAuth via Microsoft Entra ID; the caller's client.<slug> role(s) scope what they can edit. Requires the stromy-asset-broker GitHub App on the target repos (client-data + the client's website repo)."
     },
     "ms365": {
       "transport": "stdio",
@@ -32,7 +52,11 @@
         "MS365_MCP_TOKEN_CACHE_PATH": "${MS365_TOKEN_CACHE}",
         "MS365_MCP_SELECTED_ACCOUNT_PATH": "${MS365_SELECTED_ACCOUNT}"
       },
-      "_consumed_by": ["claude", "codex", "gemini"],
+      "_consumed_by": [
+        "claude",
+        "codex",
+        "gemini"
+      ],
       "_notes": "Tool-limited Microsoft 365 broker for deliverable delivery only: create an upload session, resolve the caller's OneDrive / SharePoint destination, and hand the credential-free uploadUrl to stromy-format's deliver_to push contract. Exported plugins keep the env vars portable per machine; do not hardcode operator-local cache paths here."
     }
   }
