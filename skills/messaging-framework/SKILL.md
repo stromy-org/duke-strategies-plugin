@@ -35,20 +35,42 @@ does not invoke another skill.
 
 ## Deliverable canvas (prerequisite)
 
-This skill produces a multi-section deliverable. The working draft MUST live in a single **chat markdown artifact** — the deliverable canvas. The canvas is the source of truth for the in-progress framework; chat scroll-back is not. No server, no MCP — the markdown artifact IS the canvas.
+<!-- canvas-protocol:start v1 -->
+This skill produces a multi-section deliverable. Collaborate through a single
+chat artifact — the deliverable canvas. The canvas is the source of truth for
+the in-progress draft; chat scroll-back is not.
 
-1. **Open the canvas** once the architecture proposal is approved (Phase 3): one markdown artifact with identifier `canvas-<canvas_id>-messaging_framework` (`canvas_id` = 8 random hex chars, minted once per chat), one `## <Section Title>` heading per planned section in order; undrafted sections hold a one-line `_to draft_` placeholder.
-2. **Iterate in the canvas.** After every change, re-emit the **full** canvas as a new version of the SAME artifact (same identifier) — never a delta, never a second artifact, never final prose that lives only in a chat reply. One chat = one canvas.
-3. **Sign-off gate.** Before invoking any format skill or `render_*` tool, every section must be substantive (no `TBD`/placeholders) and the user must explicitly confirm the canvas is final.
-4. **Hand off** the finalized canvas content to the format skill as the envelope `{deliverable_type: "messaging_framework", title, client_id: <client_slug>, sections: [{id, title, body}], meta: {canvas_id}}` — the formatter renders from the envelope, never from chat history.
-
-**Legacy note.** This skill does not use the `deliverable-canvas` MCP; if such a server is connected, ignore it and author the canvas inline as above.
+1. **Resolve the section plan from this skill's own workflow.** Use the
+   approved structure this skill already defines (or the prompt/resource it
+   names). The canvas protocol does not invent sections.
+2. **Choose the substrate.** Use `markdown` by default for strategic wording,
+   plans, and other content where layout does not change meaning. Use `html`
+   only when visual arrangement materially affects the user's decision. HTML is
+   a **one-way display** surface only: never call back into an MCP from the
+   artifact.
+3. **Open the canvas.** Mint an 8-character hex `canvas_id`, then emit exactly
+   one artifact with identifier `canvas-<canvas_id>-<deliverable_type>`. One
+   chat = one canvas.
+4. **Iterate in the canvas.** After every change, re-emit the **full** canvas
+   as a new version of the same artifact. Never emit deltas. Never mint a
+   second canvas mid-session.
+5. **Self-check before handoff.** Every planned section exists, is substantive,
+   and appears in the agreed order. No `TBD`, placeholders, or pending
+   structural questions remain.
+6. **Sign-off gate.** Ask the user to confirm the canvas is final before any
+   render handoff or client-data write.
+7. **Construct the envelope.** Hand off `{deliverable_type, title, client_id,
+   sections:[{id, title, body}], meta:{canvas_id, substrate,
+   methodology_version}}`, where `methodology_version` is `1`. The downstream
+   formatter or terminal write step consumes the envelope — never raw chat
+   history.
+<!-- canvas-protocol:end -->
 
 ## Overview
 
 This skill builds structured messaging frameworks — the strategic bridge between positioning and execution. A messaging framework organizes an organization's core claims, supporting evidence, and audience-specific language into a reusable system that teams can actually pull from when writing copy, preparing spokespeople, briefing agencies, or planning campaigns.
 
-The skill is format-agnostic: it produces messaging architecture as structured content, then outputs in whatever format the user needs (markdown, DOCX, PPTX, PDF). It also populates a reusable content library under `client-data/clients/<company>/messaging/` so downstream comms skills can consume the same pillars, proof points, and audience profiles.
+The skill is format-agnostic: it produces messaging architecture as structured content, then optionally routes a signed-off document through `format-prepare-document` when the user wants a rendered deliverable. Its default terminal step is to populate `companies/{client_slug}/messaging/` so downstream comms skills can consume the same pillars, proof points, and audience profiles without any renderer dependency.
 
 ## Company Data Integration
 
@@ -262,7 +284,7 @@ Flag any criterion that fails and suggest fixes before finalizing.
 
 **Step 2: Produce output**
 
-The primary output is a structured markdown document. After the content is finalized, produce the document in the user's requested format. See the Output Format Production section below for format skill mapping and brand context.
+The primary output is a structured markdown document. After the content is finalized, keep that markdown as the canonical messaging artifact. Only if the user explicitly wants a rendered document should you route the signed-off envelope through `format-prepare-document`. See the Output Format Production section below.
 
 The output structure depends on the framework type — see [framework-types.md](references/framework-types.md) for type-specific templates.
 
@@ -271,7 +293,7 @@ The output structure depends on the framework type — see [framework-types.md](
 After the user approves the framework, offer to save it to the company's messaging library:
 
 ```
-client-data/clients/<company>/messaging/
+companies/{client_slug}/messaging/
 ├── pillars.json         → Pillar headlines, short statements, message lengths, proof attachments
 ├── proof-points.json    → All proof points with type, source, and pillar linkage
 ├── audiences.json       → Audience profiles with adaptations and channel guidance
@@ -291,6 +313,8 @@ Include a "When to revisit" section in the output — messaging frameworks are l
 - Quarterly review (recommended cadence for active messaging)
 - M&A, leadership change, or rebrand
 - Message pull-through analysis shows low adoption
+
+Once the framework is written to `companies/{client_slug}/messaging/`, *mention* (never auto-activate) that the user can capture feedback with `asset-feedback`, and file your own `source: agent` retrospective there if the run hit an instruction gap or tool-call failure worth fixing.
 
 ## Reference Files
 
@@ -321,18 +345,18 @@ Load these as needed — do not read all at once.
 
 **Gate: do not produce formatted output until the deliverable canvas sign-off gate has passed** (see "Deliverable canvas" above).
 
-This skill owns messaging architecture — framework structure, pillar development, proof mapping, and audience adaptation. Document production is handled by the appropriate format skill:
+This skill owns messaging architecture — framework structure, pillar development, proof mapping, and audience adaptation. A rendered document is optional. The default terminal step is to write `companies/{client_slug}/messaging/`; only user-requested rendered output should go through `format-prepare-document`.
 
-| Output | Skill | What it provides |
-|--------|-------|-----------------|
-| DOCX | `docx` | Word document creation with branded styling, heading hierarchy |
-| PPTX | `pptx` | Branded presentation — ideal for Message House and Strategic Narrative visual formats |
-| PDF | `pdf` | PDF creation for distribution-ready frameworks |
+| Output | Routed renderer | What it provides |
+|--------|-----------------|-----------------|
+| DOCX | `format-docx` | Word document creation with branded styling, heading hierarchy |
+| PPTX | `format-pptx-hd` | Branded presentation — ideal for Message House and Strategic Narrative visual formats |
+| PDF | `format-pdf-hd` | PDF creation for distribution-ready frameworks |
 
-**Default**: If the user doesn't specify a format, produce markdown first and ask whether they'd like a formatted deliverable. Recommend PPTX for Message House and Strategic Narrative (visual structures that present well as slides), DOCX for Messaging Hierarchy and Messaging Matrix (reference documents teams pull language from).
+**Default**: If the user doesn't specify a format, stop at the markdown framework plus the `companies/{client_slug}/messaging/` write. Only offer rendered output as an optional follow-on. If they want that follow-on, recommend PPTX for Message House and Strategic Narrative, DOCX for Messaging Hierarchy and Messaging Matrix.
 
 **Brand context to carry forward** when producing formatted output:
-- Brand charter location: `client-data/clients/<name>/charter.json`
+- Brand charter location: `companies/{client_slug}/charter.json`
 - Apply heading color from `colors.primary`, body font from `fonts.body`, logo from `brand/logos/` (path in charter `logo` section)
 - Use `document` section from charter for DOCX margins/headers, `presentation` section for PPTX layout
 
@@ -347,5 +371,4 @@ workspace/<client>/
 ```
 
 **Override**: If the prompt specifies a target output directory, pass it through to the output format skill.
-
 
