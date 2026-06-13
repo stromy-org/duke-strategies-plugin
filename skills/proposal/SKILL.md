@@ -32,25 +32,43 @@ narrative sections (context, approach, scope, pricing rationale, next steps).
 
 ## Deliverable canvas (prerequisite)
 
-This skill produces a multi-section deliverable. The working draft MUST live in a single **chat markdown artifact** — the deliverable canvas. The canvas is the source of truth for the in-progress proposal; chat scroll-back is not. No server, no MCP — the markdown artifact IS the canvas.
+<!-- canvas-protocol:start v1 -->
+This skill produces a multi-section deliverable. Collaborate through a single
+chat artifact — the deliverable canvas. The canvas is the source of truth for
+the in-progress draft; chat scroll-back is not.
 
-**Protocol:**
-
-1. **Open the canvas** once the content plan is approved (Phase 3). Emit one markdown artifact with identifier `canvas-<canvas_id>-proposal` (`canvas_id` = 8 random hex chars, minted once per chat) containing one `## <Section Title>` heading per planned section, in skeleton order. Sections not yet drafted hold a one-line `_to draft_` placeholder.
-2. **Iterate in the canvas.** Draft and revise section-by-section. After every change, re-emit the **full** canvas as a new version of the SAME artifact (same identifier) — never a delta, never a second artifact, never final prose that lives only in a chat reply. One chat = one canvas.
-3. **Converge with the user.** Walk the sections with the user, apply feedback, re-emit. Write the Executive Summary last, once all other sections are stable.
-4. **Self-check before handoff.** Every planned section exists with substantive content — no `TBD`, no placeholders — and the quality gates (Step 6) pass.
-5. **Sign-off gate.** Ask the user explicitly to confirm the canvas is final. Do NOT invoke any format skill or `render_*` tool while feedback is pending or a placeholder remains.
-6. **Hand off.** Pass the finalized canvas content to the chosen format skill as the envelope: `{deliverable_type: "proposal", title, client_id: <client_slug>, sections: [{id, title, body}], meta: {canvas_id}}`. The formatter renders from the envelope — it never re-derives content from chat history.
-
-**Legacy note.** This skill does not use the `deliverable-canvas` MCP. If a `deliverable-canvas` server happens to be connected, ignore it and author the canvas inline as above (the MCP is reserved for future HTML-canvas deliverables).
+1. **Resolve the section plan from this skill's own workflow.** Use the
+   approved structure this skill already defines (or the prompt/resource it
+   names). The canvas protocol does not invent sections.
+2. **Choose the substrate.** Use `markdown` by default for strategic wording,
+   plans, and other content where layout does not change meaning. Use `html`
+   only when visual arrangement materially affects the user's decision. HTML is
+   a **one-way display** surface only: never call back into an MCP from the
+   artifact.
+3. **Open the canvas.** Mint an 8-character hex `canvas_id`, then emit exactly
+   one artifact with identifier `canvas-<canvas_id>-<deliverable_type>`. One
+   chat = one canvas.
+4. **Iterate in the canvas.** After every change, re-emit the **full** canvas
+   as a new version of the same artifact. Never emit deltas. Never mint a
+   second canvas mid-session.
+5. **Self-check before handoff.** Every planned section exists, is substantive,
+   and appears in the agreed order. No `TBD`, placeholders, or pending
+   structural questions remain.
+6. **Sign-off gate.** Ask the user to confirm the canvas is final before any
+   render handoff or client-data write.
+7. **Construct the envelope.** Hand off `{deliverable_type, title, client_id,
+   sections:[{id, title, body}], meta:{canvas_id, substrate,
+   methodology_version}}`, where `methodology_version` is `1`. The downstream
+   formatter or terminal write step consumes the envelope — never raw chat
+   history.
+<!-- canvas-protocol:end -->
 
 ## Overview
 
-This skill produces polished consulting proposals, executive briefs, capability statements, and bid documents. It is **format-agnostic** — it owns the proposal domain logic (structure, content strategy, quality gates) and delegates formatting to output skills.
+This skill produces polished consulting proposals, executive briefs, capability statements, and bid documents. It is **format-agnostic** — it owns the proposal domain logic (structure, content strategy, quality gates) and hands signed-off render work to `format-prepare-document`.
 
 **This skill provides the *what*** — proposal structure, content assembly from company data, interactive intake, and quality gates.
-**Format skills provide the *how*** — the `docx` skill for Word documents, `pptx` for presentations, `pdf` for PDF export.
+**`format-prepare-document` provides the render-path handoff** — structure packaging, substrate-aware planning, and routing to the final `format-*` renderer.
 
 Use this skill when a user asks to:
 - Write or generate a consulting proposal
@@ -242,18 +260,17 @@ Draft each section **in the deliverable canvas**, following the guidance in [sec
 
 **Gate: do not start this step until the user has signed off on the canvas** (see "Deliverable canvas" Step 5 — pending feedback or placeholders block assembly).
 
-Produce the document in the chosen output format. Pass the following context to the format production workflow:
+Produce the document in the chosen output format. Pass the following context to `format-prepare-document`:
 
-- **Brand charter**: `client-data/clients/<name>/charter.json`
-- **Logo**: `client-data/clients/<name>/logos/` (path in charter `logo` section)
+- **Brand charter**: `companies/{client_slug}/charter.json`
+- **Logo**: `companies/{client_slug}/logos/` (path in charter `logo` section)
 - **Drafted sections**: the content from Step 2
 - **Tone and archetype**: from intake Phase 2/3
 
-The appropriate format skill handles document production:
-- DOCX output → the `docx` skill handles Word document creation
-- PPTX output → the `pptx` skill handles branded presentations
-- PDF output → generate via DOCX conversion or a PDF creation workflow
-- HTML output → the `frontend-design` skill handles web-native proposals
+`format-prepare-document` then routes to the terminal renderer:
+- DOCX output → `format-docx`
+- PPTX output → usually `format-pptx-hd`
+- PDF output → usually `format-pdf-hd`
 
 ### Step 4 — Executive Summary
 
@@ -298,9 +315,11 @@ Run the quality checklist. See [quality-gates.md](references/quality-gates.md) f
 ### Step 7 — Packaging
 
 Produce final deliverables:
-1. **Final document** — in the requested format (DOCX, PPTX, PDF)
-2. **PDF export** (if requested) — convert via LibreOffice or a PDF creation workflow
+1. **Final document** — in the requested format via `format-prepare-document`
+2. **PDF export** (if requested) — via the renderer selected on that handoff path
 3. **Email summary** (if requested) — 10-bullet summary suitable for forwarding to the client as a cover email
+
+After handoff, *mention* (never auto-activate) that the user can capture feedback on the proposal with `asset-feedback`, and file your own `source: agent` retrospective there if the run hit an instruction gap or tool-call failure worth fixing.
 
 ## Quality Gates — Quick Reference
 
