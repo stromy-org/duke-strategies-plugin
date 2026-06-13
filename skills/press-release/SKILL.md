@@ -35,14 +35,36 @@ does not invoke another skill.
 
 ## Deliverable canvas (prerequisite)
 
-This skill produces a structured deliverable. The working draft MUST live in a single **chat markdown artifact** — the deliverable canvas. The canvas is the source of truth for the in-progress release; chat scroll-back is not. No server, no MCP — the markdown artifact IS the canvas.
+<!-- canvas-protocol:start v1 -->
+This skill produces a multi-section deliverable. Collaborate through a single
+chat artifact — the deliverable canvas. The canvas is the source of truth for
+the in-progress draft; chat scroll-back is not.
 
-1. **Open the canvas** once the release blueprint is approved (Phase 4): one markdown artifact with identifier `canvas-<canvas_id>-press_release` (`canvas_id` = 8 random hex chars, minted once per chat), one `## <Section Title>` heading per blueprint section in order; undrafted sections hold a one-line `_to draft_` placeholder.
-2. **Iterate in the canvas.** After every change, re-emit the **full** canvas as a new version of the SAME artifact (same identifier) — never a delta, never a second artifact, never final prose that lives only in a chat reply. One chat = one canvas.
-3. **Sign-off gate.** Before invoking any format skill or `render_*` tool, every section must be substantive (no `TBD`/placeholders), the governance review must be complete, and the user must explicitly confirm the canvas is final.
-4. **Hand off** the finalized canvas content to the format skill as the envelope `{deliverable_type: "press_release", title, client_id: <client_slug>, sections: [{id, title, body}], meta: {canvas_id}}` — the formatter renders from the envelope, never from chat history.
-
-**Legacy note.** This skill does not use the `deliverable-canvas` MCP; if such a server is connected, ignore it and author the canvas inline as above.
+1. **Resolve the section plan from this skill's own workflow.** Use the
+   approved structure this skill already defines (or the prompt/resource it
+   names). The canvas protocol does not invent sections.
+2. **Choose the substrate.** Use `markdown` by default for strategic wording,
+   plans, and other content where layout does not change meaning. Use `html`
+   only when visual arrangement materially affects the user's decision. HTML is
+   a **one-way display** surface only: never call back into an MCP from the
+   artifact.
+3. **Open the canvas.** Mint an 8-character hex `canvas_id`, then emit exactly
+   one artifact with identifier `canvas-<canvas_id>-<deliverable_type>`. One
+   chat = one canvas.
+4. **Iterate in the canvas.** After every change, re-emit the **full** canvas
+   as a new version of the same artifact. Never emit deltas. Never mint a
+   second canvas mid-session.
+5. **Self-check before handoff.** Every planned section exists, is substantive,
+   and appears in the agreed order. No `TBD`, placeholders, or pending
+   structural questions remain.
+6. **Sign-off gate.** Ask the user to confirm the canvas is final before any
+   render handoff or client-data write.
+7. **Construct the envelope.** Hand off `{deliverable_type, title, client_id,
+   sections:[{id, title, body}], meta:{canvas_id, substrate,
+   methodology_version}}`, where `methodology_version` is `1`. The downstream
+   formatter or terminal write step consumes the envelope — never raw chat
+   history.
+<!-- canvas-protocol:end -->
 
 ## Overview
 
@@ -304,20 +326,22 @@ The primary output is a markdown-formatted press release. After the content is f
 
 **Gate: do not produce formatted output until the deliverable canvas sign-off gate has passed** (see "Deliverable canvas" above).
 
-This skill owns press release content — structure, editorial quality, governance, and distribution planning. Document production is handled by the appropriate format skill:
+This skill owns press release content — structure, editorial quality, governance, and distribution planning. Render-path document production goes through `format-prepare-document`, which then routes to the terminal renderer.
 
-| Output | Skill | What it provides |
-|--------|-------|-----------------|
-| DOCX | `docx` | Word document creation with branded letterhead styling, headers/footers |
-| PDF | `pdf` | PDF creation for distribution-ready releases |
+| Output | Routed renderer | What it provides |
+|--------|-----------------|-----------------|
+| DOCX | `format-docx` | Word document creation with branded letterhead styling, headers/footers |
+| PDF | `format-pdf-hd` | PDF creation for distribution-ready releases |
 
 **Default**: If the user doesn't specify a format, produce markdown first and ask whether they'd like a formatted DOCX or PDF. Press releases are most commonly distributed as PDF attachments or pasted into wire services — recommend accordingly.
 
-**Brand context to carry forward** when producing formatted output:
-- Brand charter location: `client-data/clients/<name>/charter.json`
+**Brand context to carry forward** when producing formatted output through `format-prepare-document`:
+- Brand charter location: `companies/{client_slug}/charter.json`
 - Apply heading color from `colors.primary`, body font from `fonts.body`, logo from `brand/logos/` (path in charter `logo` section)
 - Use `document` section from charter for margins, headers, footers
 - Include company logo on the release header if available
+
+After the release is delivered, *mention* (never auto-activate) that the user can capture feedback with `asset-feedback`, and file your own `source: agent` retrospective there if the run hit an instruction gap or tool-call failure worth fixing.
 
 ## Output Location
 
