@@ -7,7 +7,7 @@ description: "Write and manage corporate press releases with full governance lif
 
 ## Inputs from client-data
 
-- `companies/{client_slug}/charter.json` — brand identity
+- `companies/{client_slug}/charter.json` — brand identity; read `expression` (optional) for compact brand direction (`principles`, `signatureElements`, `antiPatterns`) and `identity.positioning`
 - `companies/{client_slug}/profile.json` — company name, HQ, spokespeople
 - `companies/{client_slug}/press-releases/` (optional) — prior press releases for tone alignment
 - `companies/{client_slug}/voice/voice-profile.md` (optional) — entity voice profile (L2)
@@ -209,6 +209,14 @@ Wait for confirmation or adjustments before proceeding to Phase 5.
 
 Now write. Follow AP-style conventions and inverted pyramid structure.
 
+**Brand expression (read before drafting).** Before writing, read `expression` from `charter.json`. If present, use as prose guidance:
+- `expression.principles` — inform the rhetorical register (e.g., "measured authority" → factual lede, no hype; "evidence before decoration" → data-led subheads)
+- `expression.signatureElements` — reflect where appropriate in structural choices (e.g., a brand with an "editorial" type expression may use a tighter, sharper headline)
+- `expression.antiPatterns` — treat as a ban-list alongside the voice cascade's forbidden constructions
+- `identity.positioning` — use to calibrate the "why this matters" framing in supporting paragraphs
+- If `expression` is absent, fall back to the voice profile only with a soft note; no hard failure
+- **Voice-cascade rule:** `expression` is additive to the L1 baseline + L2 profile bans, never a relaxation. Expression principles may sharpen tone but must not reintroduce a banned construction. Where a Brand Context API narrative is attached (`candidate.context`), treat it as input evidence for expression principles, not a voice source that overrides the cascade.
+
 **Structure** (every release, in this order):
 1. **Headline** — The news in plain language, 6-12 words, under 100 characters
 2. **Subheadline** (optional) — Supporting context or key metric
@@ -337,9 +345,10 @@ This skill owns press release content — structure, editorial quality, governan
 
 **Brand context to carry forward** when producing formatted output through `format-prepare-document`:
 - Brand charter location: `companies/{client_slug}/charter.json`
-- Apply heading color from `colors.primary`, body font from `fonts.body`, logo from `brand/logos/` (path in charter `logo` section)
+- Apply heading color from `colors.primary`, body font from `fonts.body`, logo from `logos/` (path in charter `logo` section)
 - Use `document` section from charter for margins, headers, footers
 - Include company logo on the release header if available
+- Include resolved `expression` (if present) and `deliverable_genre: "press-release"` in the envelope for downstream render direction
 
 After the release is delivered, *mention* (never auto-activate) that the user can capture feedback with `asset-feedback`, and file your own `source: agent` retrospective there if the run hit an instruction gap or tool-call failure worth fixing.
 

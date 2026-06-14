@@ -7,7 +7,7 @@ description: "Build structured messaging frameworks — core narrative, messagin
 
 ## Inputs from client-data
 
-- `companies/{client_slug}/charter.json` — brand identity
+- `companies/{client_slug}/charter.json` — brand identity; read `expression` (optional) for compact brand direction (`principles`, `signatureElements`, `antiPatterns`) and `identity.positioning`
 - `companies/{client_slug}/profile.json` — company positioning + audiences
 - `companies/{client_slug}/messaging/` (optional) — prior frameworks for context
 - `companies/{client_slug}/voice/voice-profile.md` (optional) — entity voice profile (L2)
@@ -195,6 +195,14 @@ Wait for approval or adjustments before proceeding to Phase 4.
 
 Build the framework from the top down. Each layer must be solid before the next one builds on it.
 
+**Brand expression (read before writing).** Before drafting any language, read `expression` from `charter.json`. If present, use as prose guidance:
+- `expression.principles` — let these inform the register and rhetorical posture of the core message and pillar language (e.g., "Evidence before decoration" → lead with proof, not claim)
+- `expression.signatureElements` — reflect where natural in pillar language and verbal guardrails
+- `expression.antiPatterns` — ban in the framework's language-to-avoid section
+- `identity.positioning` — use as the strategic anchor for the core message direction
+- If `expression` is absent, fall back to the voice profile only with a soft note; no hard failure
+- **Voice-cascade rule:** `expression` is additive to the L1 baseline + L2 profile bans, never a relaxation. Expression principles may sharpen tone but must not reintroduce a banned construction. Where a Brand Context API narrative is attached (`candidate.context`), treat it as input evidence for expression principles, not a voice source that overrides the cascade.
+
 **Step 1: Core message**
 
 Write the single overarching message — the "roof" that everything else supports. This should pass the "cocktail party test": someone should be able to repeat it after hearing it once. Keep it under 25 words.
@@ -357,8 +365,9 @@ This skill owns messaging architecture — framework structure, pillar developme
 
 **Brand context to carry forward** when producing formatted output:
 - Brand charter location: `companies/{client_slug}/charter.json`
-- Apply heading color from `colors.primary`, body font from `fonts.body`, logo from `brand/logos/` (path in charter `logo` section)
+- Apply heading color from `colors.primary`, body font from `fonts.body`, logo from `logos/` (path in charter `logo` section)
 - Use `document` section from charter for DOCX margins/headers, `presentation` section for PPTX layout
+- Include resolved `expression` (if present) and `deliverable_genre: "messaging-framework"` in the envelope for downstream render direction
 
 ## Output Location
 
