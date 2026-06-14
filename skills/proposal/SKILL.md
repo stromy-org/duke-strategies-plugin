@@ -8,7 +8,7 @@ license: Proprietary. LICENSE.txt has complete terms
 
 ## Inputs from client-data
 
-- `companies/{client_slug}/charter.json` — brand identity
+- `companies/{client_slug}/charter.json` — brand identity; read `expression` (optional) for compact brand direction (`principles`, `signatureElements`, `antiPatterns`) and `identity.positioning`
 - `companies/{client_slug}/profile.json` — company name, services, regions
 - `companies/{client_slug}/proposals/methodologies.json` (optional) — methodology library
 - `companies/{client_slug}/boilerplate.json` (optional) — boilerplate sections
@@ -255,6 +255,13 @@ Draft each section **in the deliverable canvas**, following the guidance in [sec
 - **Write for the evaluator** — lead with the answer, then provide supporting detail
 - **Maintain consistent voice** — same tense, same level of formality, same terminology throughout
 - **Skip the executive summary** — it gets written in Step 4
+- **Apply brand expression (if present).** Read `expression` from `charter.json`. If present, use as prose guidance — not hard layout rules:
+  - `expression.principles` — let these inform tone and emphasis (e.g., "measured authority" → lead with evidence, not assertion)
+  - `expression.signatureElements` — weave into structure where natural (e.g., a brand that uses "indexed rules" may benefit from numbered evidence citations)
+  - `expression.antiPatterns` — avoid these constructions in the prose and section framing
+  - `identity.positioning` — use to sharpen the executive summary angle and differentiation framing
+  - If `expression` is absent, fall back to the voice profile only (soft note; no hard failure — output-tier brands may legitimately omit it)
+  - **Voice-cascade rule:** `expression` is additive to the L1 baseline + L2 profile bans, never a relaxation. Expression principles may sharpen tone but must not reintroduce a banned construction. Where a Brand Context API narrative is attached (`candidate.context`), treat it as input evidence for expression principles, not a voice source that overrides the cascade.
 
 ### Step 3 — Assembly
 
@@ -266,6 +273,7 @@ Produce the document in the chosen output format. Pass the following context to 
 - **Logo**: `companies/{client_slug}/logos/` (path in charter `logo` section)
 - **Drafted sections**: the content from Step 2
 - **Tone and archetype**: from intake Phase 2/3
+- **Brand expression**: include `expression` (if resolved from charter) and `deliverable_genre: "proposal"` in the envelope so the downstream renderer applies the same compact direction
 
 `format-prepare-document` then routes to the terminal renderer:
 - DOCX output → `format-docx`
@@ -411,5 +419,6 @@ This skill owns proposal content strategy. Document production is handled by the
 | XLSX | `xlsx` | Spreadsheet creation for pricing models |
 
 Brand context to carry forward:
-- Brand charter location: `client-data/clients/<name>/charter.json`
-- Apply heading color from `colors.primary`, body font from `fonts.body`, logo from `brand/logos/` (path in charter `logo` section)
+- Brand charter location: `companies/{client_slug}/charter.json`
+- Apply heading color from `colors.primary`, body font from `fonts.body`, logo from `logos/` (path in charter `logo` section)
+- Include resolved `expression` (if present) and `deliverable_genre: "proposal"` for downstream render direction
