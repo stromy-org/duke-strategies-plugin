@@ -9,6 +9,13 @@ updates:
     groups:
       remotion:
         patterns: ["remotion", "@remotion/*"]
+    ignore:
+      # React 19 majors break Remotion's React 18 peer dep — these PRs can never
+      # pass CI until Remotion declares React 19 support. Revisit when Remotion ships it.
+      - dependency-name: "react"
+        versions: ["19.x"]
+      - dependency-name: "react-dom"
+        versions: ["19.x"]
 
   - package-ecosystem: "pip"
     directory: "/"
