@@ -25,18 +25,6 @@
       "_codex_via": "mcp-remote",
       "_gemini_via": "mcp-remote",
       "_notes": "Hosted format skills (format-pptx, format-pptx-hd, format-docx, format-pdf, format-pdf-hd, format-xlsx, format-mermaid, format-diagram, format-chart, format-remotion-video). Fetched at runtime via fs_read — see skills/<name>/SKILL.md stubs."
-    },
-    "asset-broker": {
-      "transport": "http",
-      "url": "https://asset-broker-mcp.redbeach-6781a121.northeurope.azurecontainerapps.io/mcp",
-      "_consumed_by": [
-        "claude",
-        "codex",
-        "gemini"
-      ],
-      "_codex_via": "mcp-remote",
-      "_gemini_via": "mcp-remote",
-      "_notes": "Authenticated client-asset broker — propose reviewed brand/charter (and website, if any) edits as GitHub PRs (asset-editor skill, fetched via fs_read). Per-user OAuth via Microsoft Entra ID; the caller's client.<slug> role(s) scope what they can edit. Requires the stromy-asset-broker GitHub App on the target repos (client-data + the client's website repo)."
     }
   }
 }
