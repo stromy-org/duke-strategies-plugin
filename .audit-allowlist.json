@@ -12,6 +12,12 @@
       "package": "esbuild",
       "reason": "Transitive via @remotion/bundler. Arbitrary file read via the esbuild dev server (Windows); we never run the esbuild dev server — Remotion renders headless in CI. No non-breaking fix while Remotion pins esbuild <0.28.1.",
       "review_by": "2026-12-12"
+    },
+    {
+      "ghsa": "GHSA-96hv-2xvq-fx4p",
+      "package": "ws",
+      "reason": "ws memory-exhaustion DoS from tiny fragments/data chunks — transitive. A non-major fix IS available; take the bump at the next npm-audit cadence (ORG-085) with build validation rather than a blind audit-fix. Short-dated.",
+      "review_by": "2026-07-16"
     }
   ]
 }
