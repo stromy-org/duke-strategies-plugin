@@ -9,7 +9,7 @@ license: Proprietary. LICENSE.txt has complete terms
 ## Inputs from client-data
 
 - `companies/{client_slug}/charter.json` — brand identity; read `expression` (optional) for compact brand direction (`principles`, `signatureElements`, `antiPatterns`) and `identity.positioning`
-- `companies/{client_slug}/profile.json` — company name, services, regions
+- `companies/{client_slug}/company_context.json` — redacted public company facts: `company` (name, description, services, industries, positioning, values, stats, publicContact), `credentials`, `pricing.publicModels` (+ `paymentTerms`, `discounts`), `legal.publicTerms`, `people` (id, name, title, publicRole, publicBio, quoteStyle)
 - `companies/{client_slug}/proposals/methodologies.json` (optional) — methodology library
 - `companies/{client_slug}/boilerplate.json` (optional) — boilerplate sections
 - `companies/{client_slug}/voice/voice-profile.md` (optional) — entity voice profile (L2)
@@ -81,22 +81,26 @@ Use this skill when a user asks to:
 
 ## Company Data Integration
 
-This skill draws from structured company data stored in `client-data/clients/<company-name>/`.
+> **No overlay → STOP.** If this plugin has no `companies/` directory, do not fabricate a brand, default to a self/Stromy brand, or attempt to produce a proposal. Surface: "no client overlay found — I cannot produce a proposal without company data." Only the user can supply the missing overlay.
+
+This skill draws from structured company data in the invoking plugin's `companies/{client_slug}/` overlay.
 
 ### Discovery
 
-1. List `client-data/clients/` to find available company profiles
-2. If only one company exists, use it by default
-3. If multiple exist, ask which company is proposing
-4. If none exist, fall back to gathering inputs manually (as in legacy mode)
-5. After loading company data, check for `people.json` — use it for "Prepared by" and contact sections (filter by `roles` containing `"author"`, auto-select if `"default": true`)
+1. List `companies/` to find available client overlays (`{client_slug}` directories)
+2. Zero entries → STOP (see guard above)
+3. One entry → use it directly; state which client you resolved
+4. Multiple entries → ask the user which company is proposing; do not guess
+5. After resolving `{client_slug}`, read `company_context.json` for all company facts; check `company_context.people[]` for "Prepared by" and contact sections (filter by `publicRole` containing `"author"`, auto-select if the array has exactly one such person)
+
+> **Note on PII:** `company_context.json` carries only the **public** subset — no banking details, registration/VAT/KVK numbers, billing email, personal email, or personal phone. Those fields are operator-side only in canonical `client-data` and are intentionally not available in deployed plugins. The skill works from the public subset.
 
 ### Loading Company Data
 
 ```
-client-data/clients/<name>/profile.json       → Company identity, services, pricing, credentials, legal
-client-data/clients/<name>/charter.json  → Visual identity (colors, fonts, logo, format settings)
-client-data/clients/<name>/proposals/           → Proposal content library:
+companies/{client_slug}/company_context.json  → Company facts: name, services, pricing, credentials, legal, people
+companies/{client_slug}/charter.json          → Visual identity (colors, fonts, logo, format settings)
+companies/{client_slug}/proposals/             → Proposal content library:
   ├── case-studies.json      → Past performance
   ├── team-bios.json         → Key personnel with bio variants
   ├── methodologies.json     → Standard approaches/frameworks
@@ -118,9 +122,9 @@ Map library items to proposal sections by matching tags, service IDs, and indust
 | Approach & Methodology | `methodologies.json` | Match by `applicableServices` or tags |
 | Team & Qualifications | `team-bios.json` | Match by `expertise` tags; use `executive` or `technical` variant based on audience |
 | Relevant Experience | `case-studies.json` | Match by `tags` (industry, service type); use `short` or `long` variant based on depth |
-| Pricing & Investment | `profile.json` → `pricing.models` | Match by service's `pricingModel` reference |
+| Pricing & Investment | `company_context.json` → `pricing.publicModels` | Match by service's `pricingModel` reference |
 | Risk Management | `boilerplate.json` → `assumptions` | Standard assumptions + engagement-specific ones |
-| Terms & Conditions | `boilerplate.json` → `legalTerms` | Standard terms from `profile.json` → `legal.standardTerms` |
+| Terms & Conditions | `boilerplate.json` → `legalTerms` | Standard terms from `company_context.json` → `legal.publicTerms` |
 | Proof Points (inline) | `testimonials.json` | Match by `tags` and `caseStudy` reference |
 | Win Themes (inline) | `differentiators.json` | Match by `applicableServices` or tags; thread throughout proposal |
 | Partnership Proof (inline) | `partnerships.json` | Match by `relevantServices`; use in Team & Qualifications or Credentials |
@@ -143,7 +147,7 @@ Ask **only questions that genuinely add value** — skip anything deducible from
 
 **Always ask:**
 - What depth: executive brief (2-4 pages) or full proposal (15-25 pages)?
-- Which pricing model? (present options from `profile.json` → `pricing.models`)
+- Which pricing model? (present options from `company_context.json` → `pricing.publicModels`)
 
 **Ask if not clear from brief:**
 - What's the primary pain point to emphasize?
@@ -242,7 +246,7 @@ For detailed guidance on each section, see [sections.md](references/sections.md)
    - Team bios → Team & Qualifications (select `executive` or `technical` variant based on audience)
    - Methodologies → Approach & Methodology (match by `applicableServices`)
    - Boilerplate → Risk Management, Terms & Conditions
-   - Pricing models → Pricing & Investment (from `profile.json`)
+   - Pricing models → Pricing & Investment (from `company_context.json` → `pricing.publicModels`)
 4. Identify gaps — content that needs to be written fresh vs. pulled from library
 5. Note any client-specific formatting requirements (page limits, required sections, naming conventions)
 
@@ -365,7 +369,7 @@ These are the high-level checks. For detailed per-section checklists and common 
 
 ### Client Branding
 
-Brand data is loaded from `client-data/clients/<name>/charter.json`. The charter covers all output formats:
+Brand data is loaded from `companies/{client_slug}/charter.json`. The charter covers all output formats:
 
 - **`document`** section → DOCX margins, headers, footers, heading colors
 - **`presentation`** section → PPTX slide margins, aspect ratio

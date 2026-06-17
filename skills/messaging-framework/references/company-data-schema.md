@@ -4,9 +4,13 @@ Schema reference for the `messaging/` content library directory. This library st
 
 ## Directory Structure
 
+> **Operator environment only.** The tree below shows the canonical layout inside `client-data/clients/<company-name>/`. This structure is NOT present in deployed plugins — plugins ship a redacted `companies/{client_slug}/company_context.json` overlay (see "Deployed plugin layout" below). The deployed skill reads `company_context.json` exclusively.
+
 ```
-client-data/clients/<company-name>/
-├── profile.json              # Company identity (shared — all skills)
+client-data/clients/<company-name>/           ← OPERATOR ONLY — not in deployed plugins
+├── profile.json              # Full company identity (source of truth; operator-side only)
+├── people.json               # Full people roster (source of truth; operator-side only)
+├── company_context.json      # Redacted export — what deployed plugins read
 ├── brand/                    # Visual identity (shared — all branded skills)
 │   └── charter.json
 ├── proposals/                # Proposal content library (proposal skill)
@@ -18,6 +22,25 @@ client-data/clients/<company-name>/
     ├── proof-points.json     # Evidence library organized by type and topic
     ├── audiences.json        # Audience profiles with adaptation parameters
     └── narratives.json       # Core narratives, positioning, elevator pitches
+```
+
+### Deployed plugin layout
+
+In a deployed plugin, the skill reads from the plugin overlay only:
+
+```
+companies/{client_slug}/
+└── company_context.json      # Redacted company data — the ONLY company data source in deployed plugins
+    # Structure:
+    # { "company": { name, legalName, displayName, description, tagline, website,
+    #                industry, services[], industries[], positioning, values[], stats,
+    #                publicContact:{...} },
+    #   "credentials": [...] or { certifications, awards, memberships },
+    #   "pricing": { publicModels:[...] },
+    #   "legal": { publicTerms:... },
+    #   "people": [{ id, name, title, publicRole, publicBio, quoteStyle }],
+    #   "redactions": [...] }
+    # NOTE: no banking/registration/VAT/billing/personal-contact fields.
 ```
 
 ---
@@ -246,13 +269,14 @@ Core narratives, positioning statements, and distilled message variants.
 
 ## Cross-Reference Map
 
-How files within the messaging library connect to each other and to `profile.json`:
+How files within the messaging library connect to each other and to `company_context.json`:
 
 ```
-profile.json (read-only — shared company identity)
-  └── services[].id ──────────────→ pillars.json → tags (match by service area)
+company_context.json (read-only — deployed company data source)
+  └── company.services[].id ──────→ pillars.json → tags (match by service area)
   └── credentials.awards ─────────→ proof-points.json (type: "third-party")
   └── credentials.certifications ─→ proof-points.json (type: "third-party")
+  └── people[] ───────────────────→ proof-points.json (type: "customer" — quotes, bios)
 
 messaging/pillars.json
   └── [].proofPointIds ───────────→ messaging/proof-points.json → [].id

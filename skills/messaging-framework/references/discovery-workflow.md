@@ -51,11 +51,12 @@ These apply regardless of framework type. Ask only those where the answer isn't 
 
 | Information | Source |
 |-------------|--------|
-| Company name, description, services | `profile.json` |
+| Company name, description, services | `company_context.json` → `company` |
+| People / spokesperson bios | `company_context.json` → `people[]` |
 | Existing messaging pillars | `messaging/pillars.json` |
 | Past case studies and results | `messaging/proof-points.json` (type: `"customer"`) |
 | Testimonials | `messaging/proof-points.json` (type: `"customer"`) |
-| Credentials, awards, certifications | `profile.json` → `credentials` |
+| Credentials, awards, certifications | `company_context.json` → `credentials` |
 | Brand voice/tone (if established) | `charter.json` or existing voice guide |
 
 ---
@@ -115,12 +116,13 @@ Before or during discovery, gather these inputs. Check off what's available vs. 
 
 ### From Company Data (Automated)
 
-- [ ] Company profile (`profile.json`)
+- [ ] Company profile (`company_context.json` → `company`)
+- [ ] People / spokespersons (`company_context.json` → `people[]`)
 - [ ] Brand identity (`charter.json`)
 - [ ] Existing messaging (`messaging/` directory)
 - [ ] Existing proof points (`messaging/proof-points.json`)
-- [ ] Credentials and awards (`profile.json` → `credentials`)
-- [ ] Service descriptions (`profile.json` → `services[]`)
+- [ ] Credentials and awards (`company_context.json` → `credentials`)
+- [ ] Service descriptions (`company_context.json` → `company.services[]`)
 
 ### From User (Conversational)
 
@@ -145,7 +147,7 @@ Before or during discovery, gather these inputs. Check off what's available vs. 
 Common mistakes to avoid during the interview phase.
 
 ### Asking questions you can answer yourself
-If `profile.json` says the company serves "Financial Services, Healthcare, Manufacturing" and has won "Best Mid-Market Consultancy" — don't ask "what industries do you serve?" or "do you have any awards?" Pull the data, confirm it, move on.
+If `company_context.json` → `company.services[]` shows the company serves "Financial Services, Healthcare, Manufacturing" and `credentials.awards` includes "Best Mid-Market Consultancy" — don't ask "what industries do you serve?" or "do you have any awards?" Pull the data, confirm it, move on.
 
 ### Asking too many questions at once
 Batch questions overwhelm. Ask 2-3 at a time, grouped by theme. Let the user respond, then follow up based on their answers.

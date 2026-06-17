@@ -60,7 +60,7 @@ For each audience, build a profile before writing adapted messaging. This ensure
 When company data is available, construct profiles from:
 
 - `messaging/audiences.json` → Pre-built audience profiles (if they exist)
-- `profile.json` → `services[].industries` → Suggests audience industries
+- `company_context.json` → `company.services[].industries` (or `company.industries`) → Suggests audience industries
 - `messaging/proof-points.json` → `tags` → Shows which industries have evidence
 - `messaging/audiences.json` → existing audience profiles (if available)
 

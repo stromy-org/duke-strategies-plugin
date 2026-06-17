@@ -8,8 +8,8 @@ description: "Write and manage corporate press releases with full governance lif
 ## Inputs from client-data
 
 - `companies/{client_slug}/charter.json` — brand identity; read `expression` (optional) for compact brand direction (`principles`, `signatureElements`, `antiPatterns`) and `identity.positioning`
-- `companies/{client_slug}/profile.json` — company name, HQ, spokespeople
-- `companies/{client_slug}/press-releases/` (optional) — prior press releases for tone alignment
+- `companies/{client_slug}/company_context.json` — redacted public company facts (`company.*`: name, description, HQ, services, positioning) and public spokesperson metadata (`people[]`: name, title, publicRole, publicBio, quoteStyle)
+- `companies/{client_slug}/press-releases/` (optional) — prior press releases / content library (spokespersons, boilerplate, distribution-lists, approval-matrix)
 - `companies/{client_slug}/voice/voice-profile.md` (optional) — entity voice profile (L2)
 - `companies/{client_slug}/voice/voice-anchors.md` (optional) — entity voice anchors (L2)
 
@@ -74,34 +74,46 @@ Press releases are still valued by journalists (Cision reports 72% prefer receiv
 
 ## Company Data Integration
 
+> **No overlay — STOP.** If `companies/` has no entry for this client, do NOT fabricate company details, invent spokesperson names, or default to a Stromy brand. State: "No company overlay found — client data unavailable. Please ensure the plugin is deployed with the correct `companies/<slug>/` overlay." Do not continue to draft.
+
 ### Discovery
 
-1. List `client-data/clients/` for available company profiles
-2. One company → use by default; multiple → ask which company is announcing
-3. If none exist → gather company details manually during intake
+1. Resolve `{client_slug}` from the invoking plugin's `companies/` directory:
+   - Zero entries → STOP (see guard above).
+   - One entry → use it directly; state the resolved client name at the start of your response (e.g. "Using the Amaris brand.").
+   - Multiple entries → ask the user which company is announcing; do not guess.
+2. If the overlay exists but the announced company isn't in it → gather company details manually and note the gap.
 
 ### Loading Company Data
 
 ```
-client-data/clients/<name>/profile.json        → Company name, tagline, HQ, contact, services
-client-data/clients/<name>/charter.json   → Colors, fonts, logo (for branded PDF/HTML versions)
-client-data/clients/<name>/press-releases/      → Press release content library:
-  ├── spokespersons.json     → Approved spokespersons with titles, quote style, topics
+companies/{client_slug}/company_context.json   → Public company facts + spokesperson metadata:
+  company.name / displayName                   → Legal and display name for boilerplate / attribution
+  company.description                          → "About <Company>" boilerplate
+  company.headquarters.city / country          → Dateline city and country
+  company.publicContact.website / press        → Public website and press contact URL (no personal email/phone)
+  people[]                                     → Public spokespeople: name, title, publicRole, publicBio, quoteStyle
+
+companies/{client_slug}/charter.json           → Colors, fonts, logo (for branded PDF/HTML versions)
+companies/{client_slug}/press-releases/        → Press release content library (all optional):
+  ├── spokespersons.json     → Approved spokespersons with titles, quote style, topics (overrides people[])
   ├── boilerplate.json       → Company boilerplate versions (standard, short, product-specific)
   ├── distribution-lists.json → Media lists by beat, region, tier
   └── approval-matrix.json   → Sign-off requirements by announcement classification
 ```
 
-When no `press-releases/` directory exists, fall back to `profile.json` for company identity and ask the user for spokesperson details, boilerplate text, and approval requirements.
+When no `press-releases/` sub-directory exists, use `company_context.json` for identity and spokesperson data, and ask the user for boilerplate variants and approval requirements.
+
+**PII note:** `company_context.json` contains only public-role data. Spokesperson personal contact details (personal email, phone) are intentionally redacted. Use only `name`, `title`, `publicRole`, `publicBio`, and `quoteStyle` from `people[]`. For the media contact block, use `company.publicContact.press` (a URL or generic press address) or ask the user for a specific media contact.
 
 ### Content Assembly
 
 | Release Section | Content Source | Fallback |
 |----------------|---------------|----------|
-| Dateline city | `profile.json` → `company.headquarters.city` | Ask user |
-| Boilerplate | `press-releases/boilerplate.json` → match by variant | Ask user for 2-3 sentence company description |
-| Spokesperson | `press-releases/spokespersons.json` → match by topic; `people.json` for contact details | Ask user for name, title, quote |
-| Media contact | `press-releases/spokespersons.json` → `mediaContact` role; `people.json` for contact details | `profile.json` → `company.email` |
+| Dateline city | `company_context.company.headquarters.city` | Ask user |
+| Boilerplate | `press-releases/boilerplate.json` → match by variant; else `company_context.company.description` | Ask user for 2-3 sentence company description |
+| Spokesperson | `press-releases/spokespersons.json` → match by topic; else `company_context.people[]` filtered by `publicRole` | Ask user for name, title, quote |
+| Media contact | `press-releases/spokespersons.json` → `mediaContact` role; else `company_context.company.publicContact.press` | Ask user for a direct press contact |
 | Approval chain | `press-releases/approval-matrix.json` → match by classification | Default: Comms lead + subject-matter owner |
 | Distribution | `press-releases/distribution-lists.json` → match by beat | Recommend wire + targeted list |
 
@@ -319,7 +331,7 @@ The primary output is a markdown-formatted press release. After the content is f
 
 ### About [Company Name]
 
-[2-3 sentence boilerplate from content library or profile.json]
+[2-3 sentence boilerplate from content library or company_context.company.description]
 
 ### Media Contact
 

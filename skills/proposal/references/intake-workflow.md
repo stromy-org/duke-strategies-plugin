@@ -29,8 +29,8 @@ The user initiates with one of:
    - Submission requirements (format, deadline, page limits)
    - Evaluation criteria (if RFP)
 
-2. **Load company data** — discover and read from `client-data/clients/`:
-   - `profile.json` for services, pricing, credentials
+2. **Load company data** — discover and read from `companies/{client_slug}/` (resolve `{client_slug}` per "Company Data Integration" in SKILL.md):
+   - `company_context.json` for company facts: services, pricing (publicModels), credentials, legal (publicTerms), people
    - `proposals/case-studies.json` for relevant past performance
    - `proposals/team-bios.json` for available team members
    - `proposals/methodologies.json` for applicable approaches
@@ -73,7 +73,7 @@ This determines which sections to include (full skeleton vs. condensed mapping).
 
 **2. Pricing Model**
 > "Which pricing approach should we use?"
-> Present options from `profile.json` → `pricing.models[]`
+> Present options from `company_context.json` → `pricing.publicModels[]`
 
 Only skip if the brief specifies a pricing format or the company has only one model.
 
@@ -111,12 +111,12 @@ Skip when: RFP is clearly competitive (multiple vendors invited) or user states 
 
 ### Questions to NEVER Ask
 
-- "What is your company's name?" → It's in `profile.json`
-- "What services do you offer?" → It's in `profile.json`
-- "What are your rates?" → It's in `profile.json`
+- "What is your company's name?" → It's in `company_context.json` → `company.name`
+- "What services do you offer?" → It's in `company_context.json` → `company.services[]`
+- "What are your rates?" → It's in `company_context.json` → `pricing.publicModels[]`
 - "Tell me about your past projects" → It's in `case-studies.json`
 - "What's your methodology?" → It's in `methodologies.json`
-- "What are your standard terms?" → It's in `boilerplate.json`
+- "What are your standard terms?" → `boilerplate.json` + `company_context.json` → `legal.publicTerms`
 - Generic filler questions that don't change the output
 - Questions already answered in the brief/RFP
 

@@ -58,7 +58,7 @@ Recognition or endorsement from independent authorities.
 
 **Strength:** Strong for credibility but weak for differentiation (competitors may hold the same certifications). Most impactful when the validating body is recognized by the target audience.
 
-**Where to find:** `profile.json` → `credentials.certifications`, `credentials.awards`, press coverage archives.
+**Where to find:** `company_context.json` → `credentials.certifications`, `credentials.awards`, press coverage archives.
 
 ### 4. Capability
 
@@ -72,7 +72,7 @@ Evidence of unique methods, technology, or expertise that competitors cannot eas
 
 **Strength:** Strong for answering "how do you do it differently?" Weak when the capability is common or easily replicable. Most impactful when connected to a specific customer outcome.
 
-**Where to find:** `profile.json` → `services[]`, product documentation, internal methodology descriptions.
+**Where to find:** `company_context.json` → `company.services[]`, product documentation, internal methodology descriptions.
 
 ### 5. Credibility Markers
 
@@ -87,7 +87,7 @@ Background signals that establish baseline trust.
 
 **Strength:** Useful for establishing baseline credibility but rarely persuasive on their own. "20 years in business" is a credibility marker, not a differentiator — competitors have their own version. Use sparingly as supporting context, not as primary proof.
 
-**Where to find:** `profile.json` → `company`, general company facts.
+**Where to find:** `company_context.json` → `company`, general company facts.
 
 ### 6. Narrative
 
@@ -141,7 +141,7 @@ Each pillar needs a minimum of 2 proof points, ideally from at least 2 different
 
 List all available evidence from company data:
 - Scan `messaging/proof-points.json` (if it exists)
-- Check `profile.json` → `credentials` for awards and certifications
+- Check `company_context.json` → `credentials` for awards and certifications
 
 ### Step 2: Categorize by type
 

@@ -8,7 +8,7 @@ description: "Build structured messaging frameworks — core narrative, messagin
 ## Inputs from client-data
 
 - `companies/{client_slug}/charter.json` — brand identity; read `expression` (optional) for compact brand direction (`principles`, `signatureElements`, `antiPatterns`) and `identity.positioning`
-- `companies/{client_slug}/profile.json` — company positioning + audiences
+- `companies/{client_slug}/company_context.json` — redacted public company facts: name, description, tagline, services, industries, positioning, values, stats, public people profiles
 - `companies/{client_slug}/messaging/` (optional) — prior frameworks for context
 - `companies/{client_slug}/voice/voice-profile.md` (optional) — entity voice profile (L2)
 - `companies/{client_slug}/voice/voice-anchors.md` (optional) — entity voice anchors (L2)
@@ -74,18 +74,24 @@ The skill is format-agnostic: it produces messaging architecture as structured c
 
 ## Company Data Integration
 
+> **If this plugin has no `companies/` overlay, STOP.** Do not fabricate a brand, invent company details, or default to a Stromy brand. Tell the user: "No client overlay found — I cannot proceed without company data."
+
 ### Discovery
 
-1. List `client-data/clients/` for available company profiles
-2. One company → use by default; multiple → ask which company's messaging this is for
-3. If none exist → gather company details manually during intake
+1. List `companies/` in the invoking plugin for available overlays
+2. Zero entries → STOP with the message above; one entry → use it by default and state which brand you resolved; multiple entries → ask the user which company's messaging this is for
+3. If the `companies/{client_slug}/company_context.json` file is missing → ask the user to supply company details manually before proceeding
+
+Note: PII (banking details, registration numbers, VAT, billing contacts, personal contact information) is intentionally absent from the deployed plugin overlay. If such data is needed, obtain it from the user directly.
 
 ### Loading Company Data
 
 ```
-client-data/clients/<name>/profile.json           → Company identity, services, value proposition
-client-data/clients/<name>/charter.json      → Colors, fonts, logo (for branded output)
-client-data/clients/<name>/messaging/              → Messaging content library:
+companies/{client_slug}/company_context.json  → Company facts: name, description, services,
+                                                 industries, positioning, values, stats,
+                                                 public people profiles, credentials, pricing
+companies/{client_slug}/charter.json          → Colors, fonts, logo (for branded output)
+companies/{client_slug}/messaging/            → Messaging content library:
   ├── pillars.json         → Reusable messaging pillars with proof attachments
   ├── proof-points.json    → Evidence library organized by type and topic
   ├── audiences.json       → Audience profiles with pain points, vocabulary, decision criteria
@@ -104,11 +110,14 @@ Each component loads from its own source within the messaging library or company
 | Target audiences | `messaging/audiences.json` | Ask user |
 | Existing pillars | `messaging/pillars.json` | Build from scratch |
 | Evidence | `messaging/proof-points.json` | Ask user |
-| Company identity | `profile.json` → `company` | Ask user |
-| Services/capabilities | `profile.json` → `services[]` | Ask user |
-| Credentials | `profile.json` → `credentials` | Omit |
+| Company identity | `company_context.json` → `company.name` / `company.description` | Ask user |
+| Services/capabilities | `company_context.json` → `company.services[]` | Ask user |
+| Industries/positioning | `company_context.json` → `company.industries[]` / `company.positioning` | Ask user |
+| Values | `company_context.json` → `company.values[]` | Ask user |
+| People (public bios) | `company_context.json` → `people[]` | Ask user |
+| Credentials | `company_context.json` → `credentials[]` | Omit |
 
-**Client resolution**: If the user doesn't specify which company's messaging they're building, and multiple companies exist in `client-data/clients/`, ask — don't infer. For a single company, use it by default and confirm.
+**Client resolution**: Resolve `{client_slug}` from the invoking plugin's `companies/` directory — never accept it as a parameter or hardcode it. If the plugin has exactly one overlay, use it and name the client in your response. If multiple overlays exist, ask the user which company's messaging they're building.
 
 ## Framework Types
 
@@ -171,7 +180,9 @@ Gather the inputs that shape the framework. Apply the same filtering principle a
 - Internal alignment needs (is this for one team or cross-functional adoption?)
 
 **Pull from data — don't ask:**
-- Company name, description, services, credentials → `profile.json`
+- Company name, description, services, industries, positioning, values → `company_context.json` → `company.*`
+- Public people profiles and bios → `company_context.json` → `people[]`
+- Credentials → `company_context.json` → `credentials[]`
 - Existing messaging pillars or narratives → `messaging/`
 - Past performance evidence → ask user (curate into `messaging/proof-points.json`)
 

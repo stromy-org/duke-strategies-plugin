@@ -1,20 +1,16 @@
 # Company Data Schema Reference
 
-This reference documents the complete schema for company data stored in `client-data/clients/<company-name>/`.
+This reference documents the company data schemas used by the proposal skill. There are two layouts — the **deployed-plugin overlay** (what the skill reads at runtime in a client plugin) and the **canonical client-data** layout (operator-side source of truth, not accessible from deployed plugins).
 
-## Directory Structure
+## Deployed-Plugin Overlay (`companies/{client_slug}/`)
+
+This is the layout the skill reads. `company_context.json` is the single source of company facts for deployed skills — `profile.json` and `people.json` are not present in public plugin overlays.
 
 ```
-client-data/clients/<company-name>/
-├── profile.json          # Company identity, services, pricing, credentials, legal
-├── people.json           # People registry — contact details, roles (author/spokesperson/approver)
-├── brand/
-│   ├── charter.json      # Visual identity
-│   ├── logo.png          # Primary logo
-│   ├── logo_white.png    # White/reversed logo (optional)
-│   └── templates/        # Format-specific templates (optional)
-│       ├── pptx/
-│       └── docx/
+companies/{client_slug}/
+├── company_context.json   # Redacted public company facts (replaces profile.json + people.json)
+├── charter.json           # Visual identity (colors, fonts, logos, format settings)
+├── logos/                 # Logo files referenced by charter
 └── proposals/
     ├── case-studies.json
     ├── team-bios.json
@@ -25,7 +21,94 @@ client-data/clients/<company-name>/
     └── partnerships.json
 ```
 
-## profile.json
+## Canonical Client-Data Layout (operator-side only)
+
+> **Operator environment only.** The paths below exist in `client-data/clients/<company-name>/` on operator infrastructure. Deployed plugins have no `client-data/` directory — do NOT reference these paths in deployed skills.
+
+```
+client-data/clients/<company-name>/
+├── profile.json          # Full company identity, services, pricing, credentials, legal (incl. PII)
+├── people.json           # Full people registry — contact details, roles (incl. email, phone)
+├── company_context.json  # Generated redacted export — distributed to plugin overlays
+├── charter.json          # Visual identity
+└── proposals/
+    └── ...
+```
+
+## company_context.json
+
+Redacted public company facts distributed to deployed plugin overlays. `schemaVersion: 1`.
+
+### `company` (required)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | string | Trading name |
+| `legalName` | string | Legal entity name |
+| `displayName` | string | Display name (marketing) |
+| `shortName` | string | Abbreviated name |
+| `description` | string | 2-3 sentence company description |
+| `tagline` | string | One-line value proposition |
+| `website` | string | Company website URL |
+| `founded` | number | Year founded |
+| `industry` | string | Primary industry |
+| `headquarters.city` | string | City |
+| `headquarters.region` | string | State / province |
+| `headquarters.country` | string | Country |
+| `services[]` | array | Services offered (id, name, description, industries, deliverables, typicalDuration, pricingModel) |
+| `industries[]` | string[] | Industries served |
+| `businessLines[]` | string[] | Business line categories |
+| `positioning` | string | Strategic positioning statement |
+| `values[]` | string[] | Company values |
+| `stats` | object | Public metrics (key → value) |
+| `publicContact.website` | string | Public website URL |
+| `publicContact.email` | string | Public contact email |
+| `publicContact.press` | string | Press / media contact (optional) |
+| `publicContact.linkedin` | string | LinkedIn URL (optional) |
+
+### `credentials` (optional)
+
+Array or object with `certifications[]`, `awards[]`, `memberships[]` — same structure as `profile.json` credentials but limited to public-facing entries.
+
+### `pricing` (optional)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `publicModels[]` | array | Publicly shareable pricing models (id, name, description, rates?) |
+| `paymentTerms` | string | Payment terms (e.g., "Net 30") |
+| `discounts` | array | Publicly available discount types |
+
+### `legal` (optional)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `publicTerms` | object or array | Standard public engagement terms: `ip`, `confidentiality`, `liability`, `termination` |
+| `insurances[]` | array | Insurance types (optional) |
+
+### `people[]` (optional)
+
+Public people profiles for document authoring and contact sections.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | string | Shared ID (links to `team-bios.json`) |
+| `name` | string | Full name |
+| `title` | string | Job title |
+| `publicRole` | string | Functional role label (e.g., `"author"`, `"spokesperson"`) |
+| `publicBio` | string | Short public biography |
+| `quoteStyle` | string | Preferred quote attribution format (optional) |
+
+> **PII note:** `company_context.json` intentionally omits banking details, registration/VAT/KVK numbers, billing email, personal email, and personal phone. Those remain in canonical `profile.json` and `people.json` on the operator side and are **never distributed to deployed plugins**.
+
+### `redactions[]`
+
+Array of field-path strings documenting what was redacted from the canonical source (informational only).
+
+---
+
+## profile.json (operator-side only)
+
+> **Operator environment only.** Not present in deployed plugin overlays.
 
 Top-level company identity and operational data.
 
@@ -182,7 +265,9 @@ Unified visual identity covering all output formats.
 
 ---
 
-## people.json
+## people.json (operator-side only)
+
+> **Operator environment only.** Not present in deployed plugin overlays — use `company_context.json` → `people[]` instead.
 
 Top-level people registry — structured contact and role data for document authoring, spokesperson selection, and approval workflows. Links to `team-bios.json` (rich narrative bios) and `spokespersons.json` (quote style, topic expertise) via shared `id`.
 
@@ -196,12 +281,12 @@ Top-level people registry — structured contact and role data for document auth
 | `roles` | Yes | string[] | `"author"`, `"spokesperson"`, `"approver"`, `"mediaContact"` |
 | `default` | No | boolean | Auto-select for document authoring if `true` |
 
-### Author Discovery
+### Author Discovery (deployed plugin)
 
-1. Check `people.json` → filter by `roles` containing `"author"`
-2. One person with `"default": true` → auto-select, confirm
-3. Multiple authors, no default → ask user
-4. No `people.json` → fall back to `profile.json`
+1. Check `company_context.json` → `people[]` → filter by `publicRole` containing `"author"`
+2. Exactly one matching person → auto-select, confirm with user
+3. Multiple matches, none unambiguously default → ask user
+4. No people with `publicRole: "author"` → ask user to provide "Prepared by" details manually
 
 ---
 
@@ -228,7 +313,7 @@ Array of past performance case studies.
 | `timeframe.end` | string | End date (YYYY-MM) |
 | `budget` | string | Engagement budget (free text) |
 | `team` | string[] | References to `team-bios.json` → `[].id` |
-| `services` | string[] | References to `profile.json` → `services[].id` |
+| `services` | string[] | References to `company_context.json` → `company.services[].id` |
 | `short` | string | 50-word version for inline references |
 | `long` | string | 500-word version for dedicated sections |
 | `lastReviewed` | string | Date last reviewed (YYYY-MM) — optional, for content freshness tracking |
@@ -281,7 +366,7 @@ Array of standard approaches and frameworks.
 | `phases[].name` | string | Phase name |
 | `phases[].description` | string | Phase activities and outputs |
 | `differentiators` | string[] | What makes this approach unique |
-| `applicableServices` | string[] | References to `profile.json` → `services[].id` |
+| `applicableServices` | string[] | References to `company_context.json` → `company.services[].id` |
 | `lastReviewed` | string | Date last reviewed (YYYY-MM) — optional, for content freshness tracking |
 
 ---
@@ -343,7 +428,7 @@ Array of reusable win themes and competitive positioning statements.
 | `theme` | string | Win theme name (e.g., "Speed to Value") |
 | `headline` | string | One-sentence positioning statement |
 | `evidence` | string[] | References to `case-studies.json` → `[].id` |
-| `applicableServices` | string[] | References to `profile.json` → `services[].id` |
+| `applicableServices` | string[] | References to `company_context.json` → `company.services[].id` |
 | `tags` | string[] | Searchable tags |
 | `ghostStatement` | string | Optional competitive positioning (highlights strength without naming competitors) |
 | `lastReviewed` | string | Date last reviewed (YYYY-MM) |
@@ -359,7 +444,7 @@ Array of technology and strategic partnerships.
 | `id` | string | Unique identifier (e.g., `"part-001"`) |
 | `partner` | string | Partner organization name |
 | `level` | string | Partnership tier (e.g., "Gold Partner", "Strategic Alliance") |
-| `relevantServices` | string[] | References to `profile.json` → `services[].id` |
+| `relevantServices` | string[] | References to `company_context.json` → `company.services[].id` |
 | `proofPoint` | string | One-sentence credibility statement |
 | `tags` | string[] | Searchable tags |
 | `lastReviewed` | string | Date last reviewed (YYYY-MM) |
@@ -368,36 +453,32 @@ Array of technology and strategic partnerships.
 
 ## Cross-Reference Map
 
-IDs create a web of references across files:
+IDs create a web of references across files (deployed-plugin overlay paths):
 
 ```
-profile.json                    proposals/case-studies.json
-  services[].id ──────────────→   [].services[]
-  pricing.models[].id              [].team[] ──→ proposals/team-bios.json → [].id
+company_context.json              proposals/case-studies.json
+  company.services[].id ────────→   [].services[]
+  pricing.publicModels[].id          [].team[] ──→ proposals/team-bios.json → [].id
 
-people.json
-  [].id ──────────────────────→ proposals/team-bios.json → [].id
-  [].id ──────────────────────→ press-releases/spokespersons.json → [].personId
-
-press-releases/spokespersons.json
-  [].personId ────────────────→ people.json → [].id
+company_context.json
+  people[].id ──────────────────→ proposals/team-bios.json → [].id
 
 proposals/methodologies.json
-  [].applicableServices[] ────→ profile.json → services[].id
+  [].applicableServices[] ──────→ company_context.json → company.services[].id
 
 proposals/testimonials.json
-  [].caseStudy ───────────────→ proposals/case-studies.json → [].id
+  [].caseStudy ─────────────────→ proposals/case-studies.json → [].id
 
 proposals/differentiators.json
-  [].evidence[] ──────────────→ proposals/case-studies.json → [].id
-  [].applicableServices[] ────→ profile.json → services[].id
+  [].evidence[] ────────────────→ proposals/case-studies.json → [].id
+  [].applicableServices[] ──────→ company_context.json → company.services[].id
 
 proposals/partnerships.json
-  [].relevantServices[] ──────→ profile.json → services[].id
+  [].relevantServices[] ────────→ company_context.json → company.services[].id
 ```
 
 When assembling a proposal:
-1. Identify relevant services from the brief → `profile.json` → `services[].id`
+1. Identify relevant services from the brief → `company_context.json` → `company.services[].id`
 2. Find case studies that match → `case-studies.json` → filter by `services[]` or `tags[]`
 3. Find team members from those case studies → `team-bios.json` → filter by `id` in case study's `team[]`
 4. Find applicable methodology → `methodologies.json` → filter by `applicableServices[]`
@@ -407,11 +488,14 @@ When assembling a proposal:
 
 ## Bootstrapping a New Company Profile
 
+> **Operator environment only.** Run these steps in `client-data`; the plugin overlay (`companies/{client_slug}/`) is generated from it via the distribution pipeline.
+
 1. Copy the example: `cp -r client-data/clients/_example client-data/clients/<name>`
 2. Edit `profile.json` — fill in all company identity, services, and pricing
-3. Edit `brand/charter.json` — set your colors, fonts, and logo references
-4. Add logo files to `brand/`
-5. Replace example content in `proposals/`:
+3. Edit `charter.json` — set your colors, fonts, and logo references
+4. Add logo files to `logos/`
+5. Run the brand compiler to generate `company_context.json` (the redacted public export) and distribute to plugin overlays
+6. Replace example content in `proposals/`:
    - Add real case studies to `case-studies.json`
    - Add team members to `team-bios.json`
    - Add or modify methodologies in `methodologies.json`
@@ -419,4 +503,4 @@ When assembling a proposal:
    - Add testimonials to `testimonials.json`
    - Add win themes and differentiators to `differentiators.json`
    - Add technology and strategic partnerships to `partnerships.json`
-6. Ensure all cross-references are valid (team IDs in case studies, service IDs in methodologies, case study IDs in differentiators)
+7. Ensure all cross-references are valid (team IDs in case studies, service IDs in methodologies, case study IDs in differentiators)
