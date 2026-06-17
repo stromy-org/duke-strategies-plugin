@@ -10,6 +10,7 @@ description: "Write and manage corporate press releases with full governance lif
 - `companies/{client_slug}/charter.json` — brand identity; read `expression` (optional) for compact brand direction (`principles`, `signatureElements`, `antiPatterns`) and `identity.positioning`
 - `companies/{client_slug}/company_context.json` — redacted public company facts (`company.*`: name, description, HQ, services, positioning) and public spokesperson metadata (`people[]`: name, title, publicRole, publicBio, quoteStyle)
 - `companies/{client_slug}/press-releases/` (optional) — prior press releases / content library (spokespersons, boilerplate, distribution-lists, approval-matrix)
+- `companies/{client_slug}/boilerplate.json` (optional) — company-wide boilerplate, including `contact_block` (signer + firm + contact lines, locale-keyed: `default_en`/`default_nl`) and `sign_off` (closing salutation) used for the Media Contact block and any signed cover note
 - `companies/{client_slug}/voice/voice-profile.md` (optional) — entity voice profile (L2)
 - `companies/{client_slug}/voice/voice-anchors.md` (optional) — entity voice anchors (L2)
 
@@ -140,7 +141,8 @@ When no `press-releases/` sub-directory exists, use `company_context.json` for i
 | Dateline city | `company_context.company.headquarters.city` | Ask user |
 | Boilerplate | `press-releases/boilerplate.json` → match by variant; else `company_context.company.description` | Ask user for 2-3 sentence company description |
 | Spokesperson | `press-releases/spokespersons.json` → match by topic; else `company_context.people[]` filtered by `publicRole` | Ask user for name, title, quote |
-| Media contact | `press-releases/spokespersons.json` → `mediaContact` role; else `company_context.company.publicContact.press` | Ask user for a direct press contact |
+| Media contact | `boilerplate.json` → `contact_block` (locale-matched variant, emit verbatim); else `press-releases/spokespersons.json` → `mediaContact` role; else `company_context.company.publicContact.press` | Ask user for a direct press contact |
+| Closing salutation (signed cover note only) | `boilerplate.json` → `sign_off` (locale/register-matched variant) | Omit — AP-style releases need no salutation |
 | Approval chain | `press-releases/approval-matrix.json` → match by classification | Default: Comms lead + subject-matter owner |
 | Distribution | `press-releases/distribution-lists.json` → match by beat | Recommend wire + targeted list |
 
@@ -368,6 +370,14 @@ The primary output is a markdown-formatted press release. After the content is f
 
 ###
 ```
+
+> When `companies/{client_slug}/boilerplate.json` carries a `contact_block`, emit the locale-matched
+> variant **verbatim** in the Media Contact block instead of the `[Name]/[Title]/…` placeholders
+> (it already holds the signer, firm, and contact lines). Resolve the locale/register-keyed map to
+> the chosen variant's value — never emit the raw JSON or a key name. If a signed cover note
+> accompanies the release, close it with the `sign_off` variant. **Absence is not failure:** a client
+> whose `boilerplate.json` lacks these fields (or has none) falls back to the table's other sources;
+> never fabricate a contact or salutation.
 
 ## Output Format Production
 
