@@ -13,7 +13,7 @@ license: Proprietary. LICENSE.txt has complete terms
 - `companies/{client_slug}/logos/` (optional) — logo files (paths resolved from the charter `logo` section)
 - `companies/{client_slug}/proposals/` (optional) — proposal content library (case studies, prior proposals)
 - `companies/{client_slug}/proposals/methodologies.json` (optional) — methodology library
-- `companies/{client_slug}/boilerplate.json` (optional) — boilerplate sections
+- `companies/{client_slug}/boilerplate.json` (optional) — boilerplate sections, including `sign_off` (closing salutation, locale/register-keyed: `default_en`/`default_nl`/`formal_en`/`formal_nl`) and `contact_block` (signer + firm + contact lines, locale-keyed)
 - `companies/{client_slug}/voice/voice-profile.md` (optional) — entity voice profile (L2)
 - `companies/{client_slug}/voice/voice-anchors.md` (optional) — entity voice anchors (L2)
 
@@ -130,6 +130,8 @@ Map library items to proposal sections by matching tags, service IDs, and indust
 | Proof Points (inline) | `testimonials.json` | Match by `tags` and `caseStudy` reference |
 | Win Themes (inline) | `differentiators.json` | Match by `applicableServices` or tags; thread throughout proposal |
 | Partnership Proof (inline) | `partnerships.json` | Match by `relevantServices`; use in Team & Qualifications or Credentials |
+| Closing salutation | `boilerplate.json` → `sign_off` | Pick the variant matching the proposal's language + register (`formal_*` for first-contact / public-sector; `default_*` otherwise) |
+| Next Steps contact block | `boilerplate.json` → `contact_block` | Pick the variant matching the proposal's language; emit verbatim in the Next Steps / closing section |
 
 ## Interactive Intake Workflow
 
@@ -268,6 +270,11 @@ Draft each section **in the deliverable canvas**, following the guidance in [sec
   - `identity.positioning` — use to sharpen the executive summary angle and differentiation framing
   - If `expression` is absent, fall back to the voice profile only (soft note; no hard failure — output-tier brands may legitimately omit it)
   - **Voice-cascade rule:** `expression` is additive to the L1 baseline + L2 profile bans, never a relaxation. Expression principles may sharpen tone but must not reintroduce a banned construction. Where a Brand Context API narrative is attached (`candidate.context`), treat it as input evidence for expression principles, not a voice source that overrides the cascade.
+- **Emit the authored closing (if present).** Read `companies/{client_slug}/boilerplate.json`. If it carries `sign_off` and/or `contact_block`, use them instead of inventing a closing:
+  - `sign_off` → the closing salutation (e.g. a cover-letter sign-off, or the line before the contact block in Next Steps). Select the locale + register variant — `formal_en`/`formal_nl` for first-contact or public-sector proposals, `default_en`/`default_nl` otherwise; match the proposal's language.
+  - `contact_block` → emit verbatim in the **Next Steps** section (section 15) as the firm's contact details; select the variant matching the proposal's language.
+  - These are locale/register-keyed maps, not bare strings — never emit the raw JSON or a key name; resolve to the chosen variant's value.
+  - **Absence is not failure.** A client whose `boilerplate.json` lacks `sign_off`/`contact_block` (or has no `boilerplate.json`) simply omits the authored closing — fall back to a plain "Next steps" call-to-action and do **not** fabricate a signer, salutation, or contact details.
 
 ### Step 3 — Assembly
 
