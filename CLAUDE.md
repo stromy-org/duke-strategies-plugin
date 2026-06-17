@@ -4,7 +4,7 @@ Instructions for Claude Code when working in this plugin repo.
 
 ## Overview
 
-Duke Strategies Deliverables is a Claude Code plugin that bundles branded deliverable skills for Duke Strategies. It is a **distribution artifact** — skills are authored in Cowork and cherry-picked here for client deployment.
+Duke Strategies Deliverables is a Claude Code plugin that bundles branded deliverable skills for Duke Strategies. It is a **distribution artifact** — skills are authored in Workspace Studio and cherry-picked here for client deployment.
 
 ## Repository Structure
 
@@ -12,7 +12,7 @@ Duke Strategies Deliverables is a Claude Code plugin that bundles branded delive
 duke-strategies-plugin/
 ├── .claude-plugin/
 │   └── plugin.json          # Plugin manifest
-├── skills/                   # Deliverable skills (from Cowork)
+├── skills/                   # Deliverable skills (from Workspace Studio)
 │   ├── pdf/
 │   ├── pptx/
 │   ├── docx/
@@ -42,7 +42,7 @@ claude --plugin-dir .
 # Validate skill manifests
 for d in skills/*/; do [ -f "$d/SKILL.md" ] && echo "OK: $d" || echo "MISSING: $d"; done
 
-# Check for stale Cowork paths (should return nothing)
+# Check for stale Workspace Studio paths (should return nothing)
 grep -r '\.claude/companies/' skills/
 grep -r '\.claude/skills/' skills/
 grep -r "require('../../../../" skills/
@@ -50,9 +50,9 @@ grep -r "require('../../../../" skills/
 
 ## Updating Skills
 
-Skills are maintained in Cowork and cherry-picked into this plugin:
+Skills are maintained in Workspace Studio and cherry-picked into this plugin:
 
-1. Update the skill in `Cowork/.claude/skills/<skill-name>/`
+1. Update the skill in `workspace-studio/.claude/skills/<skill-name>/`
 2. Copy updated files to `skills/<skill-name>/`
 3. Re-apply portability transforms (`.claude/companies/` -> `companies/`, etc.)
 4. Validate with the grep checks above
