@@ -33,6 +33,33 @@ headline, lede, body, and quotes.
 This is a text-only voice pass. The skill mentions the cascade as context; it
 does not invoke another skill.
 
+## Research
+
+A press release lives or dies on its facts, so run the org **research cascade**
+before and during Fact Pack Assembly (Phase 2) — gather facts *before* drafting,
+never improvise them into the release.
+
+1. **Read the L1 discipline.** When the `stromy-format` MCP is connected, read
+   `research://baseline`, `research://capability-map`, and
+   `research://fact-discipline` via `ReadMcpResourceTool`.
+2. **Pick a path via the capability map** (attended vs unattended). Use WebSearch
+   (if enabled) or `nl-gov-data` for official-source facts; billed `research-apify`
+   runs only on an explicit/confirmed request. If that is the only available path
+   and it wasn't confirmed, **ask first**.
+3. **Apply fact-discipline to every claim.** Cite-or-hedge; state the precise
+   stage of any legislative/regulatory claim (announced / introduced / passed /
+   in-force) and never imply a later one; flag forward-looking claims; record
+   provenance; **surface gaps — never fabricate** a figure, date, quote, or
+   citation. A press release that overstates is a correction waiting to happen.
+4. **If no research path is available, say so and do not fabricate** — ask the
+   user to supply the facts, or draft only from what is confirmed (flagging the
+   unverified). At the governance-review / approval step, present the
+   claims-with-sources and the unverified / forward-looking flags alongside the
+   draft.
+
+The discipline is read from its canonical home at run time, not embedded here.
+The skill mentions the cascade as context; it does not invoke another skill.
+
 ## Deliverable canvas (prerequisite)
 
 <!-- canvas-protocol:start v1 -->
