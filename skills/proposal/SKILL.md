@@ -10,6 +10,8 @@ license: Proprietary. LICENSE.txt has complete terms
 
 - `companies/{client_slug}/charter.json` — brand identity; read `expression` (optional) for compact brand direction (`principles`, `signatureElements`, `antiPatterns`) and `identity.positioning`
 - `companies/{client_slug}/company_context.json` — redacted public company facts: `company` (name, description, services, industries, positioning, values, stats, publicContact), `credentials`, `pricing.publicModels` (+ `paymentTerms`, `discounts`), `legal.publicTerms`, `people` (id, name, title, publicRole, publicBio, quoteStyle)
+- `companies/{client_slug}/logos/` (optional) — logo files (paths resolved from the charter `logo` section)
+- `companies/{client_slug}/proposals/` (optional) — proposal content library (case studies, prior proposals)
 - `companies/{client_slug}/proposals/methodologies.json` (optional) — methodology library
 - `companies/{client_slug}/boilerplate.json` (optional) — boilerplate sections
 - `companies/{client_slug}/voice/voice-profile.md` (optional) — entity voice profile (L2)
