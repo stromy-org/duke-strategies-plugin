@@ -206,6 +206,8 @@ Wait for approval or adjustments before proceeding to Phase 4.
 
 Build the framework from the top down. Each layer must be solid before the next one builds on it.
 
+**Maintain the unsourced ledger as you draft.** Tag each core claim, pillar proof point, and any person quote/bio with its `basis` — `client_data`, `inferred`, or `fabricated` — *as you write it*. Anything attributed to a named person with no `company_context.people[]` source, or a proof point with no client-data evidence, is `fabricated` — ask the user rather than invent (the Content Assembly fallbacks already say "Ask user" for people/evidence). This ledger seeds `asset-feedback.unsourced_content` at close-out.
+
 **Brand expression (read before writing) — reference, never bind.** Before drafting any language, read `expression` from `brand_context.json`. If present, use as prose guidance:
 - `expression.principles` — let these inform the register and rhetorical posture of the core message and pillar language (e.g., "Evidence before decoration" → lead with proof, not claim)
 - `expression.signatureElements` — reflect where natural in pillar language and verbal guardrails
