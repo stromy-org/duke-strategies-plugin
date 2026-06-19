@@ -7,7 +7,7 @@ description: "Write and manage corporate press releases with full governance lif
 
 ## Inputs from client-data
 
-- `companies/{client_slug}/charter.json` — brand identity; read `expression` (optional) for compact brand direction (`principles`, `signatureElements`, `antiPatterns`) and `identity.positioning`
+- `companies/{client_slug}/brand_context.json` — resolved brand; read `expression` (`principles`, `signatureElements`, `antiPatterns`) for compact brand direction and `identity.positioning`. **Reference, never bind** — prose guidance, not hard rules.
 - `companies/{client_slug}/company_context.json` — redacted public company facts (`company.*`: name, description, HQ, services, positioning) and public spokesperson metadata (`people[]`: name, title, publicRole, publicBio, quoteStyle)
 - `companies/{client_slug}/press-releases/` (optional) — prior press releases / content library (spokespersons, boilerplate, distribution-lists, approval-matrix)
 - `companies/{client_slug}/boilerplate.json` (optional) — company-wide boilerplate, including `contact_block` (signer + firm + contact lines, locale-keyed: `default_en`/`default_nl`) and `sign_off` (closing salutation) used for the Media Contact block and any signed cover note
@@ -122,7 +122,7 @@ companies/{client_slug}/company_context.json   → Public company facts + spokes
   company.publicContact.website / press        → Public website and press contact URL (no personal email/phone)
   people[]                                     → Public spokespeople: name, title, publicRole, publicBio, quoteStyle
 
-companies/{client_slug}/charter.json           → Colors, fonts, logo (for branded PDF/HTML versions)
+companies/{client_slug}/brand_context.json     → Resolved brand: expression, colors, fonts, logo (for branded PDF/HTML versions)
 companies/{client_slug}/press-releases/        → Press release content library (all optional):
   ├── spokespersons.json     → Approved spokespersons with titles, quote style, topics (overrides people[])
   ├── boilerplate.json       → Company boilerplate versions (standard, short, product-specific)
@@ -250,7 +250,7 @@ Wait for confirmation or adjustments before proceeding to Phase 5.
 
 Now write. Follow AP-style conventions and inverted pyramid structure.
 
-**Brand expression (read before drafting).** Before writing, read `expression` from `charter.json`. If present, use as prose guidance:
+**Brand expression (read before drafting) — reference, never bind.** Before writing, read `expression` from `brand_context.json`. If present, use as prose guidance:
 - `expression.principles` — inform the rhetorical register (e.g., "measured authority" → factual lede, no hype; "evidence before decoration" → data-led subheads)
 - `expression.signatureElements` — reflect where appropriate in structural choices (e.g., a brand with an "editorial" type expression may use a tighter, sharper headline)
 - `expression.antiPatterns` — treat as a ban-list alongside the voice cascade's forbidden constructions
@@ -393,9 +393,9 @@ This skill owns press release content — structure, editorial quality, governan
 **Default**: If the user doesn't specify a format, produce markdown first and ask whether they'd like a formatted DOCX or PDF. Press releases are most commonly distributed as PDF attachments or pasted into wire services — recommend accordingly.
 
 **Brand context to carry forward** when producing formatted output through `format-prepare-document`:
-- Brand charter location: `companies/{client_slug}/charter.json`
-- Apply heading color from `colors.primary`, body font from `fonts.body`, logo from `logos/` (path in charter `logo` section)
-- Use `document` section from charter for margins, headers, footers
+- Brand location: `companies/{client_slug}/brand_context.json`
+- Apply heading color from `colors.primary`, body font from `typography.body`, logo from `logos/` (path in `brand_context.logo`)
+- Use the `document` section from `brand_context.json` for margins, headers, footers
 - Include company logo on the release header if available
 - Include resolved `expression` (if present) and `deliverable_genre: "press-release"` in the envelope for downstream render direction
 

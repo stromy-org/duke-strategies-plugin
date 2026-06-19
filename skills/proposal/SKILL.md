@@ -8,9 +8,9 @@ license: Proprietary. LICENSE.txt has complete terms
 
 ## Inputs from client-data
 
-- `companies/{client_slug}/charter.json` — brand identity; read `expression` (optional) for compact brand direction (`principles`, `signatureElements`, `antiPatterns`) and `identity.positioning`
+- `companies/{client_slug}/brand_context.json` — resolved brand; read `expression` (`principles`, `signatureElements`, `antiPatterns`) for compact brand direction and `identity.positioning`. **Reference, never bind** — prose guidance, not hard rules.
 - `companies/{client_slug}/company_context.json` — redacted public company facts: `company` (name, description, services, industries, positioning, values, stats, publicContact), `credentials`, `pricing.publicModels` (+ `paymentTerms`, `discounts`), `legal.publicTerms`, `people` (id, name, title, publicRole, publicBio, quoteStyle)
-- `companies/{client_slug}/logos/` (optional) — logo files (paths resolved from the charter `logo` section)
+- `companies/{client_slug}/logos/` (optional) — logo files (paths resolved from `brand_context.logo`)
 - `companies/{client_slug}/proposals/` (optional) — proposal content library (case studies, prior proposals)
 - `companies/{client_slug}/proposals/methodologies.json` (optional) — methodology library
 - `companies/{client_slug}/boilerplate.json` (optional) — boilerplate sections, including `sign_off` (closing salutation, locale/register-keyed: `default_en`/`default_nl`/`formal_en`/`formal_nl`) and `contact_block` (signer + firm + contact lines, locale-keyed)
@@ -101,7 +101,7 @@ This skill draws from structured company data in the invoking plugin's `companie
 
 ```
 companies/{client_slug}/company_context.json  → Company facts: name, services, pricing, credentials, legal, people
-companies/{client_slug}/charter.json          → Visual identity (colors, fonts, logo, format settings)
+companies/{client_slug}/brand_context.json    → Resolved brand: expression, identity, colors, fonts, logo
 companies/{client_slug}/proposals/             → Proposal content library:
   ├── case-studies.json      → Past performance
   ├── team-bios.json         → Key personnel with bio variants
@@ -263,7 +263,7 @@ Draft each section **in the deliverable canvas**, following the guidance in [sec
 - **Write for the evaluator** — lead with the answer, then provide supporting detail
 - **Maintain consistent voice** — same tense, same level of formality, same terminology throughout
 - **Skip the executive summary** — it gets written in Step 4
-- **Apply brand expression (if present).** Read `expression` from `charter.json`. If present, use as prose guidance — not hard layout rules:
+- **Apply brand expression (if present) — reference, never bind.** Read `expression` from `brand_context.json`. If present, use as prose guidance — not hard layout rules:
   - `expression.principles` — let these inform tone and emphasis (e.g., "measured authority" → lead with evidence, not assertion)
   - `expression.signatureElements` — weave into structure where natural (e.g., a brand that uses "indexed rules" may benefit from numbered evidence citations)
   - `expression.antiPatterns` — avoid these constructions in the prose and section framing
@@ -282,11 +282,11 @@ Draft each section **in the deliverable canvas**, following the guidance in [sec
 
 Produce the document in the chosen output format. Pass the following context to `format-prepare-document`:
 
-- **Brand charter**: `companies/{client_slug}/charter.json`
-- **Logo**: `companies/{client_slug}/logos/` (path in charter `logo` section)
+- **Brand**: `companies/{client_slug}/brand_context.json` (resolved expression + identity + colors/fonts/logo)
+- **Logo**: `companies/{client_slug}/logos/` (path in `brand_context.logo`)
 - **Drafted sections**: the content from Step 2
 - **Tone and archetype**: from intake Phase 2/3
-- **Brand expression**: include `expression` (if resolved from charter) and `deliverable_genre: "proposal"` in the envelope so the downstream renderer applies the same compact direction
+- **Brand expression**: include `expression` (if resolved from `brand_context.json`) and `deliverable_genre: "proposal"` in the envelope so the downstream renderer applies the same compact direction
 
 `format-prepare-document` then routes to the terminal renderer:
 - DOCX output → `format-docx`
@@ -378,7 +378,7 @@ These are the high-level checks. For detailed per-section checklists and common 
 
 ### Client Branding
 
-Brand data is loaded from `companies/{client_slug}/charter.json`. The charter covers all output formats:
+Brand data is resolved from `companies/{client_slug}/brand_context.json` (the downstream renderer applies the per-format settings below; the `presentation` spacing block stays in `charter.json`, which is not compiled):
 
 - **`document`** section → DOCX margins, headers, footers, heading colors
 - **`presentation`** section → PPTX slide margins, aspect ratio
@@ -432,6 +432,6 @@ This skill owns proposal content strategy. Document production is handled by the
 | XLSX | `xlsx` | Spreadsheet creation for pricing models |
 
 Brand context to carry forward:
-- Brand charter location: `companies/{client_slug}/charter.json`
-- Apply heading color from `colors.primary`, body font from `fonts.body`, logo from `logos/` (path in charter `logo` section)
+- Brand location: `companies/{client_slug}/brand_context.json`
+- Apply heading color from `colors.primary`, body font from `typography.body`, logo from `logos/` (path in `brand_context.logo`)
 - Include resolved `expression` (if present) and `deliverable_genre: "proposal"` for downstream render direction

@@ -7,7 +7,7 @@ description: "Build structured messaging frameworks — core narrative, messagin
 
 ## Inputs from client-data
 
-- `companies/{client_slug}/charter.json` — brand identity; read `expression` (optional) for compact brand direction (`principles`, `signatureElements`, `antiPatterns`) and `identity.positioning`
+- `companies/{client_slug}/brand_context.json` — resolved brand; read `expression` (`principles`, `signatureElements`, `antiPatterns`) for compact brand direction and `identity.positioning`. **Reference, never bind** — prose guidance, not hard rules.
 - `companies/{client_slug}/company_context.json` — redacted public company facts: name, description, tagline, services, industries, positioning, values, stats, public people profiles
 - `companies/{client_slug}/messaging/` (optional) — prior frameworks for context
 - `companies/{client_slug}/voice/voice-profile.md` (optional) — entity voice profile (L2)
@@ -90,7 +90,7 @@ Note: PII (banking details, registration numbers, VAT, billing contacts, persona
 companies/{client_slug}/company_context.json  → Company facts: name, description, services,
                                                  industries, positioning, values, stats,
                                                  public people profiles, credentials, pricing
-companies/{client_slug}/charter.json          → Colors, fonts, logo (for branded output)
+companies/{client_slug}/brand_context.json    → Resolved brand: expression, colors, fonts, logo (for branded output)
 companies/{client_slug}/messaging/            → Messaging content library:
   ├── pillars.json         → Reusable messaging pillars with proof attachments
   ├── proof-points.json    → Evidence library organized by type and topic
@@ -206,7 +206,7 @@ Wait for approval or adjustments before proceeding to Phase 4.
 
 Build the framework from the top down. Each layer must be solid before the next one builds on it.
 
-**Brand expression (read before writing).** Before drafting any language, read `expression` from `charter.json`. If present, use as prose guidance:
+**Brand expression (read before writing) — reference, never bind.** Before drafting any language, read `expression` from `brand_context.json`. If present, use as prose guidance:
 - `expression.principles` — let these inform the register and rhetorical posture of the core message and pillar language (e.g., "Evidence before decoration" → lead with proof, not claim)
 - `expression.signatureElements` — reflect where natural in pillar language and verbal guardrails
 - `expression.antiPatterns` — ban in the framework's language-to-avoid section
@@ -375,9 +375,9 @@ This skill owns messaging architecture — framework structure, pillar developme
 **Default**: If the user doesn't specify a format, stop at the markdown framework plus the `companies/{client_slug}/messaging/` write. Only offer rendered output as an optional follow-on. If they want that follow-on, recommend PPTX for Message House and Strategic Narrative, DOCX for Messaging Hierarchy and Messaging Matrix.
 
 **Brand context to carry forward** when producing formatted output:
-- Brand charter location: `companies/{client_slug}/charter.json`
-- Apply heading color from `colors.primary`, body font from `fonts.body`, logo from `logos/` (path in charter `logo` section)
-- Use `document` section from charter for DOCX margins/headers, `presentation` section for PPTX layout
+- Brand location: `companies/{client_slug}/brand_context.json`
+- Apply heading color from `colors.primary`, body font from `typography.body`, logo from `logos/` (path in `brand_context.logo`)
+- Use the `document` section from `brand_context.json` for DOCX margins/headers; the `presentation` block (PPTX layout) stays in `charter.json` (not compiled)
 - Include resolved `expression` (if present) and `deliverable_genre: "messaging-framework"` in the envelope for downstream render direction
 
 ## Output Location
