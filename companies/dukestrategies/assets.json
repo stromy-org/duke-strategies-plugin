@@ -41,6 +41,21 @@
       "mime": "image/png"
     },
     {
+      "name": "divider-full.svg",
+      "sha256": "3545341069ab1bb6e9c472f78a8f525689cf0dd6a4fe261989e79af506dd2000",
+      "mime": "image/svg+xml"
+    },
+    {
+      "name": "divider-minimal.svg",
+      "sha256": "785bf4a9b427a237daf17844810cd7e607e321f307d2539093d085c43d14c4da",
+      "mime": "image/svg+xml"
+    },
+    {
+      "name": "divider-short.svg",
+      "sha256": "3dbf92595161dc506dafe88f10c9afb88273f76f78ae1b65f755b7e77b1a09c2",
+      "mime": "image/svg+xml"
+    },
+    {
       "name": "favicon-192.png",
       "sha256": "d5dfb6cc190b5c04b1eaac7c48998b93ba251a1c15179e47b932ca50cc284438",
       "mime": "image/png"
@@ -74,6 +89,26 @@
       "name": "logo_white.png",
       "sha256": "310401c24a07b323795041f41ce91890b69aabdd6ffe2cf1a462014499aa01ae",
       "mime": "image/png"
+    },
+    {
+      "name": "motif-cable-span.svg",
+      "sha256": "5594fc2398da0891351006c44fa57c72a1c0fc137044ac6a548ab6151c94a47f",
+      "mime": "image/svg+xml"
+    },
+    {
+      "name": "motif-catenary.svg",
+      "sha256": "5d6a2785011c35bf6054435729389004546f7efe31a56027acbdb461de234a48",
+      "mime": "image/svg+xml"
+    },
+    {
+      "name": "motif-deck-lattice.svg",
+      "sha256": "19d7e00c124ea90488cf28562255fd7cf1a07a6055c736fbf9cc29f79598d228",
+      "mime": "image/svg+xml"
+    },
+    {
+      "name": "pattern-tile.svg",
+      "sha256": "c400d6f81ef1a2e8e294e198a50ee7a13249ed78566367b8f621888f7120177c",
+      "mime": "image/svg+xml"
     }
   ],
   "images": [
