@@ -1,5 +1,7 @@
 # Content Format Taxonomy — B2B Organic Social
 
+> **Video-first (2026).** Bias the mix toward video: short-form vertical for discovery, long-form for depth and credibility. Video out-reaches static formats, and long-form is resurging as scroll fatigue grows (creator-driven long-form reportedly earns ~10× the views and ~3× the save rate of short clips, and a majority of buyers say it makes a brand feel more credible). Carousels remain strong for saves and dwell but are no longer the unquestioned reach king. Creator/UGC-style framing — real faces, real stakes — beats polished corporate talk, including **external B2B creator / industry-voice partnerships**, now a legitimate organic play. See `strategy-foundations.md`, Shift 4.
+
 ## Format Definitions
 
 ### Text Post
@@ -38,7 +40,7 @@
 
 **Production requirements**: Design tool for consistent slide templates. 1080x1350px (portrait) recommended for LinkedIn and Instagram. Keep text large — many viewers are on mobile. 8-12 slides is the sweet spot. Include a title slide and a CTA slide.
 
-**Engagement characteristics**: Highest organic reach on LinkedIn (as of 2024-2025). High dwell time (algorithm signal). High save rate. Moderate share rate. Lower comment rate than text posts.
+**Engagement characteristics**: Strong organic reach on LinkedIn, with high dwell time (algorithm signal), high save rate, and moderate share rate — though video now leads for discovery. Lower comment rate than text posts.
 
 **Tips**: Design each slide to be understandable independently (people screenshot individual slides). Use a numbered framework or progression to encourage swiping through. The title slide is your hook — treat it like a headline.
 
@@ -66,7 +68,7 @@
 
 **Production requirements**: Camera, microphone, lighting, editing software. Minimum viable: webcam + USB mic + ring light. Thumbnails must be custom-designed. Chapters/timestamps for navigation.
 
-**Engagement characteristics**: High watch time (valuable algorithm signal on YouTube). Builds deep credibility. Long content lifespan (months to years on YouTube). Lower volume metrics than short-form but higher quality engagement.
+**Engagement characteristics**: High watch time (valuable algorithm signal on YouTube). Builds deep credibility. Long content lifespan (months to years on YouTube). Lower volume metrics than short-form but higher quality engagement. Resurging in 2026 as audiences seek depth (see the video-first note above) — and transcripts are indexed and cited by AI answer engines (see `aeo-geo-social.md`).
 
 **Tips**: Front-load value — do not waste the first 30 seconds on intros or logos. Structure with chapters. Edit ruthlessly — remove pauses, tangents, and filler. 8-15 minutes is the B2B sweet spot.
 

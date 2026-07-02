@@ -2,12 +2,14 @@
 
 ## Why Employee Advocacy Matters for B2B
 
-Employee posts receive 8x more engagement than brand page posts and reach networks the brand page cannot access. For B2B corporate services, employee advocacy is often the highest-ROI organic social activity because:
+Employee posts generate on the order of **~14× the engagement** of brand-page content and reach networks the brand page cannot access. With company-page organic reach collapsed (~1.6% of followers), employee **and executive** distribution is no longer optional — it is the primary organic channel. For B2B corporate services, employee advocacy is among the highest-ROI organic activities because:
 
 - Decision-makers trust people over brands
 - Employee networks are the company's most valuable distribution channel
 - Authentic employee voices build credibility that brand content cannot replicate
 - The cost is primarily coordination, not production
+
+> **Advocacy is the breadth layer; the executive/founder program is the primary engine.** They are complementary but distinct — see `executive-led-content.md` for the exec program and a side-by-side comparison. When capacity is scarce, fund the executive program first (highest ROI), then scale advocacy for reach. (Figures are directional 2026 industry reporting — see `strategy-foundations.md`.)
 
 ## The Stepwise Approach
 
@@ -120,7 +122,7 @@ Track against the goals set in Phase 1. See Measurement section below.
 - Career reflections and professional development insights
 - Predictions or contrarian takes on industry trends
 
-**Content mix target**: 50% Tier 1, 30% Tier 2, 20% Tier 3
+**Content mix target**: shift toward original over time. A practical start is **40% Tier 1 / 30% Tier 2 / 30% Tier 3**, moving toward more Tier 3 as advocates gain confidence. Pure copy-paste reshares underperform — even Tier 1 must carry a genuine personal angle (see below).
 
 ### How to Personalize
 
