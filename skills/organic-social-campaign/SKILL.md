@@ -1,6 +1,6 @@
 ---
 name: organic-social-campaign
-description: "Build organic B2B social media campaigns — editorial strategy, content pillars, editorial calendars, content matrices, community management playbooks, employee advocacy plans, and measurement specs. Interactive multi-phase process from discovery through governance. Integrates with company profiles, messaging libraries, and brand data for consistent voice and positioning. Use this skill whenever the user asks to build an organic social strategy, create a content calendar, plan social media content, develop editorial pillars, build a community management playbook, set up employee advocacy, plan organic LinkedIn content, create a social content program, or anything involving 'what should we post and how do we build an audience' — even if they just say 'we need a social presence' or 'help me plan our LinkedIn content.'"
+description: "Build organic B2B social media campaigns — editorial strategy, content pillars, editorial calendars, content matrices, executive & founder-led thought-leadership programs, employee advocacy, community-building and community-management playbooks, AEO/GEO (getting content cited by AI answer engines), and dark-funnel measurement specs. Interactive multi-phase process from discovery through governance. Person-led and community-anchored by default (company-page organic reach has collapsed; executives, employees, and communities carry distribution). Integrates with company profiles, messaging libraries, and brand data for consistent voice and positioning. Use this skill whenever the user asks to build an organic social strategy, create a content calendar, plan social media content, develop editorial pillars, build a community-management or community-building playbook, set up employee advocacy or an executive/founder LinkedIn program, optimize content to be cited by AI answer engines, plan organic LinkedIn or Reddit content, create a social content program, or anything involving 'what should we post and how do we build an audience' — even if they just say 'we need a social presence' or 'help me plan our LinkedIn content.'"
 ---
 
 # Organic Social Campaign
@@ -83,7 +83,9 @@ the in-progress draft; chat scroll-back is not.
 
 ## Overview
 
-This skill builds organic B2B social media campaigns as a systems design problem — not a creative exercise. The goal is to define objectives, editorial architecture, operating rhythms, and measurement so that every post is traceable to business outcomes. Organic social optimizes for compounding: reach via credibility, engagement via relevance, and distribution via employee networks.
+This skill builds organic B2B social media campaigns as a systems design problem — not a creative exercise. The goal is to define objectives, editorial architecture, operating rhythms, and measurement so that every post is traceable to business outcomes. Organic social optimizes for compounding: reach via credibility, engagement via relevance, and distribution via *people and communities* — not the brand page.
+
+**Modern posture (2026).** B2B organic is now **person-led** (company-page organic reach has collapsed; executives, employees, and communities carry distribution), **citable** (content earns discovery by being quoted by AI answer engines, not only ranked in-feed), **community-anchored** (community over follower count; most B2B sharing is "dark social" the public feed never sees), and **video-first**. The strategic basis and evidence behind every phase live in [strategy-foundations.md](references/strategy-foundations.md) — read it once to ground the approach; treat its figures as directional and revisit annually.
 
 The skill is interactive and phase-gated. Each phase produces deliverables and includes a checkpoint where the user confirms direction before proceeding. The user can enter at any phase if they already have prior work to build on.
 
@@ -196,6 +198,8 @@ Ask (unless already clear from context or company data):
 - Geographic scope and language requirements?
 - Audience type? (B2B decision-makers, B2C consumers, or hybrid — where B2B is the primary target but consumer awareness reinforces B2B credibility)
 
+**Platform selection (2026).** Default the B2B set to **LinkedIn** (primary — but person-led; see Phase 3), plus, per fit: **YouTube** (long-form authority + AI-citation surface), **Reddit** (buyer research, niche community, and a top AI-citation source — a participation/community play, not a posting-cadence play; see [platforms/reddit.md](references/platforms/reddit.md) and [community-building.md](references/community-building.md)), **X**, and **Meta/Instagram**. Note emerging surfaces where the ICP is present — **TikTok** (rising for B2B), **Bluesky/Threads** — but don't spread thin: 1–2 primary platforms done well beat five neglected ones.
+
 Present 2-3 objective options with rationale. Let the user pick.
 
 **Audience-type calibration**
@@ -221,7 +225,18 @@ Present a one-paragraph scope summary. Wait for confirmation.
 
 ### Phase 2 — Discovery & Audit
 
-**Step 1: Define the ICP**
+**Step 1: Listen first (social intelligence)**
+
+Lead discovery with listening, not self-report. Before defining the ICP or baselining, gather signal on:
+
+- **What the ICP actually discusses** — the questions, language, objections, and jobs-to-be-done in their own words (feeds editorial pillars and AEO query framing — see [aeo-geo-social.md](references/aeo-geo-social.md)).
+- **Where they gather** — the subreddits, niche Slack/Discord, forums, and voices worth participating in (feeds community-building — see [community-building.md](references/community-building.md)).
+- **Competitor & category narrative** — who owns which topics, and the whitespace. For a deep quantitative read, the org's `sov-competitor-analysis` / `sov-sentiment-analysis` skills exist — *mention* them as context; never invoke another skill from here.
+- **Live trends & timely hooks** — signals worth a reactive/newsjacking response (feeds the Phase 5 reactive lane).
+
+Use available listening tools or manual scans; present a short intelligence brief. This is a continuous input, not a one-time step — refresh it each planning cycle.
+
+**Step 2: Define the ICP**
 
 If `messaging/audiences.json` exists, pull audience profiles and confirm relevance to social. If not, build the ICP interactively:
 - Industry/firmographics
@@ -230,7 +245,7 @@ If `messaging/audiences.json` exists, pull audience profiles and confirm relevan
 
 Present the ICP definition. Ask the user to confirm or adjust.
 
-**Step 2: Baseline the current state**
+**Step 3: Baseline the current state**
 
 Ask the user about their current social presence:
 - Follower count and growth trajectory
@@ -241,13 +256,13 @@ Ask the user about their current social presence:
 
 If they have analytics access, note what to pull. If starting from zero, skip to gap analysis.
 
-**Step 3: Assess governance readiness**
+**Step 4: Assess governance readiness**
 
 Check whether approval workflows, moderation rules, and escalation paths exist. If `config.json` has compliance settings, reference them. Otherwise, propose governance basics.
 
 Present findings as a brief baseline report with gaps highlighted.
 
-**Phase 2 deliverable**: Baseline report, risk register.
+**Phase 2 deliverable**: Social-intelligence brief, baseline report, risk register.
 
 ### Phase 3 — Strategy
 
@@ -262,6 +277,7 @@ For each pillar, propose:
 - What it covers and why it matters to the ICP
 - Proof types that support it (case evidence, data, methodology, POV)
 - Format affinity (which content formats work best for this theme)
+- Citable claims (AEO/GEO lens) — the sourced facts, statistics, and named-expert POVs within the pillar worth stating plainly enough to be quoted by AI answer engines (see [aeo-geo-social.md](references/aeo-geo-social.md))
 
 Present as a table. Ask the user to confirm, add, or cut pillars.
 
@@ -272,15 +288,26 @@ Recommend a posting cadence using the walk/run/fly framework:
 - **Run**: 4-5 posts/week (established rhythm)
 - **Fly**: Daily + real-time engagement (mature program)
 
-Recommend a starting level based on the team's capacity. For each post frequency, suggest the format mix (text, image, carousel, video, document, poll). See [content-formats.md](references/content-formats.md) for format guidance.
+Recommend a starting level based on the team's capacity. For each post frequency, suggest the format mix (text, image, carousel, video, document, poll). **Bias the mix toward video** — short-form for discovery, long-form for depth/credibility; video out-reaches static formats and long-form is resurging, while carousels remain strong for saves/dwell. See [content-formats.md](references/content-formats.md) for format guidance.
 
-**Step 3: Propose community management approach**
+**Step 3: Propose the community strategy (building + management)**
 
-Define response SLAs, tone rules, and escalation categories. Present for approval.
+Two distinct disciplines — decide both:
 
-**Step 4: Propose employee advocacy level**
+- **Community building** (proactive) — where the brand and its people *participate* (subreddits, niche Slack/Discord, forums, LinkedIn/Facebook groups) and whether to run an owned community. Most B2B services firms should **participate before they build**. See [community-building.md](references/community-building.md).
+- **Community management** (reactive) — response SLAs, tone rules, and escalation categories for your own surfaces. See [community-management.md](references/community-management.md).
 
-Options: None (organic Page only) → Pilot (5-10 advocates) → Structured program (team-wide). Recommend based on company size and objectives. See [employee-advocacy.md](references/employee-advocacy.md) for program design.
+Present both for approval.
+
+**Step 4: Propose the distribution model (person-led)**
+
+Company-page organic reach has collapsed; **people carry distribution**. Propose the model as a system, not a single lever:
+
+- **Executive & founder-led (primary engine)** — the highest-ROI organic play. Which real leaders (from `company_context.people[]` only — never fabricate one) run a thought-leadership program: profile-as-channel plus a capture → ghostwrite → approve content engine. See [executive-led-content.md](references/executive-led-content.md).
+- **Employee advocacy (breadth)** — None → Pilot (8–15 advocates) → Structured program, tuned to company size and capacity. See [employee-advocacy.md](references/employee-advocacy.md).
+- **Brand Page (credibility anchor)** — the proof/legitimacy surface and paid-amplification origin, not the primary reach channel.
+
+If capacity is scarce, fund the executive program first, then advocacy. Present the model for approval.
 
 **Step 5: Cross-channel integration points**
 
@@ -295,7 +322,7 @@ Present integration points as a brief table mapping channel → social touchpoin
 
 Present the full strategy package. Wait for approval before proceeding.
 
-**Phase 3 deliverables**: Editorial strategy doc, content pillar map.
+**Phase 3 deliverables**: Editorial strategy doc, content pillar map, distribution model (executive / advocacy / page), community strategy (building + management).
 
 ### Phase 4 — Creative System
 
@@ -338,30 +365,41 @@ Produce an N-week calendar (default: 4 weeks). Each entry includes:
 
 The "paid amplification trigger" column defines when a post's performance warrants boosting — this is the handoff point to paid media. The `paid-social-campaign` skill handles the actual ad buying and optimization.
 
+**Publish-from (person-led).** The Owner column should specify *who publishes* — brand Page, a named executive, or an advocate — reflecting the Phase 3 distribution model. Bias flagship POV to executive accounts (see [executive-led-content.md](references/executive-led-content.md)).
+
+**Reserve a reactive lane.** Don't fill 100% of capacity with planned posts. Leave ~15–25% for **reactive / newsjacking** content driven by the Phase 2 listening loop — timely commentary while a topic is live. Plan the *slot and the fast approval path*, not the content.
+
 Present the calendar. Ask the user to adjust assignments, swap concepts, or change cadence.
 
-**Step 2: Build the community management playbook**
+**Step 2: Build the community playbook (management + building)**
 
-Expand Phase 3's community approach into an operational playbook:
+Expand Phase 3's community strategy into an operational playbook.
+
+*Management (reactive):*
 - Response time targets by message type
 - Tone and voice rules per scenario (praise, question, complaint, crisis)
 - Escalation matrix with named owners
 - Prohibited engagement topics
 - After-hours monitoring approach
 
-**Step 3: Build the employee advocacy plan** (if scoped)
+*Building (proactive):* which communities to participate in, who participates (named people only), the value-first participation cadence, and any owned-community plan and owner. See [community-building.md](references/community-building.md).
 
-Detailed activation plan following the stepwise framework:
-1. Set goals and content strategy for advocates
-2. Select employee audience (start small — champions first)
-3. Demonstrate value (what's in it for them)
-4. Launch with enablement resources
-5. Sustain engagement (content queue, recognition, feedback loop)
-6. Measure results (shares, engagement, reach, site traffic)
+**Step 3: Build the person-led activation plan (executive + advocacy)**
 
-See [employee-advocacy.md](references/employee-advocacy.md) for detailed program design.
+Activate the Phase 3 distribution model:
 
-**Phase 5 deliverables**: Editorial calendar, community playbook, employee advocacy plan.
+- **Executive & founder-led (if scoped)** — profile optimization, the capture → ghostwrite → approve cadence, per-leader topic lanes, and a fast approval SLA. Real leaders from `company_context.people[]` only. See [executive-led-content.md](references/executive-led-content.md).
+- **Employee advocacy (if scoped)** — detailed activation following the stepwise framework:
+  1. Set goals and content strategy for advocates
+  2. Select employee audience (start small — champions first)
+  3. Demonstrate value (what's in it for them)
+  4. Launch with enablement resources
+  5. Sustain engagement (content queue, recognition, feedback loop)
+  6. Measure results (shares, engagement, reach, site traffic)
+
+  See [employee-advocacy.md](references/employee-advocacy.md) for detailed program design.
+
+**Phase 5 deliverables**: Editorial calendar (with reactive lane), community playbook (management + building), person-led activation plan (executive + advocacy).
 
 ### Phase 6 — Measurement & Governance
 
@@ -372,18 +410,23 @@ Organize KPIs by category. For each, define the metric, measurement source, and 
 | Category | Metrics | Source |
 |----------|---------|--------|
 | Audience growth | Follower growth rate, subscriber growth | Platform analytics |
-| Content performance | Impressions, engagement rate, clicks to tagged URLs | Platform analytics + UTMs |
-| Community health | Response SLA adherence, sentiment themes | Manual + monitoring tool |
+| Content performance | Impressions, engagement rate, saves, clicks to tagged URLs | Platform analytics + UTMs |
+| Person-led authority | Executive/advocate follower growth, profile views, inbound connection quality, share of voice on core topics | Platform analytics + manual |
+| AI visibility / citation | Whether the client/executives are named or cited by AI answer engines on core buyer questions; share of AI voice vs competitors | Manual engine checks (see [aeo-geo-social.md](references/aeo-geo-social.md)) |
+| Community health | Response SLA adherence, sentiment themes, participation quality, community-sourced conversations | Manual + monitoring tool |
 | Employee advocacy | Active advocates, shares, engagement by content type | Advocacy platform or manual |
-| Outcome proxies | Consultation requests, event registrations, content downloads | UTMs + site analytics + CRM |
+| Outcome & attribution | **Self-reported attribution** ("how did you hear about us?") — *primary*; consultation requests, event registrations, downloads; assisted conversions | Intake forms + CRM + UTMs + site analytics |
 
-See [measurement-benchmarks.md](references/measurement-benchmarks.md) for directional benchmark ranges — but set targets based on your own baseline, not industry averages.
+**Measure the dark funnel, not the last click.** Most B2B influence now happens off-platform and unlinked, so UTM/last-click attribution systematically undercounts organic social. Make **self-reported attribution primary**, treat UTMs and assisted conversions as supporting, and read spikes in direct/branded traffic after a push as organic signal.
+
+See [measurement-benchmarks.md](references/measurement-benchmarks.md) for directional benchmark ranges and the dark-funnel model — but set targets based on your own baseline, not industry averages.
 
 **Step 2: Define reporting cadence**
 
 - **Weekly**: content performance review (top posts, engagement, clicks)
 - **Monthly**: narrative and audience review (which pillars build followers and qualified traffic)
 - **Quarterly**: strategic reset (revalidate pillars, refresh templates, feed learnings into paid)
+- **Annually**: re-baseline benchmarks and revisit the modern posture ([strategy-foundations.md](references/strategy-foundations.md))
 
 **Step 3: Finalize governance**
 
@@ -517,14 +560,19 @@ Load these as needed — do not read all at once.
 
 | File | When to Load |
 |------|-------------|
+| [strategy-foundations.md](references/strategy-foundations.md) | **Read once at the start.** The 2026 posture (person-led, citable, community-anchored, video-first, dark-funnel) and the evidence behind every phase. |
 | [linkedin.md](references/platforms/linkedin.md) | When LinkedIn is a selected platform. Page optimization, analytics, formats, posting guidance. |
 | [meta.md](references/platforms/meta.md) | When Meta/Instagram is a selected platform. Page setup, content formats, algorithm notes. |
 | [twitter-x.md](references/platforms/twitter-x.md) | When X/Twitter is a selected platform. B2B usage patterns, formats, threads. |
 | [youtube.md](references/platforms/youtube.md) | When YouTube is a selected platform. B2B video strategy, Shorts, SEO. |
+| [reddit.md](references/platforms/reddit.md) | When Reddit is selected. B2B participation etiquette, AI-citation surface, community play (not a posting-cadence channel). |
 | [content-formats.md](references/content-formats.md) | Phase 3 — when designing cadence and format mix. Format taxonomy with B2B effectiveness notes. |
 | [employee-advocacy.md](references/employee-advocacy.md) | Phase 3/5 — when designing employee advocacy program. Step-by-step program design. |
+| [executive-led-content.md](references/executive-led-content.md) | Phase 3/5 — the executive/founder-led thought-leadership program (primary distribution engine). Profile-as-channel, ghostwriting engine, governance. |
+| [aeo-geo-social.md](references/aeo-geo-social.md) | Phase 3 pillars + Phase 6 measurement — getting content cited by AI answer engines and found in social search. |
 | [measurement-benchmarks.md](references/measurement-benchmarks.md) | Phase 6 — when setting KPI targets. Directional benchmarks by platform (use cautiously). |
 | [community-management.md](references/community-management.md) | Phase 5 — when building community playbook. Response frameworks, crisis protocol, moderation. |
+| [community-building.md](references/community-building.md) | Phase 3/5 — proactive community *building* (owned/third-party communities, participation, dark social) vs the reactive management playbook. |
 | [editorial-calendar-template.md](references/editorial-calendar-template.md) | Phase 5 — when generating the calendar. Structure and examples. |
 | [social-data-schema.md](references/social-data-schema.md) | When persisting to `social-media/` (Final Output, Phase 7/8). `config.json` + `organic/*` shapes, `schema_version`, the paid-social shared contract. |
 | [voice-integration.md](references/voice-integration.md) | Any copy-producing step (Phase 5/7/8). The draft→review→rewrite loop, L1/L2 precedence, anti-slop checklist, headless fallback. |

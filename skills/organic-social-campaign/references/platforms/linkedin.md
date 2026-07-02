@@ -1,5 +1,7 @@
 # LinkedIn Organic — B2B Reference
 
+> **Person-led reality (2026).** Company-page organic reach has collapsed (~1.6% of followers); personal profiles take the large majority of feed allocation. Optimize the Page as a **credibility anchor** (below), but drive distribution through executives, employees, and community engagement — see `executive-led-content.md`, `employee-advocacy.md`, `community-building.md`. Everything in this file about the Page is necessary but not sufficient; the reach lives in people.
+
 ## Page Optimization
 
 ### Completeness Checklist
@@ -148,3 +150,5 @@ LinkedIn rewards two complementary behaviors:
 - 20% industry commentary (news, trends, analysis)
 - 10% culture and team (hiring, events, behind-the-scenes)
 - 5% direct promotion (service launches, offers)
+
+This mix is for the **company Page**. Executive/founder accounts should skew further toward original POV and personal narrative (see `executive-led-content.md`), and every high-value post benefits from a citable claim — a stat, a named-expert quote, a clean definition (see `aeo-geo-social.md`).

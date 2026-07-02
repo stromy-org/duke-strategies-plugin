@@ -12,6 +12,19 @@
 
 **Always set targets based on your own baseline first.** Run 60-90 days of consistent posting, measure your actual performance, then set improvement targets from there. External benchmarks are useful only for initial sanity-checking and identifying which metrics are significantly below or above normal ranges.
 
+## Attribution — measure the dark funnel
+
+Most B2B influence now happens **off-platform and unlinked** — in private messages, Slack/WhatsApp groups, forwards, and closed communities ("dark social," an estimated ~84% of B2B sharing). UTM/last-click attribution therefore **systematically undercounts** organic social; deterministic tracking is estimated to miss the majority of the B2B buying journey. Measure the funnel you actually have:
+
+- **Self-reported attribution (primary).** Ask "how did you hear about us?" on intake/demo/contact forms, with free-text and room to name a person ("saw our CEO's posts", "found you on r/…"). This is the single most reliable organic-social signal in a dark-funnel world — treat it as a primary KPI, not a footnote.
+- **UTMs + assisted conversions (supporting).** Still tag every link; use multi-touch/assisted views, never last-click alone.
+- **Correlation signals.** Spikes in direct/branded search and direct traffic after a content push are organic working, even when unattributable.
+- **Brand/narrative lift.** Periodic surveys or share-of-voice on core topics — is the brand (and its executives) increasingly *associated* with the theme?
+- **AI-citation share.** Whether AI answer engines name/cite the client on core buyer questions (see `aeo-geo-social.md`) — a slow, qualitative outcome measure.
+- **Person-level attribution.** Which executive/advocate drove the signal, not just "the brand page." Person-led distribution needs person-level measurement.
+
+**Rule of thumb:** if a metric can only be captured by pretending the buying journey is linear and trackable, it is undercounting. Pair every quantitative number with a qualitative, self-reported read.
+
 ## Engagement Rate Calculation
 
 Different platforms calculate engagement rate differently. When reporting, always specify which formula you are using.
@@ -187,8 +200,10 @@ Focus on engagement quality and audience fit:
 ### Optimization Phase (Months 10+)
 
 Focus on business outcomes:
+- Self-reported attribution volume and quality (primary organic signal — see Attribution above)
 - Website conversions from social traffic
 - Lead quality from social-referred visitors
 - Content efficiency (engagement per hour of production)
 - Employee advocacy contribution (if applicable)
+- Executive/creator authority (person-level) and AI-citation appearances
 - Share of voice vs. competitors
