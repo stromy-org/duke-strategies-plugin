@@ -28,22 +28,40 @@
     "warning": "#D4A544",
     "error": "#C4544A"
   },
-  "_colorRoles": "colors must hold hex values only (website token generator emits every key as a CSS custom property). Roles: primary = structural dark (headings, table headers, overlays, dark sections); accent = coral brand signature, used sparingly (CTAs, accent lines, motif, chart highlights). Coral must never be a large background fill or full-image wash — see guidelines.md Color System.",
+  "_colorRoles": "colors must hold hex values only (website token generator emits every key as a CSS custom property). Roles: primary = structural dark (headings, table headers, overlays, dark sections); accent = coral brand signature, used sparingly (CTAs, accent lines, motif, chart highlights). Coral must never be a large background fill or full-image wash \u2014 see guidelines.md Color System.",
   "fonts": {
     "heading": {
       "family": "Montserrat",
       "fallback": "Arial, Helvetica, sans-serif",
-      "weight": "600"
+      "weight": "600",
+      "fallbackStack": [
+        "Century Gothic",
+        "Arial",
+        "sans-serif"
+      ],
+      "webSafe": "Century Gothic"
     },
     "body": {
       "family": "Montserrat",
       "fallback": "Arial, Helvetica, sans-serif",
-      "weight": "normal"
+      "weight": "normal",
+      "fallbackStack": [
+        "Century Gothic",
+        "Arial",
+        "sans-serif"
+      ],
+      "webSafe": "Century Gothic"
     },
     "mono": {
       "family": "Space Mono",
       "fallback": "Courier New, monospace",
-      "weight": "normal"
+      "weight": "normal",
+      "fallbackStack": [
+        "Consolas",
+        "Courier New",
+        "monospace"
+      ],
+      "webSafe": "Consolas"
     },
     "label": {
       "family": "Space Mono",
@@ -52,7 +70,13 @@
       "case": "uppercase",
       "tracking": "0.22em",
       "role": "eyebrow / kicker / overline",
-      "note": "Deliberate: Space Mono reserved for data and overlines only (engineered/technical register). This is a CONSCIOUS small-title choice, not a mono default — Duke's brand-smell is the mono overline."
+      "note": "Deliberate: Space Mono reserved for data and overlines only (engineered/technical register). This is a CONSCIOUS small-title choice, not a mono default \u2014 Duke's brand-smell is the mono overline.",
+      "fallbackStack": [
+        "Consolas",
+        "Courier New",
+        "monospace"
+      ],
+      "webSafe": "Consolas"
     }
   },
   "logo": {
@@ -72,7 +96,7 @@
     "catalog": [
       {
         "file": "images/Erasmusbrug_zwart.jpg",
-        "description": "Erasmus Bridge, Rotterdam — dramatic black and white night view",
+        "description": "Erasmus Bridge, Rotterdam \u2014 dramatic black and white night view",
         "roles": [
           "cover",
           "divider"
@@ -80,7 +104,7 @@
       },
       {
         "file": "images/Nesciobrug.jpg",
-        "description": "Nesciobrug, Amsterdam — moody pedestrian/cyclist bridge",
+        "description": "Nesciobrug, Amsterdam \u2014 moody pedestrian/cyclist bridge",
         "roles": [
           "divider",
           "closing"
@@ -88,14 +112,14 @@
       },
       {
         "file": "images/Pythonbrug_Amsterdam_contrast.jpg",
-        "description": "Python Bridge, Amsterdam — high-contrast architectural shot",
+        "description": "Python Bridge, Amsterdam \u2014 high-contrast architectural shot",
         "roles": [
           "divider"
         ]
       },
       {
         "file": "images/shutterstock_1510566293_RoyalWelshbrug_zwart_1920x1280px_dark.jpg",
-        "description": "Royal Welsh Bridge — dark moody bridge photography",
+        "description": "Royal Welsh Bridge \u2014 dark moody bridge photography",
         "roles": [
           "cover",
           "closing"
@@ -103,7 +127,7 @@
       },
       {
         "file": "images/erasmus-bridge-rotterdam-grayscale.jpg",
-        "description": "Erasmus Bridge at night — near-monochrome skyline, illuminated cables",
+        "description": "Erasmus Bridge at night \u2014 near-monochrome skyline, illuminated cables",
         "roles": [
           "cover",
           "closing"
@@ -111,7 +135,7 @@
       },
       {
         "file": "images/cable-bridge-grayscale-dramatic.jpg",
-        "description": "Cable-stayed bridge — dramatic grayscale, low vantage point",
+        "description": "Cable-stayed bridge \u2014 dramatic grayscale, low vantage point",
         "roles": [
           "cover",
           "divider"
@@ -119,7 +143,7 @@
       },
       {
         "file": "images/modern-bridge-bw-dramatic.jpg",
-        "description": "Modern bridge — dramatic black and white, strong diagonals",
+        "description": "Modern bridge \u2014 dramatic black and white, strong diagonals",
         "roles": [
           "cover",
           "divider"
@@ -127,7 +151,7 @@
       },
       {
         "file": "images/bridge-fog-water-minimalist.jpg",
-        "description": "Bridge in fog over calm water — minimalist, contemplative",
+        "description": "Bridge in fog over calm water \u2014 minimalist, contemplative",
         "roles": [
           "divider",
           "closing"
@@ -135,7 +159,7 @@
       },
       {
         "file": "images/modern-cable-bridge-calm-water.jpg",
-        "description": "Modern cable bridge over calm water — light, airy geometry",
+        "description": "Modern cable bridge over calm water \u2014 light, airy geometry",
         "roles": [
           "divider",
           "background"
@@ -147,7 +171,7 @@
       "opacity": 0.5
     },
     "logoVariantOnImage": "white",
-    "_note": "Overlay is the structural dark (#222222), not coral — coral appears on imagery only as thin accent elements (motif bar, rule lines). See images/manifest.json for per-image overlayPolicy and text-safe zones; prefer it over this global default."
+    "_note": "Overlay is the structural dark (#222222), not coral \u2014 coral appears on imagery only as thin accent elements (motif bar, rule lines). See images/manifest.json for per-image overlayPolicy and text-safe zones; prefer it over this global default."
   },
   "document": {
     "margins": {
@@ -392,16 +416,16 @@
     "archetype": {
       "primary": "sage",
       "status": "approved",
-      "rationale": "Strategic identity is Sage — knowledge, truth, analysis; the visual and surface realization is Ruler/luxury (see expression). meta.archetype=sage; website.archetype=ruler, website.aesthetic=luxury. The model preserves both: Sage governs who Duke Strategies is and how it thinks; Ruler/luxury governs how that identity is expressed visually."
+      "rationale": "Strategic identity is Sage \u2014 knowledge, truth, analysis; the visual and surface realization is Ruler/luxury (see expression). meta.archetype=sage; website.archetype=ruler, website.aesthetic=luxury. The model preserves both: Sage governs who Duke Strategies is and how it thinks; Ruler/luxury governs how that identity is expressed visually."
     },
-    "essence": "Bridging corporate strategy, corporate affairs and stakeholder advisory through The One Thing — the single transformative action that cuts through complexity and creates clarity.",
+    "essence": "Bridging corporate strategy, corporate affairs and stakeholder advisory through The One Thing \u2014 the single transformative action that cuts through complexity and creates clarity.",
     "positioning": "For boards and executives navigating complex stakeholder environments, Duke Strategies is the strategic advisory firm that makes business strategies stakeholder-proof, by combining corporate strategy depth with communications craft, AI-driven stakeholder intelligence, and direct government and security expertise.",
     "personalityTraits": [
-      "Authoritative — senior counsel tone, not corporate stiffness",
-      "Bold — challenger mindset; tells it like it is",
-      "Analytical — data and insights first, then judgment",
-      "Progressive — AI-forward, grounded in decades of experience",
-      "Decisive — The One Thing; cuts through complexity"
+      "Authoritative \u2014 senior counsel tone, not corporate stiffness",
+      "Bold \u2014 challenger mindset; tells it like it is",
+      "Analytical \u2014 data and insights first, then judgment",
+      "Progressive \u2014 AI-forward, grounded in decades of experience",
+      "Decisive \u2014 The One Thing; cuts through complexity"
     ],
     "personalityAxes": {
       "authoritative_collaborative": 0.75,
@@ -415,14 +439,14 @@
     "source": "co_created",
     "confidence": "approved",
     "status": "approved",
-    "_splitNote": "The visual expression realizes a Ruler/luxury surface archetype (website.archetype=ruler, website.aesthetic=luxury; dark structural primary, controlled high contrast, architectural motif). The strategic identity remains Sage. These are not a conflict — the expression is how the Sage identity is presented to the world: with authority, structure, and controlled elegance.",
+    "_splitNote": "The visual expression realizes a Ruler/luxury surface archetype (website.archetype=ruler, website.aesthetic=luxury; dark structural primary, controlled high contrast, architectural motif). The strategic identity remains Sage. These are not a conflict \u2014 the expression is how the Sage identity is presented to the world: with authority, structure, and controlled elegance.",
     "principles": [
-      "Structure first: dark (#222222) carries all structural weight — headings, table headers, hero backgrounds, overlays. Coral is a brand signature, never a structural color.",
-      "Controlled restraint: coral (#FF7F66) appears sparingly as accent — CTAs, motif elements, accent lines, chart emphasis. Never large fills or full-image washes.",
+      "Structure first: dark (#222222) carries all structural weight \u2014 headings, table headers, hero backgrounds, overlays. Coral is a brand signature, never a structural color.",
+      "Controlled restraint: coral (#FF7F66) appears sparingly as accent \u2014 CTAs, motif elements, accent lines, chart emphasis. Never large fills or full-image washes.",
       "Architectural grounding: all imagery draws from Dutch bridge and infrastructure photography, black-and-white treated, with 50% dark overlay. Bridges are a literal expression of the brand promise.",
       "Editorial authority: Montserrat SemiBold/Bold for all headings; generous letter-spacing on overlines; uppercase headings on web. Space Mono reserved for data and overlines only.",
-      "Geometric precision: the bridge pillar motif (vertical lines with horizontal beam connectors) is the sole recurring graphic element — structural, not decorative.",
-      "Ruler/luxury surface realization: airy spacing, symmetric layout, full-bleed heroes, mega-footer, shadow cards, square buttons, and controlled high contrast enact Ruler authority. The Sage strategic identity is what informs and fills that structure — not a competing signal."
+      "Geometric precision: the bridge pillar motif (vertical lines with horizontal beam connectors) is the sole recurring graphic element \u2014 structural, not decorative.",
+      "Ruler/luxury surface realization: airy spacing, symmetric layout, full-bleed heroes, mega-footer, shadow cards, square buttons, and controlled high contrast enact Ruler authority. The Sage strategic identity is what informs and fills that structure \u2014 not a competing signal."
     ],
     "visualAxes": {
       "density": "spacious",
@@ -450,7 +474,7 @@
       "Rotating, skewing, or adding effects to the bridge pillar motif",
       "Placing the coral or grey logo on image overlays (white variant only on dark/photo surfaces)",
       "Introducing off-palette colors without brand team approval",
-      "Hedging language, passive voice, or jargon — voice discipline mirrors visual restraint"
+      "Hedging language, passive voice, or jargon \u2014 voice discipline mirrors visual restraint"
     ],
     "requiredMotifs": [
       "Bridge / infrastructure photography (Dutch focus; geometric, moody, high-contrast)",
@@ -465,7 +489,7 @@
         "confidence": "approved",
         "surface": "all",
         "freshness": "current",
-        "note": "v1.1 June 2026 — primary source for archetype (Sage primary, Ruler secondary), personality traits, color roles, typography, imagery rules, motif spec, voice principles"
+        "note": "v1.1 June 2026 \u2014 primary source for archetype (Sage primary, Ruler secondary), personality traits, color roles, typography, imagery rules, motif spec, voice principles"
       },
       {
         "path": "clients/dukestrategies/charter.json#website",
@@ -474,7 +498,7 @@
         "confidence": "approved",
         "surface": "web",
         "freshness": "current",
-        "note": "website.archetype=ruler, website.aesthetic=luxury; layout (airy, symmetric, full-bleed hero, generous spacing, mega-footer), components (shadow cards, square buttons), colorApplication (darkSections, accent sparingly), motion (subtle fade, lift hover) — all Ruler/luxury realization"
+        "note": "website.archetype=ruler, website.aesthetic=luxury; layout (airy, symmetric, full-bleed hero, generous spacing, mega-footer), components (shadow cards, square buttons), colorApplication (darkSections, accent sparingly), motion (subtle fade, lift hover) \u2014 all Ruler/luxury realization"
       },
       {
         "path": "clients/dukestrategies/tokens.css",
@@ -483,7 +507,7 @@
         "confidence": "approved",
         "surface": "all",
         "freshness": "current",
-        "note": "v1.1.0 2026-06-10 — confirms dark/coral split, motif token set (pillar width, gap, cap height, coral line colors), spacing scale, shadow depths, transition speeds"
+        "note": "v1.1.0 2026-06-10 \u2014 confirms dark/coral split, motif token set (pillar width, gap, cap height, coral line colors), spacing scale, shadow depths, transition speeds"
       },
       {
         "path": "clients/dukestrategies/messaging/narratives.json",
@@ -492,7 +516,7 @@
         "confidence": "approved",
         "surface": "all",
         "freshness": "current",
-        "note": "Positioning statement, core message, voice attributes (bold/direct/confident/experienced/no-nonsense), words to use vs. avoid — grounds identity.positioning and personality"
+        "note": "Positioning statement, core message, voice attributes (bold/direct/confident/experienced/no-nonsense), words to use vs. avoid \u2014 grounds identity.positioning and personality"
       },
       {
         "path": "clients/dukestrategies/messaging/pillars.json",
@@ -501,7 +525,7 @@
         "confidence": "approved",
         "surface": "all",
         "freshness": "current",
-        "note": "Four brand pillars (Stakeholder-Proof Strategy, Intelligence-Led Advisory, Strategy Meets Communications, Crisis-Tested Government-Connected) — grounds Sage identity: knowledge-led, analytical, evidence-grounded"
+        "note": "Four brand pillars (Stakeholder-Proof Strategy, Intelligence-Led Advisory, Strategy Meets Communications, Crisis-Tested Government-Connected) \u2014 grounds Sage identity: knowledge-led, analytical, evidence-grounded"
       }
     ],
     "visual_grammar": {
@@ -697,7 +721,7 @@
             "id": "structural-none",
             "label": "Structural / none",
             "spec": {
-              "policy": "restrained — no decorative canvas gradients; depth via photo + hairline",
+              "policy": "restrained \u2014 no decorative canvas gradients; depth via photo + hairline",
               "canvasGradients": "none"
             },
             "evidence": {
@@ -836,7 +860,7 @@
         "required": false,
         "evidence": {
           "tier": "proposed",
-          "source": "stroke-led geometric, rectilinear; OPEN/extensible set — not brand-bound (operator note 2026-07-01)"
+          "source": "stroke-led geometric, rectilinear; OPEN/extensible set \u2014 not brand-bound (operator note 2026-07-01)"
         },
         "selected": "hairline-rectilinear",
         "candidates": [
@@ -850,7 +874,7 @@
               "joins": "miter",
               "fillVsLine": "line-dominant, no fills, no dot terminals",
               "extensible": true,
-              "setPolicy": "OPEN set — icons are drawn to this STYLE on demand per slide need. The sample is representative, not a closed brand-bound set; the agent may add/select as many icons as a deck requires, keeping the style.",
+              "setPolicy": "OPEN set \u2014 icons are drawn to this STYLE on demand per slide need. The sample is representative, not a closed brand-bound set; the agent may add/select as many icons as a deck requires, keeping the style.",
               "sample": [
                 "target-check",
                 "gauge",
@@ -967,17 +991,17 @@
           "source": "redundant with images.manifest + overlay policy"
         },
         "spec": {
-          "note": "derived — photo treatment lives in images.manifest (documentary-muted, dark-NN overlay)"
+          "note": "derived \u2014 photo treatment lives in images.manifest (documentary-muted, dark-NN overlay)"
         }
       }
     },
     "treatments": {
       "default": "documentary-noir",
-      "note": "Named brand 'house looks' applied to photography DOWNSTREAM (format-MCP render + website CSS) — never pre-baked into the shipped library. Restrained, palette-derived; one clean base image x the treatment = flexible reuse. Overlays (structural dark #222 at N%, never coral) are separate text-safety layers, not treatments. ORG-PLAN-045.",
+      "note": "Named brand 'house looks' applied to photography DOWNSTREAM (format-MCP render + website CSS) \u2014 never pre-baked into the shipped library. Restrained, palette-derived; one clean base image x the treatment = flexible reuse. Overlays (structural dark #222 at N%, never coral) are separate text-safety layers, not treatments. ORG-PLAN-045.",
       "looks": {
         "documentary-noir": {
           "label": "Documentary Noir",
-          "usage": "Editorial black-and-white + fine grain — the timeless default for dividers, content backgrounds, and dense sections. Duke's documentary bridge register.",
+          "usage": "Editorial black-and-white + fine grain \u2014 the timeless default for dividers, content backgrounds, and dense sections. Duke's documentary bridge register.",
           "css_filter": "grayscale(1) contrast(1.08)",
           "grain": {
             "opacity": 0.08,
@@ -986,7 +1010,7 @@
         },
         "ink-duotone": {
           "label": "Ink Duotone",
-          "usage": "Signature structural ink wash for covers + hero moments — deep ink shadows through graphite mids to paper highlights, applied transparently so the photo breathes. The engineered-luxury signature.",
+          "usage": "Signature structural ink wash for covers + hero moments \u2014 deep ink shadows through graphite mids to paper highlights, applied transparently so the photo breathes. The engineered-luxury signature.",
           "css_filter": "grayscale(1) contrast(1.05)",
           "duotone": {
             "shadows": "#141414",
@@ -1001,7 +1025,7 @@
         },
         "coral-graded": {
           "label": "Coral Graded",
-          "usage": "Restrained cinematic grade for section imagery — mostly neutral, a whisper of coral in the shadows and warm coral-tint in the highlights. Golden-hour nod, kept subtle.",
+          "usage": "Restrained cinematic grade for section imagery \u2014 mostly neutral, a whisper of coral in the shadows and warm coral-tint in the highlights. Golden-hour nod, kept subtle.",
           "css_filter": "saturate(0.45) contrast(1.05)",
           "duotone": {
             "shadows": "#2A1512",
@@ -1016,7 +1040,7 @@
         },
         "steel-vignette": {
           "label": "Steel Vignette",
-          "usage": "Dramatic monochrome + vignette for a single hero moment — draws the eye to the span. Use sparingly.",
+          "usage": "Dramatic monochrome + vignette for a single hero moment \u2014 draws the eye to the span. Use sparingly.",
           "css_filter": "grayscale(1) contrast(1.10)",
           "vignette": 0.5,
           "grain": {
@@ -1032,7 +1056,7 @@
         "case": "uppercase",
         "tracking": "0.22em",
         "marker": "coral tick / rule",
-        "usage": "eyebrows/overlines/data labels — intentionally monospace (Space Mono), the engineered register"
+        "usage": "eyebrows/overlines/data labels \u2014 intentionally monospace (Space Mono), the engineered register"
       }
     }
   }

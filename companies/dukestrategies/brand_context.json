@@ -3,7 +3,7 @@
   "schemaVersion": 1,
   "version": "1.0",
   "generatedFrom": {
-    "charterSha": "f1834940458410b3922a9cdc3c2a39f75356cbf822c93ae28b9bf7065b11f6ba",
+    "charterSha": "61107c8b529024e616a074b84ea0f23ff85e8ef6fe92c2e60dfee59676b9a087",
     "compiler": "1.0"
   },
   "tier": "producer",
@@ -24,21 +24,45 @@
     "heading": {
       "family": "Montserrat",
       "weight": "600",
-      "fallback": "Arial, Helvetica, sans-serif"
+      "fallback": "Arial, Helvetica, sans-serif",
+      "fallbackStack": [
+        "Century Gothic",
+        "Arial",
+        "sans-serif"
+      ],
+      "webSafe": "Century Gothic"
     },
     "body": {
       "family": "Montserrat",
       "weight": "normal",
-      "fallback": "Arial, Helvetica, sans-serif"
+      "fallback": "Arial, Helvetica, sans-serif",
+      "fallbackStack": [
+        "Century Gothic",
+        "Arial",
+        "sans-serif"
+      ],
+      "webSafe": "Century Gothic"
     },
     "mono": {
       "family": "Space Mono",
       "weight": "normal",
-      "fallback": "Courier New, monospace"
+      "fallback": "Courier New, monospace",
+      "fallbackStack": [
+        "Consolas",
+        "Courier New",
+        "monospace"
+      ],
+      "webSafe": "Consolas"
     },
     "label": {
       "family": "Space Mono",
       "weight": "normal",
+      "fallbackStack": [
+        "Consolas",
+        "Courier New",
+        "monospace"
+      ],
+      "webSafe": "Consolas",
       "case": "uppercase",
       "tracking": "0.22em"
     },
