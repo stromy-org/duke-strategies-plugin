@@ -312,7 +312,7 @@
       }
     },
     "deployment": {
-      "platform": "github-pages",
+      "platform": "azure-swa",
       "domain": "dukestrategies.eu",
       "analytics": "plausible",
       "contactForm": "none"
