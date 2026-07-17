@@ -1,9 +1,17 @@
 {
-  "schemaVersion": 1,
-  "destination": { "tenant": "stromy" },
+  "schemaVersion": 2,
+  "destination": {
+    "tenant": "stromy",
+    "sharepoint": {
+      "site": "stromy.sharepoint.com:/sites/duke-collab",
+      "base_path": "",
+      "link_mode": "webUrl"
+    }
+  },
   "taxonomy": [
     { "key": "client", "label": "Client", "naming": "title" },
-    { "key": "project", "label": "Project", "naming": "kebab" }
+    { "key": "project", "label": "Project", "naming": "title" },
+    { "key": "stage", "label": "Stage", "naming": "as-is", "value": "03 Deliverables" }
   ],
   "context_bundle": ["brand_context.json", "company_context.json"],
   "manifest": { "enabled": true, "filename": "WORKSPACE.md" }
