@@ -8,7 +8,7 @@
     "@remotion/paths": "^4.0.494",
     "@remotion/transitions": "^4.0.494",
     "docx": "^9.5.3",
-    "playwright": "^1.58.1",
+    "playwright": "^1.61.1",
     "pptxgenjs": "^4.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
