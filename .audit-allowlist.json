@@ -1,17 +1,4 @@
 {
   "version": 1,
-  "advisories": [
-    {
-      "ghsa": "GHSA-gv7w-rqvm-qjhr",
-      "package": "esbuild",
-      "reason": "Transitive via @remotion/bundler. Advisory is a Deno-module binary-integrity vector (NPM_CONFIG_REGISTRY during Deno install); not reachable in our npm/CI build path. No non-breaking fix — Remotion pins esbuild <0.28.1. Re-evaluate when Remotion ships a fixed esbuild.",
-      "review_by": "2026-12-12"
-    },
-    {
-      "ghsa": "GHSA-g7r4-m6w7-qqqr",
-      "package": "esbuild",
-      "reason": "Transitive via @remotion/bundler. Arbitrary file read via the esbuild dev server (Windows); we never run the esbuild dev server — Remotion renders headless in CI. No non-breaking fix while Remotion pins esbuild <0.28.1.",
-      "review_by": "2026-12-12"
-    }
-  ]
+  "advisories": []
 }

@@ -24,7 +24,7 @@
       ],
       "_codex_via": "mcp-remote",
       "_gemini_via": "mcp-remote",
-      "_notes": "Hosted format skills (format-pptx, format-pptx-hd, format-docx, format-pdf, format-pdf-hd, format-xlsx, format-mermaid, format-diagram, format-chart, format-remotion-video). Fetched at runtime via fs_read — see skills/<name>/SKILL.md stubs."
+      "_notes": "Hosted format skills (format-pptx, format-pptx-hd, format-docx, format-pdf, format-pdf-hd, format-xlsx, format-mermaid, format-diagram, format-chart, format-video-hd). Fetched at runtime via fs_read — see skills/<name>/SKILL.md stubs."
     }
   }
 }
