@@ -11,7 +11,7 @@ Claude Code plugin for producing branded deliverables for Duke Strategies.
 | Documents | `/duke-strategies:docx` | Create branded Word documents |
 | Spreadsheets | `/duke-strategies:xlsx` | Create financial models and data sheets |
 | Proposals | `/duke-strategies:proposal` | Full consulting proposal workflow |
-| Videos | `/duke-strategies:remotion-video` | Create branded animated videos |
+| Videos | `/duke-strategies:format-video-hd` | Create branded explainer videos (server-rendered) |
 
 All output uses Duke Strategies branding (colors, fonts, logos, photography) automatically.
 
@@ -26,7 +26,7 @@ Only after you explicitly sign off on the canvas does the agent hand the finaliz
 | Requirement | Version | Why |
 |-------------|---------|-----|
 | Claude Code | v2.1.49+ | Plugin runtime (CLI or Desktop Code tab) |
-| Node.js | 18+ | PPTX, DOCX, Remotion skills |
+| Node.js | 18+ | PPTX, DOCX skills |
 | Python | 3.11+ | PDF, XLSX skills |
 | [uv](https://docs.astral.sh/uv/) | latest | Python dependency manager |
 
