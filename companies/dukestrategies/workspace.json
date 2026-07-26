@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "destination": {
     "tenant": "stromy",
     "sharepoint": {
@@ -8,11 +8,42 @@
       "link_mode": "webUrl"
     }
   },
-  "taxonomy": [
-    { "key": "client", "label": "Client", "naming": "title" },
-    { "key": "project", "label": "Project", "naming": "title" },
-    { "key": "stage", "label": "Stage", "naming": "as-is", "value": "03 Deliverables" }
-  ],
-  "context_bundle": ["brand_context.json", "company_context.json"],
-  "manifest": { "enabled": true, "filename": "WORKSPACE.md" }
+  "structure": {
+    "levels": [
+      {
+        "key": "client",
+        "label": "Client",
+        "naming": "title",
+        "required": true
+      },
+      {
+        "key": "project",
+        "label": "Project",
+        "naming": "title",
+        "required": true
+      },
+      {
+        "key": "subproject",
+        "label": "Subproject",
+        "naming": "title",
+        "required": false
+      }
+    ],
+    "stages": {
+      "intake": "01 Intake",
+      "working": "02 Working",
+      "deliverables": "03 Deliverables"
+    },
+    "default_stage": "working"
+  },
+  "memory": {
+    "enabled": true,
+    "index_filename": "WORKSPACE.md",
+    "events_dirname": "workspace-events",
+    "max_events_returned": 50
+  },
+  "context_bundle": [
+    "brand_context.json",
+    "company_context.json"
+  ]
 }
