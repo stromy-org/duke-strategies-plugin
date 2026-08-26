@@ -3,7 +3,7 @@
   "schemaVersion": 1,
   "version": "1.0",
   "generatedFrom": {
-    "charterSha": "ff586859dd8d2a2c24a2a6ad4f10b65b7e984f470196173d0f5f299e5825bdde",
+    "charterSha": "c7641e73f22775f15c1b1f3d8f41fc6ede8579a45d4928d412a91068ffaab9a3",
     "compiler": "1.0"
   },
   "tier": "producer",
@@ -25,6 +25,7 @@
       "family": "Montserrat",
       "weight": "600",
       "fallback": "Arial, Helvetica, sans-serif",
+      "embedFamily": "Montserrat",
       "fallbackStack": [
         "Century Gothic",
         "Arial",
@@ -36,6 +37,7 @@
       "family": "Montserrat",
       "weight": "normal",
       "fallback": "Arial, Helvetica, sans-serif",
+      "embedFamily": "Montserrat",
       "fallbackStack": [
         "Century Gothic",
         "Arial",
@@ -47,6 +49,7 @@
       "family": "Space Mono",
       "weight": "normal",
       "fallback": "Courier New, monospace",
+      "embedFamily": "Space Mono",
       "fallbackStack": [
         "Consolas",
         "Courier New",
@@ -57,6 +60,7 @@
     "label": {
       "family": "Space Mono",
       "weight": "normal",
+      "embedFamily": "Space Mono",
       "fallbackStack": [
         "Consolas",
         "Courier New",
@@ -339,6 +343,7 @@
       "Space Mono for overlines and data labels (uppercase, tracking-widest)",
       "White logo variant on all photography and dark backgrounds; coral/primary logo on light"
     ],
+    "signatureMotion": "The bridge builds: cables draw from pylon to deck, then settle as content fades up.",
     "antiPatterns": [
       "Coral as a large background fill, full-image wash, or heading color",
       "Non-Montserrat typefaces in brand materials (including Arial/Helvetica substitutes)",
@@ -426,7 +431,7 @@
           "rhythm": "dark-light-indexed",
           "darkFrequency": 3,
           "photo": {
-            "treatment": "documentary-muted, full-bleed hero",
+            "treatment": "documentary-muted B&W, infrastructure full-bleed hero",
             "overlay": "structural dark #222 at NN%, never coral"
           }
         },
@@ -506,7 +511,7 @@
         },
         "selected": "hairline-rectilinear",
         "spec": {
-          "style": "stroke-led geometric, rectilinear",
+          "style": "stroke-led geometric, cable/pylon-angled",
           "strokeWeight": "1.5-2px",
           "caps": "square",
           "joins": "miter",
@@ -1360,6 +1365,11 @@
     "maxWidth": "120pt",
     "maxHeight": "50pt",
     "sizing": "contain"
+  },
+  "templates": {
+    "docx": {
+      "letterhead": "templates/docx/Duke-Strategies-Letterhead.docx"
+    }
   },
   "video": {
     "resolution": "1920x1080",
