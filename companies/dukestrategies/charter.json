@@ -39,7 +39,8 @@
         "Arial",
         "sans-serif"
       ],
-      "webSafe": "Century Gothic"
+      "webSafe": "Century Gothic",
+      "embedFamily": "Montserrat"
     },
     "body": {
       "family": "Montserrat",
@@ -50,7 +51,8 @@
         "Arial",
         "sans-serif"
       ],
-      "webSafe": "Century Gothic"
+      "webSafe": "Century Gothic",
+      "embedFamily": "Montserrat"
     },
     "mono": {
       "family": "Space Mono",
@@ -61,7 +63,8 @@
         "Courier New",
         "monospace"
       ],
-      "webSafe": "Consolas"
+      "webSafe": "Consolas",
+      "embedFamily": "Space Mono"
     },
     "label": {
       "family": "Space Mono",
@@ -76,7 +79,8 @@
         "Courier New",
         "monospace"
       ],
-      "webSafe": "Consolas"
+      "webSafe": "Consolas",
+      "embedFamily": "Space Mono"
     }
   },
   "logo": {
@@ -652,7 +656,7 @@
               "rhythm": "dark-light-indexed",
               "darkFrequency": 3,
               "photo": {
-                "treatment": "documentary-muted, full-bleed hero",
+                "treatment": "documentary-muted B&W, infrastructure full-bleed hero",
                 "overlay": "structural dark #222 at NN%, never coral"
               }
             },
@@ -868,7 +872,7 @@
             "id": "hairline-rectilinear",
             "label": "Hairline rectilinear",
             "spec": {
-              "style": "stroke-led geometric, rectilinear",
+              "style": "stroke-led geometric, cable/pylon-angled",
               "strokeWeight": "1.5-2px",
               "caps": "square",
               "joins": "miter",
@@ -1058,6 +1062,17 @@
         "marker": "coral tick / rule",
         "usage": "eyebrows/overlines/data labels \u2014 intentionally monospace (Space Mono), the engineered register"
       }
+    },
+    "signatureMotion": "The bridge builds: cables draw from pylon to deck, then settle as content fades up."
+  },
+  "templates": {
+    "docx": {
+      "letterhead": "templates/docx/Duke-Strategies-Letterhead.docx",
+      "report": "templates/docx/Duke-Strategies-Report.docx"
+    },
+    "html": {
+      "business-cards": "templates/html/business-cards.html",
+      "email-signature": "templates/html/email-signatures.html"
     }
   }
 }

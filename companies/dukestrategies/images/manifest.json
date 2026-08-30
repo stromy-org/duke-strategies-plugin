@@ -456,7 +456,6 @@
       "theme": "colour-archive",
       "roles": [
         "background",
-        "texture",
         "section"
       ],
       "hero": false,
