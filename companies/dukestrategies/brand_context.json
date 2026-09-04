@@ -1381,15 +1381,15 @@
   "fallbacksUsed": [],
   "warnings": [],
   "token_roles": {
-    "surface": null,
-    "surfaceAlt": null,
+    "surface": "--surface",
+    "surfaceAlt": "--surface-raised",
     "elevation": "--shadow-md",
     "radius": "--radius-md",
     "lineWeight": "--motif-line-weight",
     "tracking": "--tracking-wide",
-    "textStrong": null,
-    "textMuted": null,
-    "edge": null
+    "textStrong": "--text-primary",
+    "textMuted": "--text-secondary",
+    "edge": "--border"
   },
   "integrity": {
     "compiler": "brand_compile.py",
@@ -1430,6 +1430,6 @@
       "patterns",
       "photo"
     ],
-    "sha256": "be16696e03c664a2c3b6aec42ac5e6eec47fedd5900bac19ebf679101f77ff3b"
+    "sha256": "871bf651be9b8e10e6a405fd7e934a966e8e14ed92959c0e384b6fcd40d9b1b6"
   }
 }
