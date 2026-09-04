@@ -4,14 +4,14 @@ Ground-truth reference passages for the Duke Strategies voice. Treat these as
 higher-priority than any generic "professional" intuition. When a draft does not
 sound like the same writer as these anchors, simplify until it does.
 
-## Anchor — client proposal register
+## Anchor — client proposal register (constructed in register, not verbatim)
 
 > We will map your stakeholder landscape, then name The One Thing: the single
 > move that makes the strategy stakeholder-proof. Everything else in this
 > proposal supports that move. We work as your partner, not your supplier, and
 > we tell you what we see, including what you would rather not hear.
 
-## Anchor — thought-leadership register
+## Anchor — thought-leadership register (constructed in register, not verbatim)
 
 > Most corporate affairs teams confuse activity with impact. They count
 > meetings, mentions, and meetings about mentions, and mistake the noise for a
@@ -19,7 +19,7 @@ sound like the same writer as these anchors, simplify until it does.
 > well: they decide what matters to their stakeholders before their stakeholders
 > decide it for them.
 
-## Anchor — recommendation register
+## Anchor — recommendation register (constructed in register, not verbatim)
 
 > Do the stakeholder audit first. It costs two weeks you think you cannot spare,
 > and it is the only version of this plan that survives a hostile board member

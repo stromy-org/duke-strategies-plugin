@@ -31,7 +31,8 @@
         "Arial",
         "sans-serif"
       ],
-      "webSafe": "Century Gothic"
+      "webSafe": "Century Gothic",
+      "rightsStatus": "unknown"
     },
     "body": {
       "family": "Montserrat",
@@ -43,7 +44,8 @@
         "Arial",
         "sans-serif"
       ],
-      "webSafe": "Century Gothic"
+      "webSafe": "Century Gothic",
+      "rightsStatus": "unknown"
     },
     "mono": {
       "family": "Space Mono",
@@ -55,7 +57,8 @@
         "Courier New",
         "monospace"
       ],
-      "webSafe": "Consolas"
+      "webSafe": "Consolas",
+      "rightsStatus": "unknown"
     },
     "label": {
       "family": "Space Mono",
@@ -67,6 +70,7 @@
         "monospace"
       ],
       "webSafe": "Consolas",
+      "rightsStatus": "unknown",
       "case": "uppercase",
       "tracking": "0.22em"
     },
@@ -1375,5 +1379,57 @@
     "fps": 30
   },
   "fallbacksUsed": [],
-  "warnings": []
+  "warnings": [],
+  "token_roles": {
+    "surface": null,
+    "surfaceAlt": null,
+    "elevation": "--shadow-md",
+    "radius": "--radius-md",
+    "lineWeight": "--motif-line-weight",
+    "tracking": "--tracking-wide",
+    "textStrong": null,
+    "textMuted": null,
+    "edge": null
+  },
+  "integrity": {
+    "compiler": "brand_compile.py",
+    "compiler_version": "1.0",
+    "key_set": [
+      "boilerplate",
+      "client_slug",
+      "colors",
+      "document",
+      "excalidraw_theme",
+      "expression",
+      "fallbacksUsed",
+      "formatting",
+      "generatedFrom",
+      "identity",
+      "images",
+      "logo",
+      "plotly_theme",
+      "schemaVersion",
+      "surfaceExpression",
+      "templates",
+      "tier",
+      "token_roles",
+      "tokens_css",
+      "typography",
+      "version",
+      "video",
+      "warnings"
+    ],
+    "visual_grammar_dimensions": [
+      "backgrounds",
+      "elevation",
+      "gradients",
+      "grid",
+      "iconography",
+      "motifs",
+      "motion",
+      "patterns",
+      "photo"
+    ],
+    "sha256": "be16696e03c664a2c3b6aec42ac5e6eec47fedd5900bac19ebf679101f77ff3b"
+  }
 }
