@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "_doc": [
+    "Duke Strategies terminology — the BRAND layer. See",
+    "clients/_default/voice/terminology.json for what this file is and who reads it.",
+    "",
+    "PROVENANCE (2026-09-08). Derived by measuring, not by guessing: all 21 values",
+    "that are byte-identical between src/i18n/content/ui.en.ts and ui.nl.ts on the",
+    "live Duke site were read one by one. Every one of them turned out to be",
+    "CORRECT Dutch — brand names, or English the Dutch public-affairs register",
+    "keeps. So this file is not a list of defects to fix; it is the record that",
+    "stops a future translator from 'fixing' them into worse Dutch.",
+    "",
+    "Deliberately NOT recorded: values that are simply the same word in both",
+    "languages and carry no decision — Contact, Home, Sitemap, 'Context:',",
+    "'Team:', 'Crisis & Media'. A termbase entry should represent a judgement",
+    "someone made, not a coincidence of vocabulary.",
+    "",
+    "Dutch general register (workflow, stakeholder, roadmap, …) is inherited from",
+    "the nl seed and is not repeated here."
+  ],
+  "terms": [
+    {
+      "term": "Duke Strategies",
+      "locales": {
+        "nl": { "decision": "keep-source", "rationale": "Company name." }
+      }
+    },
+    {
+      "term": "Duke Academy",
+      "locales": {
+        "nl": {
+          "decision": "keep-source",
+          "rationale": "Product name. 'Duke Academie' is the plausible mistake this entry exists to catch."
+        }
+      }
+    },
+    {
+      "term": "Thought Leadership",
+      "locales": {
+        "nl": {
+          "decision": "keep-source",
+          "rationale": "Kept wholesale in the Dutch communications register. 'Opinieleiderschap' is understood but reads as a translation."
+        }
+      }
+    },
+    {
+      "term": "Stakeholder Advisory",
+      "locales": {
+        "nl": {
+          "decision": "keep-source",
+          "rationale": "Service-line name. 'stakeholder' is kept in Dutch anyway (see the nl register seed); translating only the second half would produce a hybrid."
+        }
+      }
+    },
+    {
+      "term": "Managing Partner",
+      "locales": {
+        "nl": { "decision": "keep-source", "rationale": "Job title, used untranslated in Dutch professional-services firms." }
+      }
+    },
+    {
+      "term": "Expert Partner",
+      "locales": {
+        "nl": { "decision": "keep-source", "rationale": "Duke's own title for its senior network. A name, not a description." }
+      }
+    },
+    {
+      "term": "Associates",
+      "locales": {
+        "nl": { "decision": "keep-source", "rationale": "Job title, as above." }
+      }
+    },
+    {
+      "term": "deliverables",
+      "locales": {
+        "nl": {
+          "decision": "either",
+          "rationale": "Common in the Dutch consulting register, but 'op te leveren werk' is also correct and Dutch closes the compound with the loanword as the TAIL, which keep-source cannot enforce. Recorded as 'either' deliberately rather than as a rule that would fail on correct copy."
+        }
+      }
+    }
+  ]
+}
