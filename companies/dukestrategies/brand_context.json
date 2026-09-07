@@ -3,7 +3,7 @@
   "schemaVersion": 1,
   "version": "1.0",
   "generatedFrom": {
-    "charterSha": "d9e2ea4cacf9a9d271c3382215f792f6bd35b9c2311ebe712458d388f7fef4e9",
+    "charterSha": "37a6c35f255c6840ac808d2bf80dd352142867e1f5648e92cbd4a236dec5b303",
     "compiler": "1.0"
   },
   "tier": "producer",
@@ -395,6 +395,10 @@
           "position": "top-right of a panel, or the bottom of a slide",
           "note": "the ONE identity mark; the pillar dividers stay divider-only"
         },
+        "cssTokens": {
+          "--motif-signature-w": "48px",
+          "--motif-signature-h": "38px"
+        },
         "spec": {
           "name": "Bridge / cable-span family",
           "geometry": "rectilinear",
@@ -489,6 +493,9 @@
           "pick": "GD4 Ink scrim, bottom-up"
         },
         "selected": "ink-scrim",
+        "cssTokens": {
+          "--grad-ink-scrim": "linear-gradient(0deg, rgba(20,20,20,.55), transparent 60%)"
+        },
         "spec": {
           "css": "linear-gradient(0deg, rgba(20,20,20,.55), transparent 60%)",
           "role": "functional only — legibility of white type over photography and over coral; never decorative",
@@ -509,9 +516,9 @@
         },
         "selected": "deep-soft-lift",
         "cssTokens": {
-          "--elev-sm": "0 1px 2px rgba(34,34,34,0.06)",
-          "--elev-card": "0 6px 20px rgba(34,34,34,0.10)",
-          "--radius-card": "8px",
+          "--elev-sm": "0 4px 14px rgba(0,0,0,0.12)",
+          "--elev-card": "0 12px 40px rgba(0,0,0,0.22)",
+          "--radius-card": "12px",
           "--border-hairline": "1px solid rgba(34,34,34,0.12)"
         },
         "spec": {
@@ -539,6 +546,8 @@
           "--grid-max": "72rem",
           "--grid-gutter": "2rem",
           "--grid-margin": "6vw",
+          "--grid-gap": "16px",
+          "--rail-width": "33.333%",
           "--rule-divider": "1px solid rgba(34,34,34,0.12)"
         },
         "spec": {
@@ -562,6 +571,9 @@
           "pick": "IC4 Ultra-hairline"
         },
         "selected": "ultra-hairline",
+        "cssTokens": {
+          "--icon-stroke": "1px"
+        },
         "spec": {
           "stroke": "1px",
           "terminals": "square-cut ends, mitred corners",
@@ -614,6 +626,10 @@
           "pick": "PT3 Cable fan"
         },
         "selected": "cable-fan",
+        "cssTokens": {
+          "--pattern-cable-fan": "repeating-conic-gradient(from 200deg at 100% 0%, color-mix(in srgb, currentColor 10%, transparent) 0 .6deg, transparent .6deg 7deg)",
+          "--pattern-max-opacity": "0.12"
+        },
         "spec": {
           "css": "repeating-conic-gradient(from 200deg at 100% 0%, color-mix(in srgb, currentColor 10%, transparent) 0 .6deg, transparent .6deg 7deg)",
           "anchor": "top-right corner",
@@ -636,7 +652,17 @@
           "applies": "cover + closing (the bridges)",
           "reading": "hard monochrome, a dark vignette pulling the eye to the span"
         },
-        "selected": "steel-vignette"
+        "selected": "steel-vignette",
+        "cssTokens": {
+          "--treatment-default": "steel-flat",
+          "--treatment-steel-vignette-filter": "grayscale(1) contrast(1.2) brightness(0.9)",
+          "--treatment-steel-vignette-vignette": "0.6",
+          "--treatment-steel-vignette-grain": "0.08",
+          "--treatment-steel-flat-filter": "grayscale(1) contrast(0.88) brightness(0.92)",
+          "--treatment-steel-flat-grain": "0.05",
+          "--treatment-documentary-noir-filter": "grayscale(1) contrast(1.08)",
+          "--treatment-documentary-noir-grain": "0.08"
+        }
       }
     },
     "treatments": {
@@ -4497,6 +4523,6 @@
       "patterns",
       "photo"
     ],
-    "sha256": "6e5a3a0a67eb852d5ed3d28b2a23a9e732282380caaa01c3a91a1d240bc6b181"
+    "sha256": "063c2edf344466d134839956971413dd47c1fd3b895d5196f9706e95a999fa6d"
   }
 }

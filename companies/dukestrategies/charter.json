@@ -2621,6 +2621,10 @@
           "colour": "coral",
           "position": "top-right of a panel, or the bottom of a slide",
           "note": "the ONE identity mark; the pillar dividers stay divider-only"
+        },
+        "cssTokens": {
+          "--motif-signature-w": "48px",
+          "--motif-signature-h": "38px"
         }
       },
       "backgrounds": {
@@ -2826,7 +2830,10 @@
               "pick": "GD4 Ink scrim, bottom-up"
             }
           }
-        ]
+        ],
+        "cssTokens": {
+          "--grad-ink-scrim": "linear-gradient(0deg, rgba(20,20,20,.55), transparent 60%)"
+        }
       },
       "elevation": {
         "status": "approved",
@@ -2897,9 +2904,9 @@
           }
         ],
         "cssTokens": {
-          "--elev-sm": "0 1px 2px rgba(34,34,34,0.06)",
-          "--elev-card": "0 6px 20px rgba(34,34,34,0.10)",
-          "--radius-card": "8px",
+          "--elev-sm": "0 4px 14px rgba(0,0,0,0.12)",
+          "--elev-card": "0 12px 40px rgba(0,0,0,0.22)",
+          "--radius-card": "12px",
           "--border-hairline": "1px solid rgba(34,34,34,0.12)"
         }
       },
@@ -2962,6 +2969,8 @@
           "--grid-max": "72rem",
           "--grid-gutter": "2rem",
           "--grid-margin": "6vw",
+          "--grid-gap": "16px",
+          "--rail-width": "33.333%",
           "--rule-divider": "1px solid rgba(34,34,34,0.12)"
         }
       },
@@ -3029,7 +3038,10 @@
               "pick": "IC4 Ultra-hairline"
             }
           }
-        ]
+        ],
+        "cssTokens": {
+          "--icon-stroke": "1px"
+        }
       },
       "motion": {
         "status": "approved",
@@ -3132,7 +3144,11 @@
               "pick": "PT3 Cable fan"
             }
           }
-        ]
+        ],
+        "cssTokens": {
+          "--pattern-cable-fan": "repeating-conic-gradient(from 200deg at 100% 0%, color-mix(in srgb, currentColor 10%, transparent) 0 .6deg, transparent .6deg 7deg)",
+          "--pattern-max-opacity": "0.12"
+        }
       },
       "photo": {
         "status": "approved",
@@ -3164,7 +3180,17 @@
               "reading": "monotone, lower contrast, sits behind type"
             }
           }
-        ]
+        ],
+        "cssTokens": {
+          "--treatment-default": "steel-flat",
+          "--treatment-steel-vignette-filter": "grayscale(1) contrast(1.2) brightness(0.9)",
+          "--treatment-steel-vignette-vignette": "0.6",
+          "--treatment-steel-vignette-grain": "0.08",
+          "--treatment-steel-flat-filter": "grayscale(1) contrast(0.88) brightness(0.92)",
+          "--treatment-steel-flat-grain": "0.05",
+          "--treatment-documentary-noir-filter": "grayscale(1) contrast(1.08)",
+          "--treatment-documentary-noir-grain": "0.08"
+        }
       }
     },
     "treatments": {
