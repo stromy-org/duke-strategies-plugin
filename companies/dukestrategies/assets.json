@@ -173,6 +173,321 @@
       "mime": "image/jpeg"
     },
     {
+      "name": "br01-erasmusbrug-cable-stayed-architecture.jpg",
+      "sha256": "30b45c10256aa4f0519ae7e70dc8c8b3e45bb5dfcdc17fd80ad2079752330978",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br02-large-bridge-spanning-water.jpg",
+      "sha256": "9ac68f804df9fe6d0a35b267b050eefc430d39ae917cc62c946069192656feba",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br03-extension-bridge.jpg",
+      "sha256": "56395c1240672c2590f625a1392273236109ee3aecff3b8996ddc44517a2c351",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br04-bridge-over-water-trees.jpg",
+      "sha256": "f5b4ee35ce7c2f46208052d27b987968719e1b009487c5fa78829cc26047ebac",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br05-gray-structure-during-day.jpg",
+      "sha256": "377a5921c8d10bdf1627ade1b3013558e4b0900e9314549a74eff4f96edf4a8b",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br06-view-of-a-bridge-over-water.jpg",
+      "sha256": "8beaf77f0534d2d95aee7a8a62a119759fc3540cfd70ae04fe5974d538eb4f87",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br07-water-with-a-bridge-in-the-background.jpg",
+      "sha256": "ebe0630e6a2973e8e5a755853777eaaa46f1ac138e75c555586d5bae4d2b8c60",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br08-night-city-with-bridge.jpg",
+      "sha256": "45897b281b0e13e36f864612643734318d93687943f9455c6cf471c7941f735c",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br09-bridge-over-water-buildings-behind.jpg",
+      "sha256": "d27add1f2bab7b9a03adefec5bd332cb35cad4ca661c4ffc40336a000e3a750b",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br10-bridge-tall-buildings-behind.jpg",
+      "sha256": "0bf063f0e26e5d3f5462060636a9a1e5d272d73c92159ceab08f548bc84871a6",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br11-blue-and-white-bridge-under-blue-sky.jpg",
+      "sha256": "4463a1c7c10b419a669435523f3809016afa9fa6cf5c2993913238eb32060e6d",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br12-very-tall-bridge-with-sky.jpg",
+      "sha256": "ea722378d47ec2c5a1ecc68dfb3f78bfceaf263e7faa42ac7a3cf71b0f0cb0aa",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br13-a-view-of-a-bridge-over-water.jpg",
+      "sha256": "9f6f86bd97be7d44d2dfa86559db759ab52d78614034c11e3b40d7ed4d2be1c2",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br14-tall-bridge-tall-building-behind.jpg",
+      "sha256": "be7e95a3f020a5e3c797085cf2f0a6c659917e9c3787cc3b4041fe65de4466f8",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br15-bridge-over-water-at-night.jpg",
+      "sha256": "94e943863521c99c3c709c5359476070cc86cfb8a35e44e42d3d0540af9f2819",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br16-grayscale-bridge-over-water.jpg",
+      "sha256": "5d8083c35525ec69ba86079fe601068191acd8078d049e8d287c323a0d45011a",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br17-night-view-of-a-bridge-over-a-river.jpg",
+      "sha256": "e6a833bebbf82404ed71b3b2f0d56cd97c58c477df24104a13766ad4f9adc0c5",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br18-gray-concrete-bridge-near-buildings.jpg",
+      "sha256": "1c28e5956d48b1cd4035caec6c5d8a6c0c477a294673669c15dc9ab90a250b13",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br19-two-boats-below-bridge-in-fog.jpg",
+      "sha256": "9fcab02cc0bab53626d6ebcae0728643fd2a738f9c36328ab085daf54af2fd0d",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br20-grayscale-photo-of-a-bridge.jpg",
+      "sha256": "f8b98074d9cc9372f5c9f2a2f28fc72cf4534c0bf2030b14905eebea7abc47f5",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br21-grayscale-bridge-over-river.jpg",
+      "sha256": "7d6d1b8055722d825de522274e798456324a312c684795bc26ee9ba4110c08c5",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br22-bridge-structure-in-heavy-fog-monochrome.jpg",
+      "sha256": "c0fa5bb7ed4cce156c442af383455b88acbd7086639139639a7797ed224bcdf9",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br23-white-suspension-bridge-on-water.jpg",
+      "sha256": "d1747652fe4c4e9e1e127254fe5da255128f9911c2a3bc501beb0c2d4846d8e2",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br24-gray-suspension-bridge.jpg",
+      "sha256": "477cf40a5d75bb9e4e92c57fee00d4893c9b7552e79149ae3af463afc7a580e1",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br25-grayscale-photo-of-bridge.jpg",
+      "sha256": "5878c1388028f8e264401ed2f16cf88799ad50fe2d775ab36726fa0b692f2028",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br26-worm-view-of-white-steel-structure.jpg",
+      "sha256": "10fdc9693f26276e7f386ee614a71be86b89adb1b5b6b53d0cc430478b786ca7",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br27-underside-of-a-bridge.jpg",
+      "sha256": "a912f3a5971d04475ff79984e03ff1892985cbd4388535e262d7ca90904095bd",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br28-white-bridge-under-blue-sky.jpg",
+      "sha256": "aed297536635f28d9d996518c01b9413c38d5a7a4dd6ec823a64e218c6212e17",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br29-large-bridge-over-water.jpg",
+      "sha256": "7cf036149b3878d9976fbeb494943a0eff48a958e833edb330b3bde286f379fe",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br30-low-angle-bridge.jpg",
+      "sha256": "b2112ff236105ee0a425ba3b2851a2c70874a2e10d2e8be266a2188ace391328",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br31-grayscale-metal-bridge.jpg",
+      "sha256": "219061be459c7db1710c6efec40c6633f1e7a89122eff2567bad1bb820e26156",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br32-bottom-view-of-bridge.jpg",
+      "sha256": "812f5c6dc1426f5646d9fcafd8c835d5f63fba5846bafe73a85df8464369beab",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br33-underside-of-a-suspension-bridge.jpg",
+      "sha256": "f4493c0cda47491cc58795aae92d7c986ba29cd213c5e8387e34472d1d023f53",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br34-underside-of-a-modern-bridge-concrete-su.jpg",
+      "sha256": "bf2c7945f8e0e279c44798baa60c2477a1e017879e5c0310949aed03d91c8244",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br35-bridge-from-the-ground.jpg",
+      "sha256": "a82691a2ab93c921c0984cd52f6e522963eb02b9846b8d60cd90b70abb851e16",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br36-red-steel-bridge-structure-from-below.jpg",
+      "sha256": "c1414d571e734ea635b97ac8ec52a49ea51e5e42057af99fa9beb7359646ec93",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br37-cable-stayed-tower-dramatic-sky.jpg",
+      "sha256": "634d93bcf9c6cac2517516bc8d5734aab5523cc10ce92374905cb33b008942fd",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br38-suspension-bridge-tower-close-up.jpg",
+      "sha256": "dff88f42d0ba6e7dcf9372a469c43adc68e8449d8d974ef2502d4d7ec57f1837",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br39-modern-bridge-architecture-cloudy-sky.jpg",
+      "sha256": "642c9263e9de54a927351ef5fd12304a0af5c00cbd3b04dbc57b56c35de9cb98",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br40-tall-bridge-tower-with-cables.jpg",
+      "sha256": "1b26fa0690f2ae2efa07de4a37598e155e249837c3c9d231e7c19f1ac96ca0d3",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br41-modern-bridge-with-suspension-cables-ove.jpg",
+      "sha256": "9935f4933e9ca2811c75b6cb8332aced5d96b59828b5e39008e532954b50caa6",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br42-two-concrete-bridge-towers-with-cables.jpg",
+      "sha256": "85af0dafd45cf19ecfbfccf5a355d08389a7763589fabcef0a97da6d7acf1437",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br43-cable-stayed-tower-against-blue-sky.jpg",
+      "sha256": "3cd8693186ffc59427eb3ecadf5aff59fc685f6c07c27fcdfdd69a246604e02b",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br44-towers-of-a-suspension-bridge-cloudy-sky.jpg",
+      "sha256": "07b5a62c0650cd73ca20385a3bfc83c519b131d6c146a1aebfe1ad04851afd08",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br45-erasmusbrug-detail-of-pylon.jpg",
+      "sha256": "06585e1abd8134dfb81af73b43a61480ec32723d45716ae9c7143f1ed9ebd38d",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br46-rotterdam-erasmusbrug.jpg",
+      "sha256": "c41e58dbe411ba84ed7f09c2f1d27c3a8bd4bb9bc804ee61db8ae4c385a20e48",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br47-rotterdam-erasmusbrug-2.jpg",
+      "sha256": "cf2fa0672d5597761ed8700c12eb9f17741b24ed399fee5e33922c5b57997e9e",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br48-rotterdam-erasmusbrug-4.jpg",
+      "sha256": "8af69ce1c585830ee6a6ece55dd613d85cd845a6e54838914c7f962b0e768ea3",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br49-around-zeelandbrug-23.jpg",
+      "sha256": "ef6e267d7e88ae3399d36091bd71100329ff6612c135cc8db5dd3010bebb2f0a",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br50-around-zeelandbrug-54.jpg",
+      "sha256": "e7248f6cbc53d623e66a4815bdf7969d0cd0d7d1a00973824cb3b48efcf347f4",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br51-zeelandbrug.jpg",
+      "sha256": "dc66c1bf20938922f3799d0d798abbee59410b7f2281199638446572778d7224",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br52-zeelandbrug.jpg",
+      "sha256": "a091a8395c695f54ea4816bb58b5e62eeea9ff57c5bbc7200eb10cba469d40bd",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br53-zeelandbrug-zeeland-bridge-the-netherlan.jpg",
+      "sha256": "9fee010274d74f02350677af461b60686d5cbafdc46744e04f147f8c6064776a",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br54-van-brienenoordbrug.jpg",
+      "sha256": "ca2ea896faa7a3c92e32cabefa1d818a5f40dd9e11f54081d16e63e288bd9d27",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br55-van-brienenoordbrug-rotterdam-2018-2.jpg",
+      "sha256": "5cd358939c5fb0f7b8562ea9543d8d4cec4033057b26e9f82553eac003d02224",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br56-nesciobrug-amsterdam-2017-1.jpg",
+      "sha256": "7c310919f7cfaf157f7c4ff7eddabf7d34f9b3aeb5403393642e5dda78834e97",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br57-nesciobrug-amsterdam-2017-2.jpg",
+      "sha256": "b98af834abe648394b43790a966f26781a771efe09eefec28ee0e3042d6d15bf",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br58-amsterdam-pythonbrug.jpg",
+      "sha256": "dc89d10464ef3bb0adc95c2c8acfa2066a94f87a2fdbb700c329efd2c1a9548a",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br59-amsterdam-pythonbrug.jpg",
+      "sha256": "69869af073d78fbd064cb9b52e35baaae015109d16d4b22a87b548247b9b5462",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br60-nijmegen-de-oversteek-img-3245-2020-03-1.jpg",
+      "sha256": "c36561dee5f10f07b44ef4375560e709e04790e476ca508f92303f9470bd9eab",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br61-nijmegen-railway-bridge-river-waal-in-th.jpg",
+      "sha256": "6ce12571c32cb45f86358b2a4435853e4510541f63cf35bdc9159d8a4fb6dce2",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br62-rotterdam-de-willemsbrug-foto4-2015-08-0.jpg",
+      "sha256": "5aa3d9760c44e993dc7733d077fb2a179f7aa348eedc5b18add109710410ba4c",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "br63-willemsbrug-rotterdam-view-of-the-pylons.jpg",
+      "sha256": "f976d275b3594fa14679b55af678c6168b727d4f2ce13f82c308a046ccc13fa8",
+      "mime": "image/jpeg"
+    },
+    {
       "name": "bridge-architecture-bw-lines-16x9.jpg",
       "sha256": "15976650d9f2fc344c7494b5e611031558231842cbcf16b9da543d606af0ccfd",
       "mime": "image/jpeg"
@@ -413,6 +728,156 @@
       "mime": "image/jpeg"
     },
     {
+      "name": "ma01-close-up-of-a-very-tall-metal-structure.jpg",
+      "sha256": "90369b78c3d7d235d146e1a208cc50acde88a2d098694ea12e2b0444dd7efefa",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma02-thick-steel-cables-extending-upwards.jpg",
+      "sha256": "4d460a1d637d185bbf57fc2abc587ab122ea060e6bfaf180416b7a6f71c07d52",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma03-abstract-view-of-a-steel-bridge-structur.jpg",
+      "sha256": "f0cf80b96eef58abaf5e1de903c21615ab0dbfbe194e4bef8fe048596113f881",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma04-coiled-rusty-metal-cable-texture.jpg",
+      "sha256": "9763eb27b7a907c23d616ab0e5fde1663c6ee488b9820b2c837d53c9cf837982",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma05-twisted-metal-cable-with-round-base.jpg",
+      "sha256": "b43d5f738b405317c215759c18c5c9871c468f7245ce84276e4bda30478168d9",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma06-b-w-braided-cable-loop-with-connector.jpg",
+      "sha256": "563e6b2b4c9e8de97b0a385496391215ecbddff13665d0504f51065238b45266",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma07-b-w-bunch-of-wires.jpg",
+      "sha256": "ad3c241f0726cf83369a8065fe8c0d33815965dffa4c9ba76320930406beb3fa",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma08-coil-of-wires-close-up.jpg",
+      "sha256": "5b97487f9fd595f65252c6f88be867e33b8da8638c55db68d35edf0ca3492270",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma09-rusty-metal-with-bolts.jpg",
+      "sha256": "9c7909615480040884bab8be645ca508c35c27ce9a0db556a811ed24a0c16b46",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma10-b-w-metal-surface.jpg",
+      "sha256": "0d4c2d834e27c010695a233ca99341c17addb1ed78f3bd5ecc87cca72dbe7047",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma11-metal-surface-with-rivets.jpg",
+      "sha256": "a1250facb709c3f3b08562a74f3ef662bd9f8b3046ea18404efdc603be3f6ef1",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma12-brushed-metal-diagonal-light.jpg",
+      "sha256": "87cfc537e241a0cbe2f53ef22ee0a9268dfb954b496ce4b1bed636eb9615c0f4",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma13-b-w-patterned-surface.jpg",
+      "sha256": "c9e0ee2bac77463b89cbb19d2c323066838f9313a30f67ec3ad993f087cff71f",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma14-grayscale-frame.jpg",
+      "sha256": "86fd0a9c7ab91767db40110ece3a01bc2672c3233180bd72597f9c7f67cb959e",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma15-close-up-of-a-metal-object.jpg",
+      "sha256": "91b15ccdf35bbcd05c328c14534637fc6446d19e831b5bf1e512ffa7966c8904",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma16-grayscale-metal-frame.jpg",
+      "sha256": "49c52c3f8426b5745400a8cdded87e7d9722c42d5ba7d179091f9896b8655a81",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma17-b-w-metal-structure.jpg",
+      "sha256": "d122ce28c605946ae0a9061d293830ad8b305e023220c301fc7b418fe6d1af76",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma18-close-up-of-a-metal-structure.jpg",
+      "sha256": "e9569cf10e55dc56b929cbe2b183488916085bb86787c400ab62fb674c993f45",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma19-close-up-of-a-building.jpg",
+      "sha256": "3880ee6f5433bd8102e9ae71a6294bd25f939513eab712b63231e6702f4aaf68",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma20-grayscale-building-detail.jpg",
+      "sha256": "25c856c0fa3f482d22c53863368aa8ee9d1c18e76d5705977ee44656d6a70de3",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma21-grayscale-structure.jpg",
+      "sha256": "318fce5641673255ae1c1077c46620c7a405f4fee31b864bf08e41a5e145302d",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma22-hovenring-trillingsdempers.jpg",
+      "sha256": "b7080f088ccc18f49616bd1b9d42d80bf61a81c8d2e3315dba59d968f1576e4e",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma23-close-up-of-typical-built-up-riveted-and.jpg",
+      "sha256": "f19ab8e4400ea8f09a8a2f397a275380a6a94cd6efb58fcae26410b837743ca6",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma24-close-up-view-of-typical-lower-diagonal.jpg",
+      "sha256": "46a0da4fbbf97477bb77dae79d472950475680b117fd5ed1d57b87a64fc9bcf3",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma25-close-up-view-of-portal-joint-pin-connec.jpg",
+      "sha256": "008bbe4f20926bf89e51aad3522dced991b2f679720acefe9c04684e6b161260",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma26-sky-balcony-riveted-steel-beam-detail-ha.jpg",
+      "sha256": "7a7fb31b23d73b17d5ae6095c9328890af0dc944363d75c83388f5a2637e2eb0",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma27-cable-anchorage-for-millenium-bridge.jpg",
+      "sha256": "4d8c87f91d6d38434e6cc73d2d7a53d19c817944e4a91c6115ea3850647301dd",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma28-detail-view-of-cable-strands-inside-cent.jpg",
+      "sha256": "4177d2651ddde5f9de0e3861b383eb9c086b8d9b006558a3560f4374b4b31b79",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma29-detail-view-inside-manhattan-anchorage-s.jpg",
+      "sha256": "85ca71ead8dfe5bf874e6129ae419bfe9d0818f03dffc2280c33bb7808050e17",
+      "mime": "image/jpeg"
+    },
+    {
+      "name": "ma30-verrazano-narrows-bridge-detail-showing.jpg",
+      "sha256": "4b4bde493d337966629a527d9fe0dda571d7aa0059e467bebea1e1b93c3ae5a2",
+      "mime": "image/jpeg"
+    },
+    {
       "name": "modern-bridge-bw-dramatic-16x9.jpg",
       "sha256": "452678842cb839de1de46f77184ea524042b949b59e6c1815acefe16530a88e9",
       "mime": "image/jpeg"
@@ -514,8 +979,8 @@
     }
   ],
   "brand_context": {
-    "sha256": "bb9ccc025a2435d8362806ef531a6a33565d8072993992b2c9a9db6928b56a1a",
+    "sha256": "3d1bb15ceba7cd7b0e50dc0b6172885de9781bc6e1f7aba02b90ee10e92eea24",
     "mime": "application/json",
-    "bytes": 73019
+    "bytes": 165124
   }
 }

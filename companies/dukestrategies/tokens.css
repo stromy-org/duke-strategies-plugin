@@ -2,11 +2,13 @@
    Duke Strategies Design Tokens
    Strategic communications. Reimagined.
 
-   Version:  1.1.0
-   Date:     2026-06-10
+   Version:  1.2.0
+   Date:     2026-09-07
    Brand:    Duke Strategies
-   Primary:  Dark (#222222) — structural color
-   Accent:   Coral (#FF7F66) — brand signature, used sparingly
+   Primary:  Dark (#222222) — structural color for type, rails, tables
+   Canvas:   Ink (#141414) — near-black canvas (dark sections, covers)
+   Accent:   Coral (#FF7F66) — the signature: rules, motif, chart highlights,
+             and ONE large fill — the coral statement block (board 01, 2026-09-07)
 
    Usage: Import this file at the root of any project.
    All values derive from the Duke Strategies brand charter.
@@ -21,6 +23,7 @@
   /* -- Primary Palette ---------------------------------------- */
   /* primary = structural dark; accent = coral signature (charter v1.1) */
   --brand-dark:          #222222;
+  --brand-ink:           #141414;       /* near-black canvas — P7, board 01 */
   --brand-primary:       #222222;
   --brand-accent:        #FF7F66;
   --brand-accent-hover:  #E86B54;
@@ -80,9 +83,10 @@
   /* -- Typography --------------------------------------------- */
   --font-heading:        'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-body:           'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono:           'Space Mono', 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+  --font-mono:           'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; /* one family — Space Mono retired (board 01 T6); use font-variant-numeric: tabular-nums for data */
 
   /* -- Font Weights ------------------------------------------- */
+  --weight-light:        300;          /* display headings — sentence case, light (board 01 C4) */
   --weight-regular:      400;
   --weight-medium:       500;
   --weight-semibold:     600;
@@ -121,7 +125,7 @@
   --tracking-normal:     0;
   --tracking-wide:       0.03em;
   --tracking-wider:      0.06em;
-  --tracking-widest:     0.156em;      /* 2.5px at 16px base — overline */
+  --tracking-widest:     0.18em;       /* caps labels / overlines — Montserrat 500 (board 01 T6) */
 
   /* -- Spacing Scale (4px base) ------------------------------- */
   --space-1:             0.25rem;      /* 4px */
@@ -153,11 +157,11 @@
 
   /* -- Transitions -------------------------------------------- */
   --ease-default:        ease;
-  --ease-out:            cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out:            cubic-bezier(0.22, 1, 0.36, 1);   /* span-draw (board 01 MO1) */
   --ease-in-out:         cubic-bezier(0.4, 0, 0.2, 1);
   --duration-fast:       150ms;
   --duration-normal:     250ms;
-  --duration-slow:       400ms;
+  --duration-slow:       480ms;        /* span-draw */
   --transition-fast:     150ms ease;
   --transition-normal:   250ms ease;
   --transition-slow:     400ms ease;
@@ -652,22 +656,39 @@
   outline-offset: 2px;
 }
 
-/* --- visual grammar tokens (GATE A approved 2026-07-01) --- */
+/* --- visual grammar tokens (boards 00–02, recorded 2026-09-07) --- */
 :root {
-  --canvas-ink:        #222222;
+  --canvas-ink:        #141414;   /* near-black canvas (P7) */
+  --canvas-dark:       #222222;   /* structural dark for type on paper */
   --canvas-paper:      #FFFFFF;
   --canvas-paper-alt:  #F5F5F5;
-  --canvas-graphite:   linear-gradient(160deg,#222222,#2C2C2E);
-  --elev-card:         0 8px 24px rgba(34,34,34,0.14);
-  --elev-sm:           0 2px 8px rgba(34,34,34,0.08);
-  --icon-stroke:       1.75px;
+  --canvas-coral:      #FF7F66;   /* the coral statement block — white type on coral (BG2) */
+  --grad-ink-scrim:    linear-gradient(0deg, rgba(20,20,20,.55), transparent 60%);   /* GD4 — functional only */
+  --elev-card:         0 12px 40px rgba(0,0,0,0.22);   /* EL6 */
+  --elev-sm:           0 4px 14px rgba(0,0,0,0.12);
+  --radius-card:       12px;
+  --icon-stroke:       1px;       /* IC4 ultra-hairline — square caps, miter joins, no fill */
+  --pattern-cable-fan: repeating-conic-gradient(from 200deg at 100% 0%, color-mix(in srgb, currentColor 10%, transparent) 0 .6deg, transparent .6deg 7deg);   /* PT3 — keep under 12% */
+  --rail-width:        33.333%;   /* GR2 left rail: labels, dates, numerals, mark */
+  --grid-gap:          16px;
+  --rule-coral-margin: 3px;       /* DP3 — coral rule down the left margin of every document page */
+  --motif-signature-w: 48px;      /* MP1 — corner signature, fixed size */
+  --motif-signature-h: 38px;
+  --motion-span:       480ms cubic-bezier(.22,1,.36,1);   /* MO1 span-draw */
 }
 
 /* --- image treatment system (Component T; ORG-PLAN-045) ---
    Definition of record: charter.expression.treatments. Applied downstream
-   (format-MCP render + website .img-treatment), never pre-baked. --- */
+   (format-MCP render + website .img-treatment), never pre-baked.
+   Board 01 PH4 (2026-09-07): steel-vignette on cover/closing heroes,
+   steel-flat (monotone, low contrast) on everything supporting. --- */
 :root {
-  --treatment-default: documentary-noir;
+  --treatment-default: steel-flat;
+  --treatment-steel-vignette-filter:      grayscale(1) contrast(1.2) brightness(0.9);
+  --treatment-steel-vignette-vignette:    0.6;
+  --treatment-steel-vignette-grain:       0.08;
+  --treatment-steel-flat-filter:          grayscale(1) contrast(0.88) brightness(0.92);
+  --treatment-steel-flat-grain:           0.05;
   --treatment-documentary-noir-filter:    grayscale(1) contrast(1.08);
   --treatment-documentary-noir-grain:     0.08;
   --treatment-ink-duotone-filter:         grayscale(1) contrast(1.05);
@@ -676,13 +697,4 @@
   --treatment-ink-duotone-highlight:      #F5F5F5;
   --treatment-ink-duotone-strength:       0.42;
   --treatment-ink-duotone-grain:          0.07;
-  --treatment-coral-graded-filter:        saturate(0.45) contrast(1.05);
-  --treatment-coral-graded-shadow:        #2A1512;
-  --treatment-coral-graded-mid:           #5A595C;
-  --treatment-coral-graded-highlight:     #FFE8E3;
-  --treatment-coral-graded-strength:      0.30;
-  --treatment-coral-graded-grain:         0.08;
-  --treatment-steel-vignette-filter:      grayscale(1) contrast(1.10);
-  --treatment-steel-vignette-vignette:    0.5;
-  --treatment-steel-vignette-grain:       0.10;
 }

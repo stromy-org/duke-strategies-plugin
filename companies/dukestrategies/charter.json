@@ -2,7 +2,7 @@
   "meta": {
     "tier": "producer",
     "displayName": "Duke Strategies",
-    "tagline": "Bridging Strategy and Impact",
+    "tagline": "We make business strategies stakeholder proof",
     "industry": "Public Affairs / Consulting",
     "archetype": "sage",
     "domain": "dukestrategies.eu",
@@ -26,26 +26,31 @@
     "textLight": "#807F83",
     "success": "#5B9A6B",
     "warning": "#D4A544",
-    "error": "#C4544A"
+    "error": "#C4544A",
+    "ink": "#141414"
   },
-  "_colorRoles": "colors must hold hex values only (website token generator emits every key as a CSS custom property). Roles: primary = structural dark (headings, table headers, overlays, dark sections); accent = coral brand signature, used sparingly (CTAs, accent lines, motif, chart highlights). Coral must never be a large background fill or full-image wash \u2014 see guidelines.md Color System.",
+  "_colorRoles": "colors must hold hex values only (website token generator emits every key as a CSS custom property). Roles: primary #222222 = structural dark for type, table headers, rails; ink #141414 = the near-black canvas (dark sections, covers, chart panels); accent = coral, the signature — rules, the cable-span motif, chart highlights, and ONE large fill: the coral statement block (board 01 BG2). Never a photo wash, gradient or heading colour (board 02 CR1).",
   "fonts": {
     "heading": {
       "family": "Montserrat",
       "fallback": "Arial, Helvetica, sans-serif",
-      "weight": "600",
+      "weight": "300",
       "fallbackStack": [
         "Century Gothic",
         "Arial",
         "sans-serif"
       ],
       "webSafe": "Century Gothic",
-      "embedFamily": "Montserrat"
+      "embedFamily": "Montserrat",
+      "displayWeight": "300",
+      "subheadingWeight": "600",
+      "case": "sentence",
+      "note": "Board 01 C4 (2026-09-07): sentence case, light — Montserrat 300 for display headings (echoes the thin 'strategies' in the logo); 600 for small headings, card titles and UI. Uppercase headings retired."
     },
     "body": {
       "family": "Montserrat",
       "fallback": "Arial, Helvetica, sans-serif",
-      "weight": "normal",
+      "weight": "400",
       "fallbackStack": [
         "Century Gothic",
         "Arial",
@@ -55,32 +60,33 @@
       "embedFamily": "Montserrat"
     },
     "mono": {
-      "family": "Space Mono",
-      "fallback": "Courier New, monospace",
+      "family": "Montserrat",
+      "fallback": "Arial, Helvetica, sans-serif",
       "weight": "normal",
       "fallbackStack": [
-        "Consolas",
-        "Courier New",
-        "monospace"
+        "Century Gothic",
+        "Arial",
+        "sans-serif"
       ],
-      "webSafe": "Consolas",
-      "embedFamily": "Space Mono"
+      "webSafe": "Century Gothic",
+      "embedFamily": "Montserrat",
+      "note": "Utility role kept for schema completeness only — the brand ships ONE family (board 01 T6). Tabular figures via font-variant-numeric, not a second face."
     },
     "label": {
-      "family": "Space Mono",
-      "cssName": "Space Mono",
-      "weight": "normal",
+      "family": "Montserrat",
+      "cssName": "Montserrat",
+      "weight": "500",
       "case": "uppercase",
-      "tracking": "0.22em",
-      "role": "eyebrow / kicker / overline",
-      "note": "Deliberate: Space Mono reserved for data and overlines only (engineered/technical register). This is a CONSCIOUS small-title choice, not a mono default \u2014 Duke's brand-smell is the mono overline.",
+      "tracking": "0.18em",
+      "role": "eyebrow / kicker / overline / rail labels",
+      "note": "Board 01 T6 (2026-09-07): one family — eyebrows are Montserrat 500 caps tracked .18em. Space Mono retired; the 'engineered' register now comes from the hairline icons and the cable-fan pattern, not a second face.",
       "fallbackStack": [
-        "Consolas",
-        "Courier New",
-        "monospace"
+        "Century Gothic",
+        "Arial",
+        "sans-serif"
       ],
-      "webSafe": "Consolas",
-      "embedFamily": "Space Mono"
+      "webSafe": "Century Gothic",
+      "embedFamily": "Montserrat"
     }
   },
   "logo": {
@@ -100,82 +106,2038 @@
     "catalog": [
       {
         "file": "images/Erasmusbrug_zwart.jpg",
-        "description": "Erasmus Bridge, Rotterdam \u2014 dramatic black and white night view",
+        "description": "Erasmus Bridge, Rotterdam — dramatic black and white night view",
         "roles": [
           "cover",
+          "closing",
           "divider"
-        ]
-      },
-      {
-        "file": "images/Nesciobrug.jpg",
-        "description": "Nesciobrug, Amsterdam \u2014 moody pedestrian/cyclist bridge",
-        "roles": [
-          "divider",
-          "closing"
-        ]
-      },
-      {
-        "file": "images/Pythonbrug_Amsterdam_contrast.jpg",
-        "description": "Python Bridge, Amsterdam \u2014 high-contrast architectural shot",
-        "roles": [
-          "divider"
-        ]
+        ],
+        "hero": true,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.44,
+            "y": 0.64
+          },
+          "textSafeZone": "upper-third"
+        }
       },
       {
         "file": "images/shutterstock_1510566293_RoyalWelshbrug_zwart_1920x1280px_dark.jpg",
-        "description": "Royal Welsh Bridge \u2014 dark moody bridge photography",
+        "description": "Royal Welsh Bridge — dark moody bridge photography",
         "roles": [
           "cover",
-          "closing"
-        ]
+          "divider",
+          "section"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.51,
+            "y": 0.51
+          },
+          "textSafeZone": "upper-third"
+        }
       },
       {
         "file": "images/erasmus-bridge-rotterdam-grayscale.jpg",
-        "description": "Erasmus Bridge at night \u2014 near-monochrome skyline, illuminated cables",
+        "description": "Erasmus Bridge at night — near-monochrome skyline, illuminated cables",
         "roles": [
           "cover",
           "closing"
-        ]
+        ],
+        "hero": true,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.76
+          },
+          "textSafeZone": "upper-third"
+        }
       },
       {
         "file": "images/cable-bridge-grayscale-dramatic.jpg",
-        "description": "Cable-stayed bridge \u2014 dramatic grayscale, low vantage point",
+        "description": "Cable-stayed bridge — dramatic grayscale, low vantage point",
         "roles": [
           "cover",
           "divider"
-        ]
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.58,
+            "y": 0.42
+          },
+          "textSafeZone": "lower-third"
+        }
       },
       {
         "file": "images/modern-bridge-bw-dramatic.jpg",
-        "description": "Modern bridge \u2014 dramatic black and white, strong diagonals",
+        "description": "Modern bridge — dramatic black and white, strong diagonals",
         "roles": [
           "cover",
           "divider"
-        ]
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.48,
+            "y": 0.58
+          },
+          "textSafeZone": "upper-third"
+        }
       },
       {
-        "file": "images/bridge-fog-water-minimalist.jpg",
-        "description": "Bridge in fog over calm water \u2014 minimalist, contemplative",
+        "file": "images/Nesciobrug.jpg",
+        "description": "Nesciobrug, Amsterdam — moody pedestrian/cyclist bridge",
         "roles": [
           "divider",
           "closing"
-        ]
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.49,
+            "y": 0.49
+          },
+          "textSafeZone": "center-safe"
+        }
+      },
+      {
+        "file": "images/bridge-fog-water-minimalist.jpg",
+        "description": "Bridge in fog over calm water — minimalist, contemplative",
+        "roles": [
+          "cover",
+          "closing",
+          "background"
+        ],
+        "hero": true,
+        "theme": "bridges-span",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.41,
+            "y": 0.35
+          },
+          "textSafeZone": "lower-third"
+        }
       },
       {
         "file": "images/modern-cable-bridge-calm-water.jpg",
-        "description": "Modern cable bridge over calm water \u2014 light, airy geometry",
+        "description": "Modern cable bridge over calm water — light, airy geometry",
+        "roles": [
+          "cover",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.52,
+            "y": 0.46
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/Pythonbrug_Amsterdam_contrast.jpg",
+        "description": "Python Bridge, Amsterdam — high-contrast architectural shot",
+        "roles": [
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.48,
+            "y": 0.49
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/bridge-architecture-bw-lines.jpg",
+        "description": "Bridge architecture — black and white rhythmic lines",
+        "roles": [
+          "divider",
+          "section"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.46,
+            "y": 0.46
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/brooklyn-bridge-bw.jpg",
+        "description": "Brooklyn Bridge — black and white cable geometry",
+        "roles": [
+          "section",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.44,
+            "y": 0.57
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/cable-bridge-geometric-perspective.jpg",
+        "description": "Cable bridge — bright geometric perspective from deck level",
+        "roles": [
+          "cover",
+          "background",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.53,
+            "y": 0.39
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/pedestrian-bridge-bw-modern.jpg",
+        "description": "Modern pedestrian bridge — black and white sweeping curve",
+        "roles": [
+          "section",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.48,
+            "y": 0.55
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/cable-bridge-dark-sky-dramatic.jpg",
+        "description": "Suspension bridge at sunset — colour original",
+        "roles": [
+          "closing",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.44,
+            "y": 0.57
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/cable-bridge-golden-hour.jpg",
+        "description": "Cable bridge at golden hour — colour original",
+        "roles": [
+          "cover",
+          "closing"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.48,
+            "y": 0.41
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/cable-stayed-bridge-night-illuminated.jpg",
+        "description": "Cable-stayed bridge illuminated at night — colour original",
+        "roles": [
+          "cover",
+          "closing"
+        ],
+        "hero": true,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.51,
+            "y": 0.63
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/erasmus-bridge-rotterdam-abstract.jpg",
+        "description": "Erasmus Bridge abstract — toned colour original",
+        "roles": [
+          "background",
+          "section"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.46,
+            "y": 0.51
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/erasmus-bridge-rotterdam-daytime.jpg",
+        "description": "Erasmus Bridge daytime — colour original",
+        "roles": [
+          "cover",
+          "closing"
+        ],
+        "hero": true,
+        "theme": "bridges-span",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.51,
+            "y": 0.59
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/long-bridge-sunset-dramatic.jpg",
+        "description": "Long bridge at sunset — colour original",
+        "roles": [
+          "cover",
+          "closing"
+        ],
+        "hero": true,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.53,
+            "y": 0.52
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/rotterdam-bridge-cityscape.jpg",
+        "description": "Rotterdam bridge cityscape — colour original",
+        "roles": [
+          "section",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.53,
+            "y": 0.51
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br01-erasmusbrug-cable-stayed-architecture.jpg",
+        "description": "Erasmusbrug — cable-stayed architecture",
+        "roles": [
+          "cover",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.49,
+            "y": 0.66
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br02-large-bridge-spanning-water.jpg",
+        "description": "Large bridge spanning water",
+        "roles": [
+          "section",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.55,
+            "y": 0.6
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br03-extension-bridge.jpg",
+        "description": "Extension bridge",
+        "roles": [
+          "background",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.49,
+            "y": 0.55
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br04-bridge-over-water-trees.jpg",
+        "description": "Bridge over water, trees",
+        "roles": [
+          "section",
+          "closing"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.42,
+            "y": 0.57
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br05-gray-structure-during-day.jpg",
+        "description": "Gray structure during day",
+        "roles": [
+          "cover",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.35,
+            "y": 0.38
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/br06-view-of-a-bridge-over-water.jpg",
+        "description": "View of a bridge over water",
+        "roles": [
+          "cover",
+          "closing"
+        ],
+        "hero": true,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.59
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br07-water-with-a-bridge-in-the-background.jpg",
+        "description": "Water with a bridge in the background",
+        "roles": [
+          "cover",
+          "closing"
+        ],
+        "hero": true,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.4,
+            "y": 0.58
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br08-night-city-with-bridge.jpg",
+        "description": "Night city with bridge",
+        "roles": [
+          "section"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.55
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br09-bridge-over-water-buildings-behind.jpg",
+        "description": "Bridge over water, buildings behind",
+        "roles": [
+          "section"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.52,
+            "y": 0.62
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br10-bridge-tall-buildings-behind.jpg",
+        "description": "Bridge, tall buildings behind",
+        "roles": [
+          "section"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.48,
+            "y": 0.61
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br11-blue-and-white-bridge-under-blue-sky.jpg",
+        "description": "Blue and white bridge under blue sky",
         "roles": [
           "divider",
           "background"
-        ]
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.39,
+            "y": 0.69
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br12-very-tall-bridge-with-sky.jpg",
+        "description": "Very tall bridge with sky",
+        "roles": [
+          "divider",
+          "background"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.6
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br13-a-view-of-a-bridge-over-water.jpg",
+        "description": "A view of a bridge over water",
+        "roles": [
+          "section",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.48,
+            "y": 0.64
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br14-tall-bridge-tall-building-behind.jpg",
+        "description": "Tall bridge, tall building behind",
+        "roles": [
+          "section"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.51,
+            "y": 0.63
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br15-bridge-over-water-at-night.jpg",
+        "description": "Bridge over water at night",
+        "roles": [
+          "cover",
+          "closing"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.65
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br16-grayscale-bridge-over-water.jpg",
+        "description": "Grayscale bridge over water",
+        "roles": [
+          "cover",
+          "closing"
+        ],
+        "hero": true,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.76
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br17-night-view-of-a-bridge-over-a-river.jpg",
+        "description": "Night view of a bridge over a river",
+        "roles": [
+          "closing",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.46,
+            "y": 0.58
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br18-gray-concrete-bridge-near-buildings.jpg",
+        "description": "Gray concrete bridge near buildings",
+        "roles": [
+          "section",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.53,
+            "y": 0.52
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br19-two-boats-below-bridge-in-fog.jpg",
+        "description": "Two boats below bridge in fog",
+        "roles": [
+          "cover",
+          "closing",
+          "background"
+        ],
+        "hero": true,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.51,
+            "y": 0.46
+          },
+          "textSafeZone": "center-safe"
+        }
+      },
+      {
+        "file": "images/br20-grayscale-photo-of-a-bridge.jpg",
+        "description": "Grayscale photo of a bridge",
+        "roles": [
+          "background",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.44,
+            "y": 0.53
+          },
+          "textSafeZone": "center-safe"
+        }
+      },
+      {
+        "file": "images/br21-grayscale-bridge-over-river.jpg",
+        "description": "Grayscale bridge over river",
+        "roles": [
+          "divider",
+          "section"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.49,
+            "y": 0.68
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br22-bridge-structure-in-heavy-fog-monochrome.jpg",
+        "description": "Bridge structure in heavy fog, monochrome",
+        "roles": [
+          "background",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.54,
+            "y": 0.45
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/br23-white-suspension-bridge-on-water.jpg",
+        "description": "White suspension bridge on water",
+        "roles": [
+          "cover",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.39,
+            "y": 0.55
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br24-gray-suspension-bridge.jpg",
+        "description": "Gray suspension bridge",
+        "roles": [
+          "cover",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.46
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/br25-grayscale-photo-of-bridge.jpg",
+        "description": "Grayscale photo of bridge",
+        "roles": [
+          "cover",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.48,
+            "y": 0.61
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br26-worm-view-of-white-steel-structure.jpg",
+        "description": "Worm view of white steel structure",
+        "roles": [
+          "cover",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.52,
+            "y": 0.53
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br27-underside-of-a-bridge.jpg",
+        "description": "Underside of a bridge",
+        "roles": [
+          "divider",
+          "section"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.55,
+            "y": 0.54
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br28-white-bridge-under-blue-sky.jpg",
+        "description": "White bridge under blue sky",
+        "roles": [
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.64
+          },
+          "textSafeZone": "center-safe"
+        }
+      },
+      {
+        "file": "images/br29-large-bridge-over-water.jpg",
+        "description": "Large bridge over water",
+        "roles": [
+          "cover",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.45,
+            "y": 0.65
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br30-low-angle-bridge.jpg",
+        "description": "Low-angle bridge",
+        "roles": [
+          "section"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.56,
+            "y": 0.56
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br31-grayscale-metal-bridge.jpg",
+        "description": "Grayscale metal bridge",
+        "roles": [
+          "divider",
+          "background",
+          "texture"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.58,
+            "y": 0.56
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br32-bottom-view-of-bridge.jpg",
+        "description": "Bottom view of bridge",
+        "roles": [
+          "cover",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.54
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br33-underside-of-a-suspension-bridge.jpg",
+        "description": "Underside of a suspension bridge",
+        "roles": [
+          "divider",
+          "background"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.45,
+            "y": 0.42
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/br34-underside-of-a-modern-bridge-concrete-su.jpg",
+        "description": "Underside of a modern bridge, concrete supports",
+        "roles": [
+          "divider",
+          "background"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.42,
+            "y": 0.46
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/br35-bridge-from-the-ground.jpg",
+        "description": "Bridge from the ground",
+        "roles": [
+          "divider",
+          "section"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.39,
+            "y": 0.56
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br36-red-steel-bridge-structure-from-below.jpg",
+        "description": "Red steel bridge structure from below",
+        "roles": [
+          "background",
+          "texture"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.57
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br37-cable-stayed-tower-dramatic-sky.jpg",
+        "description": "Cable-stayed tower, dramatic sky",
+        "roles": [
+          "cover",
+          "divider",
+          "background"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.49,
+            "y": 0.72
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br38-suspension-bridge-tower-close-up.jpg",
+        "description": "Suspension bridge tower close-up",
+        "roles": [
+          "cover",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.55,
+            "y": 0.66
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br39-modern-bridge-architecture-cloudy-sky.jpg",
+        "description": "Modern bridge architecture, cloudy sky",
+        "roles": [
+          "background",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.3,
+            "y": 0.32
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/br40-tall-bridge-tower-with-cables.jpg",
+        "description": "Tall bridge tower with cables",
+        "roles": [
+          "cover",
+          "background",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.62
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br41-modern-bridge-with-suspension-cables-ove.jpg",
+        "description": "Modern bridge with suspension cables over water",
+        "roles": [
+          "section"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.49,
+            "y": 0.57
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br42-two-concrete-bridge-towers-with-cables.jpg",
+        "description": "Two concrete bridge towers with cables",
+        "roles": [
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.44,
+            "y": 0.41
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/br43-cable-stayed-tower-against-blue-sky.jpg",
+        "description": "Cable-stayed tower against blue sky",
+        "roles": [
+          "cover",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.39,
+            "y": 0.52
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br44-towers-of-a-suspension-bridge-cloudy-sky.jpg",
+        "description": "Towers of a suspension bridge, cloudy sky",
+        "roles": [
+          "cover",
+          "closing"
+        ],
+        "hero": true,
+        "theme": "bridges-span",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.59,
+            "y": 0.52
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br45-erasmusbrug-detail-of-pylon.jpg",
+        "description": "Erasmusbrug - Detail of Pylon, September 2019",
+        "roles": [
+          "cover",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.38,
+            "y": 0.48
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/br46-rotterdam-erasmusbrug.jpg",
+        "description": "Rotterdam - Erasmusbrug",
+        "roles": [
+          "cover",
+          "closing"
+        ],
+        "hero": true,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.6,
+            "y": 0.7
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br47-rotterdam-erasmusbrug-2.jpg",
+        "description": "Rotterdam - Erasmusbrug (2)",
+        "roles": [
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.58,
+            "y": 0.47
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/br48-rotterdam-erasmusbrug-4.jpg",
+        "description": "Rotterdam - Erasmusbrug (4)",
+        "roles": [
+          "divider",
+          "background"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.46,
+            "y": 0.58
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br49-around-zeelandbrug-23.jpg",
+        "description": "Around zeelandbrug (23)",
+        "roles": [
+          "cover",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.49,
+            "y": 0.55
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br50-around-zeelandbrug-54.jpg",
+        "description": "Around zeelandbrug (54)",
+        "roles": [
+          "section",
+          "background"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.46,
+            "y": 0.46
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/br51-zeelandbrug.jpg",
+        "description": "Zeelandbrug (2460386701)",
+        "roles": [
+          "cover",
+          "closing"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.53,
+            "y": 0.54
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br52-zeelandbrug.jpg",
+        "description": "Zeelandbrug (37139720521)",
+        "roles": [
+          "cover",
+          "closing"
+        ],
+        "hero": true,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.6,
+            "y": 0.43
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/br53-zeelandbrug-zeeland-bridge-the-netherlan.jpg",
+        "description": "Zeelandbrug Zeeland Bridge. The Netherlands (15125459240)",
+        "roles": [
+          "cover",
+          "closing",
+          "background"
+        ],
+        "hero": true,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.52,
+            "y": 0.3
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/br54-van-brienenoordbrug.jpg",
+        "description": "Van Brienenoordbrug",
+        "roles": [
+          "section"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.46,
+            "y": 0.46
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/br55-van-brienenoordbrug-rotterdam-2018-2.jpg",
+        "description": "Van Brienenoordbrug Rotterdam 2018 2",
+        "roles": [
+          "section",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.47,
+            "y": 0.55
+          },
+          "textSafeZone": "center-safe"
+        }
+      },
+      {
+        "file": "images/br56-nesciobrug-amsterdam-2017-1.jpg",
+        "description": "Nesciobrug Amsterdam 2017 1",
+        "roles": [
+          "section"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.49,
+            "y": 0.46
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/br57-nesciobrug-amsterdam-2017-2.jpg",
+        "description": "Nesciobrug Amsterdam 2017 2",
+        "roles": [
+          "section"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.45,
+            "y": 0.45
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/br58-amsterdam-pythonbrug.jpg",
+        "description": "Amsterdam - Pythonbrug (29669135914)",
+        "roles": [
+          "divider",
+          "section"
+        ],
+        "hero": false,
+        "theme": "bridge-structure",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.45,
+            "y": 0.58
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br59-amsterdam-pythonbrug.jpg",
+        "description": "Amsterdam - Pythonbrug (30183946422)",
+        "roles": [
+          "divider",
+          "closing"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.45,
+            "y": 0.48
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/br60-nijmegen-de-oversteek-img-3245-2020-03-1.jpg",
+        "description": "Nijmegen, de Oversteek IMG 3245 2020-03-17 10.58",
+        "roles": [
+          "cover",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.52,
+            "y": 0.6
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br61-nijmegen-railway-bridge-river-waal-in-th.jpg",
+        "description": "Nijmegen railway bridge. River Waal. in the back the Oversteek bridge Seen from the Stevenskerk",
+        "roles": [
+          "section"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.49,
+            "y": 0.65
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br62-rotterdam-de-willemsbrug-foto4-2015-08-0.jpg",
+        "description": "Rotterdam, de Willemsbrug foto4 2015-08-01 20.34",
+        "roles": [
+          "cover",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.54,
+            "y": 0.6
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/br63-willemsbrug-rotterdam-view-of-the-pylons.jpg",
+        "description": "Willemsbrug - Rotterdam - View of the pylons -from the Oudehavenkade in the northwest - 2013",
+        "roles": [
+          "divider",
+          "closing"
+        ],
+        "hero": false,
+        "theme": "bridges-span",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.46,
+            "y": 0.52
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/ma01-close-up-of-a-very-tall-metal-structure.jpg",
+        "description": "Close up of a very tall metal structure",
+        "roles": [
+          "divider",
+          "section"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.49,
+            "y": 0.39
+          },
+          "textSafeZone": "center-safe"
+        }
+      },
+      {
+        "file": "images/ma02-thick-steel-cables-extending-upwards.jpg",
+        "description": "Thick steel cables extending upwards",
+        "roles": [
+          "background",
+          "texture"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.52,
+            "y": 0.44
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/ma03-abstract-view-of-a-steel-bridge-structur.jpg",
+        "description": "Abstract view of a steel bridge structure",
+        "roles": [
+          "divider",
+          "background"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.44,
+            "y": 0.5
+          },
+          "textSafeZone": "center-safe"
+        }
+      },
+      {
+        "file": "images/ma04-coiled-rusty-metal-cable-texture.jpg",
+        "description": "Coiled rusty metal cable texture",
+        "roles": [
+          "texture",
+          "background"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.49,
+            "y": 0.41
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/ma05-twisted-metal-cable-with-round-base.jpg",
+        "description": "Twisted metal cable with round base",
+        "roles": [
+          "texture",
+          "background"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.51
+          },
+          "textSafeZone": "center-safe"
+        }
+      },
+      {
+        "file": "images/ma06-b-w-braided-cable-loop-with-connector.jpg",
+        "description": "B&W braided cable loop with connector",
+        "roles": [
+          "texture",
+          "background"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.49,
+            "y": 0.63
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/ma07-b-w-bunch-of-wires.jpg",
+        "description": "B&W bunch of wires",
+        "roles": [
+          "texture",
+          "background"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.49,
+            "y": 0.5
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/ma08-coil-of-wires-close-up.jpg",
+        "description": "Coil of wires close-up",
+        "roles": [
+          "texture",
+          "background"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.45,
+            "y": 0.5
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/ma09-rusty-metal-with-bolts.jpg",
+        "description": "Rusty metal with bolts",
+        "roles": [
+          "texture",
+          "background"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.49,
+            "y": 0.51
+          },
+          "textSafeZone": "center-safe"
+        }
+      },
+      {
+        "file": "images/ma10-b-w-metal-surface.jpg",
+        "description": "B&W metal surface",
+        "roles": [
+          "texture",
+          "background"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.52,
+            "y": 0.53
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/ma11-metal-surface-with-rivets.jpg",
+        "description": "Metal surface with rivets",
+        "roles": [
+          "texture",
+          "background"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.52,
+            "y": 0.47
+          },
+          "textSafeZone": "center-safe"
+        }
+      },
+      {
+        "file": "images/ma12-brushed-metal-diagonal-light.jpg",
+        "description": "Brushed metal, diagonal light",
+        "roles": [
+          "texture",
+          "background"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.45,
+            "y": 0.49
+          },
+          "textSafeZone": "center-safe"
+        }
+      },
+      {
+        "file": "images/ma13-b-w-patterned-surface.jpg",
+        "description": "B&W patterned surface",
+        "roles": [
+          "texture",
+          "background"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.46,
+            "y": 0.56
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/ma14-grayscale-frame.jpg",
+        "description": "Grayscale frame",
+        "roles": [
+          "background",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.44,
+            "y": 0.53
+          },
+          "textSafeZone": "center-safe"
+        }
+      },
+      {
+        "file": "images/ma15-close-up-of-a-metal-object.jpg",
+        "description": "Close-up of a metal object",
+        "roles": [
+          "divider",
+          "background"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.55,
+            "y": 0.57
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/ma16-grayscale-metal-frame.jpg",
+        "description": "Grayscale metal frame",
+        "roles": [
+          "divider",
+          "background"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.51,
+            "y": 0.49
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/ma17-b-w-metal-structure.jpg",
+        "description": "B&W metal structure",
+        "roles": [
+          "divider"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.52,
+            "y": 0.58
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/ma18-close-up-of-a-metal-structure.jpg",
+        "description": "Close up of a metal structure",
+        "roles": [
+          "divider",
+          "background"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.51,
+            "y": 0.5
+          },
+          "textSafeZone": "center-safe"
+        }
+      },
+      {
+        "file": "images/ma19-close-up-of-a-building.jpg",
+        "description": "Close-up of a building",
+        "roles": [
+          "divider",
+          "section"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.42,
+            "y": 0.49
+          },
+          "textSafeZone": "lower-third"
+        }
+      },
+      {
+        "file": "images/ma20-grayscale-building-detail.jpg",
+        "description": "Grayscale building detail",
+        "roles": [
+          "background",
+          "divider"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.49
+          },
+          "textSafeZone": "center-safe"
+        }
+      },
+      {
+        "file": "images/ma21-grayscale-structure.jpg",
+        "description": "Grayscale structure",
+        "roles": [
+          "background",
+          "texture"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.53,
+            "y": 0.53
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/ma22-hovenring-trillingsdempers.jpg",
+        "description": "Hovenring - trillingsdempers",
+        "roles": [
+          "divider",
+          "section"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.48,
+            "y": 0.53
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/ma23-close-up-of-typical-built-up-riveted-and.jpg",
+        "description": "CLOSE-UP OF TYPICAL BUILT-UP, RIVETED AND PIN CONNECTED DECK TRUSS LOOKING UP AND NORTHEAST. - Huey P. Long Bridge, Spanning Mississippi River approximately midway between nine and HAER LA-17-47",
+        "roles": [
+          "divider",
+          "background"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.49,
+            "y": 0.54
+          },
+          "textSafeZone": "center-safe"
+        }
+      },
+      {
+        "file": "images/ma24-close-up-view-of-typical-lower-diagonal.jpg",
+        "description": "CLOSE-UP VIEW OF TYPICAL LOWER DIAGONAL AND VERTICAL RIVETED CONNECTION OF MAIN THROUGH TRUSS CANTILEVER SPAN. - Huey P. Long Bridge, Spanning Mississippi River approximately midway HAER LA-17-43",
+        "roles": [
+          "divider"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.49,
+            "y": 0.54
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/ma25-close-up-view-of-portal-joint-pin-connec.jpg",
+        "description": "Close-up view of portal joint pin-connection with star plate, and typical riveted girders and latticed posts. (Nov. 25, 1988) - University Heights Bridge, Spanning Harlem River HAER NY,31-NEYO,178-15",
+        "roles": [
+          "divider",
+          "background"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.49,
+            "y": 0.54
+          },
+          "textSafeZone": "center-safe"
+        }
+      },
+      {
+        "file": "images/ma26-sky-balcony-riveted-steel-beam-detail-ha.jpg",
+        "description": "Sky Balcony riveted steel beam detail Hamasen Railway Cultural Park Kaohsiung 2026 03 30",
+        "roles": [
+          "texture",
+          "background"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.51,
+            "y": 0.61
+          },
+          "textSafeZone": "upper-third"
+        }
+      },
+      {
+        "file": "images/ma27-cable-anchorage-for-millenium-bridge.jpg",
+        "description": "Cable anchorage for millenium bridge",
+        "roles": [
+          "divider",
+          "background"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.48,
+            "y": 0.51
+          },
+          "textSafeZone": "center-safe"
+        }
+      },
+      {
+        "file": "images/ma28-detail-view-of-cable-strands-inside-cent.jpg",
+        "description": "DETAIL VIEW OF CABLE STRANDS INSIDE CENTRAL ANCHORAGE - San Francisco Oakland Bay Bridge, Spanning San Francisco Bay, San Francisco, San Francisco County, CA HAER CAL,38-SANFRA,141-35",
+        "roles": [
+          "divider",
+          "background"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.46
+          },
+          "textSafeZone": "center-safe"
+        }
+      },
+      {
+        "file": "images/ma29-detail-view-inside-manhattan-anchorage-s.jpg",
+        "description": "Detail view inside Manhattan anchorage showing connection between cable and anchorage eyebars. Jet Lowe, photographer, 1982. - Brooklyn Bridge, Spanning East River between Park HAER NY,31-NEYO,90-66",
+        "roles": [
+          "divider",
+          "background"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "landscape",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.48
+          },
+          "textSafeZone": "center-safe"
+        }
+      },
+      {
+        "file": "images/ma30-verrazano-narrows-bridge-detail-showing.jpg",
+        "description": "VERRAZANO-NARROWS BRIDGE, DETAIL SHOWING THE CONNECTION OF CABLE STRANDS TO EYEBAR ANCHORAGE - Verrazano-Narrows Bridge, Spanning Narrows between Fort Hamilton (Brooklyn) and HAER NY,24-BROK,57-29",
+        "roles": [
+          "background",
+          "texture"
+        ],
+        "hero": false,
+        "theme": "material-macro",
+        "orientation": "portrait",
+        "geometry": {
+          "focalPoint": {
+            "x": 0.52,
+            "y": 0.39
+          },
+          "textSafeZone": "lower-third"
+        }
       }
     ],
     "overlay": {
       "color": "primary",
-      "opacity": 0.5
+      "opacity": 0.4
     },
     "logoVariantOnImage": "white",
-    "_note": "Overlay is the structural dark (#222222), not coral \u2014 coral appears on imagery only as thin accent elements (motif bar, rule lines). See images/manifest.json for per-image overlayPolicy and text-safe zones; prefer it over this global default."
+    "_note": "113 clean base images, three themes (see images/manifest.json — the authority; this catalog mirrors it). Text safety is the ink scrim (expression.visual_grammar.gradients.ink-scrim), bottom-up; this flat overlay is the fallback for renderers without a gradient. Looks apply downstream per entry `treatment`: steel-vignette on cover/closing, steel-flat on the rest. Never coral on imagery."
   },
   "document": {
     "margins": {
@@ -193,13 +2155,31 @@
       "pageNumbers": true
     },
     "headingColor": "primary",
-    "tableHeaderColor": "primary"
+    "tableHeaderColor": "primary",
+    "accentRule": {
+      "position": "left-margin",
+      "width": "3pt",
+      "color": "accent",
+      "note": "board 02 DP3 — coral present on every page, never large"
+    },
+    "logoPlacement": "top-left",
+    "pageNumberPlacement": "bottom-right"
   },
   "presentation": {
     "slideMargin": "40pt",
     "titleMargin": "30pt",
     "contentMargin": "20pt",
-    "aspectRatio": "16:9"
+    "aspectRatio": "16:9",
+    "deckStructure": {
+      "cover": true,
+      "dividers": true,
+      "closing": true,
+      "dividerStyle": "full-bleed"
+    },
+    "coverStyle": "photo-full-bleed",
+    "dividerStyle": "photo-band-numeral",
+    "typeScale": "display-led",
+    "motifPlacement": "corner-signature-small"
   },
   "video": {
     "resolution": "1920x1080",
@@ -210,12 +2190,12 @@
     "aesthetic": "luxury",
     "layout": {
       "density": "airy",
-      "symmetry": "symmetric",
+      "symmetry": "controlled-asymmetry",
       "flowDirection": "linear",
       "heroStyle": "full-bleed",
-      "gridSystem": "12col-centered",
+      "gridSystem": "left-rail-1-3",
       "sectionSpacing": "generous",
-      "sectionDividers": "thin-line",
+      "sectionDividers": "photo-band",
       "footerStyle": "mega-footer",
       "whitespaceStrategy": "breathing"
     },
@@ -223,17 +2203,17 @@
       "backgroundTreatment": "solid",
       "surfaceFinish": "glossy",
       "borderStyle": "thin-line",
-      "shadowDepth": "medium",
-      "cornerRadius": "slight",
-      "overlayStyle": "brand-tint",
-      "patternDensity": "none"
+      "shadowDepth": "deep",
+      "cornerRadius": "12px",
+      "overlayStyle": "ink-scrim",
+      "patternDensity": "faint-cable-fan"
     },
     "typography": {
-      "headingStyle": "tight-sans",
+      "headingStyle": "light-sans",
       "headingScale": 1.2,
       "bodyLineHeight": 1.7,
-      "letterSpacing": "wide",
-      "textTransform": "uppercase-headings",
+      "letterSpacing": "normal",
+      "textTransform": "none",
       "pullQuoteStyle": "bordered-left",
       "listStyle": "standard"
     },
@@ -248,8 +2228,8 @@
     },
     "components": {
       "navigation": "top-bar-expanded",
-      "cards": "shadow",
-      "buttons": "square",
+      "cards": "deep-shadow",
+      "buttons": "outline-ink",
       "forms": "standard",
       "imagePresentation": "rectangular",
       "testimonials": "card-with-photo",
@@ -260,10 +2240,10 @@
     "colorApplication": {
       "darkSections": true,
       "darkSectionFrequency": 3,
-      "accentUsage": "sparring",
+      "accentUsage": "lines-motif-only",
       "gradientDirection": "none",
       "colorBlockSections": true,
-      "imageOverlayBehavior": "brand-tint"
+      "imageOverlayBehavior": "ink-scrim"
     },
     "pages": {
       "home": {
@@ -351,9 +2331,9 @@
   "plotly": {
     "categoricalPalette": [
       "#FF7F66",
-      "#222222",
-      "#B04837",
+      "#FFFFFF",
       "#807F83",
+      "#B04837",
       "#5B9A6B",
       "#D4A544"
     ],
@@ -367,29 +2347,29 @@
       "left": 60,
       "right": 50
     },
-    "baseTemplate": "plotly_white",
-    "gridColor": "#EBEBEB",
-    "secondaryTextColor": "#807F83",
+    "baseTemplate": "plotly_dark",
+    "gridColor": "#2A2A2A",
+    "secondaryTextColor": "#B0B0B2",
     "bar": {
-      "markerColor": "#222222",
-      "markerLineColor": "#161616",
-      "markerLineWidth": 1
+      "markerColor": "#FF7F66",
+      "markerLineColor": "#141414",
+      "markerLineWidth": 0
     },
     "line": {
-      "color": "#222222",
+      "color": "#FF7F66",
       "width": 2.5,
-      "markerColor": "#FF7F66",
+      "markerColor": "#FFFFFF",
       "markerSize": 7
     },
     "scatter": {
-      "markerColor": "#222222",
+      "markerColor": "#FF7F66",
       "markerSize": 8,
       "markerLineWidth": 0
     },
     "pie": {
       "hole": 0.4,
       "textfontSize": 13,
-      "markerLineColor": "#FFFFFF",
+      "markerLineColor": "#141414",
       "markerLineWidth": 2
     },
     "sentiment": {
@@ -420,16 +2400,16 @@
     "archetype": {
       "primary": "sage",
       "status": "approved",
-      "rationale": "Strategic identity is Sage \u2014 knowledge, truth, analysis; the visual and surface realization is Ruler/luxury (see expression). meta.archetype=sage; website.archetype=ruler, website.aesthetic=luxury. The model preserves both: Sage governs who Duke Strategies is and how it thinks; Ruler/luxury governs how that identity is expressed visually."
+      "rationale": "Strategic identity is Sage — knowledge, truth, analysis; the visual and surface realization is Ruler/luxury (see expression). meta.archetype=sage; website.archetype=ruler, website.aesthetic=luxury. The model preserves both: Sage governs who Duke Strategies is and how it thinks; Ruler/luxury governs how that identity is expressed visually."
     },
-    "essence": "Bridging corporate strategy, corporate affairs and stakeholder advisory through The One Thing \u2014 the single transformative action that cuts through complexity and creates clarity.",
+    "essence": "Bridging corporate strategy, corporate affairs and stakeholder advisory through The One Thing — the single transformative action that cuts through complexity and creates clarity.",
     "positioning": "For boards and executives navigating complex stakeholder environments, Duke Strategies is the strategic advisory firm that makes business strategies stakeholder-proof, by combining corporate strategy depth with communications craft, AI-driven stakeholder intelligence, and direct government and security expertise.",
     "personalityTraits": [
-      "Authoritative \u2014 senior counsel tone, not corporate stiffness",
-      "Bold \u2014 challenger mindset; tells it like it is",
-      "Analytical \u2014 data and insights first, then judgment",
-      "Progressive \u2014 AI-forward, grounded in decades of experience",
-      "Decisive \u2014 The One Thing; cuts through complexity"
+      "Authoritative — senior counsel tone, not corporate stiffness",
+      "Bold — challenger mindset; tells it like it is",
+      "Analytical — data and insights first, then judgment",
+      "Progressive — AI-forward, grounded in decades of experience",
+      "Decisive — The One Thing; cuts through complexity"
     ],
     "personalityAxes": {
       "authoritative_collaborative": 0.75,
@@ -443,47 +2423,60 @@
     "source": "co_created",
     "confidence": "approved",
     "status": "approved",
-    "_splitNote": "The visual expression realizes a Ruler/luxury surface archetype (website.archetype=ruler, website.aesthetic=luxury; dark structural primary, controlled high contrast, architectural motif). The strategic identity remains Sage. These are not a conflict \u2014 the expression is how the Sage identity is presented to the world: with authority, structure, and controlled elegance.",
+    "_splitNote": "The visual expression realizes a Ruler/luxury surface archetype (website.archetype=ruler, website.aesthetic=luxury; dark structural primary, controlled high contrast, architectural motif). The strategic identity remains Sage. These are not a conflict — the expression is how the Sage identity is presented to the world: with authority, structure, and controlled elegance.",
     "principles": [
-      "Structure first: dark (#222222) carries all structural weight \u2014 headings, table headers, hero backgrounds, overlays. Coral is a brand signature, never a structural color.",
-      "Controlled restraint: coral (#FF7F66) appears sparingly as accent \u2014 CTAs, motif elements, accent lines, chart emphasis. Never large fills or full-image washes.",
-      "Architectural grounding: all imagery draws from Dutch bridge and infrastructure photography, black-and-white treated, with 50% dark overlay. Bridges are a literal expression of the brand promise.",
-      "Editorial authority: Montserrat SemiBold/Bold for all headings; generous letter-spacing on overlines; uppercase headings on web. Space Mono reserved for data and overlines only.",
-      "Geometric precision: the bridge pillar motif (vertical lines with horizontal beam connectors) is the sole recurring graphic element \u2014 structural, not decorative.",
-      "Ruler/luxury surface realization: airy spacing, symmetric layout, full-bleed heroes, mega-footer, shadow cards, square buttons, and controlled high contrast enact Ruler authority. The Sage strategic identity is what informs and fills that structure \u2014 not a competing signal."
+      "Structure first: ink carries the structural weight — #222222 for type, table headers and rails, #141414 as the near-black canvas for dark sections, covers and chart panels. Coral is the signature, not the structure.",
+      "One large fill, deliberately: the coral block is a section canvas that carries the key message in white type (board 01 — the live site's own rhythm). Everywhere else coral stays on lines and the motif: rules, the cable-span fan, chart highlights (board 02 — lines and motif only). Never a photo wash, a gradient or a heading colour.",
+      "Bridges open and close, material closes in: every deck opens on a full-bleed Dutch bridge under an ink scrim and closes on one (steel vignette — contrast up); section dividers carry a bridge or a steel macro behind a large numeral; cable strands, rivets and plate sit behind content as flat, monotone backgrounds (steel flat — contrast down).",
+      "One family: Montserrat everywhere — 300 sentence-case display headings, 400 body, 500 caps labels tracked .18em. No second face, no uppercase headings.",
+      "Display-led scale: one very large headline per surface, everything else at body size — 'The One Thing' as typography.",
+      "Left rail: a permanent narrow rail (1/3) carries labels, dates, numerals and the mark; the wide column (2/3) carries the argument. Tables follow it — a caps label column, a grey header row.",
+      "Engineered restraint: the cable-span fan is the single identity mark — a small coral corner signature at a fixed size; as a surface pattern it stays under 12%. Icons are 1px hairline, square caps, no fill. Motion draws like a span being built (480ms) and settles.",
+      "Ruler/luxury surface kept, refined: airy spacing, deep soft shadows with 12px corners, outline ink buttons with coral only on hover, a 3px coral rule down every document page. The Sage strategic identity is unchanged."
     ],
     "visualAxes": {
       "density": "spacious",
       "contrast": "high",
-      "symmetry": "symmetric",
+      "symmetry": "controlled-asymmetry",
       "geometry": "rectilinear",
       "typeExpression": "editorial",
-      "imageTreatment": "documentary-muted",
+      "imageTreatment": "steel-monochrome",
       "motifProminence": "accent",
       "colorRhythm": "dark-light-indexed",
-      "ornament": "restrained"
+      "ornament": "restrained",
+      "energy": "restrained",
+      "depth": "layered",
+      "materiality": [
+        "matte",
+        "metal",
+        "grain"
+      ],
+      "continuity": "settle"
     },
     "signatureElements": [
-      "Bridge pillar / geometric column motif in coral on dark, dark on light, white on coral",
-      "Black-and-white Dutch bridge photography with 50% dark (#222222) overlay",
-      "Coral (#FF7F66) accent line / bar used as section divider or card left-edge element",
-      "Montserrat SemiBold headings in near-black (#222222); uppercase on web with wide tracking",
-      "Space Mono for overlines and data labels (uppercase, tracking-widest)",
-      "White logo variant on all photography and dark backgrounds; coral/primary logo on light"
+      "Coral-square mark (logos/logo.svg) — the whole logo as favicon and app icon; white variant on photography and ink, coral/primary on paper",
+      "Cable-span fan motif — one pylon, six radiating cables — as a small coral corner signature (48×38px, fixed) and, faint, as the cable-fan surface pattern",
+      "Full-bleed Dutch bridge photography under a bottom-up ink scrim: steel vignette on covers and closings, steel flat behind content",
+      "The coral statement block: a full-bleed coral section with white type carrying the key message",
+      "Montserrat 300 sentence-case display headline — one per surface — over Montserrat 400 body and 500 caps labels",
+      "The left rail: labels, dates and numerals in a permanent 1/3 column; a 3px coral margin rule on document pages",
+      "Coral-on-ink charts: coral and white series on the near-black canvas"
     ],
     "antiPatterns": [
-      "Coral as a large background fill, full-image wash, or heading color",
-      "Non-Montserrat typefaces in brand materials (including Arial/Helvetica substitutes)",
-      "Color photography in brand layouts (all photography must be desaturated/B&W before overlay)",
-      "Rotating, skewing, or adding effects to the bridge pillar motif",
-      "Placing the coral or grey logo on image overlays (white variant only on dark/photo surfaces)",
-      "Introducing off-palette colors without brand team approval",
-      "Hedging language, passive voice, or jargon \u2014 voice discipline mirrors visual restraint"
+      "Coral as a photo wash, gradient, heading or body-text colour — the coral statement block is the one large fill; everywhere else coral is a line, the motif or a chart highlight",
+      "A second typeface — Space Mono, a serif, a display face, or Arial/Helvetica substitutes; Montserrat is the only family",
+      "Uppercase headings, or bold (600+) display headlines — headings are sentence case and light; weight is for small headings and UI only",
+      "Untreated colour photography in a layout — every image passes through a house look (steel vignette or steel flat) downstream; the library files stay clean",
+      "A flat 50% overlay or a coral multiply over photography — text safety is the ink scrim, bottom-up",
+      "Scaling, rotating, skewing or recolouring the cable-span mark; more than one mark per surface",
+      "The cable-fan pattern above 12% opacity, or behind running text",
+      "Placing the coral or grey logo on photography or ink — white only",
+      "Hedging language, passive voice, or jargon — voice discipline mirrors visual restraint"
     ],
     "requiredMotifs": [
-      "Bridge / infrastructure photography (Dutch focus; geometric, moody, high-contrast)",
-      "Bridge pillar pattern as section divider, card accent, or background at low opacity",
-      "Coral accent bar (48px wide, 4px tall) as section header underline"
+      "Dutch bridge photography — spans (Erasmusbrug, Zeelandbrug, Nesciobrug, Willemsbrug, De Oversteek), structural detail (pylons, cable fans, undersides) and material macro (cable strands, anchorages, rivets, plate) — three themes, one library",
+      "Cable-span fan as the corner signature on covers, dividers and panels",
+      "A coral rule: 3px down the left margin of document pages; 48×4px under section headers"
     ],
     "evidence": [
       {
@@ -493,7 +2486,7 @@
         "confidence": "approved",
         "surface": "all",
         "freshness": "current",
-        "note": "v1.1 June 2026 \u2014 primary source for archetype (Sage primary, Ruler secondary), personality traits, color roles, typography, imagery rules, motif spec, voice principles"
+        "note": "v1.1 June 2026 — primary source for archetype (Sage primary, Ruler secondary), personality traits, color roles, typography, imagery rules, motif spec, voice principles"
       },
       {
         "path": "clients/dukestrategies/charter.json#website",
@@ -502,7 +2495,7 @@
         "confidence": "approved",
         "surface": "web",
         "freshness": "current",
-        "note": "website.archetype=ruler, website.aesthetic=luxury; layout (airy, symmetric, full-bleed hero, generous spacing, mega-footer), components (shadow cards, square buttons), colorApplication (darkSections, accent sparingly), motion (subtle fade, lift hover) \u2014 all Ruler/luxury realization"
+        "note": "website.archetype=ruler, website.aesthetic=luxury; layout (airy, symmetric, full-bleed hero, generous spacing, mega-footer), components (shadow cards, square buttons), colorApplication (darkSections, accent sparingly), motion (subtle fade, lift hover) — all Ruler/luxury realization"
       },
       {
         "path": "clients/dukestrategies/tokens.css",
@@ -511,7 +2504,7 @@
         "confidence": "approved",
         "surface": "all",
         "freshness": "current",
-        "note": "v1.1.0 2026-06-10 \u2014 confirms dark/coral split, motif token set (pillar width, gap, cap height, coral line colors), spacing scale, shadow depths, transition speeds"
+        "note": "v1.1.0 2026-06-10 — confirms dark/coral split, motif token set (pillar width, gap, cap height, coral line colors), spacing scale, shadow depths, transition speeds"
       },
       {
         "path": "clients/dukestrategies/messaging/narratives.json",
@@ -520,7 +2513,7 @@
         "confidence": "approved",
         "surface": "all",
         "freshness": "current",
-        "note": "Positioning statement, core message, voice attributes (bold/direct/confident/experienced/no-nonsense), words to use vs. avoid \u2014 grounds identity.positioning and personality"
+        "note": "Positioning statement, core message, voice attributes (bold/direct/confident/experienced/no-nonsense), words to use vs. avoid — grounds identity.positioning and personality"
       },
       {
         "path": "clients/dukestrategies/messaging/pillars.json",
@@ -529,7 +2522,7 @@
         "confidence": "approved",
         "surface": "all",
         "freshness": "current",
-        "note": "Four brand pillars (Stakeholder-Proof Strategy, Intelligence-Led Advisory, Strategy Meets Communications, Crisis-Tested Government-Connected) \u2014 grounds Sage identity: knowledge-led, analytical, evidence-grounded"
+        "note": "Four brand pillars (Stakeholder-Proof Strategy, Intelligence-Led Advisory, Strategy Meets Communications, Crisis-Tested Government-Connected) — grounds Sage identity: knowledge-led, analytical, evidence-grounded"
       }
     ],
     "visual_grammar": {
@@ -537,8 +2530,8 @@
         "status": "approved",
         "required": false,
         "evidence": {
-          "tier": "live-site",
-          "source": "20-image bridge library + manifest motifAffinity 'bridge-pillar' + pre-built divider/pattern marks"
+          "tier": "source-artifact",
+          "source": "board 01 — MF2 Cable-span fan · board 02 — MP1 Corner signature, small"
         },
         "selected": "cable-span",
         "candidates": [
@@ -621,16 +2614,23 @@
               "tier": "proposed"
             }
           }
-        ]
+        ],
+        "placement": {
+          "id": "corner-signature-small",
+          "size": "48×38px (fixed — never scaled)",
+          "colour": "coral",
+          "position": "top-right of a panel, or the bottom of a slide",
+          "note": "the ONE identity mark; the pillar dividers stay divider-only"
+        }
       },
       "backgrounds": {
         "status": "approved",
         "required": false,
         "evidence": {
-          "tier": "live-site",
-          "source": "website capture (darkSectionFrequency 3) + image overlay policy (structural dark #222 at N%, never coral)"
+          "tier": "source-artifact",
+          "source": "board 01 — BG2 Paper + coral blocks"
         },
-        "selected": "ink-paper",
+        "selected": "paper-coral-blocks",
         "candidates": [
           {
             "id": "ink-paper",
@@ -704,28 +2704,76 @@
             "evidence": {
               "tier": "proposed"
             }
+          },
+          {
+            "id": "paper-coral-blocks",
+            "label": "Paper + coral blocks",
+            "spec": {
+              "canvases": [
+                {
+                  "name": "paper",
+                  "role": "primary-light",
+                  "css": "#FFFFFF"
+                },
+                {
+                  "name": "paper-alt",
+                  "role": "surface-light",
+                  "css": "#F5F5F5"
+                },
+                {
+                  "name": "ink",
+                  "role": "primary-dark",
+                  "css": "#141414",
+                  "note": "near-black canvas — dark sections, deck covers, chart panels; type in white, coral only on lines + motif"
+                },
+                {
+                  "name": "coral-block",
+                  "role": "statement",
+                  "css": "#FF7F66",
+                  "note": "a full-bleed coral section carries the key message in white type — the ONE large coral fill (live site rhythm)"
+                }
+              ],
+              "rhythm": "paper → paper → coral block → ink",
+              "darkFrequency": 3,
+              "photo": {
+                "treatment": "steel-vignette (cover/closing) · steel-flat (supporting)",
+                "overlay": "ink scrim, bottom-up — never coral"
+              }
+            },
+            "tokens": [
+              "--canvas-paper",
+              "--canvas-paper-alt",
+              "--canvas-ink",
+              "--canvas-coral"
+            ],
+            "evidence": {
+              "tier": "source-artifact",
+              "board": "01",
+              "pick": "BG2 Paper + coral blocks"
+            }
           }
         ],
         "cssTokens": {
-          "--bg-ink": "#222222",
+          "--bg-ink": "#141414",
           "--bg-paper": "#FFFFFF",
-          "--bg-paper-alt": "#F5F5F5"
+          "--bg-paper-alt": "#F5F5F5",
+          "--bg-coral": "#FF7F66"
         }
       },
       "gradients": {
         "status": "approved",
         "required": false,
         "evidence": {
-          "tier": "proposed",
-          "source": "restrained ornament axis; depth via photo + hairline (strongest divergence from stromy stage-light glow)"
+          "tier": "source-artifact",
+          "source": "board 02 — GD4 Ink scrim, bottom-up"
         },
-        "selected": "structural-none",
+        "selected": "ink-scrim",
         "candidates": [
           {
             "id": "structural-none",
             "label": "Structural / none",
             "spec": {
-              "policy": "restrained \u2014 no decorative canvas gradients; depth via photo + hairline",
+              "policy": "restrained — no decorative canvas gradients; depth via photo + hairline",
               "canvasGradients": "none"
             },
             "evidence": {
@@ -759,6 +2807,24 @@
             "evidence": {
               "tier": "proposed"
             }
+          },
+          {
+            "id": "ink-scrim",
+            "label": "Ink scrim, bottom-up",
+            "spec": {
+              "css": "linear-gradient(0deg, rgba(20,20,20,.55), transparent 60%)",
+              "role": "functional only — legibility of white type over photography and over coral; never decorative",
+              "direction": "bottom-up",
+              "stop": "60%"
+            },
+            "tokens": [
+              "--grad-ink-scrim"
+            ],
+            "evidence": {
+              "tier": "source-artifact",
+              "board": "02",
+              "pick": "GD4 Ink scrim, bottom-up"
+            }
           }
         ]
       },
@@ -766,10 +2832,10 @@
         "status": "approved",
         "required": false,
         "evidence": {
-          "tier": "live-site",
-          "source": "website texture: glossy surfaceFinish + medium shadowDepth + slight cornerRadius (Duke has depth; stromy is flat)"
+          "tier": "source-artifact",
+          "source": "board 01 — EL6 Deep soft shadow, 12px"
         },
-        "selected": "soft-luxury-lift",
+        "selected": "deep-soft-lift",
         "candidates": [
           {
             "id": "soft-luxury-lift",
@@ -808,6 +2874,26 @@
             "evidence": {
               "tier": "proposed"
             }
+          },
+          {
+            "id": "deep-soft-lift",
+            "label": "Deep soft shadow, 12px",
+            "spec": {
+              "shadow": "0 12px 40px rgba(0,0,0,.22)",
+              "shadowSm": "0 4px 14px rgba(0,0,0,.12)",
+              "radius": "12px",
+              "reading": "app-like depth; cards lift, panels float on paper"
+            },
+            "tokens": [
+              "--elev-card",
+              "--elev-sm",
+              "--radius-card"
+            ],
+            "evidence": {
+              "tier": "source-artifact",
+              "board": "01",
+              "pick": "EL6 Deep soft shadow, 12px"
+            }
           }
         ],
         "cssTokens": {
@@ -821,10 +2907,10 @@
         "status": "approved",
         "required": false,
         "evidence": {
-          "tier": "proposed",
-          "source": "website layout: 12col-centered, spacious, symmetric, wide margins, thin-line dividers"
+          "tier": "source-artifact",
+          "source": "board 02 — GR2 Left rail · 1/3 + 2/3"
         },
-        "selected": "centered-12col",
+        "selected": "left-rail",
         "candidates": [
           {
             "id": "centered-12col",
@@ -850,6 +2936,26 @@
             "evidence": {
               "tier": "proposed"
             }
+          },
+          {
+            "id": "left-rail",
+            "label": "Left rail · 1/3 + 2/3",
+            "spec": {
+              "columns": "1fr 2fr",
+              "rail": "labels, dates, section numerals and the mark live in the permanent narrow rail",
+              "main": "the wide column carries the argument",
+              "gap": "16px",
+              "railRule": "1px ink at 14%"
+            },
+            "tokens": [
+              "--rail-width",
+              "--grid-gap"
+            ],
+            "evidence": {
+              "tier": "source-artifact",
+              "board": "02",
+              "pick": "GR2 Left rail · 1/3 + 2/3"
+            }
           }
         ],
         "cssTokens": {
@@ -863,10 +2969,10 @@
         "status": "approved",
         "required": false,
         "evidence": {
-          "tier": "proposed",
-          "source": "stroke-led geometric, rectilinear; OPEN/extensible set \u2014 not brand-bound (operator note 2026-07-01)"
+          "tier": "source-artifact",
+          "source": "board 01 — IC4 Ultra-hairline"
         },
-        "selected": "hairline-rectilinear",
+        "selected": "ultra-hairline",
         "candidates": [
           {
             "id": "hairline-rectilinear",
@@ -878,7 +2984,7 @@
               "joins": "miter",
               "fillVsLine": "line-dominant, no fills, no dot terminals",
               "extensible": true,
-              "setPolicy": "OPEN set \u2014 icons are drawn to this STYLE on demand per slide need. The sample is representative, not a closed brand-bound set; the agent may add/select as many icons as a deck requires, keeping the style.",
+              "setPolicy": "OPEN set — icons are drawn to this STYLE on demand per slide need. The sample is representative, not a closed brand-bound set; the agent may add/select as many icons as a deck requires, keeping the style.",
               "sample": [
                 "target-check",
                 "gauge",
@@ -903,6 +3009,25 @@
             "evidence": {
               "tier": "proposed"
             }
+          },
+          {
+            "id": "ultra-hairline",
+            "label": "Ultra-hairline",
+            "spec": {
+              "stroke": "1px",
+              "terminals": "square-cut ends, mitred corners",
+              "fill": "none",
+              "minSize": "20px",
+              "note": "engineering-drawing thin — beautiful large, fragile small"
+            },
+            "tokens": [
+              "--icon-stroke"
+            ],
+            "evidence": {
+              "tier": "source-artifact",
+              "board": "01",
+              "pick": "IC4 Ultra-hairline"
+            }
           }
         ]
       },
@@ -910,8 +3035,8 @@
         "status": "approved",
         "required": false,
         "evidence": {
-          "tier": "proposed",
-          "source": "website motion: subtle fade + lift-on-hover, cinematic-relaxed"
+          "tier": "source-artifact",
+          "source": "board 01 — MO1 Span-draw"
         },
         "selected": "span-draw",
         "candidates": [
@@ -932,7 +3057,11 @@
                 }
               ],
               "intensity": "subtle",
-              "speed": "cinematic-relaxed"
+              "speed": "cinematic-relaxed",
+              "duration": "480ms",
+              "easing": "cubic-bezier(.22,1,.36,1)",
+              "reveal": "left-to-right",
+              "note": "elements draw across like a span being built, then settle"
             },
             "evidence": {
               "tier": "proposed"
@@ -966,9 +3095,9 @@
         "required": false,
         "evidence": {
           "tier": "source-artifact",
-          "source": "pre-built pattern-tile.svg (bridge-column pattern at low opacity)"
+          "source": "board 02 — PT3 Cable fan"
         },
-        "selected": "bridge-column",
+        "selected": "cable-fan",
         "candidates": [
           {
             "id": "bridge-column",
@@ -984,28 +3113,67 @@
             "evidence": {
               "tier": "source-artifact"
             }
+          },
+          {
+            "id": "cable-fan",
+            "label": "Cable fan",
+            "spec": {
+              "css": "repeating-conic-gradient(from 200deg at 100% 0%, color-mix(in srgb, currentColor 10%, transparent) 0 .6deg, transparent .6deg 7deg)",
+              "anchor": "top-right corner",
+              "maxOpacity": "12%",
+              "note": "the cable-span motif as the texture of the panel it sits on"
+            },
+            "tokens": [
+              "--pattern-cable-fan"
+            ],
+            "evidence": {
+              "tier": "source-artifact",
+              "board": "02",
+              "pick": "PT3 Cable fan"
+            }
           }
         ]
       },
       "photo": {
-        "status": "n-a",
-        "required": false,
+        "status": "approved",
+        "required": true,
         "evidence": {
-          "tier": "derived",
-          "source": "redundant with images.manifest + overlay policy"
+          "tier": "source-artifact",
+          "source": "board 01 — PH4 Steel vignette · board 03 — keep all 113; operator allocation rule 2026-09-07"
         },
         "spec": {
-          "note": "derived \u2014 photo treatment lives in images.manifest (documentary-muted, dark-NN overlay)"
-        }
+          "note": "clean base images in images/manifest.json; the look is applied downstream per entry `treatment` — never baked into the file"
+        },
+        "selected": "steel-vignette",
+        "candidates": [
+          {
+            "id": "steel-vignette",
+            "label": "Steel vignette",
+            "spec": {
+              "look": "expression.treatments.looks.steel-vignette",
+              "applies": "cover + closing (the bridges)",
+              "reading": "hard monochrome, a dark vignette pulling the eye to the span"
+            }
+          },
+          {
+            "id": "steel-flat",
+            "label": "Steel flat",
+            "spec": {
+              "look": "expression.treatments.looks.steel-flat",
+              "applies": "divider · section · background · texture (material macro and structural details)",
+              "reading": "monotone, lower contrast, sits behind type"
+            }
+          }
+        ]
       }
     },
     "treatments": {
-      "default": "documentary-noir",
-      "note": "Named brand 'house looks' applied to photography DOWNSTREAM (format-MCP render + website CSS) \u2014 never pre-baked into the shipped library. Restrained, palette-derived; one clean base image x the treatment = flexible reuse. Overlays (structural dark #222 at N%, never coral) are separate text-safety layers, not treatments. ORG-PLAN-045.",
+      "default": "steel-flat",
+      "note": "Named house looks applied to photography DOWNSTREAM (format-MCP render + website CSS) — never pre-baked into the shipped library. Board 01 PH4 (2026-09-07): heroes carry contrast + vignette, supporting images read flat and monotone. Overlays (ink scrim, never coral) are separate text-safety layers. ORG-PLAN-045.",
       "looks": {
         "documentary-noir": {
           "label": "Documentary Noir",
-          "usage": "Editorial black-and-white + fine grain \u2014 the timeless default for dividers, content backgrounds, and dense sections. Duke's documentary bridge register.",
+          "usage": "Editorial black-and-white + fine grain — the neutral option when neither steel look fits (e.g. a print insert).",
           "css_filter": "grayscale(1) contrast(1.08)",
           "grain": {
             "opacity": 0.08,
@@ -1014,7 +3182,7 @@
         },
         "ink-duotone": {
           "label": "Ink Duotone",
-          "usage": "Signature structural ink wash for covers + hero moments \u2014 deep ink shadows through graphite mids to paper highlights, applied transparently so the photo breathes. The engineered-luxury signature.",
+          "usage": "Signature ink wash for a single statement image on a dark section — deep ink shadows through graphite mids to paper highlights. Use rarely.",
           "css_filter": "grayscale(1) contrast(1.05)",
           "duotone": {
             "shadows": "#141414",
@@ -1027,28 +3195,22 @@
             "blend": "overlay"
           }
         },
-        "coral-graded": {
-          "label": "Coral Graded",
-          "usage": "Restrained cinematic grade for section imagery \u2014 mostly neutral, a whisper of coral in the shadows and warm coral-tint in the highlights. Golden-hour nod, kept subtle.",
-          "css_filter": "saturate(0.45) contrast(1.05)",
-          "duotone": {
-            "shadows": "#2A1512",
-            "mid": "#5A595C",
-            "highlights": "#FFE8E3",
-            "strength": 0.3
-          },
+        "steel-vignette": {
+          "label": "Steel Vignette",
+          "usage": "Cover and closing heroes — the bridges. Hard monochrome, contrast up, a dark vignette pulling the eye to the span. Every deck opens and closes on this.",
+          "css_filter": "grayscale(1) contrast(1.2) brightness(0.9)",
+          "vignette": 0.6,
           "grain": {
             "opacity": 0.08,
             "blend": "overlay"
           }
         },
-        "steel-vignette": {
-          "label": "Steel Vignette",
-          "usage": "Dramatic monochrome + vignette for a single hero moment \u2014 draws the eye to the span. Use sparingly.",
-          "css_filter": "grayscale(1) contrast(1.10)",
-          "vignette": 0.5,
+        "steel-flat": {
+          "label": "Steel Flat",
+          "usage": "Dividers, section imagery, backgrounds and textures — material macro and structural details. Monotone, contrast down, brightness down a touch so type sits on it without fighting.",
+          "css_filter": "grayscale(1) contrast(0.88) brightness(0.92)",
           "grain": {
-            "opacity": 0.1,
+            "opacity": 0.05,
             "blend": "overlay"
           }
         }
@@ -1058,12 +3220,78 @@
       "smallTitle": {
         "face": "label",
         "case": "uppercase",
-        "tracking": "0.22em",
-        "marker": "coral tick / rule",
-        "usage": "eyebrows/overlines/data labels \u2014 intentionally monospace (Space Mono), the engineered register"
+        "tracking": "0.18em",
+        "marker": "coral rule",
+        "usage": "eyebrows / overlines / rail labels / table label column — Montserrat caps, one family (board 01 T6)",
+        "family": "Montserrat",
+        "weight": "500"
       }
     },
-    "signatureMotion": "The bridge builds: cables draw from pylon to deck, then settle as content fades up."
+    "signatureMotion": "The bridge builds: cables draw from pylon to deck, then settle as content fades up.",
+    "_refresh": {
+      "version": "2.0",
+      "date": "2026-09-07",
+      "boards": [
+        "00-fixed",
+        "01-refresh",
+        "02-system",
+        "03-imagery-selection"
+      ],
+      "anchor": "the live site (dukestrategies.eu) wherever it and charter v1.1 disagreed",
+      "retired": [
+        "Bridging Strategy and Impact",
+        "Stakeholder-proof strategies",
+        "Space Mono"
+      ]
+    },
+    "applications": {
+      "_note": "Board 02 (2026-09-07) application decisions — the machine-readable record. Renderers that expose a matching knob read it; the rest is authoring guidance.",
+      "typeScale": {
+        "id": "display-led",
+        "pick": "TS4 Display-led",
+        "rule": "one headline at 1.6× display, everything else at body size"
+      },
+      "charts": {
+        "id": "coral-on-ink",
+        "pick": "CH4 Coral on ink",
+        "rule": "coral and white series on the near-black canvas; grid at 14% white; see charter.plotly"
+      },
+      "tables": {
+        "id": "label-column",
+        "pick": "TB5 Label column",
+        "rule": "first column set as caps labels (the rail); header row grey #F5F5F5 on paper / #222 on ink; hairline row rules"
+      },
+      "deckCover": {
+        "id": "photo-full-bleed",
+        "pick": "CV1 Photo full-bleed",
+        "rule": "steel-vignette bridge, ink scrim, white display headline bottom-left, white mark, coral corner signature"
+      },
+      "deckDivider": {
+        "id": "photo-band-numeral",
+        "pick": "DV1 Photo band + numeral",
+        "rule": "bridge or steel macro behind a large section numeral and title, white on the scrim"
+      },
+      "documentPage": {
+        "id": "coral-margin-rule",
+        "pick": "DP3 Coral margin rule",
+        "rule": "3px coral rule down the left margin of every page; mark top-left; page number bottom-right"
+      },
+      "motifPlacement": {
+        "id": "corner-signature-small",
+        "pick": "MP1 Corner signature, small",
+        "rule": "one small coral fan, fixed size, top-right of a panel or the bottom of a slide"
+      },
+      "coralRoles": {
+        "id": "lines-motif-only",
+        "pick": "CR1 Lines and motif only",
+        "rule": "headings, links, bullets and numerals stay ink; coral = rules, motif, chart highlights, the coral block"
+      },
+      "imageryThemes": {
+        "id": "bridges + material-macro",
+        "pick": "TH3 + Material macro",
+        "rule": "bridges-span and bridge-structure open, close and divide; material-macro is background and divider stock"
+      }
+    }
   },
   "templates": {
     "docx": {
