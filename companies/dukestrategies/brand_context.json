@@ -33,6 +33,7 @@
         "sans-serif"
       ],
       "webSafe": "Century Gothic",
+      "webSafeAvailability": "office-cloud",
       "rightsStatus": "unknown",
       "case": "sentence"
     },
@@ -47,6 +48,7 @@
         "sans-serif"
       ],
       "webSafe": "Century Gothic",
+      "webSafeAvailability": "office-cloud",
       "rightsStatus": "unknown"
     },
     "mono": {
@@ -60,6 +62,7 @@
         "sans-serif"
       ],
       "webSafe": "Century Gothic",
+      "webSafeAvailability": "office-cloud",
       "rightsStatus": "unknown"
     },
     "label": {
@@ -72,6 +75,7 @@
         "sans-serif"
       ],
       "webSafe": "Century Gothic",
+      "webSafeAvailability": "office-cloud",
       "rightsStatus": "unknown",
       "case": "uppercase",
       "tracking": "0.18em"
@@ -4523,6 +4527,6 @@
       "patterns",
       "photo"
     ],
-    "sha256": "063c2edf344466d134839956971413dd47c1fd3b895d5196f9706e95a999fa6d"
+    "sha256": "6fa071cfd440a8c19a08c9a3f90be885ae40b9b93b2bd52cb918d3a8f3ab4583"
   }
 }
