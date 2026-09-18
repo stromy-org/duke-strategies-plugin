@@ -17,7 +17,16 @@
     "someone made, not a coincidence of vocabulary.",
     "",
     "Dutch general register (workflow, stakeholder, roadmap, …) is inherited from",
-    "the nl seed and is not repeated here."
+    "the nl seed and is not repeated here.",
+    "",
+    "2026-09-17 (ORG-PLAN-276 Phase 2). Four terms added once the site's gate",
+    "actually ran them: check-i18n.mjs had imported the termbase loader and",
+    "never the checker, so the eight entries above were enforced by nothing for",
+    "nine days. Two of the four DEPART from the nl register seed (case study,",
+    "crisis management): the seed is a language default and this layer exists to",
+    "override it, so a disagreement here is the design working rather than a",
+    "conflict to resolve. Every one was verified against the shipped Dutch",
+    "before being written; none is aspirational."
   ],
   "terms": [
     {
@@ -32,6 +41,43 @@
         "nl": {
           "decision": "keep-source",
           "rationale": "Product name. 'Duke Academie' is the plausible mistake this entry exists to catch."
+        }
+      }
+    },
+    {
+      "term": "case study",
+      "locales": {
+        "nl": {
+          "decision": "translate",
+          "target": "klantcase",
+          "rationale": "Duke DEPARTS from the nl register seed here, which says 'case'. The house word is 'Klantcase'/'Klantcases' and the shipped Dutch uses it in all four places it appears (section.caseStudy, whatWeDo.caseStudies, seo.insights.title, seo.insights.desc); src/i18n/glossary.md recorded the choice in prose from the start. 'Casestudie' is academic register and reads wrong on a commercial site, which is the mistake this entry exists to catch."
+        }
+      }
+    },
+    {
+      "term": "crisis management",
+      "locales": {
+        "nl": {
+          "decision": "keep-source",
+          "rationale": "Duke DEPARTS from the nl register seed here, which closes the compound to 'crisismanagement'. Both are defensible Dutch; Duke's glossary lists it among the industry terms kept in English, and the shipped Dutch keeps it in every one of the six places it appears, including the Crisis Communications service copy. Recorded so the next pass does not close the compound on half of them and leave the other half open \u2014 the drift, not the spelling, is what costs."
+        }
+      }
+    },
+    {
+      "term": "public affairs",
+      "locales": {
+        "nl": {
+          "decision": "keep-source",
+          "rationale": "'Openbaar bestuur' is public ADMINISTRATION \u2014 a category error, not a translation. The Dutch sector calls the discipline public affairs, and it is half of what Duke sells."
+        }
+      }
+    },
+    {
+      "term": "due diligence",
+      "locales": {
+        "nl": {
+          "decision": "keep-source",
+          "rationale": "Standard in the Dutch M&A register. 'Boekenonderzoek' exists and names a narrower, accounting-only activity."
         }
       }
     },
