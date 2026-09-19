@@ -3321,7 +3321,8 @@
   },
   "templates": {
     "docx": {
-      "letterhead": "templates/docx/Duke-Strategies-Letterhead.docx",
+      "letterhead": "templates/docx/letterhead.docx",
+      "styles": "templates/docx/styles.docx",
       "report": "templates/docx/Duke-Strategies-Report.docx"
     },
     "html": {

@@ -16,22 +16,6 @@
       "sha256": "0f7b311b2f3279e4eef9b2f968bcdbab6e28f4daeb1f049f4f278a902bcd82f7",
       "mime": "font/ttf",
       "name": "Montserrat[wght].ttf"
-    },
-    {
-      "family": "Space Mono",
-      "weight": 700,
-      "style": "normal",
-      "sha256": "405e73d41afb7e5906efce206a326af5c956f38e255f35421c260e861e599c59",
-      "mime": "font/ttf",
-      "name": "SpaceMono-Bold.ttf"
-    },
-    {
-      "family": "Space Mono",
-      "weight": 400,
-      "style": "normal",
-      "sha256": "95837e182baeeada83368f7748db28357f0a1b75c6b84ff7065b5edf933c8e18",
-      "mime": "font/ttf",
-      "name": "SpaceMono-Regular.ttf"
     }
   ],
   "logos": [
@@ -979,8 +963,8 @@
     }
   ],
   "brand_context": {
-    "sha256": "5627bb043a203dd1a8dd38005040ff5d17e1927192e0ecd02eb559ad826224c9",
+    "sha256": "e5353cf8e760e23c7538f5e27c8f05007fbdda9f701fce50e3e9c4591d9ee8da",
     "mime": "application/json",
-    "bytes": 166481
+    "bytes": 166557
   }
 }
