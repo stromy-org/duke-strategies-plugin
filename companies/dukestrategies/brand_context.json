@@ -3,7 +3,7 @@
   "schemaVersion": 1,
   "version": "1.0",
   "generatedFrom": {
-    "charterSha": "22b96a670fb2d5aebe7e8bc73cceaa6b8b59330c4a841aa92bb42035578b5f41",
+    "charterSha": "85cfec54a0a9fa990f1860104198c4e419e682b52349960913e4f74b3a3dfc17",
     "compiler": "1.0"
   },
   "tier": "producer",
@@ -4530,6 +4530,6 @@
       "patterns",
       "photo"
     ],
-    "sha256": "0b9537012520de0652b4318f0406c70099ca4af19056249e7e9a3aabb1326c01"
+    "sha256": "f661f4fe52cfc7306b14fc5c6c1963b54ceeff76ff1da0485ec63ac4e428b372"
   }
 }

@@ -3322,8 +3322,7 @@
   "templates": {
     "docx": {
       "letterhead": "templates/docx/letterhead.docx",
-      "styles": "templates/docx/styles.docx",
-      "report": "templates/docx/Duke-Strategies-Report.docx"
+      "styles": "templates/docx/styles.docx"
     },
     "html": {
       "business-cards": "templates/html/business-cards.html",
