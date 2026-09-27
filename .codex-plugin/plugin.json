@@ -1,7 +1,5 @@
 {
-  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "duke-strategies",
-  "displayName": "Duke Strategies",
   "version": "0.5.46",
   "description": "Plugin for Duke Strategies branded deliverables",
   "author": {
@@ -16,7 +14,5 @@
     "messaging",
     "press-release"
   ],
-  "skills": [
-    "./.claude-plugin/skills"
-  ]
+  "mcpServers": "./mcp.json"
 }
