@@ -1,0 +1,13 @@
+{
+  "name": "duke-strategies",
+  "version": "0.5.46",
+  "description": "Plugin for Duke Strategies branded deliverables",
+  "mcpServers": {
+    "nl-gov-data": {
+      "httpUrl": "https://nl-gov-data.whitebush-d817afec.westeurope.azurecontainerapps.io/mcp"
+    },
+    "stromy-format": {
+      "httpUrl": "https://stromy-format-mcp.whitetree-762cff59.westeurope.azurecontainerapps.io/mcp"
+    }
+  }
+}

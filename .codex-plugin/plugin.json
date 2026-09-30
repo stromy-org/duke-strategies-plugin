@@ -1,0 +1,18 @@
+{
+  "name": "duke-strategies",
+  "version": "0.5.46",
+  "description": "Plugin for Duke Strategies branded deliverables",
+  "author": {
+    "name": "stromy-org"
+  },
+  "repository": "https://github.com/stromy-org/duke-strategies-plugin",
+  "license": "UNLICENSED",
+  "keywords": [
+    "deliverables",
+    "branding",
+    "documents",
+    "messaging",
+    "press-release"
+  ],
+  "mcpServers": "./mcp.json"
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "duke-strategies",
+  "displayName": "Duke Strategies",
+  "version": "0.5.46",
+  "description": "Plugin for Duke Strategies branded deliverables",
+  "author": {
+    "name": "stromy-org"
+  },
+  "repository": "https://github.com/stromy-org/duke-strategies-plugin",
+  "license": "UNLICENSED",
+  "keywords": [
+    "deliverables",
+    "branding",
+    "documents",
+    "messaging",
+    "press-release"
+  ],
+  "skills": [
+    "./.claude-plugin/skills"
+  ]
+}
