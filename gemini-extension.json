@@ -1,6 +1,6 @@
 {
   "name": "duke-strategies",
-  "version": "0.5.46",
+  "version": "0.5.47",
   "description": "Plugin for Duke Strategies branded deliverables",
   "mcpServers": {
     "nl-gov-data": {
