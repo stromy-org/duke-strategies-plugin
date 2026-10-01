@@ -8,7 +8,7 @@ schema_version: 1
 identity:
   name: duke-strategies
   display_name: Duke Strategies
-  version: 0.5.46
+  version: 0.5.49
   description: Plugin for Duke Strategies branded deliverables
   author:
     name: stromy-org
