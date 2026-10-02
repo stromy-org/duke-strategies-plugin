@@ -8,7 +8,7 @@ schema_version: 1
 identity:
   name: duke-strategies
   display_name: Duke Strategies
-  version: 0.5.51
+  version: 0.5.52
   description: Plugin for Duke Strategies branded deliverables
   author:
     name: stromy-org
@@ -158,6 +158,12 @@ skills:
     reason: 'Hosted on the OAuth-gated ''stromy-workflows'' MCP, which reaches a session only as an authorized
       Claude/Cowork workspace connector and is never plugin-declared (Invariant #13).'
   - skill: wf-stakeholder-analysis
+    providers:
+    - claude
+    capability: stromy-workflows-connector
+    reason: 'Hosted on the OAuth-gated ''stromy-workflows'' MCP, which reaches a session only as an authorized
+      Claude/Cowork workspace connector and is never plugin-declared (Invariant #13).'
+  - skill: wf-analytical-briefing
     providers:
     - claude
     capability: stromy-workflows-connector
