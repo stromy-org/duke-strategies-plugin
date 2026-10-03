@@ -1,6 +1,6 @@
 {
   "name": "duke-strategies",
-  "version": "0.5.56",
+  "version": "0.5.57",
   "description": "Plugin for Duke Strategies branded deliverables",
   "mcpServers": {
     "stromy-format": {
