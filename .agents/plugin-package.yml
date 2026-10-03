@@ -8,7 +8,7 @@ schema_version: 1
 identity:
   name: duke-strategies
   display_name: Duke Strategies
-  version: 0.5.55
+  version: 0.5.56
   description: Plugin for Duke Strategies branded deliverables
   author:
     name: stromy-org
@@ -168,6 +168,42 @@ skills:
     - claude
     capability: stromy-workflows-connector
     reason: 'Hosted on the OAuth-gated ''stromy-workflows'' MCP, which reaches a session only as an authorized
+      Claude/Cowork workspace connector and is never plugin-declared (Invariant #13).'
+  - skill: comms-messaging-framework
+    providers:
+    - claude
+    capability: comms-connector
+    reason: 'Hosted on the OAuth-gated ''comms'' MCP, which reaches a session only as an authorized Claude/Cowork
+      workspace connector and is never plugin-declared (Invariant #13).'
+  - skill: comms-organic-social
+    providers:
+    - claude
+    capability: comms-connector
+    reason: 'Hosted on the OAuth-gated ''comms'' MCP, which reaches a session only as an authorized Claude/Cowork
+      workspace connector and is never plugin-declared (Invariant #13).'
+  - skill: comms-press-release
+    providers:
+    - claude
+    capability: comms-connector
+    reason: 'Hosted on the OAuth-gated ''comms'' MCP, which reaches a session only as an authorized Claude/Cowork
+      workspace connector and is never plugin-declared (Invariant #13).'
+  - skill: kit-proposal
+    providers:
+    - claude
+    capability: toolkit-connector
+    reason: 'Hosted on the OAuth-gated ''toolkit'' MCP, which reaches a session only as an authorized
+      Claude/Cowork workspace connector and is never plugin-declared (Invariant #13).'
+  - skill: comms-guide
+    providers:
+    - claude
+    capability: comms-connector
+    reason: 'Hosted on the OAuth-gated ''comms'' MCP, which reaches a session only as an authorized Claude/Cowork
+      workspace connector and is never plugin-declared (Invariant #13).'
+  - skill: kit-guide
+    providers:
+    - claude
+    capability: toolkit-connector
+    reason: 'Hosted on the OAuth-gated ''toolkit'' MCP, which reaches a session only as an authorized
       Claude/Cowork workspace connector and is never plugin-declared (Invariant #13).'
 providers:
   claude:
