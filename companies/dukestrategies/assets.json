@@ -973,8 +973,8 @@
   "brand_context": {
     "sha256": null,
     "mime": "application/json",
-    "bytes": 166582,
-    "pending_upload": "ad38102ccd805f3e0bdc2ed3de488041c7ec6fca7ba18d7140e74badedfbb505",
+    "bytes": 167028,
+    "pending_upload": "0c82ef2391ba540860e141bc5c8f29db4cfda6ea03c2221c8a29ce79dda98402",
     "reason": "no remote upload: local backend or dry-run"
   }
 }
