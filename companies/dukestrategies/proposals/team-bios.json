@@ -3,7 +3,7 @@
     "id": "person-001",
     "name": "Ingo Heijnen",
     "title": "Managing Partner",
-    "photo": "brand/team/ingo-heijnen.jpg",
+    "photo": "assets/team/ingo-heijnen.jpg",
     "expertise": ["crisis-communications", "m-and-a-communications", "corporate-governance", "strategic-advisory", "media-relations"],
     "certifications": [],
     "education": [
@@ -18,7 +18,7 @@
     "id": "person-002",
     "name": "Ariën Stuijt",
     "title": "Managing Partner",
-    "photo": "brand/team/arien-stuijt.jpg",
+    "photo": "assets/team/arien-stuijt.jpg",
     "expertise": ["strategic-advisory", "stakeholder-mapping", "ai-analytics", "media-strategy", "public-affairs"],
     "certifications": [],
     "education": [
@@ -33,7 +33,7 @@
     "id": "person-003",
     "name": "Emma van Gelder",
     "title": "Associate",
-    "photo": "brand/team/emma-van-gelder.jpg",
+    "photo": "assets/team/emma-van-gelder.jpg",
     "expertise": ["brand-narratives", "stakeholder-engagement", "corporate-communications", "content-strategy"],
     "certifications": [],
     "education": [
@@ -48,7 +48,7 @@
     "id": "person-004",
     "name": "William Masquelier",
     "title": "Associate",
-    "photo": "brand/team/william-masquelier.jpg",
+    "photo": "assets/team/william-masquelier.jpg",
     "expertise": ["data-analysis", "ai-analytics", "stakeholder-intelligence", "technology", "automation"],
     "certifications": [],
     "education": [
@@ -63,7 +63,7 @@
     "id": "person-005",
     "name": "Bas van 't Wout",
     "title": "Expert Partner",
-    "photo": "brand/team/bas-van-t-wout.jpg",
+    "photo": "assets/team/bas-van-t-wout.jpg",
     "expertise": ["government-relations", "public-policy", "economic-affairs", "political-strategy", "energy-transition"],
     "certifications": [],
     "education": [
@@ -78,7 +78,7 @@
     "id": "person-006",
     "name": "Pieter Cobelens",
     "title": "Expert Partner",
-    "photo": "brand/team/pieter-cobelens.jpg",
+    "photo": "assets/team/pieter-cobelens.jpg",
     "expertise": ["geopolitical-risk", "intelligence-analysis", "security-strategy", "crisis-management", "defense"],
     "certifications": [],
     "education": [

@@ -10,7 +10,7 @@
       "quoteStyle": "authoritative-direct",
       "email": "ingo.heijnen@dukestrategies.eu",
       "phone": "+31 73 555 0101",
-      "headshot": "brand/team/ingo-heijnen.jpg",
+      "headshot": "assets/team/ingo-heijnen.jpg",
       "bio": "Ingo Heijnen is Managing Partner and co-founder of Duke Strategies with nearly 30 years of experience in strategic communications. Former CEO of Hill+Knowlton Strategies Netherlands and Continental Europe. Twice elected Best PR Consultant in M&A in the Netherlands (2010, 2011). Previously PR Officer with the Royal Netherlands Air Force."
     },
     {
@@ -23,7 +23,7 @@
       "quoteStyle": "analytical-precise",
       "email": "arien.stuijt@dukestrategies.eu",
       "phone": "+31 73 555 0102",
-      "headshot": "brand/team/arien-stuijt.jpg",
+      "headshot": "assets/team/arien-stuijt.jpg",
       "bio": "Ariën Stuijt is Managing Partner and co-founder of Duke Strategies. Former financial journalist at Dow Jones Newswires and The Wall Street Journal, and former Strategy Director at Hill+Knowlton Strategies (17 years). Brings journalistic rigor and AI-driven analytics to strategic advisory."
     },
     {
@@ -36,7 +36,7 @@
       "quoteStyle": "statesmanlike",
       "email": "bas@dukestrategies.eu",
       "phone": "+31 73 555 0103",
-      "headshot": "brand/team/bas-van-t-wout.jpg",
+      "headshot": "assets/team/bas-van-t-wout.jpg",
       "bio": "Bas van 't Wout is Expert Partner at Duke Strategies and former Member of Parliament, State Secretary, and Minister of Economic Affairs and Climate Policy of the Netherlands (VVD). Provides direct insight into government decision-making and political stakeholder dynamics."
     },
     {
@@ -49,7 +49,7 @@
       "quoteStyle": "authoritative-measured",
       "email": "pieter@dukestrategies.eu",
       "phone": "+31 73 555 0104",
-      "headshot": "brand/team/pieter-cobelens.jpg",
+      "headshot": "assets/team/pieter-cobelens.jpg",
       "bio": "Major General (ret.) Pieter Cobelens is Expert Partner at Duke Strategies and former Director of the Dutch Military Intelligence and Security Service (MIVD). Advises on geopolitical risk, security-sensitive environments, and defense industry strategy."
     },
     {
@@ -62,7 +62,7 @@
       "quoteStyle": null,
       "email": "emma.vangelder@ai4-comms.com",
       "phone": "+31 73 555 0110",
-      "headshot": "brand/team/emma-van-gelder.jpg",
+      "headshot": "assets/team/emma-van-gelder.jpg",
       "bio": null
     }
   ]
