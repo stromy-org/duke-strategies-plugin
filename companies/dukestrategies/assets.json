@@ -63,6 +63,11 @@
       "mime": "image/png"
     },
     {
+      "name": "favicon.svg",
+      "sha256": "e4a56389defc401841cff72ce87d25d7c8e776822731748c18480b52950cbfa3",
+      "mime": "image/svg+xml"
+    },
+    {
       "name": "logo.png",
       "sha256": "0e0b8c622bd52e6d9760cd48ccce4ead1fe0b36f6781f218214d8e4e36d40ce5",
       "mime": "image/png"
