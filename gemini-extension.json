@@ -8,9 +8,6 @@
     },
     "nl-gov-data": {
       "httpUrl": "https://nl-gov-data.whitebush-d817afec.westeurope.azurecontainerapps.io/mcp"
-    },
-    "eu-gov-data": {
-      "httpUrl": "https://eu-gov-data.braveforest-e73e8541.northeurope.azurecontainerapps.io/mcp"
     }
   }
 }

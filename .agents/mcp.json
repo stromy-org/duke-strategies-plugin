@@ -18,14 +18,6 @@
       "_codex_via": "mcp-remote",
       "_gemini_via": "mcp-remote",
       "_notes": "Dutch government open-data MCP \u2014 search/fetch legislation, parliamentary records, Rijksoverheid documents. Hosts the nl-gov-data, nl-gov-shared, nl-issue-framing, nl-parliamentary-positioning, nl-policy-legislative-landscape, and nl-tensions skills (fetched at runtime via fs_read). Per-user OAuth via Microsoft Entra ID."
-    },
-    "eu-gov-data": {
-      "transport": "http",
-      "url": "https://eu-gov-data.braveforest-e73e8541.northeurope.azurecontainerapps.io/mcp",
-      "_consumed_by": ["openai", "codex", "claude", "cursor", "copilot", "vscode", "kiro", "gemini"],
-      "_codex_via": "mcp-remote",
-      "_gemini_via": "mcp-remote",
-      "_notes": "EU institutions and decision-making MCP (ORG-PLAN-379): EU law and CJEU case law (CELLAR), legislative procedures (EP + CELLAR + OEIL), European Parliament votes, Council files and documents, Commission consultations and registers (delegated acts, comitology, expert groups, documents, infringements, competition, TRIS, Safety Gate), Transparency Register lobbying, EU funding (TED, SEDIA, CORDIS, cohesion, FTS), Eurostat/ECB statistics, the EU27 portal registry and specialist datasets. Unauthenticated, so plugin-declared — no connector step; start at eu-guide. Limits it teaches as limits: WAF-gated sites (EUR-Lex HTML, europarl, consilium) are never routed around, Kohesio is blocked from Azure egress, lobby linkage is candidate discovery with an uncalibrated score, and people (expert-group members, Whoiswho persons) are never surfaced. Shares au-gov-data's ACA environment (subscription env cap, see infra-docs/hosting/azure-regions.md), so its FQDN moves if it is ever given its own. Composes with stromy-format for rendering."
     }
   }
 }
