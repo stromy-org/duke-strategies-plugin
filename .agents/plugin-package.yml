@@ -8,7 +8,7 @@ schema_version: 1
 identity:
   name: duke-strategies
   display_name: Duke Strategies
-  version: 0.5.60
+  version: 0.5.61
   description: Plugin for Duke Strategies branded deliverables
   author:
     name: stromy-org
@@ -74,6 +74,19 @@ portable_capabilities:
     - nl-tensions
     mcp_servers:
     - nl-gov-data
+  eu-gov-data-workflows:
+    summary: Workflows on the eu-gov-data MCP
+    skills:
+    - eu-gov-data
+    - eu-guide
+    - eu-file-tracker
+    - eu-vote-analysis
+    - eu-transposition-monitor
+    - eu-horizon-scan
+    - eu-influence-map
+    - eu-funding-map
+    mcp_servers:
+    - eu-gov-data
 skills:
   include:
   - format-chart
@@ -106,6 +119,14 @@ skills:
   - nl-parliamentary-positioning
   - nl-policy-legislative-landscape
   - nl-tensions
+  - eu-gov-data
+  - eu-guide
+  - eu-file-tracker
+  - eu-vote-analysis
+  - eu-transposition-monitor
+  - eu-horizon-scan
+  - eu-influence-map
+  - eu-funding-map
   provider_extras:
   - skill: asset-editor
     providers:
