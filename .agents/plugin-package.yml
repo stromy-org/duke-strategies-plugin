@@ -8,7 +8,7 @@ schema_version: 1
 identity:
   name: duke-strategies
   display_name: Duke Strategies
-  version: 0.5.61
+  version: 0.5.62
   description: Plugin for Duke Strategies branded deliverables
   author:
     name: stromy-org
@@ -213,6 +213,12 @@ skills:
     reason: 'Hosted on the OAuth-gated ''comms'' MCP, which reaches a session only as an authorized Claude/Cowork
       workspace connector and is never plugin-declared (Invariant #13).'
   - skill: kit-guide
+    providers:
+    - claude
+    capability: toolkit-connector
+    reason: 'Hosted on the OAuth-gated ''toolkit'' MCP, which reaches a session only as an authorized
+      Claude/Cowork workspace connector and is never plugin-declared (Invariant #13).'
+  - skill: kit-prospect-contact
     providers:
     - claude
     capability: toolkit-connector
