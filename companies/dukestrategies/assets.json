@@ -975,6 +975,7 @@
       "mime": "image/jpeg"
     }
   ],
+  "templates": [],
   "brand_context": {
     "sha256": "ee1c414fc647df6b12f8d201f3dc556edfbde3acc09292eebc4a6ba05974dbb9",
     "mime": "application/json",
