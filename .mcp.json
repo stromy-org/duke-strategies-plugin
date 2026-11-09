@@ -21,10 +21,6 @@
       "type": "http",
       "url": "https://stromy-workflows-mcp.happysand-98ed07c8.northeurope.azurecontainerapps.io/mcp"
     },
-    "comms": {
-      "type": "http",
-      "url": "https://comms-mcp.jollymushroom-8231d53e.swedencentral.azurecontainerapps.io/mcp"
-    },
     "toolkit": {
       "type": "http",
       "url": "https://toolkit-mcp.agreeablesand-310c38a5.swedencentral.azurecontainerapps.io/mcp"
