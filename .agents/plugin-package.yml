@@ -8,7 +8,7 @@ schema_version: 1
 identity:
   name: duke-strategies
   display_name: Duke Strategies
-  version: 0.5.73
+  version: 0.5.75
   description: Plugin for Duke Strategies branded deliverables
   author:
     name: stromy-org
@@ -55,6 +55,9 @@ portable_capabilities:
     summary: Workflows authored for this plugin and shipped inside it
     skills:
     - getting-started
+    - intel-guide
+    - intel-ask
+    - intel-brief
   dutch-government-research:
     summary: Dutch government, parliament and legislation research
     skills:
@@ -70,6 +73,7 @@ portable_capabilities:
     - nl-parliamentary-positioning
     - nl-policy-legislative-landscape
     - nl-tensions
+    - nl-dossier-brief
     mcp_servers:
     - nl-gov-data
   eu-gov-data-workflows:
@@ -123,6 +127,10 @@ skills:
   - eu-horizon-scan
   - eu-influence-map
   - eu-funding-map
+  - nl-dossier-brief
+  - intel-guide
+  - intel-ask
+  - intel-brief
   provider_extras:
   - skill: asset-editor
     providers:
