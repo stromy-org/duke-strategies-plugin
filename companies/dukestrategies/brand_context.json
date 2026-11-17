@@ -976,7 +976,9 @@
             "w": 0.8,
             "h": 0.65
           }
-        }
+        },
+        "sha256": "2c36baf5d67de4298f821e7981440ab38d0dfb9ca372ac5f117e69826787405e",
+        "mime": "image/jpeg"
       },
       {
         "id": "shutterstock-1510566293-royalwelshbrug-zwart-1920x1280px-dark",
@@ -1017,7 +1019,9 @@
             "w": 1.0,
             "h": 0.8
           }
-        }
+        },
+        "sha256": "a1bb7b4ba1877797c032216ddbb1f9a2c9c416893836413d870410cc7b64a63d",
+        "mime": "image/jpeg"
       },
       {
         "id": "erasmus-bridge-rotterdam-grayscale",
@@ -1057,7 +1061,9 @@
             "w": 0.8,
             "h": 0.4
           }
-        }
+        },
+        "sha256": "9ecfec42b1a684587d7fff5bb58b50ee271fc1508b750fd7eb7c0b3849209c17",
+        "mime": "image/jpeg"
       },
       {
         "id": "cable-bridge-grayscale-dramatic",
@@ -1097,7 +1103,9 @@
             "w": 1.0,
             "h": 1.0
           }
-        }
+        },
+        "sha256": "786581293b83802c7d0af8c4aa9669161222c1294be52654a4a96061ff55b6dd",
+        "mime": "image/jpeg"
       },
       {
         "id": "modern-bridge-bw-dramatic",
@@ -1137,7 +1145,9 @@
             "w": 0.95,
             "h": 0.85
           }
-        }
+        },
+        "sha256": "b95d6f9e1e98d828ed185e9d1ddb50d275b337f555d06e3f23af7ea657c6d687",
+        "mime": "image/jpeg"
       },
       {
         "id": "nesciobrug",
@@ -1177,7 +1187,9 @@
             "w": 0.9,
             "h": 0.85
           }
-        }
+        },
+        "sha256": "05e89de926a1721aa162d14fb6b6fcab8a0c99c04a0252ef04cdb9a8dc5c1f82",
+        "mime": "image/jpeg"
       },
       {
         "id": "bridge-fog-water-minimalist",
@@ -1218,7 +1230,9 @@
             "w": 0.7,
             "h": 0.6
           }
-        }
+        },
+        "sha256": "aafbac5e90d3232a295bbc6c82ea4680dcd98ff8993216f4d594299f7a27aebb",
+        "mime": "image/jpeg"
       },
       {
         "id": "modern-cable-bridge-calm-water",
@@ -1258,7 +1272,9 @@
             "w": 1.0,
             "h": 0.65
           }
-        }
+        },
+        "sha256": "cbbfee3f265520a9ea566613bc8e41aece0dbf7e222bb3bae5fbfd01f2c7d28a",
+        "mime": "image/jpeg"
       },
       {
         "id": "pythonbrug-amsterdam-contrast",
@@ -1297,7 +1313,9 @@
             "w": 1.0,
             "h": 0.6
           }
-        }
+        },
+        "sha256": "fb87ca55f811d8b356ea07a5997af544e7a57aea7570145052c7b39f39c52dbe",
+        "mime": "image/jpeg"
       },
       {
         "id": "bridge-architecture-bw-lines",
@@ -1337,7 +1355,9 @@
             "w": 1.0,
             "h": 0.85
           }
-        }
+        },
+        "sha256": "55372c2b8534b359e6da97b0eba2dc48ec0649cccb191f5f3af67213646f805f",
+        "mime": "image/jpeg"
       },
       {
         "id": "brooklyn-bridge-bw",
@@ -1377,7 +1397,9 @@
             "w": 1.0,
             "h": 0.45
           }
-        }
+        },
+        "sha256": "244568765b5db24e4decb50513df884fe91f1bdf78acb91b55612f044f7668d8",
+        "mime": "image/jpeg"
       },
       {
         "id": "cable-bridge-geometric-perspective",
@@ -1418,7 +1440,9 @@
             "w": 0.85,
             "h": 1.0
           }
-        }
+        },
+        "sha256": "e35531dc17884832ed9375823fdc6861be8076c762e28b0ebd2d97281ebdf4b2",
+        "mime": "image/jpeg"
       },
       {
         "id": "pedestrian-bridge-bw-modern",
@@ -1458,7 +1482,9 @@
             "w": 0.8,
             "h": 0.65
           }
-        }
+        },
+        "sha256": "2a746cdd9c94e4a173eded3f3d978f08f93c98c743414a7516896c1c84f61539",
+        "mime": "image/jpeg"
       },
       {
         "id": "cable-bridge-dark-sky-dramatic",
@@ -1495,7 +1521,9 @@
             "w": 0.7,
             "h": 0.6
           }
-        }
+        },
+        "sha256": "ac146612ecc3a125598ad926ec415dd06bc7924381e0db92871983164dcc567b",
+        "mime": "image/jpeg"
       },
       {
         "id": "cable-bridge-golden-hour",
@@ -1532,7 +1560,9 @@
             "w": 0.45,
             "h": 0.95
           }
-        }
+        },
+        "sha256": "e63f84273a0590b375cf04cc99831d17b598bdfcd65e0753c94633249e246e28",
+        "mime": "image/jpeg"
       },
       {
         "id": "cable-stayed-bridge-night-illuminated",
@@ -1569,7 +1599,9 @@
             "w": 0.95,
             "h": 0.75
           }
-        }
+        },
+        "sha256": "23d0d4d19166add15917067259160b4bd07744981d1188a489cb7acee1d353e4",
+        "mime": "image/jpeg"
       },
       {
         "id": "erasmus-bridge-rotterdam-abstract",
@@ -1606,7 +1638,9 @@
             "w": 0.7,
             "h": 0.9
           }
-        }
+        },
+        "sha256": "fbaa680344bea566884abc052f043ea33687d840416b5731f6bdc74a17c25f3d",
+        "mime": "image/jpeg"
       },
       {
         "id": "erasmus-bridge-rotterdam-daytime",
@@ -1643,7 +1677,9 @@
             "w": 1.0,
             "h": 0.5
           }
-        }
+        },
+        "sha256": "a5dff5a00a4b800789fb324935af2363c00a8386eb8a698d3059bfc27e3a0cfc",
+        "mime": "image/jpeg"
       },
       {
         "id": "long-bridge-sunset-dramatic",
@@ -1680,7 +1716,9 @@
             "w": 0.65,
             "h": 0.75
           }
-        }
+        },
+        "sha256": "03c741cc2f94f49e04132be3e834500afcb6d7fcba73136c21358fe6c1bafd04",
+        "mime": "image/jpeg"
       },
       {
         "id": "rotterdam-bridge-cityscape",
@@ -1717,7 +1755,9 @@
             "w": 0.85,
             "h": 0.5
           }
-        }
+        },
+        "sha256": "48bc13adedb429b3895fa8afcfff0ff5262f3bb92fe660c9d6ab6e5380253cf7",
+        "mime": "image/jpeg"
       },
       {
         "id": "br01-erasmusbrug-cable-stayed-architecture",
@@ -1754,7 +1794,9 @@
           "page": "https://unsplash.com/photos/Lt6yjrvAzu4",
           "license": "Unsplash License",
           "boardId": "BR01"
-        }
+        },
+        "sha256": "30b45c10256aa4f0519ae7e70dc8c8b3e45bb5dfcdc17fd80ad2079752330978",
+        "mime": "image/jpeg"
       },
       {
         "id": "br02-large-bridge-spanning-water",
@@ -1791,7 +1833,9 @@
           "page": "https://unsplash.com/photos/NXPzQI6CcOU",
           "license": "Unsplash License",
           "boardId": "BR02"
-        }
+        },
+        "sha256": "9ac68f804df9fe6d0a35b267b050eefc430d39ae917cc62c946069192656feba",
+        "mime": "image/jpeg"
       },
       {
         "id": "br03-extension-bridge",
@@ -1828,7 +1872,9 @@
           "page": "https://unsplash.com/photos/Z4J34Xvuwlc",
           "license": "Unsplash License",
           "boardId": "BR03"
-        }
+        },
+        "sha256": "56395c1240672c2590f625a1392273236109ee3aecff3b8996ddc44517a2c351",
+        "mime": "image/jpeg"
       },
       {
         "id": "br04-bridge-over-water-trees",
@@ -1865,7 +1911,9 @@
           "page": "https://unsplash.com/photos/EbHWZ8Xjgwc",
           "license": "Unsplash License",
           "boardId": "BR04"
-        }
+        },
+        "sha256": "f5b4ee35ce7c2f46208052d27b987968719e1b009487c5fa78829cc26047ebac",
+        "mime": "image/jpeg"
       },
       {
         "id": "br05-gray-structure-during-day",
@@ -1902,7 +1950,9 @@
           "page": "https://unsplash.com/photos/lOtJvDYOT68",
           "license": "Unsplash License",
           "boardId": "BR05"
-        }
+        },
+        "sha256": "377a5921c8d10bdf1627ade1b3013558e4b0900e9314549a74eff4f96edf4a8b",
+        "mime": "image/jpeg"
       },
       {
         "id": "br06-view-of-a-bridge-over-water",
@@ -1939,7 +1989,9 @@
           "page": "https://unsplash.com/photos/OVNKYt4hGmY",
           "license": "Unsplash License",
           "boardId": "BR06"
-        }
+        },
+        "sha256": "8beaf77f0534d2d95aee7a8a62a119759fc3540cfd70ae04fe5974d538eb4f87",
+        "mime": "image/jpeg"
       },
       {
         "id": "br07-water-with-a-bridge-in-the-background",
@@ -1976,7 +2028,9 @@
           "page": "https://unsplash.com/photos/KG9PhDVGalk",
           "license": "Unsplash License",
           "boardId": "BR07"
-        }
+        },
+        "sha256": "ebe0630e6a2973e8e5a755853777eaaa46f1ac138e75c555586d5bae4d2b8c60",
+        "mime": "image/jpeg"
       },
       {
         "id": "br08-night-city-with-bridge",
@@ -2012,7 +2066,9 @@
           "page": "https://unsplash.com/photos/Me1mwTpqmVs",
           "license": "Unsplash License",
           "boardId": "BR08"
-        }
+        },
+        "sha256": "45897b281b0e13e36f864612643734318d93687943f9455c6cf471c7941f735c",
+        "mime": "image/jpeg"
       },
       {
         "id": "br09-bridge-over-water-buildings-behind",
@@ -2048,7 +2104,9 @@
           "page": "https://unsplash.com/photos/gOsSEJb5NGo",
           "license": "Unsplash License",
           "boardId": "BR09"
-        }
+        },
+        "sha256": "d27add1f2bab7b9a03adefec5bd332cb35cad4ca661c4ffc40336a000e3a750b",
+        "mime": "image/jpeg"
       },
       {
         "id": "br10-bridge-tall-buildings-behind",
@@ -2084,7 +2142,9 @@
           "page": "https://unsplash.com/photos/rt2rKdwhJvM",
           "license": "Unsplash License",
           "boardId": "BR10"
-        }
+        },
+        "sha256": "0bf063f0e26e5d3f5462060636a9a1e5d272d73c92159ceab08f548bc84871a6",
+        "mime": "image/jpeg"
       },
       {
         "id": "br11-blue-and-white-bridge-under-blue-sky",
@@ -2121,7 +2181,9 @@
           "page": "https://unsplash.com/photos/r19jMDVcuoA",
           "license": "Unsplash License",
           "boardId": "BR11"
-        }
+        },
+        "sha256": "4463a1c7c10b419a669435523f3809016afa9fa6cf5c2993913238eb32060e6d",
+        "mime": "image/jpeg"
       },
       {
         "id": "br12-very-tall-bridge-with-sky",
@@ -2158,7 +2220,9 @@
           "page": "https://unsplash.com/photos/CZ7plO6maKA",
           "license": "Unsplash License",
           "boardId": "BR12"
-        }
+        },
+        "sha256": "ea722378d47ec2c5a1ecc68dfb3f78bfceaf263e7faa42ac7a3cf71b0f0cb0aa",
+        "mime": "image/jpeg"
       },
       {
         "id": "br13-a-view-of-a-bridge-over-water",
@@ -2195,7 +2259,9 @@
           "page": "https://unsplash.com/photos/GVH1e-taSPw",
           "license": "Unsplash License",
           "boardId": "BR13"
-        }
+        },
+        "sha256": "9f6f86bd97be7d44d2dfa86559db759ab52d78614034c11e3b40d7ed4d2be1c2",
+        "mime": "image/jpeg"
       },
       {
         "id": "br14-tall-bridge-tall-building-behind",
@@ -2231,7 +2297,9 @@
           "page": "https://unsplash.com/photos/_-TP8Vc-BrI",
           "license": "Unsplash License",
           "boardId": "BR14"
-        }
+        },
+        "sha256": "be7e95a3f020a5e3c797085cf2f0a6c659917e9c3787cc3b4041fe65de4466f8",
+        "mime": "image/jpeg"
       },
       {
         "id": "br15-bridge-over-water-at-night",
@@ -2268,7 +2336,9 @@
           "page": "https://unsplash.com/photos/aHb67ry0ccg",
           "license": "Unsplash License",
           "boardId": "BR15"
-        }
+        },
+        "sha256": "94e943863521c99c3c709c5359476070cc86cfb8a35e44e42d3d0540af9f2819",
+        "mime": "image/jpeg"
       },
       {
         "id": "br16-grayscale-bridge-over-water",
@@ -2305,7 +2375,9 @@
           "page": "https://unsplash.com/photos/oL-wLNYT_0g",
           "license": "Unsplash License",
           "boardId": "BR16"
-        }
+        },
+        "sha256": "5d8083c35525ec69ba86079fe601068191acd8078d049e8d287c323a0d45011a",
+        "mime": "image/jpeg"
       },
       {
         "id": "br17-night-view-of-a-bridge-over-a-river",
@@ -2342,7 +2414,9 @@
           "page": "https://unsplash.com/photos/3K6YRXx7MJs",
           "license": "Unsplash License",
           "boardId": "BR17"
-        }
+        },
+        "sha256": "e6a833bebbf82404ed71b3b2f0d56cd97c58c477df24104a13766ad4f9adc0c5",
+        "mime": "image/jpeg"
       },
       {
         "id": "br18-gray-concrete-bridge-near-buildings",
@@ -2379,7 +2453,9 @@
           "page": "https://unsplash.com/photos/t-j22ysiAL8",
           "license": "Unsplash License",
           "boardId": "BR18"
-        }
+        },
+        "sha256": "1c28e5956d48b1cd4035caec6c5d8a6c0c477a294673669c15dc9ab90a250b13",
+        "mime": "image/jpeg"
       },
       {
         "id": "br19-two-boats-below-bridge-in-fog",
@@ -2417,7 +2493,9 @@
           "page": "https://unsplash.com/photos/P6BxykAOnUA",
           "license": "Unsplash License",
           "boardId": "BR19"
-        }
+        },
+        "sha256": "9fcab02cc0bab53626d6ebcae0728643fd2a738f9c36328ab085daf54af2fd0d",
+        "mime": "image/jpeg"
       },
       {
         "id": "br20-grayscale-photo-of-a-bridge",
@@ -2454,7 +2532,9 @@
           "page": "https://unsplash.com/photos/I29d1_SrqAU",
           "license": "Unsplash License",
           "boardId": "BR20"
-        }
+        },
+        "sha256": "f8b98074d9cc9372f5c9f2a2f28fc72cf4534c0bf2030b14905eebea7abc47f5",
+        "mime": "image/jpeg"
       },
       {
         "id": "br21-grayscale-bridge-over-river",
@@ -2491,7 +2571,9 @@
           "page": "https://unsplash.com/photos/DkwVo9VhJlM",
           "license": "Unsplash License",
           "boardId": "BR21"
-        }
+        },
+        "sha256": "7d6d1b8055722d825de522274e798456324a312c684795bc26ee9ba4110c08c5",
+        "mime": "image/jpeg"
       },
       {
         "id": "br22-bridge-structure-in-heavy-fog-monochrome",
@@ -2528,7 +2610,9 @@
           "page": "https://unsplash.com/photos/ffdfgHUurEA",
           "license": "Unsplash License",
           "boardId": "BR22"
-        }
+        },
+        "sha256": "c0fa5bb7ed4cce156c442af383455b88acbd7086639139639a7797ed224bcdf9",
+        "mime": "image/jpeg"
       },
       {
         "id": "br23-white-suspension-bridge-on-water",
@@ -2565,7 +2649,9 @@
           "page": "https://unsplash.com/photos/GlIoShgt2PQ",
           "license": "Unsplash License",
           "boardId": "BR23"
-        }
+        },
+        "sha256": "d1747652fe4c4e9e1e127254fe5da255128f9911c2a3bc501beb0c2d4846d8e2",
+        "mime": "image/jpeg"
       },
       {
         "id": "br24-gray-suspension-bridge",
@@ -2602,7 +2688,9 @@
           "page": "https://unsplash.com/photos/aWX5w5ZfT3A",
           "license": "Unsplash License",
           "boardId": "BR24"
-        }
+        },
+        "sha256": "477cf40a5d75bb9e4e92c57fee00d4893c9b7552e79149ae3af463afc7a580e1",
+        "mime": "image/jpeg"
       },
       {
         "id": "br25-grayscale-photo-of-bridge",
@@ -2639,7 +2727,9 @@
           "page": "https://unsplash.com/photos/T3-Ja07-pvA",
           "license": "Unsplash License",
           "boardId": "BR25"
-        }
+        },
+        "sha256": "5878c1388028f8e264401ed2f16cf88799ad50fe2d775ab36726fa0b692f2028",
+        "mime": "image/jpeg"
       },
       {
         "id": "br26-worm-view-of-white-steel-structure",
@@ -2676,7 +2766,9 @@
           "page": "https://unsplash.com/photos/tn0j4ZwTpgU",
           "license": "Unsplash License",
           "boardId": "BR26"
-        }
+        },
+        "sha256": "10fdc9693f26276e7f386ee614a71be86b89adb1b5b6b53d0cc430478b786ca7",
+        "mime": "image/jpeg"
       },
       {
         "id": "br27-underside-of-a-bridge",
@@ -2713,7 +2805,9 @@
           "page": "https://unsplash.com/photos/h9DTS9fbRzY",
           "license": "Unsplash License",
           "boardId": "BR27"
-        }
+        },
+        "sha256": "a912f3a5971d04475ff79984e03ff1892985cbd4388535e262d7ca90904095bd",
+        "mime": "image/jpeg"
       },
       {
         "id": "br28-white-bridge-under-blue-sky",
@@ -2749,7 +2843,9 @@
           "page": "https://unsplash.com/photos/y3IoqwmkS70",
           "license": "Unsplash License",
           "boardId": "BR28"
-        }
+        },
+        "sha256": "aed297536635f28d9d996518c01b9413c38d5a7a4dd6ec823a64e218c6212e17",
+        "mime": "image/jpeg"
       },
       {
         "id": "br29-large-bridge-over-water",
@@ -2786,7 +2882,9 @@
           "page": "https://unsplash.com/photos/vlZr6N2oPEk",
           "license": "Unsplash License",
           "boardId": "BR29"
-        }
+        },
+        "sha256": "7cf036149b3878d9976fbeb494943a0eff48a958e833edb330b3bde286f379fe",
+        "mime": "image/jpeg"
       },
       {
         "id": "br30-low-angle-bridge",
@@ -2822,7 +2920,9 @@
           "page": "https://unsplash.com/photos/qEwJFHU3uOE",
           "license": "Unsplash License",
           "boardId": "BR30"
-        }
+        },
+        "sha256": "b2112ff236105ee0a425ba3b2851a2c70874a2e10d2e8be266a2188ace391328",
+        "mime": "image/jpeg"
       },
       {
         "id": "br31-grayscale-metal-bridge",
@@ -2860,7 +2960,9 @@
           "page": "https://unsplash.com/photos/ZYD9y6tjjV0",
           "license": "Unsplash License",
           "boardId": "BR31"
-        }
+        },
+        "sha256": "219061be459c7db1710c6efec40c6633f1e7a89122eff2567bad1bb820e26156",
+        "mime": "image/jpeg"
       },
       {
         "id": "br32-bottom-view-of-bridge",
@@ -2897,7 +2999,9 @@
           "page": "https://unsplash.com/photos/Q6NCx-h7KpY",
           "license": "Unsplash License",
           "boardId": "BR32"
-        }
+        },
+        "sha256": "812f5c6dc1426f5646d9fcafd8c835d5f63fba5846bafe73a85df8464369beab",
+        "mime": "image/jpeg"
       },
       {
         "id": "br33-underside-of-a-suspension-bridge",
@@ -2934,7 +3038,9 @@
           "page": "https://unsplash.com/photos/VPSFRNSBQoA",
           "license": "Unsplash License",
           "boardId": "BR33"
-        }
+        },
+        "sha256": "f4493c0cda47491cc58795aae92d7c986ba29cd213c5e8387e34472d1d023f53",
+        "mime": "image/jpeg"
       },
       {
         "id": "br34-underside-of-a-modern-bridge-concrete-su",
@@ -2971,7 +3077,9 @@
           "page": "https://unsplash.com/photos/ZovCK9PgffY",
           "license": "Unsplash License",
           "boardId": "BR34"
-        }
+        },
+        "sha256": "bf2c7945f8e0e279c44798baa60c2477a1e017879e5c0310949aed03d91c8244",
+        "mime": "image/jpeg"
       },
       {
         "id": "br35-bridge-from-the-ground",
@@ -3008,7 +3116,9 @@
           "page": "https://unsplash.com/photos/fcerhszuP_s",
           "license": "Unsplash License",
           "boardId": "BR35"
-        }
+        },
+        "sha256": "a82691a2ab93c921c0984cd52f6e522963eb02b9846b8d60cd90b70abb851e16",
+        "mime": "image/jpeg"
       },
       {
         "id": "br36-red-steel-bridge-structure-from-below",
@@ -3045,7 +3155,9 @@
           "page": "https://unsplash.com/photos/w5nboogExRI",
           "license": "Unsplash License",
           "boardId": "BR36"
-        }
+        },
+        "sha256": "c1414d571e734ea635b97ac8ec52a49ea51e5e42057af99fa9beb7359646ec93",
+        "mime": "image/jpeg"
       },
       {
         "id": "br37-cable-stayed-tower-dramatic-sky",
@@ -3083,7 +3195,9 @@
           "page": "https://unsplash.com/photos/3D2WzMif49o",
           "license": "Unsplash License",
           "boardId": "BR37"
-        }
+        },
+        "sha256": "634d93bcf9c6cac2517516bc8d5734aab5523cc10ce92374905cb33b008942fd",
+        "mime": "image/jpeg"
       },
       {
         "id": "br38-suspension-bridge-tower-close-up",
@@ -3120,7 +3234,9 @@
           "page": "https://unsplash.com/photos/oWj5P4XFOzA",
           "license": "Unsplash License",
           "boardId": "BR38"
-        }
+        },
+        "sha256": "dff88f42d0ba6e7dcf9372a469c43adc68e8449d8d974ef2502d4d7ec57f1837",
+        "mime": "image/jpeg"
       },
       {
         "id": "br39-modern-bridge-architecture-cloudy-sky",
@@ -3157,7 +3273,9 @@
           "page": "https://unsplash.com/photos/j8N6hr81VhY",
           "license": "Unsplash License",
           "boardId": "BR39"
-        }
+        },
+        "sha256": "642c9263e9de54a927351ef5fd12304a0af5c00cbd3b04dbc57b56c35de9cb98",
+        "mime": "image/jpeg"
       },
       {
         "id": "br40-tall-bridge-tower-with-cables",
@@ -3195,7 +3313,9 @@
           "page": "https://unsplash.com/photos/21lx2bHQxyc",
           "license": "Unsplash License",
           "boardId": "BR40"
-        }
+        },
+        "sha256": "1b26fa0690f2ae2efa07de4a37598e155e249837c3c9d231e7c19f1ac96ca0d3",
+        "mime": "image/jpeg"
       },
       {
         "id": "br41-modern-bridge-with-suspension-cables-ove",
@@ -3231,7 +3351,9 @@
           "page": "https://unsplash.com/photos/C3jKqSqv-EI",
           "license": "Unsplash License",
           "boardId": "BR41"
-        }
+        },
+        "sha256": "9935f4933e9ca2811c75b6cb8332aced5d96b59828b5e39008e532954b50caa6",
+        "mime": "image/jpeg"
       },
       {
         "id": "br42-two-concrete-bridge-towers-with-cables",
@@ -3267,7 +3389,9 @@
           "page": "https://unsplash.com/photos/LX6tS75J4Lc",
           "license": "Unsplash License",
           "boardId": "BR42"
-        }
+        },
+        "sha256": "85af0dafd45cf19ecfbfccf5a355d08389a7763589fabcef0a97da6d7acf1437",
+        "mime": "image/jpeg"
       },
       {
         "id": "br43-cable-stayed-tower-against-blue-sky",
@@ -3304,7 +3428,9 @@
           "page": "https://unsplash.com/photos/N-1pTbTTXEU",
           "license": "Unsplash License",
           "boardId": "BR43"
-        }
+        },
+        "sha256": "3cd8693186ffc59427eb3ecadf5aff59fc685f6c07c27fcdfdd69a246604e02b",
+        "mime": "image/jpeg"
       },
       {
         "id": "br44-towers-of-a-suspension-bridge-cloudy-sky",
@@ -3341,7 +3467,9 @@
           "page": "https://unsplash.com/photos/Jz029IT4q4o",
           "license": "Unsplash License",
           "boardId": "BR44"
-        }
+        },
+        "sha256": "07b5a62c0650cd73ca20385a3bfc83c519b131d6c146a1aebfe1ad04851afd08",
+        "mime": "image/jpeg"
       },
       {
         "id": "br45-erasmusbrug-detail-of-pylon",
@@ -3378,7 +3506,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:Erasmusbrug_-_Detail_of_Pylon,_September_2019.jpg",
           "license": "CC BY-SA 4.0",
           "boardId": "BR45"
-        }
+        },
+        "sha256": "06585e1abd8134dfb81af73b43a61480ec32723d45716ae9c7143f1ed9ebd38d",
+        "mime": "image/jpeg"
       },
       {
         "id": "br46-rotterdam-erasmusbrug",
@@ -3415,7 +3545,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:Rotterdam_-_Erasmusbrug.jpg",
           "license": "CC BY 2.0",
           "boardId": "BR46"
-        }
+        },
+        "sha256": "c41e58dbe411ba84ed7f09c2f1d27c3a8bd4bb9bc804ee61db8ae4c385a20e48",
+        "mime": "image/jpeg"
       },
       {
         "id": "br47-rotterdam-erasmusbrug-2",
@@ -3451,7 +3583,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:Rotterdam_-_Erasmusbrug_(2).jpg",
           "license": "CC BY 2.0",
           "boardId": "BR47"
-        }
+        },
+        "sha256": "cf2fa0672d5597761ed8700c12eb9f17741b24ed399fee5e33922c5b57997e9e",
+        "mime": "image/jpeg"
       },
       {
         "id": "br48-rotterdam-erasmusbrug-4",
@@ -3488,7 +3622,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:Rotterdam_-_Erasmusbrug_(4).jpg",
           "license": "CC BY 2.0",
           "boardId": "BR48"
-        }
+        },
+        "sha256": "8af69ce1c585830ee6a6ece55dd613d85cd845a6e54838914c7f962b0e768ea3",
+        "mime": "image/jpeg"
       },
       {
         "id": "br49-around-zeelandbrug-23",
@@ -3525,7 +3661,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:Around_zeelandbrug_(23).jpg",
           "license": "CC BY-SA 2.0",
           "boardId": "BR49"
-        }
+        },
+        "sha256": "ef6e267d7e88ae3399d36091bd71100329ff6612c135cc8db5dd3010bebb2f0a",
+        "mime": "image/jpeg"
       },
       {
         "id": "br50-around-zeelandbrug-54",
@@ -3562,7 +3700,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:Around_zeelandbrug_(54).jpg",
           "license": "CC BY-SA 2.0",
           "boardId": "BR50"
-        }
+        },
+        "sha256": "e7248f6cbc53d623e66a4815bdf7969d0cd0d7d1a00973824cb3b48efcf347f4",
+        "mime": "image/jpeg"
       },
       {
         "id": "br51-zeelandbrug",
@@ -3599,7 +3739,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:Zeelandbrug_(2460386701).jpg",
           "license": "CC BY 2.0",
           "boardId": "BR51"
-        }
+        },
+        "sha256": "dc66c1bf20938922f3799d0d798abbee59410b7f2281199638446572778d7224",
+        "mime": "image/jpeg"
       },
       {
         "id": "br52-zeelandbrug",
@@ -3636,7 +3778,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:Zeelandbrug_(37139720521).jpg",
           "license": "CC BY 2.0",
           "boardId": "BR52"
-        }
+        },
+        "sha256": "a091a8395c695f54ea4816bb58b5e62eeea9ff57c5bbc7200eb10cba469d40bd",
+        "mime": "image/jpeg"
       },
       {
         "id": "br53-zeelandbrug-zeeland-bridge-the-netherlan",
@@ -3674,7 +3818,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:Zeelandbrug_Zeeland_Bridge._The_Netherlands_(15125459240).jpg",
           "license": "CC BY 2.0",
           "boardId": "BR53"
-        }
+        },
+        "sha256": "9fee010274d74f02350677af461b60686d5cbafdc46744e04f147f8c6064776a",
+        "mime": "image/jpeg"
       },
       {
         "id": "br54-van-brienenoordbrug",
@@ -3710,7 +3856,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:Van_Brienenoordbrug.jpg",
           "license": "CC BY-SA 2.0",
           "boardId": "BR54"
-        }
+        },
+        "sha256": "ca2ea896faa7a3c92e32cabefa1d818a5f40dd9e11f54081d16e63e288bd9d27",
+        "mime": "image/jpeg"
       },
       {
         "id": "br55-van-brienenoordbrug-rotterdam-2018-2",
@@ -3747,7 +3895,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:Van_Brienenoordbrug_Rotterdam_2018_2.jpg",
           "license": "CC BY-SA 4.0",
           "boardId": "BR55"
-        }
+        },
+        "sha256": "5cd358939c5fb0f7b8562ea9543d8d4cec4033057b26e9f82553eac003d02224",
+        "mime": "image/jpeg"
       },
       {
         "id": "br56-nesciobrug-amsterdam-2017-1",
@@ -3783,7 +3933,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:Nesciobrug_Amsterdam_2017_1.jpg",
           "license": "CC BY-SA 4.0",
           "boardId": "BR56"
-        }
+        },
+        "sha256": "7c310919f7cfaf157f7c4ff7eddabf7d34f9b3aeb5403393642e5dda78834e97",
+        "mime": "image/jpeg"
       },
       {
         "id": "br57-nesciobrug-amsterdam-2017-2",
@@ -3819,7 +3971,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:Nesciobrug_Amsterdam_2017_2.jpg",
           "license": "CC BY-SA 4.0",
           "boardId": "BR57"
-        }
+        },
+        "sha256": "b98af834abe648394b43790a966f26781a771efe09eefec28ee0e3042d6d15bf",
+        "mime": "image/jpeg"
       },
       {
         "id": "br58-amsterdam-pythonbrug",
@@ -3856,7 +4010,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:Amsterdam_-_Pythonbrug_(29669135914).jpg",
           "license": "CC BY 2.0",
           "boardId": "BR58"
-        }
+        },
+        "sha256": "dc89d10464ef3bb0adc95c2c8acfa2066a94f87a2fdbb700c329efd2c1a9548a",
+        "mime": "image/jpeg"
       },
       {
         "id": "br59-amsterdam-pythonbrug",
@@ -3893,7 +4049,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:Amsterdam_-_Pythonbrug_(30183946422).jpg",
           "license": "CC BY 2.0",
           "boardId": "BR59"
-        }
+        },
+        "sha256": "69869af073d78fbd064cb9b52e35baaae015109d16d4b22a87b548247b9b5462",
+        "mime": "image/jpeg"
       },
       {
         "id": "br60-nijmegen-de-oversteek-img-3245-2020-03-1",
@@ -3930,7 +4088,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:Nijmegen,_de_Oversteek_IMG_3245_2020-03-17_10.58.jpg",
           "license": "CC BY-SA 4.0",
           "boardId": "BR60"
-        }
+        },
+        "sha256": "c36561dee5f10f07b44ef4375560e709e04790e476ca508f92303f9470bd9eab",
+        "mime": "image/jpeg"
       },
       {
         "id": "br61-nijmegen-railway-bridge-river-waal-in-th",
@@ -3966,7 +4126,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:Nijmegen_railway_bridge._River_Waal._in_the_back_the_Oversteek_bridge_Seen_from_the_Stevenskerk.jpg",
           "license": "CC BY-SA 4.0",
           "boardId": "BR61"
-        }
+        },
+        "sha256": "6ce12571c32cb45f86358b2a4435853e4510541f63cf35bdc9159d8a4fb6dce2",
+        "mime": "image/jpeg"
       },
       {
         "id": "br62-rotterdam-de-willemsbrug-foto4-2015-08-0",
@@ -4003,7 +4165,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:Rotterdam,_de_Willemsbrug_foto4_2015-08-01_20.34.jpg",
           "license": "CC BY-SA 4.0",
           "boardId": "BR62"
-        }
+        },
+        "sha256": "5aa3d9760c44e993dc7733d077fb2a179f7aa348eedc5b18add109710410ba4c",
+        "mime": "image/jpeg"
       },
       {
         "id": "br63-willemsbrug-rotterdam-view-of-the-pylons",
@@ -4040,7 +4204,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:Willemsbrug_-_Rotterdam_-_View_of_the_pylons_-from_the_Oudehavenkade_in_the_northwest_-_2013.jpg",
           "license": "CC BY-SA 4.0",
           "boardId": "BR63"
-        }
+        },
+        "sha256": "f976d275b3594fa14679b55af678c6168b727d4f2ce13f82c308a046ccc13fa8",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma01-close-up-of-a-very-tall-metal-structure",
@@ -4077,7 +4243,9 @@
           "page": "https://unsplash.com/photos/23IdtTWFqI4",
           "license": "Unsplash License",
           "boardId": "MA01"
-        }
+        },
+        "sha256": "90369b78c3d7d235d146e1a208cc50acde88a2d098694ea12e2b0444dd7efefa",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma02-thick-steel-cables-extending-upwards",
@@ -4114,7 +4282,9 @@
           "page": "https://unsplash.com/photos/ZDB9WJBp-C4",
           "license": "Unsplash License",
           "boardId": "MA02"
-        }
+        },
+        "sha256": "4d460a1d637d185bbf57fc2abc587ab122ea060e6bfaf180416b7a6f71c07d52",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma03-abstract-view-of-a-steel-bridge-structur",
@@ -4151,7 +4321,9 @@
           "page": "https://unsplash.com/photos/YxOXU1OvdFs",
           "license": "Unsplash License",
           "boardId": "MA03"
-        }
+        },
+        "sha256": "f0cf80b96eef58abaf5e1de903c21615ab0dbfbe194e4bef8fe048596113f881",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma04-coiled-rusty-metal-cable-texture",
@@ -4188,7 +4360,9 @@
           "page": "https://unsplash.com/photos/dfehn5sFq4M",
           "license": "Unsplash License",
           "boardId": "MA04"
-        }
+        },
+        "sha256": "9763eb27b7a907c23d616ab0e5fde1663c6ee488b9820b2c837d53c9cf837982",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma05-twisted-metal-cable-with-round-base",
@@ -4225,7 +4399,9 @@
           "page": "https://unsplash.com/photos/yQzG-ZrW2_M",
           "license": "Unsplash License",
           "boardId": "MA05"
-        }
+        },
+        "sha256": "b43d5f738b405317c215759c18c5c9871c468f7245ce84276e4bda30478168d9",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma06-b-w-braided-cable-loop-with-connector",
@@ -4262,7 +4438,9 @@
           "page": "https://unsplash.com/photos/sENTGybCJ7Q",
           "license": "Unsplash License",
           "boardId": "MA06"
-        }
+        },
+        "sha256": "563e6b2b4c9e8de97b0a385496391215ecbddff13665d0504f51065238b45266",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma07-b-w-bunch-of-wires",
@@ -4299,7 +4477,9 @@
           "page": "https://unsplash.com/photos/KsKOlq4nzP0",
           "license": "Unsplash License",
           "boardId": "MA07"
-        }
+        },
+        "sha256": "ad3c241f0726cf83369a8065fe8c0d33815965dffa4c9ba76320930406beb3fa",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma08-coil-of-wires-close-up",
@@ -4336,7 +4516,9 @@
           "page": "https://unsplash.com/photos/LMTyPzondZQ",
           "license": "Unsplash License",
           "boardId": "MA08"
-        }
+        },
+        "sha256": "5b97487f9fd595f65252c6f88be867e33b8da8638c55db68d35edf0ca3492270",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma09-rusty-metal-with-bolts",
@@ -4373,7 +4555,9 @@
           "page": "https://unsplash.com/photos/KlxVbSU9q-U",
           "license": "Unsplash License",
           "boardId": "MA09"
-        }
+        },
+        "sha256": "9c7909615480040884bab8be645ca508c35c27ce9a0db556a811ed24a0c16b46",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma10-b-w-metal-surface",
@@ -4410,7 +4594,9 @@
           "page": "https://unsplash.com/photos/TuUyjwzxW7U",
           "license": "Unsplash License",
           "boardId": "MA10"
-        }
+        },
+        "sha256": "0d4c2d834e27c010695a233ca99341c17addb1ed78f3bd5ecc87cca72dbe7047",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma11-metal-surface-with-rivets",
@@ -4447,7 +4633,9 @@
           "page": "https://unsplash.com/photos/LWLlAfKpXew",
           "license": "Unsplash License",
           "boardId": "MA11"
-        }
+        },
+        "sha256": "a1250facb709c3f3b08562a74f3ef662bd9f8b3046ea18404efdc603be3f6ef1",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma12-brushed-metal-diagonal-light",
@@ -4484,7 +4672,9 @@
           "page": "https://unsplash.com/photos/tRrIXmtOmL4",
           "license": "Unsplash License",
           "boardId": "MA12"
-        }
+        },
+        "sha256": "87cfc537e241a0cbe2f53ef22ee0a9268dfb954b496ce4b1bed636eb9615c0f4",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma13-b-w-patterned-surface",
@@ -4521,7 +4711,9 @@
           "page": "https://unsplash.com/photos/XfAWm8S49OU",
           "license": "Unsplash License",
           "boardId": "MA13"
-        }
+        },
+        "sha256": "c9e0ee2bac77463b89cbb19d2c323066838f9313a30f67ec3ad993f087cff71f",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma14-grayscale-frame",
@@ -4558,7 +4750,9 @@
           "page": "https://unsplash.com/photos/16wDDe4nSM0",
           "license": "Unsplash License",
           "boardId": "MA14"
-        }
+        },
+        "sha256": "86fd0a9c7ab91767db40110ece3a01bc2672c3233180bd72597f9c7f67cb959e",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma15-close-up-of-a-metal-object",
@@ -4595,7 +4789,9 @@
           "page": "https://unsplash.com/photos/VNlZmgQ5iVc",
           "license": "Unsplash License",
           "boardId": "MA15"
-        }
+        },
+        "sha256": "91b15ccdf35bbcd05c328c14534637fc6446d19e831b5bf1e512ffa7966c8904",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma16-grayscale-metal-frame",
@@ -4632,7 +4828,9 @@
           "page": "https://unsplash.com/photos/vxJXKNVxyB0",
           "license": "Unsplash License",
           "boardId": "MA16"
-        }
+        },
+        "sha256": "49c52c3f8426b5745400a8cdded87e7d9722c42d5ba7d179091f9896b8655a81",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma17-b-w-metal-structure",
@@ -4668,7 +4866,9 @@
           "page": "https://unsplash.com/photos/RElmX1wd7xA",
           "license": "Unsplash License",
           "boardId": "MA17"
-        }
+        },
+        "sha256": "d122ce28c605946ae0a9061d293830ad8b305e023220c301fc7b418fe6d1af76",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma18-close-up-of-a-metal-structure",
@@ -4705,7 +4905,9 @@
           "page": "https://unsplash.com/photos/QDuBo6hQWc8",
           "license": "Unsplash License",
           "boardId": "MA18"
-        }
+        },
+        "sha256": "e9569cf10e55dc56b929cbe2b183488916085bb86787c400ab62fb674c993f45",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma19-close-up-of-a-building",
@@ -4742,7 +4944,9 @@
           "page": "https://unsplash.com/photos/7tn6jP6rfhk",
           "license": "Unsplash License",
           "boardId": "MA19"
-        }
+        },
+        "sha256": "3880ee6f5433bd8102e9ae71a6294bd25f939513eab712b63231e6702f4aaf68",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma20-grayscale-building-detail",
@@ -4779,7 +4983,9 @@
           "page": "https://unsplash.com/photos/mGepDYLPUxI",
           "license": "Unsplash License",
           "boardId": "MA20"
-        }
+        },
+        "sha256": "25c856c0fa3f482d22c53863368aa8ee9d1c18e76d5705977ee44656d6a70de3",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma21-grayscale-structure",
@@ -4816,7 +5022,9 @@
           "page": "https://unsplash.com/photos/ieFQLMfamIo",
           "license": "Unsplash License",
           "boardId": "MA21"
-        }
+        },
+        "sha256": "318fce5641673255ae1c1077c46620c7a405f4fee31b864bf08e41a5e145302d",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma22-hovenring-trillingsdempers",
@@ -4853,7 +5061,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:Hovenring_-_trillingsdempers.jpg",
           "license": "CC BY-SA 4.0",
           "boardId": "MA22"
-        }
+        },
+        "sha256": "b7080f088ccc18f49616bd1b9d42d80bf61a81c8d2e3315dba59d968f1576e4e",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma23-close-up-of-typical-built-up-riveted-and",
@@ -4890,7 +5100,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:CLOSE-UP_OF_TYPICAL_BUILT-UP,_RIVETED_AND_PIN_CONNECTED_DECK_TRUSS_LOOKING_UP_AND_NORTHEAST._-_Huey_P._Long_Bridge,_Spanning_Mississippi_River_approximately_midway_between_nine_and_HAER_LA-17-47.tif",
           "license": "Public domain",
           "boardId": "MA23"
-        }
+        },
+        "sha256": "f19ab8e4400ea8f09a8a2f397a275380a6a94cd6efb58fcae26410b837743ca6",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma24-close-up-view-of-typical-lower-diagonal",
@@ -4926,7 +5138,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:CLOSE-UP_VIEW_OF_TYPICAL_LOWER_DIAGONAL_AND_VERTICAL_RIVETED_CONNECTION_OF_MAIN_THROUGH_TRUSS_CANTILEVER_SPAN._-_Huey_P._Long_Bridge,_Spanning_Mississippi_River_approximately_midway_HAER_LA-17-43.tif",
           "license": "Public domain",
           "boardId": "MA24"
-        }
+        },
+        "sha256": "46a0da4fbbf97477bb77dae79d472950475680b117fd5ed1d57b87a64fc9bcf3",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma25-close-up-view-of-portal-joint-pin-connec",
@@ -4963,7 +5177,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:Close-up_view_of_portal_joint_pin-connection_with_star_plate,_and_typical_riveted_girders_and_latticed_posts._(Nov._25,_1988)_-_University_Heights_Bridge,_Spanning_Harlem_River_HAER_NY,31-NEYO,178-15.tif",
           "license": "Public domain",
           "boardId": "MA25"
-        }
+        },
+        "sha256": "008bbe4f20926bf89e51aad3522dced991b2f679720acefe9c04684e6b161260",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma26-sky-balcony-riveted-steel-beam-detail-ha",
@@ -5000,7 +5216,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:Sky_Balcony_riveted_steel_beam_detail_Hamasen_Railway_Cultural_Park_Kaohsiung_2026_03_30.jpg",
           "license": "CC0",
           "boardId": "MA26"
-        }
+        },
+        "sha256": "7a7fb31b23d73b17d5ae6095c9328890af0dc944363d75c83388f5a2637e2eb0",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma27-cable-anchorage-for-millenium-bridge",
@@ -5037,7 +5255,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:Cable_anchorage_for_millenium_bridge.jpg",
           "license": "Public domain",
           "boardId": "MA27"
-        }
+        },
+        "sha256": "4d8c87f91d6d38434e6cc73d2d7a53d19c817944e4a91c6115ea3850647301dd",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma28-detail-view-of-cable-strands-inside-cent",
@@ -5074,7 +5294,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:DETAIL_VIEW_OF_CABLE_STRANDS_INSIDE_CENTRAL_ANCHORAGE_-_San_Francisco_Oakland_Bay_Bridge,_Spanning_San_Francisco_Bay,_San_Francisco,_San_Francisco_County,_CA_HAER_CAL,38-SANFRA,141-35.tif",
           "license": "Public domain",
           "boardId": "MA28"
-        }
+        },
+        "sha256": "4177d2651ddde5f9de0e3861b383eb9c086b8d9b006558a3560f4374b4b31b79",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma29-detail-view-inside-manhattan-anchorage-s",
@@ -5111,7 +5333,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:Detail_view_inside_Manhattan_anchorage_showing_connection_between_cable_and_anchorage_eyebars._Jet_Lowe,_photographer,_1982._-_Brooklyn_Bridge,_Spanning_East_River_between_Park_HAER_NY,31-NEYO,90-66.tif",
           "license": "Public domain",
           "boardId": "MA29"
-        }
+        },
+        "sha256": "85ca71ead8dfe5bf874e6129ae419bfe9d0818f03dffc2280c33bb7808050e17",
+        "mime": "image/jpeg"
       },
       {
         "id": "ma30-verrazano-narrows-bridge-detail-showing",
@@ -5148,7 +5372,9 @@
           "page": "https://commons.wikimedia.org/wiki/File:VERRAZANO-NARROWS_BRIDGE,_DETAIL_SHOWING_THE_CONNECTION_OF_CABLE_STRANDS_TO_EYEBAR_ANCHORAGE_-_Verrazano-Narrows_Bridge,_Spanning_Narrows_between_Fort_Hamilton_(Brooklyn)_and_HAER_NY,24-BROK,57-29.tif",
           "license": "Public domain",
           "boardId": "MA30"
-        }
+        },
+        "sha256": "4b4bde493d337966629a527d9fe0dda571d7aa0059e467bebea1e1b93c3ae5a2",
+        "mime": "image/jpeg"
       }
     ],
     "overlay": {
@@ -6409,6 +6635,6 @@
       "photo"
     ],
     "images_count": 113,
-    "sha256": "926071fc8799a065aa30ede0f774616bc6cdd9cb3f97e30ef8392cb1f80990ef"
+    "sha256": "40983f6b7fe9a48032d1838298b48057c4542fe64b1e1ebff39dba7137f90cb4"
   }
 }
