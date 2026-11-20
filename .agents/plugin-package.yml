@@ -8,7 +8,7 @@ schema_version: 1
 identity:
   name: duke-strategies
   display_name: Duke Strategies
-  version: 0.5.84
+  version: 0.5.85
   description: Plugin for Duke Strategies branded deliverables
   author:
     name: stromy-org
@@ -68,6 +68,50 @@ portable_capabilities:
     - eu-funding-map
     mcp_servers:
     - eu-gov-data
+  asset-broker-workflows:
+    summary: Workflows on the asset-broker MCP
+    skills:
+    - asset-editor
+    - asset-feedback
+    - asset-guide
+    - asset-workspace-setup
+    mcp_servers:
+    - asset-broker
+  branded-deliverables:
+    summary: Branded documents, decks, charts, diagrams and video rendered server-side in the client's
+      brand
+    skills:
+    - format-prepare-document
+    - format-html-hd
+    - format-pptx
+    - format-docx
+    - format-pdf
+    - format-pdf-hd
+    - format-xlsx
+    - format-diagram
+    - format-chart
+    - format-motion
+    - format-video-hd
+    - format-guide
+    - format-i18n
+    mcp_servers:
+    - stromy-format
+  hosted-workflows:
+    summary: Hosted multi-step research and analysis workflows
+    skills:
+    - wf-guide
+    - wf-stakeholder-analysis
+    - wf-analytical-briefing
+    mcp_servers:
+    - stromy-workflows
+  toolkit-workflows:
+    summary: Workflows on the toolkit MCP
+    skills:
+    - kit-proposal
+    - kit-prospect-contact
+    - kit-guide
+    mcp_servers:
+    - toolkit
 skills:
   include:
   - getting-started
@@ -95,31 +139,30 @@ skills:
   - intel-guide
   - intel-ask
   - intel-brief
+  - asset-editor
+  - asset-feedback
+  - format-prepare-document
+  - format-html-hd
+  - format-pptx
+  - format-docx
+  - format-pdf
+  - format-pdf-hd
+  - format-xlsx
+  - format-diagram
+  - format-chart
+  - format-motion
+  - format-video-hd
+  - format-guide
+  - format-i18n
+  - asset-guide
+  - asset-workspace-setup
+  - wf-guide
+  - wf-stakeholder-analysis
+  - wf-analytical-briefing
+  - kit-proposal
+  - kit-prospect-contact
+  - kit-guide
   provider_extras:
-  - skill: asset-editor
-    providers:
-    - claude
-    capability: asset-broker-connector
-    reason: 'Hosted on the OAuth-gated ''asset-broker'' MCP, which reaches a session only as an authorized
-      Claude/Cowork workspace connector and is never plugin-declared (Invariant #13).'
-  - skill: asset-feedback
-    providers:
-    - claude
-    capability: asset-broker-connector
-    reason: 'Hosted on the OAuth-gated ''asset-broker'' MCP, which reaches a session only as an authorized
-      Claude/Cowork workspace connector and is never plugin-declared (Invariant #13).'
-  - skill: asset-guide
-    providers:
-    - claude
-    capability: asset-broker-connector
-    reason: 'Hosted on the OAuth-gated ''asset-broker'' MCP, which reaches a session only as an authorized
-      Claude/Cowork workspace connector and is never plugin-declared (Invariant #13).'
-  - skill: asset-workspace-setup
-    providers:
-    - claude
-    capability: asset-broker-connector
-    reason: 'Hosted on the OAuth-gated ''asset-broker'' MCP, which reaches a session only as an authorized
-      Claude/Cowork workspace connector and is never plugin-declared (Invariant #13).'
   - skill: format-workspace-cowork
     providers:
     - claude
@@ -132,133 +175,6 @@ skills:
     capability: cowork-workspace
     reason: Reads and writes the client's SharePoint workspace record through workspace-scoped tools that
       exist only in a Cowork workspace session.
-  - skill: wf-guide
-    providers:
-    - claude
-    capability: stromy-workflows-connector
-    reason: 'Hosted on the OAuth-gated ''stromy-workflows'' MCP, which reaches a session only as an authorized
-      Claude/Cowork workspace connector and is never plugin-declared (Invariant #13).'
-  - skill: wf-stakeholder-analysis
-    providers:
-    - claude
-    capability: stromy-workflows-connector
-    reason: 'Hosted on the OAuth-gated ''stromy-workflows'' MCP, which reaches a session only as an authorized
-      Claude/Cowork workspace connector and is never plugin-declared (Invariant #13).'
-  - skill: wf-analytical-briefing
-    providers:
-    - claude
-    capability: stromy-workflows-connector
-    reason: 'Hosted on the OAuth-gated ''stromy-workflows'' MCP, which reaches a session only as an authorized
-      Claude/Cowork workspace connector and is never plugin-declared (Invariant #13).'
-  - skill: kit-proposal
-    providers:
-    - claude
-    capability: toolkit-connector
-    reason: 'Hosted on the OAuth-gated ''toolkit'' MCP, which reaches a session only as an authorized
-      Claude/Cowork workspace connector and is never plugin-declared (Invariant #13).'
-  - skill: kit-guide
-    providers:
-    - claude
-    capability: toolkit-connector
-    reason: 'Hosted on the OAuth-gated ''toolkit'' MCP, which reaches a session only as an authorized
-      Claude/Cowork workspace connector and is never plugin-declared (Invariant #13).'
-  - skill: kit-prospect-contact
-    providers:
-    - claude
-    capability: toolkit-connector
-    reason: 'Hosted on the OAuth-gated ''toolkit'' MCP, which reaches a session only as an authorized
-      Claude/Cowork workspace connector and is never plugin-declared (Invariant #13).'
-  - skill: format-chart
-    providers:
-    - claude
-    capability: stromy-format-connector
-    reason: 'Hosted on the OAuth-gated ''stromy-format'' MCP, which the plugin bundles as a Claude connector
-      (Connectors tab, hosted sign-in); the other hosts have no hosted sign-in, so it stays Claude-only
-      (Invariant #13).'
-  - skill: format-diagram
-    providers:
-    - claude
-    capability: stromy-format-connector
-    reason: 'Hosted on the OAuth-gated ''stromy-format'' MCP, which the plugin bundles as a Claude connector
-      (Connectors tab, hosted sign-in); the other hosts have no hosted sign-in, so it stays Claude-only
-      (Invariant #13).'
-  - skill: format-docx
-    providers:
-    - claude
-    capability: stromy-format-connector
-    reason: 'Hosted on the OAuth-gated ''stromy-format'' MCP, which the plugin bundles as a Claude connector
-      (Connectors tab, hosted sign-in); the other hosts have no hosted sign-in, so it stays Claude-only
-      (Invariant #13).'
-  - skill: format-guide
-    providers:
-    - claude
-    capability: stromy-format-connector
-    reason: 'Hosted on the OAuth-gated ''stromy-format'' MCP, which the plugin bundles as a Claude connector
-      (Connectors tab, hosted sign-in); the other hosts have no hosted sign-in, so it stays Claude-only
-      (Invariant #13).'
-  - skill: format-html-hd
-    providers:
-    - claude
-    capability: stromy-format-connector
-    reason: 'Hosted on the OAuth-gated ''stromy-format'' MCP, which the plugin bundles as a Claude connector
-      (Connectors tab, hosted sign-in); the other hosts have no hosted sign-in, so it stays Claude-only
-      (Invariant #13).'
-  - skill: format-i18n
-    providers:
-    - claude
-    capability: stromy-format-connector
-    reason: 'Hosted on the OAuth-gated ''stromy-format'' MCP, which the plugin bundles as a Claude connector
-      (Connectors tab, hosted sign-in); the other hosts have no hosted sign-in, so it stays Claude-only
-      (Invariant #13).'
-  - skill: format-motion
-    providers:
-    - claude
-    capability: stromy-format-connector
-    reason: 'Hosted on the OAuth-gated ''stromy-format'' MCP, which the plugin bundles as a Claude connector
-      (Connectors tab, hosted sign-in); the other hosts have no hosted sign-in, so it stays Claude-only
-      (Invariant #13).'
-  - skill: format-pdf
-    providers:
-    - claude
-    capability: stromy-format-connector
-    reason: 'Hosted on the OAuth-gated ''stromy-format'' MCP, which the plugin bundles as a Claude connector
-      (Connectors tab, hosted sign-in); the other hosts have no hosted sign-in, so it stays Claude-only
-      (Invariant #13).'
-  - skill: format-pdf-hd
-    providers:
-    - claude
-    capability: stromy-format-connector
-    reason: 'Hosted on the OAuth-gated ''stromy-format'' MCP, which the plugin bundles as a Claude connector
-      (Connectors tab, hosted sign-in); the other hosts have no hosted sign-in, so it stays Claude-only
-      (Invariant #13).'
-  - skill: format-pptx
-    providers:
-    - claude
-    capability: stromy-format-connector
-    reason: 'Hosted on the OAuth-gated ''stromy-format'' MCP, which the plugin bundles as a Claude connector
-      (Connectors tab, hosted sign-in); the other hosts have no hosted sign-in, so it stays Claude-only
-      (Invariant #13).'
-  - skill: format-prepare-document
-    providers:
-    - claude
-    capability: stromy-format-connector
-    reason: 'Hosted on the OAuth-gated ''stromy-format'' MCP, which the plugin bundles as a Claude connector
-      (Connectors tab, hosted sign-in); the other hosts have no hosted sign-in, so it stays Claude-only
-      (Invariant #13).'
-  - skill: format-video-hd
-    providers:
-    - claude
-    capability: stromy-format-connector
-    reason: 'Hosted on the OAuth-gated ''stromy-format'' MCP, which the plugin bundles as a Claude connector
-      (Connectors tab, hosted sign-in); the other hosts have no hosted sign-in, so it stays Claude-only
-      (Invariant #13).'
-  - skill: format-xlsx
-    providers:
-    - claude
-    capability: stromy-format-connector
-    reason: 'Hosted on the OAuth-gated ''stromy-format'' MCP, which the plugin bundles as a Claude connector
-      (Connectors tab, hosted sign-in); the other hosts have no hosted sign-in, so it stays Claude-only
-      (Invariant #13).'
 providers:
   claude:
     hooks: ./hooks/hooks.json
