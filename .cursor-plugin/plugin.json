@@ -1,7 +1,7 @@
 {
   "name": "duke-strategies",
   "displayName": "Duke Strategies",
-  "version": "0.5.84",
+  "version": "0.5.85",
   "description": "Plugin for Duke Strategies branded deliverables",
   "author": {
     "name": "stromy-org"
@@ -19,11 +19,23 @@
     "./skills"
   ],
   "mcpServers": {
+    "stromy-format": {
+      "url": "https://stromy-format-mcp.whitetree-762cff59.westeurope.azurecontainerapps.io/mcp"
+    },
     "nl-gov-data": {
       "url": "https://nl-gov-data.whitebush-d817afec.westeurope.azurecontainerapps.io/mcp"
     },
     "eu-gov-data": {
       "url": "https://eu-gov-data.braveforest-e73e8541.northeurope.azurecontainerapps.io/mcp"
+    },
+    "asset-broker": {
+      "url": "https://asset-broker-mcp.redbeach-6781a121.northeurope.azurecontainerapps.io/mcp"
+    },
+    "stromy-workflows": {
+      "url": "https://stromy-workflows-mcp.happysand-98ed07c8.northeurope.azurecontainerapps.io/mcp"
+    },
+    "toolkit": {
+      "url": "https://toolkit-mcp.agreeablesand-310c38a5.swedencentral.azurecontainerapps.io/mcp"
     }
   }
 }
